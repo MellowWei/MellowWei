@@ -37,6 +37,15 @@
     </div>
   </header>
 
+  <!-- ── Vibration bar ── -->
+  <div id="vib-bar" style="display:flex;align-items:center;gap:1rem;padding:0.8rem 0;border-bottom:1px solid rgba(255,255,255,0.07);">
+    <span style="font-size:9px;letter-spacing:0.25em;color:#6a6480;text-transform:uppercase;white-space:nowrap;">// FREQ</span>
+    <div style="flex:1;height:2px;background:rgba(255,255,255,0.05);position:relative;overflow:hidden;">
+      <div id="vib-fill" style="height:100%;width:50%;background:rgba(125,255,216,0.7);transition:width 0.08s linear;"></div>
+    </div>
+    <span id="vib-val" style="font-size:10px;color:#7dffd8;letter-spacing:0.1em;min-width:80px;text-align:right;">427.00 Hz</span>
+  </div>
+
   <!-- ── Nav ── -->
   <nav class="nav-strip" aria-label="sections">
     <a href="#about">// about</a>
@@ -330,6 +339,33 @@
         <div class="card-arrow" aria-hidden="true">↗</div>
       </a>
 
+    </div>
+  </section>
+
+  <!-- ── Transmissions ── -->
+  <section id="transmissions">
+    <div class="section-label">// transmissions · 最新信号</div>
+    <div class="tx-log">
+      <div class="tx-entry">
+        <span class="tx-hash">a4f2e1</span>
+        <span class="tx-date">2026.05</span>
+        <span class="tx-msg">振动即存在_ULTIMATE_FINAL.pdf — 2026 submission version complete. 强排除论三路径全部失守。</span>
+      </div>
+      <div class="tx-entry">
+        <span class="tx-hash">c9b3d7</span>
+        <span class="tx-date">2026.04</span>
+        <span class="tx-msg">BCI · HRP system expanded — QDR Therapy five genre-haptic mappings deployed.</span>
+      </div>
+      <div class="tx-entry">
+        <span class="tx-hash">77f4a2</span>
+        <span class="tx-date">2026.03</span>
+        <span class="tx-msg">Astro Time Candle business launched. 时间是有味道的。</span>
+      </div>
+      <div class="tx-entry">
+        <span class="tx-hash">e1d9c5</span>
+        <span class="tx-date">2026.02</span>
+        <span class="tx-msg">AI Trinity framework finalized — Gemini · GPT · Claude · DeepThink protocol active.</span>
+      </div>
     </div>
   </section>
 
