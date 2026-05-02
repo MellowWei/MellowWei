@@ -413,7 +413,28 @@ h1 em {
   font-size:     12px;
   line-height:   1.8;
   color:         var(--muted);
-  margin-bottom: 1.2rem;
+  margin-bottom: 0;
+}
+
+/* Bilingual parallel layout */
+.bilingual {
+  display:        flex;
+  flex-direction: column;
+  gap:            0;
+  margin-bottom:  1.2rem;
+}
+
+.bilingual .zh {
+  color:          var(--text);
+  opacity:        0.75;
+  padding-bottom: 0.6rem;
+  border-bottom:  1px solid var(--dim);
+  margin-bottom:  0.6rem;
+}
+
+.bilingual .en {
+  color:   var(--muted);
+  opacity: 0.65;
 }
 
 .about-tags {
