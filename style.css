@@ -511,6 +511,61 @@ a.contact-item:hover { opacity: 0.7; }
 }
 
 /* ============================================================
+   TRANSMISSIONS
+   ============================================================ */
+#transmissions {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.tx-log {
+  display: flex;
+  flex-direction: column;
+}
+
+.tx-entry {
+  display: grid;
+  grid-template-columns: 60px 70px 1fr;
+  gap: 1.5rem;
+  align-items: baseline;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--dim);
+  transition: background 0.2s;
+}
+
+.tx-entry:hover {
+  background: var(--bg2);
+  padding-left: 0.5rem;
+  margin-left: -0.5rem;
+}
+
+.tx-hash {
+  font-size: 10px;
+  color: var(--accent2);
+  letter-spacing: 0.1em;
+  opacity: 0.7;
+}
+
+.tx-date {
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+
+.tx-msg {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .tx-entry {
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
+  }
+}
+
+/* ============================================================
    FOOTER
    ============================================================ */
 footer {
