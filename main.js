@@ -6,7 +6,7 @@
 (function () {
   'use strict';
 
-  // -- Starfield: dynamic particle field --
+  // -- Starfield: dazzling multi-layer brilliant cosmos --
   function initStarfield() {
     var canvas = document.getElementById('starfield');
     if (!canvas) return;
@@ -14,9 +14,34 @@
 
     var w, h, dpr;
     var stars = [];
-    var palette = ['#7dffd8', '#ffd97d', '#c8b8ff', '#ff8fa3', '#5be6d8', '#ffffff'];
-    var SMALL_COUNT = 140;
-    var FEATURE_COUNT = 18;
+    var bigStars = [];
+    var nebulae = [];
+    var shooters = [];
+
+    // Rich rainbow palette
+    var palette = [
+      '#7dffd8', '#00f5ff', '#5be6d8', '#00ffcc',
+      '#ffd97d', '#ffcc00', '#ffe66d', '#ffb700',
+      '#c8b8ff', '#a78bfa', '#b88aff', '#7c3aff',
+      '#ff8fa3', '#ec4899', '#ff2bd6', '#f472b6', '#ff5c8a',
+      '#35ff9f', '#00ffa2',
+      '#ff7a59', '#ff9f6b', '#ffb38a',
+      '#60a5fa', '#3b82f6', '#83b3be',
+      '#ffffff', '#fff5e6', '#e0d5ff'
+    ];
+
+    var nebulaColors = [
+      'rgba(125,255,216,0.10)',
+      'rgba(236,72,153,0.10)',
+      'rgba(124,58,255,0.09)',
+      'rgba(255,217,125,0.08)',
+      'rgba(91,230,216,0.09)',
+      'rgba(255,43,214,0.08)',
+      'rgba(60,165,250,0.08)'
+    ];
+
+    function rand(a, b) { return a + Math.random() * (b - a); }
+    function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
 
     function resize() {
       dpr = window.devicePixelRatio || 1;
@@ -29,34 +54,111 @@
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
 
-    function makeStar(big) {
+    function makeStar() {
       return {
         x: Math.random() * w,
         y: Math.random() * h,
-        r: big ? 1.4 + Math.random() * 1.6 : 0.3 + Math.random() * 0.9,
-        color: palette[Math.floor(Math.random() * palette.length)],
-        vx: (Math.random() - 0.5) * (big ? 0.04 : 0.12),
-        vy: (Math.random() - 0.5) * (big ? 0.04 : 0.12),
+        r: rand(0.3, 1.3),
+        color: pick(palette),
+        vx: rand(-0.1, 0.1),
+        vy: rand(-0.1, 0.1),
         twinkle: Math.random() * Math.PI * 2,
-        twinkleSpeed: 0.008 + Math.random() * 0.025,
-        baseAlpha: big ? 0.6 + Math.random() * 0.3 : 0.2 + Math.random() * 0.5,
-        big: big
+        twinkleSpeed: rand(0.012, 0.045),
+        baseAlpha: rand(0.35, 0.95)
+      };
+    }
+
+    function makeBigStar() {
+      return {
+        x: Math.random() * w,
+        y: Math.random() * h,
+        r: rand(1.5, 3.2),
+        color: pick(palette),
+        vx: rand(-0.04, 0.04),
+        vy: rand(-0.04, 0.04),
+        twinkle: Math.random() * Math.PI * 2,
+        twinkleSpeed: rand(0.006, 0.022),
+        baseAlpha: rand(0.7, 1),
+        hasGlint: Math.random() > 0.35,
+        haloRadius: rand(7, 12)
+      };
+    }
+
+    function makeNebula() {
+      return {
+        x: Math.random() * w,
+        y: Math.random() * h,
+        r: rand(180, 380),
+        color: pick(nebulaColors),
+        vx: rand(-0.03, 0.03),
+        vy: rand(-0.03, 0.03),
+        pulse: Math.random() * Math.PI * 2,
+        pulseSpeed: rand(0.002, 0.007)
+      };
+    }
+
+    function spawnShooter() {
+      var fromLeft = Math.random() > 0.5;
+      var angle = rand(0.15, 0.45);
+      var speed = rand(5, 9);
+      return {
+        x: fromLeft ? -30 : w + 30,
+        y: rand(-20, h * 0.65),
+        vx: fromLeft ? speed : -speed,
+        vy: speed * angle,
+        life: 0,
+        maxLife: rand(50, 90),
+        color: pick(palette),
+        length: rand(80, 160)
       };
     }
 
     function init() {
       resize();
       stars.length = 0;
-      for (var i = 0; i < SMALL_COUNT; i++) stars.push(makeStar(false));
-      for (var j = 0; j < FEATURE_COUNT; j++) stars.push(makeStar(true));
+      bigStars.length = 0;
+      nebulae.length = 0;
+      // Density scales with viewport
+      var density = Math.sqrt(w * h) / 1100;
+      var smallCount = Math.floor(280 * density);
+      var bigCount = Math.floor(38 * density);
+      var nebCount = Math.max(4, Math.floor(6 * density));
+
+      for (var i = 0; i < smallCount; i++) stars.push(makeStar());
+      for (var j = 0; j < bigCount; j++) bigStars.push(makeBigStar());
+      for (var k = 0; k < nebCount; k++) nebulae.push(makeNebula());
     }
 
     function tick() {
       ctx.clearRect(0, 0, w, h);
-      ctx.globalCompositeOperation = 'lighter';
 
-      for (var i = 0; i < stars.length; i++) {
-        var s = stars[i];
+      // ── Layer 1: Nebula clouds (additive blend) ──
+      ctx.globalCompositeOperation = 'lighter';
+      for (var i = 0; i < nebulae.length; i++) {
+        var n = nebulae[i];
+        n.x += n.vx;
+        n.y += n.vy;
+        n.pulse += n.pulseSpeed;
+
+        if (n.x < -n.r) n.x = w + n.r;
+        if (n.x > w + n.r) n.x = -n.r;
+        if (n.y < -n.r) n.y = h + n.r;
+        if (n.y > h + n.r) n.y = -n.r;
+
+        var pulseScale = 1 + Math.sin(n.pulse) * 0.12;
+        var nr = n.r * pulseScale;
+        var ngrad = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, nr);
+        ngrad.addColorStop(0, n.color);
+        ngrad.addColorStop(0.5, n.color);
+        ngrad.addColorStop(1, 'transparent');
+        ctx.globalAlpha = 1;
+        ctx.fillStyle = ngrad;
+        ctx.fillRect(n.x - nr, n.y - nr, nr * 2, nr * 2);
+      }
+
+      // ── Layer 2: Small twinkling stars ──
+      for (var ii = 0; ii < stars.length; ii++) {
+        var s = stars[ii];
         s.x += s.vx;
         s.y += s.vy;
         s.twinkle += s.twinkleSpeed;
@@ -66,25 +168,116 @@
         if (s.y < -10) s.y = h + 10;
         if (s.y > h + 10) s.y = -10;
 
-        var alpha = s.baseAlpha * (0.55 + Math.sin(s.twinkle) * 0.45);
-
-        if (s.big) {
-          var grad = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, s.r * 6);
-          grad.addColorStop(0, s.color);
-          grad.addColorStop(0.4, s.color + '40');
-          grad.addColorStop(1, 'transparent');
-          ctx.globalAlpha = alpha * 0.5;
-          ctx.fillStyle = grad;
-          ctx.beginPath();
-          ctx.arc(s.x, s.y, s.r * 6, 0, Math.PI * 2);
-          ctx.fill();
-        }
-
+        var alpha = s.baseAlpha * (0.4 + Math.sin(s.twinkle) * 0.6);
         ctx.globalAlpha = Math.max(0, Math.min(1, alpha));
         ctx.fillStyle = s.color;
         ctx.beginPath();
         ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
         ctx.fill();
+      }
+
+      // ── Layer 3: Big stars with halos and glints ──
+      for (var jj = 0; jj < bigStars.length; jj++) {
+        var b = bigStars[jj];
+        b.x += b.vx;
+        b.y += b.vy;
+        b.twinkle += b.twinkleSpeed;
+
+        if (b.x < -30) b.x = w + 30;
+        if (b.x > w + 30) b.x = -30;
+        if (b.y < -30) b.y = h + 30;
+        if (b.y > h + 30) b.y = -30;
+
+        var bAlpha = b.baseAlpha * (0.55 + Math.sin(b.twinkle) * 0.45);
+        bAlpha = Math.max(0, Math.min(1, bAlpha));
+
+        // Outer halo
+        var haloR = b.r * b.haloRadius;
+        var grad = ctx.createRadialGradient(b.x, b.y, 0, b.x, b.y, haloR);
+        grad.addColorStop(0, b.color);
+        grad.addColorStop(0.25, b.color + '70');
+        grad.addColorStop(1, 'transparent');
+        ctx.globalAlpha = bAlpha * 0.85;
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.arc(b.x, b.y, haloR, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Cross glint (anamorphic flare)
+        if (b.hasGlint) {
+          ctx.globalAlpha = bAlpha * 0.7;
+          ctx.strokeStyle = b.color;
+          ctx.lineWidth = 0.6;
+          var glintSize = b.r * 5.5;
+          ctx.beginPath();
+          ctx.moveTo(b.x - glintSize, b.y);
+          ctx.lineTo(b.x + glintSize, b.y);
+          ctx.moveTo(b.x, b.y - glintSize);
+          ctx.lineTo(b.x, b.y + glintSize);
+          ctx.stroke();
+        }
+
+        // Bright core
+        ctx.globalAlpha = bAlpha;
+        ctx.fillStyle = b.color;
+        ctx.beginPath();
+        ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+        ctx.fill();
+
+        // White hot center for max brightness
+        ctx.globalAlpha = bAlpha * 0.9;
+        ctx.fillStyle = '#ffffff';
+        ctx.beginPath();
+        ctx.arc(b.x, b.y, b.r * 0.4, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      // ── Layer 4: Shooting stars ──
+      for (var sh = shooters.length - 1; sh >= 0; sh--) {
+        var sho = shooters[sh];
+        sho.x += sho.vx;
+        sho.y += sho.vy;
+        sho.life++;
+
+        var lifeRatio = sho.life / sho.maxLife;
+        var sAlpha = lifeRatio < 0.2 ? lifeRatio * 5 : (1 - lifeRatio) * 1.25;
+        sAlpha = Math.max(0, Math.min(1, sAlpha));
+
+        var speed = Math.sqrt(sho.vx * sho.vx + sho.vy * sho.vy);
+        var tx = sho.x - (sho.vx / speed) * sho.length;
+        var ty = sho.y - (sho.vy / speed) * sho.length;
+
+        // Trail
+        var trailGrad = ctx.createLinearGradient(sho.x, sho.y, tx, ty);
+        trailGrad.addColorStop(0, sho.color);
+        trailGrad.addColorStop(0.4, sho.color + '80');
+        trailGrad.addColorStop(1, 'transparent');
+        ctx.globalAlpha = sAlpha;
+        ctx.strokeStyle = trailGrad;
+        ctx.lineWidth = 1.8;
+        ctx.beginPath();
+        ctx.moveTo(sho.x, sho.y);
+        ctx.lineTo(tx, ty);
+        ctx.stroke();
+
+        // Bright head
+        var headGrad = ctx.createRadialGradient(sho.x, sho.y, 0, sho.x, sho.y, 8);
+        headGrad.addColorStop(0, '#ffffff');
+        headGrad.addColorStop(0.3, sho.color);
+        headGrad.addColorStop(1, 'transparent');
+        ctx.fillStyle = headGrad;
+        ctx.beginPath();
+        ctx.arc(sho.x, sho.y, 8, 0, Math.PI * 2);
+        ctx.fill();
+
+        if (sho.life > sho.maxLife || sho.x < -150 || sho.x > w + 150 || sho.y > h + 150) {
+          shooters.splice(sh, 1);
+        }
+      }
+
+      // Spawn new shooters occasionally
+      if (Math.random() < 0.006 && shooters.length < 3) {
+        shooters.push(spawnShooter());
       }
 
       ctx.globalAlpha = 1;
