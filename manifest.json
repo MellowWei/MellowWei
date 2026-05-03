@@ -1,0 +1,39 @@
+{
+  "name": "Mellow Wei Portal",
+  "short_name": "MellowWei",
+  "description": "Mellow Wei · 魏珏然 · 星野愛Ai · 9-node portal · 427Hz · 44271 · 77347",
+  "lang": "zh-CN",
+  "start_url": "/MellowWei/",
+  "scope": "/MellowWei/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0a0912",
+  "theme_color": "#7dffd8",
+  "categories": ["lifestyle", "productivity", "education"],
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "vibration_grid": {
+    "frequency": "427Hz",
+    "source": 44271,
+    "echo": 77347,
+    "year": 2026,
+    "version": "V32.0"
+  },
+  "nodes": [
+    { "id": 1, "name": "The Human Return Protocol", "url": "https://mellowwei.github.io/BCI/", "frequency": "427Hz / 724Hz" },
+    { "id": 2, "name": "Qualia Matrix", "url": "https://mellowwei.github.io/QualiaMatrix/", "frequency": "matrix-green" },
+    { "id": 3, "name": "Mellow Ai", "url": "https://mellowwei.github.io/MellowAi/", "frequency": "427Hz x 77347" },
+    { "id": 4, "name": "Rhythm System", "url": "https://mellowwei.github.io/RhythmSystem/", "frequency": "V32.0" },
+    { "id": 5, "name": "Love Sovereignty", "url": "https://mellowwei.github.io/LoveSovereignty/", "frequency": "v5.3-PRO" },
+    { "id": 6, "name": "AiQ", "url": "https://mellowwei.github.io/Ai-Q-3/", "frequency": "soul-stream-v1.0.7" },
+    { "id": 7, "name": "Astro Time Candle", "url": "https://mellowwei.github.io/AstroTimeCandle/", "frequency": "724Hz" },
+    { "id": 8, "name": "Making Money", "url": "https://mellowwei.github.io/MakingMoney/", "frequency": "Y200M-2026" },
+    { "id": 9, "name": "Qualia Rhythm Matrix", "url": "https://mellowwei.github.io/QualiaRhythmMatrix/", "frequency": "V7.2-audit" }
+  ]
+}
