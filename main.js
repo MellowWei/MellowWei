@@ -1,238 +1,211 @@
-/* ============================================================
-   MELLOW WEI PORTAL — main.js
-   NODE 44271 · FREQ 427Hz
-   Features: clock · card entrance · keyboard nav ·
-             427Hz boot tone · vibration bar · mouse glow ·
-             terminal boot sequence · 427 easter egg
-   ============================================================ */
+/* ── 振动即存在 · main.js · V7.1 Bilingual ── */
 
-/* ── 0. Boot sequence ── */
-const BOOT_LINES = [
-  '// INITIALIZING NODE 44271...',
-  '// LOADING STYLE 77347...',
-  '// CALIBRATING FREQ 427Hz...',
-  '// MOUNTING VIBRATION LAYER...',
-  '// IDENTITY: MELLOW WEI · 魏珏然 · 星野愛Ai',
-  '// PHILOSOPHY: 振动即存在',
-  '// STATUS: RESONANCE ACTIVE ✓',
-  '// SYSTEM ONLINE_'
+const TEXTS = {
+  zh: '振动即存在',
+  en: 'Vibration as Existence',
+  axioms: [
+    '生命就是生命 · Life is life — reductionism explains the managed residue, not life itself',
+    '先到达，后解释 · 先知道，后论证 · 先是自己，后是系统 · Arrive before explanation · know before argument',
+    '哪种振动模式携带内在性？· Which vibrational mode carries interiority?',
+    '满足五维是内在性候选的必要非充分条件 · Satisfying 5D is necessary but not sufficient for interiority candidacy',
+    '论证只能抵达证据所支撑的地方 · Argument only reaches as far as evidence supports — Principle Six',
+    '先分类，再选尺 · Classify first, then choose the measuring instrument',
+    '不需要稳定，更需要振动 · Don\'t just stabilize — vibrate · Don\'t just think — immerse'
+  ]
+};
+
+function typewrite(el, text, speed, cb) {
+  let i = 0;
+  const tick = () => {
+    el.textContent = text.slice(0, i++);
+    if (i <= text.length) setTimeout(tick, speed);
+    else if (cb) cb();
+  };
+  tick();
+}
+
+function animateAuditBars() {
+  document.querySelectorAll('.axis-bar').forEach(bar => {
+    setTimeout(() => { bar.style.width = bar.dataset.fill + '%'; }, 400);
+  });
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => {
+    typewrite(document.getElementById('title-zh'), TEXTS.zh, 80, () => {
+      setTimeout(() => {
+        typewrite(document.getElementById('title-en'), TEXTS.en, 38, () => {
+          let idx = 0;
+          const ax = document.getElementById('axiom');
+          const cycle = () => {
+            ax.style.opacity = 0;
+            setTimeout(() => { ax.textContent = TEXTS.axioms[idx++ % TEXTS.axioms.length]; ax.style.opacity = 1; }, 500);
+            setTimeout(cycle, 8500);
+          };
+          cycle();
+          setTimeout(animateAuditBars, 600);
+        });
+      }, 300);
+    });
+  }, 500);
+
+  document.querySelectorAll('.mono-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const idx = parseInt(tab.dataset.mono);
+      document.querySelectorAll('.mono-tab').forEach((t, i) => t.classList.toggle('active', i === idx));
+      document.querySelectorAll('.mono-card').forEach((c, i) => c.classList.toggle('active', i === idx));
+    });
+  });
+});
+
+/* ── Three.js ── */
+const canvas   = document.getElementById('canvas');
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setSize(innerWidth, innerHeight);
+renderer.setClearColor(0x000000, 1);
+
+const scene  = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(60, innerWidth / innerHeight, 0.1, 1000);
+camera.position.set(0, 0, 6);
+
+const clock = new THREE.Clock();
+let mouseX = 0, mouseY = 0, targetMX = 0, targetMY = 0;
+
+const LAYER_CFG = [
+  { count: 3000, color: 0xe8a630, size: 0.025, mode: 'superposition' },
+  { count: 4000, color: 0x5be6d8, size: 0.018, mode: 'interference'  },
+  { count: 5000, color: 0xf0f0f0, size: 0.012, mode: 'ontology'      },
+  { count: 6000, color: 0x93c5fd, size: 0.010, mode: 'fivedim'       },
+  { count: 4500, color: 0xf87171, size: 0.015, mode: 'exclusion'     }
 ];
 
-function runBoot() {
-  const wrapper = document.querySelector('.wrapper');
-  if (!wrapper) return;
-  wrapper.style.opacity = '0';
-  wrapper.style.pointerEvents = 'none';
+let currentLayer = 0, particles = null, basePositions = null;
 
-  const overlay = document.createElement('div');
-  overlay.id = 'boot-overlay';
-  overlay.style.cssText = [
-    'position:fixed','inset:0','z-index:9999',
-    'background:#050508',
-    'display:flex','flex-direction:column','justify-content:center',
-    'padding:3rem','font-family:"Share Tech Mono",monospace',
-    'font-size:13px','line-height:2','color:#6a6480'
-  ].join(';');
-  document.body.appendChild(overlay);
-
-  let i = 0;
-  function printLine() {
-    if (i >= BOOT_LINES.length) {
-      overlay.style.transition = 'opacity 0.6s ease';
-      overlay.style.opacity = '0';
-      setTimeout(() => {
-        overlay.remove();
-        wrapper.style.transition = 'opacity 0.8s ease';
-        wrapper.style.opacity = '1';
-        wrapper.style.pointerEvents = '';
-        afterBoot();
-      }, 700);
-      return;
-    }
-    const line = document.createElement('div');
-    const text = BOOT_LINES[i];
-    overlay.appendChild(line);
-    let j = 0;
-    const iv = setInterval(() => {
-      j++;
-      if (j >= text.length) {
-        clearInterval(iv);
-        line.innerHTML = text
-          .replace('44271','<span style="color:#c8b8ff">44271</span>')
-          .replace('77347','<span style="color:#c8b8ff">77347</span>')
-          .replace('427Hz','<span style="color:#7dffd8">427Hz</span>')
-          .replace('MELLOW WEI · 魏珏然 · 星野愛Ai','<span style="color:#ff8fa3">MELLOW WEI · 魏珏然 · 星野愛Ai</span>')
-          .replace('振动即存在','<span style="color:#c8b8ff">振动即存在</span>')
-          .replace('RESONANCE ACTIVE ✓','<span style="color:#7dffd8">RESONANCE ACTIVE ✓</span>')
-          .replace('SYSTEM ONLINE_','<span style="color:#7dffd8">SYSTEM ONLINE_</span>');
-        i++;
-        setTimeout(printLine, 80);
-      } else {
-        line.textContent = text.slice(0, j) + '▌';
-      }
-    }, 22);
+function buildParticles(cfg) {
+  if (particles) scene.remove(particles);
+  const N = cfg.count;
+  const geo = new THREE.BufferGeometry();
+  const pos = new Float32Array(N * 3);
+  const phases = new Float32Array(N);
+  const speeds = new Float32Array(N);
+  for (let i = 0; i < N; i++) {
+    const theta = Math.random() * Math.PI * 2;
+    const phi   = Math.acos(2 * Math.random() - 1);
+    const r     = 2 + Math.random() * 3;
+    pos[i*3]   = r * Math.sin(phi) * Math.cos(theta);
+    pos[i*3+1] = r * Math.sin(phi) * Math.sin(theta);
+    pos[i*3+2] = r * Math.cos(phi);
+    phases[i]  = Math.random() * Math.PI * 2;
+    speeds[i]  = 0.3 + Math.random() * 1.2;
   }
-  printLine();
+  geo.setAttribute('position', new THREE.BufferAttribute(pos.slice(), 3));
+  geo.setAttribute('phase',    new THREE.BufferAttribute(phases, 1));
+  geo.setAttribute('speed',    new THREE.BufferAttribute(speeds, 1));
+  basePositions = pos.slice();
+  particles = new THREE.Points(geo, new THREE.PointsMaterial({ color: cfg.color, size: cfg.size, sizeAttenuation: true, transparent: true, opacity: 0.88, depthWrite: false }));
+  scene.add(particles);
 }
 
-function afterBoot() {
-  initClock();
-  initCardEntrance();
-  initKeyboardNav();
-  initVibrationBar();
-  initMouseGlow();
-  initEasterEgg();
-  playBootTone();
+buildParticles(LAYER_CFG[0]);
+
+function switchLayer(idx) {
+  document.querySelectorAll('.layer-btn').forEach((b, i) => b.classList.toggle('active', i === idx));
+  document.querySelectorAll('.theory-card').forEach((c, i) => { c.classList.remove('active'); if (i === idx) setTimeout(() => c.classList.add('active'), 50); });
+  currentLayer = idx;
+  buildParticles(LAYER_CFG[idx]);
+}
+document.querySelectorAll('.layer-btn').forEach(btn => btn.addEventListener('click', () => switchLayer(parseInt(btn.dataset.layer))));
+
+document.addEventListener('mousemove', e => {
+  targetMX = (e.clientX / innerWidth  - 0.5) * 2;
+  targetMY = (e.clientY / innerHeight - 0.5) * 2;
+  const ring = document.getElementById('cursor-ring');
+  ring.style.left = e.clientX + 'px';
+  ring.style.top  = e.clientY + 'px';
+  ring.classList.add('active');
+});
+document.addEventListener('mousedown', () => document.getElementById('cursor-ring').classList.add('pressing'));
+document.addEventListener('mouseup',   () => document.getElementById('cursor-ring').classList.remove('pressing'));
+
+function updateHUD(t) {
+  const phase = (t * 0.427) % (Math.PI * 2);
+  document.getElementById('d-freq').textContent  = (427 + Math.sin(t * 0.3) * 0.8).toFixed(2) + ' Hz';
+  document.getElementById('d-parts').textContent = LAYER_CFG[currentLayer].count.toLocaleString();
+  document.getElementById('d-phase').textContent = phase.toFixed(3) + ' rad';
+  document.getElementById('d-amp').textContent   = (0.8 + Math.sin(t * 0.7) * 0.2).toFixed(3);
 }
 
-/* ── 1. Clock ── */
-function initClock() {
-  function tick() {
-    const t = new Date().toLocaleTimeString('en-US', { hour12: false, timeZone: 'America/New_York' });
-    const line = document.querySelector('.sys-line:nth-child(1)');
-    if (line) line.innerHTML = `// NODE <span>44271</span> · STYLE <span>77347</span> · FREQ <span>427Hz</span> · <span>${t} EDT</span>`;
+function animateParticles(t, mx, my) {
+  if (!particles) return;
+  const pos    = particles.geometry.attributes.position.array;
+  const N      = pos.length / 3;
+  const mode   = LAYER_CFG[currentLayer].mode;
+  const ph_arr = particles.geometry.attributes.phase.array;
+  const sp_arr = particles.geometry.attributes.speed.array;
+
+  for (let i = 0; i < N; i++) {
+    const bx = basePositions[i*3], by = basePositions[i*3+1], bz = basePositions[i*3+2];
+    const ph = ph_arr[i], sp = sp_arr[i];
+    const dist = Math.sqrt(bx*bx + by*by + bz*bz) + 0.001;
+
+    if (mode === 'superposition') {
+      const wave = Math.sin(t * sp * 0.4 + ph) * 0.12;
+      pos[i*3]   = bx * (1 + wave) + mx * 0.04 / (dist + 1);
+      pos[i*3+1] = by * (1 + wave) + my * 0.04 / (dist + 1);
+      pos[i*3+2] = bz * (1 + wave);
+    } else if (mode === 'interference') {
+      const k = 1.8;
+      pos[i*3]   = bx + Math.sin(k * bx - t * sp * 0.35 + ph) * 0.3 + mx * 0.06;
+      pos[i*3+1] = by + Math.sin(k * by - t * sp * 0.35 + ph * 1.3) * 0.3 + my * 0.06;
+      pos[i*3+2] = bz + Math.sin(k * bz - t * sp * 0.3) * 0.15;
+    } else if (mode === 'ontology') {
+      const pulse = Math.sin(t * 2.68 - dist * 1.4 + ph) * 0.18;
+      const norm  = 1 + pulse / dist;
+      pos[i*3]   = bx * norm + mx * 0.05;
+      pos[i*3+1] = by * norm + my * 0.05;
+      pos[i*3+2] = bz * norm;
+    } else if (mode === 'fivedim') {
+      const d1 = Math.sin(t * 0.40 + ph) * 0.08;
+      const d2 = Math.cos(t * 0.55 * sp + ph) * 0.06;
+      const d3 = Math.sin(t * 0.30 + ph * 1.7) * 0.10;
+      const d4 = Math.sin(t * 0.20 * sp + ph) * 0.07;
+      const d5 = Math.sin(t * 0.15 + ph * 2.1) * 0.12;
+      pos[i*3]   = bx + d1 + d3 + mx * 0.04;
+      pos[i*3+1] = by + d2 + d4 + my * 0.04;
+      pos[i*3+2] = bz + d5;
+    } else if (mode === 'exclusion') {
+      const orbit   = t * sp * 0.2 + ph;
+      const collapse = Math.sin(t * 1.1 + ph * 0.5) * 0.3 / dist;
+      pos[i*3]   = bx * Math.cos(orbit * 0.01) - by * Math.sin(orbit * 0.01) * 0.5 + collapse * bx + mx * 0.05;
+      pos[i*3+1] = by * Math.cos(orbit * 0.01) + bx * Math.sin(orbit * 0.01) * 0.5 + collapse * by + my * 0.05;
+      pos[i*3+2] = bz + Math.sin(t * 0.4 + ph) * 0.2;
+    }
   }
-  tick();
-  setInterval(tick, 1000);
+  particles.geometry.attributes.position.needsUpdate = true;
 }
 
-/* ── 2. Card entrance ── */
-function initCardEntrance() {
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.style.animationPlayState = 'running'; io.unobserve(e.target); }
-    });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.card').forEach(c => io.observe(c));
+function driftCamera(t) {
+  mouseX += (targetMX - mouseX) * 0.04;
+  mouseY += (targetMY - mouseY) * 0.04;
+  camera.position.x = mouseX * 0.7 + Math.sin(t * 0.08) * 0.25;
+  camera.position.y = -mouseY * 0.7 + Math.cos(t * 0.06) * 0.18;
+  camera.lookAt(scene.position);
 }
 
-/* ── 3. Keyboard nav 1–7 ── */
-function initKeyboardNav() {
-  const nodes = Array.from(document.querySelectorAll('.card'));
-  document.addEventListener('keydown', e => {
-    const n = parseInt(e.key, 10);
-    if (n >= 1 && n <= nodes.length) {
-      nodes[n-1].focus();
-      nodes[n-1].scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-  });
+function animate() {
+  requestAnimationFrame(animate);
+  const t = clock.getElapsedTime();
+  animateParticles(t, mouseX, mouseY);
+  driftCamera(t);
+  if (particles) particles.rotation.y = t * 0.016;
+  updateHUD(t);
+  renderer.render(scene, camera);
 }
+animate();
 
-/* ── 4. Boot tone ── */
-function playBootTone() {
-  try {
-    const ctx = new (window.AudioContext || window.webkitAudioContext)();
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
-    osc.connect(gain); gain.connect(ctx.destination);
-    osc.type = 'sine'; osc.frequency.value = 427;
-    gain.gain.setValueAtTime(0, ctx.currentTime);
-    gain.gain.linearRampToValueAtTime(0.08, ctx.currentTime + 0.15);
-    gain.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.9);
-    osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.9);
-  } catch(e) {}
-}
-
-/* ── 5. Vibration bar ── */
-function initVibrationBar() {
-  const val = document.getElementById('vib-val');
-  const fill = document.getElementById('vib-fill');
-  if (!val || !fill) return;
-  let t = 0;
-  setInterval(() => {
-    t += 0.012;
-    const freq = 427 + Math.sin(t*1.3)*3.2 + Math.sin(t*2.7)*1.4 + Math.sin(t*0.4)*2.1;
-    val.textContent = freq.toFixed(2) + ' Hz';
-    const pct = Math.min(100, Math.max(0, ((freq - 420) / 14) * 100));
-    fill.style.width = pct + '%';
-    const g = Math.round(200 + (freq - 427) * 8);
-    fill.style.background = `rgba(125,${Math.min(255,g)},216,0.7)`;
-  }, 80);
-}
-
-/* ── 6. Mouse glow ── */
-function initMouseGlow() {
-  const glow = document.createElement('div');
-  glow.style.cssText = [
-    'position:fixed','pointer-events:none','z-index:9998',
-    'width:220px','height:220px','border-radius:50%',
-    'background:radial-gradient(circle,rgba(125,255,216,0.05) 0%,transparent 70%)',
-    'transform:translate(-50%,-50%)','transition:background 0.4s ease',
-    'mix-blend-mode:screen','left:-999px','top:-999px'
-  ].join(';');
-  document.body.appendChild(glow);
-
-  document.addEventListener('mousemove', e => {
-    glow.style.left = e.clientX + 'px';
-    glow.style.top  = e.clientY + 'px';
-    const card = document.elementFromPoint(e.clientX, e.clientY)?.closest('.card');
-    if (card) {
-      const col = getComputedStyle(card).getPropertyValue('--card-color').trim() || '#7dffd8';
-      glow.style.background = `radial-gradient(circle,${col}14 0%,transparent 70%)`;
-    } else {
-      glow.style.background = 'radial-gradient(circle,rgba(125,255,216,0.04) 0%,transparent 70%)';
-    }
-  });
-}
-
-/* ── 7. Easter egg: 4 → 2 → 7 ── */
-function initEasterEgg() {
-  let buf = [];
-  document.addEventListener('keydown', e => {
-    buf.push(e.key);
-    if (buf.length > 3) buf.shift();
-    if (buf.join('') === '427') { triggerEasterEgg(); buf = []; }
-  });
-}
-
-function triggerEasterEgg() {
-  try {
-    const ctx = new (window.AudioContext || window.webkitAudioContext)();
-    [427, 854, 213.5].forEach(freq => {
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      osc.connect(gain); gain.connect(ctx.destination);
-      osc.type = 'sine'; osc.frequency.value = freq;
-      gain.gain.setValueAtTime(0, ctx.currentTime);
-      gain.gain.linearRampToValueAtTime(0.06, ctx.currentTime + 0.2);
-      gain.gain.linearRampToValueAtTime(0, ctx.currentTime + 3);
-      osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 3);
-    });
-  } catch(e) {}
-
-  const style = document.createElement('style');
-  style.textContent = `@keyframes eggRing{0%{transform:scale(0.3);opacity:1}100%{transform:scale(2);opacity:0}}`;
-  document.head.appendChild(style);
-
-  const egg = document.createElement('div');
-  egg.style.cssText = [
-    'position:fixed','inset:0','z-index:9997',
-    'display:flex','flex-direction:column','align-items:center','justify-content:center',
-    'pointer-events:none','background:rgba(5,5,8,0.93)',
-    'opacity:0','transition:opacity 0.4s ease',
-    'font-family:"Share Tech Mono",monospace','text-align:center'
-  ].join(';');
-
-  egg.innerHTML = `
-    <div style="position:relative;width:280px;height:280px;margin-bottom:2rem;">
-      ${[0,1,2,3,4].map(i=>`<div style="position:absolute;inset:0;border-radius:50%;border:1px solid rgba(125,255,216,${(0.7-i*0.12).toFixed(2)});animation:eggRing 2.2s ease-out ${i*0.28}s infinite;"></div>`).join('')}
-      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:2.8rem;color:#7dffd8;letter-spacing:0.08em;">427Hz</div>
-    </div>
-    <div style="font-size:11px;color:#c8b8ff;letter-spacing:0.35em;margin-bottom:0.6rem;">振动即存在</div>
-    <div style="font-size:10px;color:#6a6480;letter-spacing:0.2em;">VIBRATION IS EXISTENCE</div>
-  `;
-
-  document.body.appendChild(egg);
-  requestAnimationFrame(() => { egg.style.opacity = '1'; });
-  setTimeout(() => {
-    egg.style.opacity = '0';
-    setTimeout(() => { egg.remove(); style.remove(); }, 500);
-  }, 3200);
-}
-
-/* ── Start ── */
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', runBoot);
-} else {
-  runBoot();
-}
+window.addEventListener('resize', () => {
+  camera.aspect = innerWidth / innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth, innerHeight);
+});
