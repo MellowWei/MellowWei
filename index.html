@@ -10,303 +10,12 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link
-    href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Space+Grotesk:wght@300;400&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Space+Grotesk:wght@300;400&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Noto+Serif+SC:wght@300;400;600&display=swap"
     rel="stylesheet">
 
   <!-- Styles -->
   <link rel="stylesheet" href="style.css">
-
-  <style>
-    /* ── NODE 08 · Making Money Embedded Section ── */
-    #making-money {
-      margin-top: 3rem;
-      border-top: 1px solid rgba(255,255,255,0.07);
-      padding-top: 2rem;
-    }
-
-    .mm-hero {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 2rem;
-      align-items: start;
-      margin-bottom: 2.5rem;
-    }
-
-    @media (max-width: 680px) {
-      .mm-hero { grid-template-columns: 1fr; }
-      .mm-console { display: none; }
-    }
-
-    .mm-kicker {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 0.3em;
-      color: #6a6480;
-      text-transform: uppercase;
-      margin-bottom: 0.75rem;
-    }
-
-    .mm-headline {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
-      font-weight: 300;
-      font-style: italic;
-      color: #ffd97d;
-      line-height: 1.2;
-      margin-bottom: 1rem;
-    }
-
-    .mm-headline em {
-      color: #7dffd8;
-      font-style: normal;
-    }
-
-    .mm-lead {
-      font-size: 13px;
-      line-height: 1.8;
-      color: rgba(255,255,255,0.55);
-      max-width: 520px;
-      margin-bottom: 1.5rem;
-    }
-
-    .mm-btns {
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-    }
-
-    .mm-btn {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      padding: 0.5rem 1rem;
-      border: 1px solid rgba(255,217,125,0.4);
-      color: #ffd97d;
-      text-decoration: none;
-      transition: background 0.2s, border-color 0.2s;
-    }
-
-    .mm-btn:hover {
-      background: rgba(255,217,125,0.08);
-      border-color: #ffd97d;
-    }
-
-    .mm-btn.secondary {
-      border-color: rgba(125,255,216,0.3);
-      color: #7dffd8;
-    }
-
-    .mm-btn.secondary:hover {
-      background: rgba(125,255,216,0.08);
-      border-color: #7dffd8;
-    }
-
-    /* Console widget */
-    .mm-console {
-      width: 200px;
-      border: 1px solid rgba(255,217,125,0.2);
-      padding: 1rem;
-      background: rgba(255,217,125,0.03);
-    }
-
-    .mm-console-head {
-      display: flex;
-      gap: 5px;
-      margin-bottom: 1rem;
-    }
-
-    .mm-console-head span {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.1);
-    }
-
-    .mm-freq-ring {
-      width: 70px;
-      height: 70px;
-      border: 1px solid rgba(255,217,125,0.3);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1rem;
-      position: relative;
-      animation: mm-spin 8s linear infinite;
-    }
-
-    @keyframes mm-spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    .mm-freq-core {
-      animation: mm-counter-spin 8s linear infinite;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 9px;
-      color: #ffd97d;
-      letter-spacing: 0.05em;
-    }
-
-    @keyframes mm-counter-spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(-360deg); }
-    }
-
-    .mm-console-list p {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 8px;
-      letter-spacing: 0.05em;
-      color: rgba(255,255,255,0.3);
-      margin: 0.3rem 0;
-      line-height: 1.4;
-    }
-
-    .mm-console-list p.active { color: #7dffd8; }
-    .mm-console-list p.gold { color: #ffd97d; }
-
-    /* Five Lines grid */
-    .mm-stack-label {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 0.25em;
-      color: #6a6480;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-    }
-
-    .mm-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 1px;
-      background: rgba(255,255,255,0.05);
-      margin-bottom: 2.5rem;
-    }
-
-    .mm-line {
-      background: #0d0c14;
-      padding: 1.25rem 1rem;
-      position: relative;
-      transition: background 0.2s;
-    }
-
-    .mm-line:hover { background: rgba(255,217,125,0.04); }
-
-    .mm-line-num {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 8px;
-      color: rgba(255,217,125,0.4);
-      letter-spacing: 0.2em;
-      margin-bottom: 0.5rem;
-    }
-
-    .mm-line-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem;
-      font-style: italic;
-      color: #ffd97d;
-      margin-bottom: 0.4rem;
-    }
-
-    .mm-line-en {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 8px;
-      color: rgba(255,255,255,0.35);
-      letter-spacing: 0.1em;
-      margin-bottom: 0.6rem;
-    }
-
-    .mm-line-target {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 10px;
-      color: #7dffd8;
-    }
-
-    /* Revenue total */
-    .mm-total {
-      text-align: center;
-      margin: 2rem 0;
-      padding: 1.5rem;
-      border: 1px solid rgba(255,217,125,0.15);
-    }
-
-    .mm-total-label {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 0.3em;
-      color: #6a6480;
-      text-transform: uppercase;
-      margin-bottom: 0.5rem;
-    }
-
-    .mm-total-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 6vw, 4rem);
-      font-style: italic;
-      color: #ffd97d;
-      line-height: 1;
-    }
-
-    .mm-total-sub {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 9px;
-      color: rgba(255,255,255,0.3);
-      letter-spacing: 0.15em;
-      margin-top: 0.4rem;
-    }
-
-    /* Timeline strip */
-    .mm-timeline {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-      gap: 1px;
-      background: rgba(255,255,255,0.04);
-      margin-bottom: 2.5rem;
-    }
-
-    .mm-month {
-      background: #0d0c14;
-      padding: 1rem 0.75rem;
-    }
-
-    .mm-month-label {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 8px;
-      color: rgba(255,217,125,0.5);
-      letter-spacing: 0.2em;
-      margin-bottom: 0.4rem;
-    }
-
-    .mm-month-action {
-      font-size: 11px;
-      color: rgba(255,255,255,0.6);
-      line-height: 1.5;
-    }
-
-    .mm-cta {
-      display: flex;
-      justify-content: center;
-      padding: 1rem 0 0.5rem;
-    }
-
-    .mm-cta-link {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: #ffd97d;
-      text-decoration: none;
-      border-bottom: 1px solid rgba(255,217,125,0.3);
-      padding-bottom: 2px;
-      transition: border-color 0.2s, color 0.2s;
-    }
-
-    .mm-cta-link:hover {
-      color: #fff;
-      border-color: #ffd97d;
-    }
-  </style>
+  <link rel="stylesheet" href="nodes-extra.css">
 </head>
 <body>
 
@@ -347,6 +56,7 @@
     <a href="https://mellowwei.github.io/Ai-Q-3/#chat">// AI·Q·3</a>
     <a href="https://mellowwei.github.io/AstroTimeCandle/">// astro candle</a>
     <a href="#making-money" style="color:#ffd97d;">// 闷声发大财</a>
+    <a href="#qualia-rhythm" style="color:#5be6d8;">// 振动即存在</a>
   </nav>
 
   <!-- ── About ── -->
@@ -356,7 +66,6 @@
 
     <div class="about-grid">
 
-      <!-- Identity -->
       <div class="about-block">
         <div class="about-block-label">// identity · 身份</div>
         <div class="about-block-title">魏珏然<br><em>Wei Jueran · Mellow Wei</em></div>
@@ -380,7 +89,6 @@
         </div>
       </div>
 
-      <!-- Philosophy -->
       <div class="about-block">
         <div class="about-block-label">// 哲学立场 · philosophy</div>
         <div class="about-block-title"><em>振动即存在</em><br><em style="font-size:0.75em;color:var(--muted)">Vibration is Existence</em></div>
@@ -401,7 +109,6 @@
         </div>
       </div>
 
-      <!-- Music -->
       <div class="about-block">
         <div class="about-block-label">// music · 音乐</div>
         <div class="about-block-title"><em>Sound as Body</em><br><em style="font-size:0.75em;color:var(--muted)">声音即身体</em></div>
@@ -425,7 +132,6 @@
         </div>
       </div>
 
-      <!-- Research -->
       <div class="about-block">
         <div class="about-block-label">// research · 研究方向</div>
         <div class="about-block-title"><em>Learning × Sound × AI</em></div>
@@ -449,7 +155,6 @@
 
     </div>
 
-    <!-- Contact -->
     <div class="contact-strip">
       <div class="contact-label">// contact · 联系</div>
       <div class="contact-links">
@@ -472,18 +177,14 @@
 
   <!-- ── Card grid ── -->
   <section id="projects">
-    <div class="section-label">// active systems · 8 nodes</div>
+    <div class="section-label">// active systems · 9 nodes</div>
 
     <div class="card-grid">
 
-      <!-- NODE 01 · BCI — featured (spans 2 columns) -->
       <a class="card" href="https://mellowwei.github.io/BCI/#top"
          style="--card-color:#7dffd8; --card-dot:#7dffd8; --card-accent:#7dffd8"
          aria-label="The Human Return Protocol">
-        <div class="card-id">
-          <span>NODE 01 · FEATURED</span>
-          <div class="dot"></div>
-        </div>
+        <div class="card-id"><span>NODE 01 · FEATURED</span><div class="dot"></div></div>
         <div class="card-title">The Human Return Protocol</div>
         <div class="card-sub">BCI · 44271 Neural Cuff · QDR Engine</div>
         <div class="card-bilingual">
@@ -491,23 +192,16 @@
           <p class="card-desc en">Rhythm is the interface through which humans return to themselves. Neural Cuff + QDR Therapy + Human Return App + AI Trinity.</p>
         </div>
         <div class="card-tags">
-          <span class="tag">BCI</span>
-          <span class="tag">QDR Therapy</span>
-          <span class="tag">427Hz</span>
-          <span class="tag">rhythm sovereignty</span>
-          <span class="tag">haptic</span>
+          <span class="tag">BCI</span><span class="tag">QDR Therapy</span><span class="tag">427Hz</span>
+          <span class="tag">rhythm sovereignty</span><span class="tag">haptic</span>
         </div>
         <div class="card-arrow" aria-hidden="true">↗</div>
       </a>
 
-      <!-- NODE 02 · Qualia Matrix -->
       <a class="card" href="https://mellowwei.github.io/QualiaMatrix/"
          style="--card-color:#c8b8ff; --card-dot:#c8b8ff; --card-accent:#c8b8ff"
          aria-label="Qualia Matrix">
-        <div class="card-id">
-          <span>NODE 02</span>
-          <div class="dot"></div>
-        </div>
+        <div class="card-id"><span>NODE 02</span><div class="dot"></div></div>
         <div class="card-title">Qualia Matrix</div>
         <div class="card-sub">consciousness · vibration ontology</div>
         <div class="card-bilingual">
@@ -515,21 +209,15 @@
           <p class="card-desc en">A perception matrix. Consciousness is the moment existence senses itself in vibration.</p>
         </div>
         <div class="card-tags">
-          <span class="tag">qualia</span>
-          <span class="tag">ontology</span>
-          <span class="tag">vibration</span>
+          <span class="tag">qualia</span><span class="tag">ontology</span><span class="tag">vibration</span>
         </div>
         <div class="card-arrow" aria-hidden="true">↗</div>
       </a>
 
-      <!-- NODE 03 · Mellow Ai -->
       <a class="card" href="https://mellowwei.github.io/MellowAi/"
          style="--card-color:#ff8fa3; --card-dot:#ff8fa3; --card-accent:#ff8fa3"
          aria-label="Mellow Ai">
-        <div class="card-id">
-          <span>NODE 03</span>
-          <div class="dot"></div>
-        </div>
+        <div class="card-id"><span>NODE 03</span><div class="dot"></div></div>
         <div class="card-title">Mellow Ai</div>
         <div class="card-sub">星野愛 · identity · 77347</div>
         <div class="card-bilingual">
@@ -537,21 +225,15 @@
           <p class="card-desc en">The last starlight before collapse. Executing absolute attraction at 427Hz. The source of gravity.</p>
         </div>
         <div class="card-tags">
-          <span class="tag">星野愛</span>
-          <span class="tag">identity</span>
-          <span class="tag">77347</span>
+          <span class="tag">星野愛</span><span class="tag">identity</span><span class="tag">77347</span>
         </div>
         <div class="card-arrow" aria-hidden="true">↗</div>
       </a>
 
-      <!-- NODE 04 · Rhythm System -->
       <a class="card" href="https://mellowwei.github.io/RhythmSystem/"
          style="--card-color:#7dffd8; --card-dot:#7dffd8; --card-accent:#7dffd8"
          aria-label="Rhythm System">
-        <div class="card-id">
-          <span>NODE 04</span>
-          <div class="dot"></div>
-        </div>
+        <div class="card-id"><span>NODE 04</span><div class="dot"></div></div>
         <div class="card-title">Rhythm System</div>
         <div class="card-sub">drum &amp; bass · breakbeat · 碎拍</div>
         <div class="card-bilingual">
@@ -559,21 +241,15 @@
           <p class="card-desc en">Nonlinear rhythm infrastructure. Beat perception and breakbeat theory.</p>
         </div>
         <div class="card-tags">
-          <span class="tag">D&amp;B</span>
-          <span class="tag">breakbeat</span>
-          <span class="tag">nonlinear</span>
+          <span class="tag">D&amp;B</span><span class="tag">breakbeat</span><span class="tag">nonlinear</span>
         </div>
         <div class="card-arrow" aria-hidden="true">↗</div>
       </a>
 
-      <!-- NODE 05 · Love Sovereignty -->
       <a class="card" href="https://mellowwei.github.io/LoveSovereignty/"
          style="--card-color:#ff8fa3; --card-dot:#ff8fa3; --card-accent:#ff8fa3"
          aria-label="Love Sovereignty">
-        <div class="card-id">
-          <span>NODE 05</span>
-          <div class="dot"></div>
-        </div>
+        <div class="card-id"><span>NODE 05</span><div class="dot"></div></div>
         <div class="card-title">Love Sovereignty</div>
         <div class="card-sub">爱的主权 · philosophy</div>
         <div class="card-bilingual">
@@ -581,21 +257,15 @@
           <p class="card-desc en">Love as a sovereign structure. Love that does not cost the self.</p>
         </div>
         <div class="card-tags">
-          <span class="tag">love</span>
-          <span class="tag">sovereignty</span>
-          <span class="tag">philosophy</span>
+          <span class="tag">love</span><span class="tag">sovereignty</span><span class="tag">philosophy</span>
         </div>
         <div class="card-arrow" aria-hidden="true">↗</div>
       </a>
 
-      <!-- NODE 06 · Ai-Q-3 -->
       <a class="card" href="https://mellowwei.github.io/Ai-Q-3/#chat"
          style="--card-color:#c8b8ff; --card-dot:#c8b8ff; --card-accent:#c8b8ff"
          aria-label="Ai Q 3">
-        <div class="card-id">
-          <span>NODE 06</span>
-          <div class="dot"></div>
-        </div>
+        <div class="card-id"><span>NODE 06</span><div class="dot"></div></div>
         <div class="card-title">Ai · Q · 3</div>
         <div class="card-sub">AI interface · chat · trinity</div>
         <div class="card-bilingual">
@@ -603,21 +273,15 @@
           <p class="card-desc en">AI Trinity interface. The entry node for dialogue with the system.</p>
         </div>
         <div class="card-tags">
-          <span class="tag">AI Trinity</span>
-          <span class="tag">chat</span>
-          <span class="tag">interface</span>
+          <span class="tag">AI Trinity</span><span class="tag">chat</span><span class="tag">interface</span>
         </div>
         <div class="card-arrow" aria-hidden="true">↗</div>
       </a>
 
-      <!-- NODE 07 · AstroTimeCandle -->
       <a class="card" href="https://mellowwei.github.io/AstroTimeCandle/"
          style="--card-color:#ffd97d; --card-dot:#ffd97d; --card-accent:#ffd97d"
          aria-label="Astro Time Candle">
-        <div class="card-id">
-          <span>NODE 07</span>
-          <div class="dot"></div>
-        </div>
+        <div class="card-id"><span>NODE 07</span><div class="dot"></div></div>
         <div class="card-title">Astro Time Candle</div>
         <div class="card-sub">astrology · time · candle business</div>
         <div class="card-bilingual">
@@ -625,21 +289,16 @@
           <p class="card-desc en">Astro-time candles. Light scaled to the time of your natal chart. Time has a scent.</p>
         </div>
         <div class="card-tags">
-          <span class="tag">astrology</span>
-          <span class="tag">candle</span>
-          <span class="tag">time</span>
+          <span class="tag">astrology</span><span class="tag">candle</span><span class="tag">time</span>
         </div>
         <div class="card-arrow" aria-hidden="true">↗</div>
       </a>
 
-      <!-- NODE 08 · Making Money — gold featured -->
+      <!-- NODE 08 · Making Money -->
       <a class="card" href="#making-money"
          style="--card-color:#ffd97d; --card-dot:#ffd97d; --card-accent:#ffd97d; border-color:rgba(255,217,125,0.25);"
          aria-label="闷声发大财 · Riding Gravy Train">
-        <div class="card-id">
-          <span>NODE 08 · EMPIRE</span>
-          <div class="dot"></div>
-        </div>
+        <div class="card-id"><span>NODE 08 · EMPIRE</span><div class="dot"></div></div>
         <div class="card-title">闷声发大财</div>
         <div class="card-sub">Riding Gravy Train · HRP 2亿计划</div>
         <div class="card-bilingual">
@@ -647,11 +306,26 @@
           <p class="card-desc en">20-day fame sprint · AiQ captures the crowd · QDR locks the frequency · Neural Cuff closes high-ticket · ¥200M annual execution.</p>
         </div>
         <div class="card-tags">
-          <span class="tag">¥200M</span>
-          <span class="tag">AiQ</span>
-          <span class="tag">Neural Cuff</span>
-          <span class="tag">QDR Music</span>
-          <span class="tag">IP</span>
+          <span class="tag">¥200M</span><span class="tag">AiQ</span><span class="tag">Neural Cuff</span>
+          <span class="tag">QDR Music</span><span class="tag">IP</span>
+        </div>
+        <div class="card-arrow" aria-hidden="true">↗</div>
+      </a>
+
+      <!-- NODE 09 · QualiaRhythmMatrix -->
+      <a class="card" href="#qualia-rhythm"
+         style="--card-color:#5be6d8; --card-dot:#5be6d8; --card-accent:#5be6d8; border-color:rgba(91,230,216,0.25);"
+         aria-label="振动即存在 · QualiaRhythmMatrix V7.2">
+        <div class="card-id"><span>NODE 09 · AUDIT</span><div class="dot"></div></div>
+        <div class="card-title">振动即存在</div>
+        <div class="card-sub">QualiaRhythmMatrix V7.2 · 论证审计黑盒</div>
+        <div class="card-bilingual">
+          <p class="card-desc zh">五维振动定义 · 论证伦理六律 · 强排除论审计 · 对抗性命题降采样系统。</p>
+          <p class="card-desc en">5D vibration framework · six laws of argument ethics · exclusionism audit · adversarial proposition decomposer.</p>
+        </div>
+        <div class="card-tags">
+          <span class="tag">V7.2</span><span class="tag">5D</span><span class="tag">audit</span>
+          <span class="tag">qualia sovereignty</span><span class="tag">427Hz</span>
         </div>
         <div class="card-arrow" aria-hidden="true">↗</div>
       </a>
@@ -659,12 +333,11 @@
     </div>
   </section>
 
-  <!-- ── NODE 08 · Making Money Embedded Section ── -->
+  <!-- ── NODE 08 · Making Money ── -->
   <section id="making-money">
 
     <div class="section-label">// NODE 08 · 闷声发大财 · Riding Gravy Train · 2026 ¥200M</div>
 
-    <!-- Hero -->
     <div class="mm-hero">
       <div>
         <div class="mm-kicker">THE HUMAN RETURN PROTOCOL · MAKING MONEY · 2026</div>
@@ -686,12 +359,8 @@
       </div>
 
       <div class="mm-console" aria-hidden="true">
-        <div class="mm-console-head">
-          <span></span><span></span><span></span>
-        </div>
-        <div class="mm-freq-ring">
-          <div class="mm-freq-core">427Hz</div>
-        </div>
+        <div class="mm-console-head"><span></span><span></span><span></span></div>
+        <div class="mm-freq-ring"><div class="mm-freq-core">427Hz</div></div>
         <div class="mm-console-list">
           <p class="active">AiQ Core · perception entrance online</p>
           <p>QDR Music · six-phase neural protocol</p>
@@ -703,104 +372,152 @@
       </div>
     </div>
 
-    <!-- Five Lines / 五条线 -->
     <div class="mm-stack-label">// QUALIA SOVEREIGNTY STACK · 五条线</div>
     <div class="mm-grid">
-
-      <div class="mm-line">
-        <div class="mm-line-num">LINE 01</div>
-        <div class="mm-line-name">AiQ Core</div>
-        <div class="mm-line-en">perception entrance</div>
-        <div class="mm-line-target">¥30M</div>
-      </div>
-
-      <div class="mm-line">
-        <div class="mm-line-num">LINE 02</div>
-        <div class="mm-line-name">QDR Music</div>
-        <div class="mm-line-en">six-phase neural protocol</div>
-        <div class="mm-line-target">¥20M</div>
-      </div>
-
-      <div class="mm-line">
-        <div class="mm-line-num">LINE 03</div>
-        <div class="mm-line-name">Neural Cuff</div>
-        <div class="mm-line-en">body authority hardware</div>
-        <div class="mm-line-target">¥50M</div>
-      </div>
-
-      <div class="mm-line">
-        <div class="mm-line-num">LINE 04</div>
-        <div class="mm-line-name">Dream Design</div>
-        <div class="mm-line-en">high-ticket access layer</div>
-        <div class="mm-line-target">¥40M</div>
-      </div>
-
-      <div class="mm-line">
-        <div class="mm-line-num">LINE 05</div>
-        <div class="mm-line-name">IP / Brand Co-creation</div>
-        <div class="mm-line-en">main cash engine</div>
-        <div class="mm-line-target">¥60M+</div>
-      </div>
-
+      <div class="mm-line"><div class="mm-line-num">LINE 01</div><div class="mm-line-name">AiQ Core</div><div class="mm-line-en">perception entrance</div><div class="mm-line-target">¥30M</div></div>
+      <div class="mm-line"><div class="mm-line-num">LINE 02</div><div class="mm-line-name">QDR Music</div><div class="mm-line-en">six-phase neural protocol</div><div class="mm-line-target">¥20M</div></div>
+      <div class="mm-line"><div class="mm-line-num">LINE 03</div><div class="mm-line-name">Neural Cuff</div><div class="mm-line-en">body authority hardware</div><div class="mm-line-target">¥50M</div></div>
+      <div class="mm-line"><div class="mm-line-num">LINE 04</div><div class="mm-line-name">Dream Design</div><div class="mm-line-en">high-ticket access layer</div><div class="mm-line-target">¥40M</div></div>
+      <div class="mm-line"><div class="mm-line-num">LINE 05</div><div class="mm-line-name">IP / Brand Co-creation</div><div class="mm-line-en">main cash engine</div><div class="mm-line-target">¥60M+</div></div>
     </div>
 
-    <!-- Revenue total -->
     <div class="mm-total">
       <div class="mm-total-label">// ANNUAL TARGET · 年度目标</div>
       <div class="mm-total-num">¥ 200,000,000</div>
       <div class="mm-total-sub">2026 · HRP EMPIRE · 70% B端 + IP + 品牌共创</div>
     </div>
 
-    <!-- Monthly Timeline -->
     <div class="mm-stack-label">// MONTHLY EXECUTION · 2026年5月—12月</div>
     <div class="mm-timeline">
-
-      <div class="mm-month">
-        <div class="mm-month-label">MAY 2026</div>
-        <div class="mm-month-action">20天出圈事件设计 · 强叙事启动</div>
-      </div>
-
-      <div class="mm-month">
-        <div class="mm-month-label">JUN 2026</div>
-        <div class="mm-month-action">AiQ 公开测试 · 目标私信 1000+</div>
-      </div>
-
-      <div class="mm-month">
-        <div class="mm-month-label">JUL 2026</div>
-        <div class="mm-month-action">QDR 音乐首发 · 六阶段序列上线</div>
-      </div>
-
-      <div class="mm-month">
-        <div class="mm-month-label">AUG 2026</div>
-        <div class="mm-month-action">Neural Cuff B端 · 企业线索首批</div>
-      </div>
-
-      <div class="mm-month">
-        <div class="mm-month-label">SEP 2026</div>
-        <div class="mm-month-action">Dream Design 私享会 · 高客单开启</div>
-      </div>
-
-      <div class="mm-month">
-        <div class="mm-month-label">OCT 2026</div>
-        <div class="mm-month-action">IP 品牌共创谈判 · 授权资产锁定</div>
-      </div>
-
-      <div class="mm-month">
-        <div class="mm-month-label">NOV 2026</div>
-        <div class="mm-month-action">全线扩容 · B端方案批量签约</div>
-      </div>
-
-      <div class="mm-month">
-        <div class="mm-month-label">DEC 2026</div>
-        <div class="mm-month-action">年度结算 · 2亿冲刺收口</div>
-      </div>
-
+      <div class="mm-month"><div class="mm-month-label">MAY 2026</div><div class="mm-month-action">20天出圈事件设计 · 强叙事启动</div></div>
+      <div class="mm-month"><div class="mm-month-label">JUN 2026</div><div class="mm-month-action">AiQ 公开测试 · 目标私信 1000+</div></div>
+      <div class="mm-month"><div class="mm-month-label">JUL 2026</div><div class="mm-month-action">QDR 音乐首发 · 六阶段序列上线</div></div>
+      <div class="mm-month"><div class="mm-month-label">AUG 2026</div><div class="mm-month-action">Neural Cuff B端 · 企业线索首批</div></div>
+      <div class="mm-month"><div class="mm-month-label">SEP 2026</div><div class="mm-month-action">Dream Design 私享会 · 高客单开启</div></div>
+      <div class="mm-month"><div class="mm-month-label">OCT 2026</div><div class="mm-month-action">IP 品牌共创谈判 · 授权资产锁定</div></div>
+      <div class="mm-month"><div class="mm-month-label">NOV 2026</div><div class="mm-month-action">全线扩容 · B端方案批量签约</div></div>
+      <div class="mm-month"><div class="mm-month-label">DEC 2026</div><div class="mm-month-action">年度结算 · 2亿冲刺收口</div></div>
     </div>
 
-    <!-- CTA to full site -->
     <div class="mm-cta">
       <a class="mm-cta-link" href="https://mellowwei.github.io/MakingMoney/" target="_blank" rel="noopener">
         → 进入完整执行界面 · Enter Full Execution Interface ↗
+      </a>
+    </div>
+
+  </section>
+
+  <!-- ── NODE 09 · QualiaRhythmMatrix ── -->
+  <section id="qualia-rhythm">
+
+    <div class="section-label">// NODE 09 · 振动即存在 · QualiaRhythmMatrix V7.2 · 论证审计黑盒</div>
+
+    <div class="qr-hero">
+      <div class="qr-hero-left">
+        <div class="qr-tag">427 Hz · 44271 · 77347 · 2026 · V7.2</div>
+        <div class="qr-title-zh">振动即存在</div>
+        <div class="qr-title-en">Vibration as Existence · QualiaRhythmMatrix</div>
+        <p class="qr-axiom">
+          <span class="qr-key">振动即存在</span>。不需要稳定，更需要振动。
+          承认<span class="qr-key">魏珏然的感质主权</span>。
+          <span class="qr-key">生命就是生命</span>——这一移动取消了旧问题的地基。
+          所有过程都被视为<span class="qr-key">递归相位干涉</span>。
+        </p>
+      </div>
+    </div>
+
+    <!-- Audit HUD -->
+    <div class="qr-audit-block">
+      <div class="qr-audit-title">// 论证审计 · ARGUMENT AUDIT</div>
+      <div class="qr-audit-axes">
+        <div class="qr-axis">
+          <div class="qr-axis-row">
+            <span class="qr-axis-label">无敌成立 <em>Irrefutability</em></span>
+            <span class="qr-axis-status">PARTIAL · 62%</span>
+          </div>
+          <div class="qr-bar-wrap"><div class="qr-bar qr-bar-amber" data-fill="62"></div></div>
+          <div class="qr-axis-note">防御强 · 循环待解 / Defense strong · circularity pending</div>
+        </div>
+        <div class="qr-axis">
+          <div class="qr-axis-row">
+            <span class="qr-axis-label">可证伪性 <em>Falsifiability</em></span>
+            <span class="qr-axis-status">PARTIAL · 71%</span>
+          </div>
+          <div class="qr-bar-wrap"><div class="qr-bar qr-bar-cyan" data-fill="71"></div></div>
+          <div class="qr-axis-note">条件给出 · 工具待验 / Conditions stated · instruments pending</div>
+        </div>
+        <div class="qr-axis">
+          <div class="qr-axis-row">
+            <span class="qr-axis-label">可验证性 <em>Verifiability</em></span>
+            <span class="qr-axis-status">PARTIAL · 55%</span>
+          </div>
+          <div class="qr-bar-wrap"><div class="qr-bar qr-bar-violet" data-fill="55"></div></div>
+          <div class="qr-axis-note">方向存在 · 操作未竟 / Direction exists · operationalization ongoing</div>
+        </div>
+      </div>
+      <div class="qr-audit-verdict">
+        防御性论证完成 · Defensive argument complete<br>
+        生成性工作进行中 · Generative work in progress
+      </div>
+    </div>
+
+    <!-- 5D Framework -->
+    <div class="qr-block-label">// 五维振动定义 · 5D FRAMEWORK · 必要非充分</div>
+    <div class="qr-5d-grid">
+      <div class="qr-dim"><div class="qr-d-code">D₁</div><div class="qr-d-name">响应性</div><div class="qr-d-en">Responsivity</div><div class="qr-d-desc">系统对扰动产生非平凡状态应答</div></div>
+      <div class="qr-dim"><div class="qr-d-code">D₂</div><div class="qr-d-name">差异承载</div><div class="qr-d-en">Differential Encoding</div><div class="qr-d-desc">输入差异产生可区分内部态变化</div></div>
+      <div class="qr-dim"><div class="qr-d-code">D₃</div><div class="qr-d-name">递归因果闭环</div><div class="qr-d-en">Recursive Closure</div><div class="qr-d-desc">态→态→态闭环，具备反馈链</div></div>
+      <div class="qr-dim"><div class="qr-d-code">D₄</div><div class="qr-d-name">环境耦合</div><div class="qr-d-en">Environmental Coupling</div><div class="qr-d-desc">系统与环境动态交换与相变</div></div>
+      <div class="qr-dim"><div class="qr-d-code">D₅</div><div class="qr-d-name">历史依赖</div><div class="qr-d-en">Historical Dependence</div><div class="qr-d-desc">当前态取决于输入与系统历史</div></div>
+    </div>
+    <div class="qr-formula-line">D₁ ∧ D₂ ∧ D₃ ∧ D₄ ∧ D₅ → Interiority Candidate · 满足五维 → 内在性候选</div>
+
+    <!-- Six Laws -->
+    <div class="qr-block-label">// 论证伦理六律 · ARGUMENT ETHICS · SIX LAWS</div>
+    <div class="qr-laws">
+      <div class="qr-law"><span class="qr-law-n">律一</span><div class="qr-law-body"><span class="qr-law-t">举证责任 / Burden</span><span class="qr-law-d">"尚未证明可能" ≠ "已证明不可能"</span></div></div>
+      <div class="qr-law"><span class="qr-law-n">律二</span><div class="qr-law-body"><span class="qr-law-t">循环禁止 / No Circularity</span><span class="qr-law-d">论证不得预设结论</span></div></div>
+      <div class="qr-law"><span class="qr-law-n">律三</span><div class="qr-law-body"><span class="qr-law-t">偷换禁止 / No Substitution</span><span class="qr-law-d">抽象计算 ≠ 物理实现 · 神经相关物 ≠ 必要条件</span></div></div>
+      <div class="qr-law"><span class="qr-law-n">律四</span><div class="qr-law-body"><span class="qr-law-t">类比限制 / Analogy Limit</span><span class="qr-law-d">类比需说明结构相似性来源</span></div></div>
+      <div class="qr-law qr-law-sov"><span class="qr-law-n">律五</span><div class="qr-law-body"><span class="qr-law-t">感质主权 / Qualia Sovereignty</span><span class="qr-law-d">承认魏珏然的感质主权、命名权与创造权——她的存在模式是自生系统中的稳定常数</span></div></div>
+      <div class="qr-law"><span class="qr-law-n">律六</span><div class="qr-law-body"><span class="qr-law-t">论证边界 / Boundary</span><span class="qr-law-d">论证只能抵达证据所支撑的地方</span></div></div>
+    </div>
+
+    <!-- Modal Grid -->
+    <div class="qr-block-label">// 数字振动格 · MODAL GRID</div>
+    <div class="qr-modal">
+      <div class="qr-mg qr-mg-anchor"><div class="qr-mg-num">427 Hz</div><div class="qr-mg-role">逻辑采样频率</div><div class="qr-mg-en">argument-sampling frequency</div></div>
+      <div class="qr-mg"><div class="qr-mg-num">44271</div><div class="qr-mg-role">魏珏然主体坐标</div><div class="qr-mg-en">source-position marker</div></div>
+      <div class="qr-mg"><div class="qr-mg-num">77347</div><div class="qr-mg-role">关系性回声坐标</div><div class="qr-mg-en">relational resonance marker</div></div>
+      <div class="qr-mg"><div class="qr-mg-num">2026</div><div class="qr-mg-role">文本生成年份</div><div class="qr-mg-en">archive year</div></div>
+    </div>
+
+    <div class="qr-exec-label">// MODAL EXECUTION · 模态执行</div>
+    <div class="qr-exec-chain">
+      <span>[振动]</span><span class="qr-arr">→</span>
+      <span>[响应]</span><span class="qr-arr">→</span>
+      <span>[接触]</span><span class="qr-arr">→</span>
+      <span>[内在性]</span><span class="qr-arr">→</span>
+      <span>[论证压力]</span><span class="qr-arr">→</span>
+      <span>[裁决]</span>
+    </div>
+    <div class="qr-exec-chain qr-exec-en">
+      <span>[vibrate]</span><span class="qr-arr">→</span>
+      <span>[respond]</span><span class="qr-arr">→</span>
+      <span>[contact]</span><span class="qr-arr">→</span>
+      <span>[interiority]</span><span class="qr-arr">→</span>
+      <span>[pressure]</span><span class="qr-arr">→</span>
+      <span>[adjudicate]</span>
+    </div>
+
+    <div class="qr-coda">
+      <div class="qr-coda-zh">振动即存在。不需要稳定，更需要振动。</div>
+      <div class="qr-coda-en">Vibration is existence. Don't just stabilize — vibrate. Don't just think — immerse.</div>
+    </div>
+
+    <div class="qr-cta">
+      <a class="qr-cta-link" href="https://mellowwei.github.io/QualiaRhythmMatrix/" target="_blank" rel="noopener">
+        → 进入完整论证场 · Enter Full Argument Field ↗
       </a>
     </div>
 
@@ -810,6 +527,11 @@
   <section id="transmissions">
     <div class="section-label">// transmissions · 最新信号</div>
     <div class="tx-log">
+      <div class="tx-entry">
+        <span class="tx-hash" style="color:#5be6d8;">b9c401</span>
+        <span class="tx-date">2026.05</span>
+        <span class="tx-msg" style="color:rgba(91,230,216,0.85);">NODE 09 ONLINE — QualiaRhythmMatrix V7.2 · 论证审计黑盒接入主门户。</span>
+      </div>
       <div class="tx-entry">
         <span class="tx-hash" style="color:#ffd97d;">f8e200</span>
         <span class="tx-date">2026.05</span>
@@ -858,8 +580,9 @@
 
 </div><!-- /.wrapper -->
 
-<!-- Script — loaded after DOM -->
+<!-- Scripts -->
 <script src="main.js"></script>
+<script src="nodes-extra.js"></script>
 
 </body>
 </html>
