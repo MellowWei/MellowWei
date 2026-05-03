@@ -17,6 +17,8 @@
     var bigStars = [];
     var nebulae = [];
     var shooters = [];
+    var polaris = null;
+    var dipper = [];
 
     // Rich rainbow palette
     var palette = [
@@ -113,6 +115,49 @@
       };
     }
 
+    function setupPolaris() {
+      // Polaris: anchored upper-right area (north star position)
+      polaris = {
+        x: w * 0.82,
+        y: h * 0.18,
+        r: 3.2,
+        color: '#fff5e0',
+        pulse: 0,
+        pulseSpeed: 0.012,
+        rayAngle: 0,
+        raySpeed: 0.0018,
+        skyRotation: 0,
+        skyRotSpeed: 0.0004
+      };
+
+      // Big Dipper (北斗七星) - relative offsets to Polaris
+      // Saucepan shape: bowl (4 stars) + handle (3 stars), pointer toward Polaris
+      var off = [
+        { dx: -160, dy: 290, r: 1.9 },  // Dubhe (pointer top, brightest)
+        { dx: -180, dy: 360, r: 1.7 },  // Merak (pointer bottom)
+        { dx: -240, dy: 380, r: 1.5 },  // Phecda (bowl far-bottom)
+        { dx: -240, dy: 310, r: 1.4 },  // Megrez (bowl far-top)
+        { dx: -320, dy: 295, r: 1.7 },  // Alioth
+        { dx: -395, dy: 280, r: 1.5 },  // Mizar
+        { dx: -470, dy: 265, r: 1.7 }   // Alkaid (handle tip)
+      ];
+
+      // Scale dipper proportionally for small screens
+      var scale = Math.min(1, Math.min(w, h) / 800);
+
+      dipper = off.map(function (s) {
+        var scaledDx = s.dx * scale;
+        var scaledDy = s.dy * scale;
+        return {
+          baseAngle: Math.atan2(scaledDy, scaledDx),
+          baseDist: Math.sqrt(scaledDx * scaledDx + scaledDy * scaledDy),
+          r: s.r,
+          twinkle: Math.random() * Math.PI * 2,
+          twinkleSpeed: 0.012 + Math.random() * 0.02
+        };
+      });
+    }
+
     function init() {
       resize();
       stars.length = 0;
@@ -127,6 +172,8 @@
       for (var i = 0; i < smallCount; i++) stars.push(makeStar());
       for (var j = 0; j < bigCount; j++) bigStars.push(makeBigStar());
       for (var k = 0; k < nebCount; k++) nebulae.push(makeNebula());
+
+      setupPolaris();
     }
 
     function tick() {
@@ -278,6 +325,157 @@
       // Spawn new shooters occasionally
       if (Math.random() < 0.006 && shooters.length < 3) {
         shooters.push(spawnShooter());
+      }
+
+      // ── Layer 5: Big Dipper rotating slowly around Polaris ──
+      if (polaris && dipper.length) {
+        polaris.skyRotation += polaris.skyRotSpeed;
+        var px = polaris.x;
+        var py = polaris.y;
+        var rot = polaris.skyRotation;
+
+        var positions = [];
+        for (var d = 0; d < dipper.length; d++) {
+          var ds = dipper[d];
+          var ang = ds.baseAngle + rot;
+          ds.twinkle += ds.twinkleSpeed;
+          positions.push({
+            x: px + Math.cos(ang) * ds.baseDist,
+            y: py + Math.sin(ang) * ds.baseDist,
+            r: ds.r,
+            a: 0.55 + Math.sin(ds.twinkle) * 0.35
+          });
+        }
+
+        // Constellation lines (very faint)
+        ctx.globalAlpha = 0.18;
+        ctx.strokeStyle = '#fff5e0';
+        ctx.lineWidth = 0.4;
+        ctx.beginPath();
+        ctx.moveTo(positions[0].x, positions[0].y);
+        for (var pi = 1; pi < positions.length; pi++) {
+          ctx.lineTo(positions[pi].x, positions[pi].y);
+        }
+        ctx.stroke();
+
+        // Pointer line: Dubhe → Merak → extended toward Polaris
+        ctx.globalAlpha = 0.10;
+        ctx.setLineDash([2, 4]);
+        ctx.beginPath();
+        ctx.moveTo(positions[1].x, positions[1].y);
+        ctx.lineTo(px, py);
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        // Dipper stars with halos
+        for (var pp = 0; pp < positions.length; pp++) {
+          var ps = positions[pp];
+          var haloR = ps.r * 7;
+          var dgrad = ctx.createRadialGradient(ps.x, ps.y, 0, ps.x, ps.y, haloR);
+          dgrad.addColorStop(0, '#fff5e0');
+          dgrad.addColorStop(0.3, '#fff5e060');
+          dgrad.addColorStop(1, 'transparent');
+          ctx.globalAlpha = ps.a * 0.7;
+          ctx.fillStyle = dgrad;
+          ctx.beginPath();
+          ctx.arc(ps.x, ps.y, haloR, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.globalAlpha = ps.a;
+          ctx.fillStyle = '#ffffff';
+          ctx.beginPath();
+          ctx.arc(ps.x, ps.y, ps.r, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+
+      // ── Layer 6: Polaris (the fixed sovereign star) ──
+      if (polaris) {
+        var p = polaris;
+        p.pulse += p.pulseSpeed;
+        p.rayAngle += p.raySpeed;
+        var pf = 0.85 + Math.sin(p.pulse) * 0.15;
+
+        // Outer atmospheric glow
+        var outerR = 70;
+        var oGrad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, outerR);
+        oGrad.addColorStop(0, p.color + '70');
+        oGrad.addColorStop(0.25, p.color + '30');
+        oGrad.addColorStop(1, 'transparent');
+        ctx.globalAlpha = pf * 0.7;
+        ctx.fillStyle = oGrad;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, outerR, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Mid halo (white-hot)
+        var midR = 28;
+        var mGrad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, midR);
+        mGrad.addColorStop(0, '#ffffff');
+        mGrad.addColorStop(0.35, p.color);
+        mGrad.addColorStop(1, 'transparent');
+        ctx.globalAlpha = pf * 0.9;
+        ctx.fillStyle = mGrad;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, midR, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Rotating 8-ray pattern
+        ctx.globalAlpha = pf * 0.85;
+        ctx.lineWidth = 1;
+        for (var ri = 0; ri < 8; ri++) {
+          var rang = p.rayAngle + (ri * Math.PI / 4);
+          var rlen = ri % 2 === 0 ? 38 : 24;
+          var ix = p.x + Math.cos(rang) * 5;
+          var iy = p.y + Math.sin(rang) * 5;
+          var ox = p.x + Math.cos(rang) * rlen;
+          var oy = p.y + Math.sin(rang) * rlen;
+          var rGrad = ctx.createLinearGradient(ix, iy, ox, oy);
+          rGrad.addColorStop(0, p.color);
+          rGrad.addColorStop(1, 'transparent');
+          ctx.strokeStyle = rGrad;
+          ctx.beginPath();
+          ctx.moveTo(ix, iy);
+          ctx.lineTo(ox, oy);
+          ctx.stroke();
+        }
+
+        // Anamorphic flare (long horizontal + vertical streaks)
+        ctx.globalAlpha = pf * 0.75;
+        ctx.lineWidth = 0.9;
+        var fl = 65;
+        var hf = ctx.createLinearGradient(p.x - fl, p.y, p.x + fl, p.y);
+        hf.addColorStop(0, 'transparent');
+        hf.addColorStop(0.5, '#ffffff');
+        hf.addColorStop(1, 'transparent');
+        ctx.strokeStyle = hf;
+        ctx.beginPath();
+        ctx.moveTo(p.x - fl, p.y);
+        ctx.lineTo(p.x + fl, p.y);
+        ctx.stroke();
+
+        var vf = ctx.createLinearGradient(p.x, p.y - fl, p.x, p.y + fl);
+        vf.addColorStop(0, 'transparent');
+        vf.addColorStop(0.5, '#ffffff');
+        vf.addColorStop(1, 'transparent');
+        ctx.strokeStyle = vf;
+        ctx.beginPath();
+        ctx.moveTo(p.x, p.y - fl);
+        ctx.lineTo(p.x, p.y + fl);
+        ctx.stroke();
+
+        // White-hot core
+        ctx.globalAlpha = pf;
+        ctx.fillStyle = '#ffffff';
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Tiny innermost glint
+        ctx.globalAlpha = 1;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r * 0.45, 0, Math.PI * 2);
+        ctx.fill();
       }
 
       ctx.globalAlpha = 1;
