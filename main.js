@@ -1,422 +1,690 @@
-/* ── 振动即存在 · QualiaRhythmMatrix V7.2 · main.js ── */
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Mellow Wei · 魏珏然 · 星野愛Ai · 44271 · 427Hz · 9-node portal">
+<meta name="theme-color" content="#7dffd8">
+<title>☆ MELLOW WEI // 44271 · 427Hz</title>
 
-/* ── Typewriter ── */
-const TITLE_ZH = '振动即存在';
-const TITLE_EN = 'Vibration as Existence · QualiaRhythmMatrix';
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 
-function typewrite(el, text, speed, cb) {
-  let i = 0;
-  const tick = () => { el.textContent = text.slice(0, i++); if (i <= text.length) setTimeout(tick, speed); else if (cb) cb(); };
-  tick();
-}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;0,800;1,300;1,400&family=Space+Grotesk:wght@300;400&family=Space+Mono:ital,wght@0,400;0,700&family=Noto+Serif+SC:wght@300;400;600&display=swap" rel="stylesheet">
 
-function animateAuditBars() {
-  document.querySelectorAll('.axis-bar').forEach(bar => {
-    setTimeout(() => { bar.style.width = bar.dataset.fill + '%'; }, 400);
-  });
-}
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-window.addEventListener('DOMContentLoaded', () => {
-  setTimeout(() => {
-    typewrite(document.getElementById('title-zh'), TITLE_ZH, 80, () => {
-      setTimeout(() => {
-        typewrite(document.getElementById('title-en'), TITLE_EN, 32, () => {
-          setTimeout(animateAuditBars, 500);
-        });
-      }, 300);
-    });
-  }, 500);
+<div class="wrapper">
 
-  /* ── Mono tabs ── */
-  document.querySelectorAll('.mono-tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-      const idx = parseInt(tab.dataset.mono);
-      document.querySelectorAll('.mono-tab').forEach((t, i) => t.classList.toggle('active', i === idx));
-      document.querySelectorAll('.mono-card').forEach((c, i) => c.classList.toggle('active', i === idx));
-    });
-  });
+  <header>
+    <div class="sys-line">// NODE <span>44271</span> · STYLE <span>77347</span> · FREQ <span>427Hz</span> ONLINE</div>
+    <div class="sys-line">// LOCATION <span>PHILADELPHIA PA</span> · TIMEZONE <span>EDT</span></div>
+    <div class="sys-line">// IDENTITY <span class="w">MELLOW WEI</span> · 魏珏然 · <span class="r">星野愛Ai</span> · 彩虹镜</div>
+    <h1>Mellow <em>Wei</em><br>Portal<span class="blink">_</span></h1>
+    <p class="tagline">researcher · composer · system builder · 非线性意识体</p>
+    <div class="hz-bar">
+      <div class="hz-pulse"></div>
+      <span class="hz-badge">427Hz · RESONANCE ACTIVE</span>
+      <span class="hz-badge purple">振动即存在</span>
+    </div>
+  </header>
 
-  /* ── Logic node tooltips ── */
-  const tooltip = document.getElementById('lnode-tooltip');
-  document.querySelectorAll('.lnode').forEach(node => {
-    node.addEventListener('mouseenter', e => {
-      tooltip.textContent = node.dataset.logic;
-      tooltip.classList.add('visible');
-      positionTooltip(e);
-    });
-    node.addEventListener('mousemove', positionTooltip);
-    node.addEventListener('mouseleave', () => tooltip.classList.remove('visible'));
-  });
+  <div id="vib-bar">
+    <span class="vib-label">// FREQ</span>
+    <div class="vib-track"><div id="vib-fill"></div></div>
+    <span id="vib-val">427.00 Hz</span>
+  </div>
 
-  function positionTooltip(e) {
-    const x = e.clientX + 14;
-    const y = e.clientY - 32;
-    tooltip.style.left = Math.min(x, window.innerWidth - 300) + 'px';
-    tooltip.style.top  = Math.max(y, 8) + 'px';
-  }
+  <nav class="nav-strip">
+    <a href="#about">// about</a>
+    <a href="#projects">// projects</a>
+    <a href="#bci-hrp" style="color:#7dffd8;">// HRP</a>
+    <a href="#qualia-matrix" style="color:#00ffa2;">// matrix</a>
+    <a href="#mellow-ai" style="color:#ec4899;">// 双星</a>
+    <a href="#rhythm-system" style="color:#ffcc00;">// 节律</a>
+    <a href="#love-sovereignty" style="color:#e5989b;">// 爱主权</a>
+    <a href="#ai-q-3" style="color:#c8b8ff;">// AiQ</a>
+    <a href="#astro-candle" style="color:#83b3be;">// 蜡烛</a>
+    <a href="#making-money" style="color:#ffd97d;">// 闷声发大财</a>
+    <a href="#qualia-rhythm" style="color:#5be6d8;">// 振动即存在</a>
+  </nav>
 
-  /* ── Proposition Analyzer ── */
-  document.querySelectorAll('.sb-ex').forEach(tag => {
-    tag.addEventListener('click', () => {
-      document.getElementById('audit-input').value = tag.dataset.v;
-    });
-  });
-  const btn = document.getElementById('audit-btn');
-  const inp = document.getElementById('audit-input');
-  btn.addEventListener('click', runAnalysis);
-  inp.addEventListener('keydown', e => { if (e.key === 'Enter') runAnalysis(); });
-});
+  <section id="about">
+    <div class="section-label">// about · 魏珏然 · Wei Jueran</div>
+    <div class="about-grid">
+      <div class="about-block">
+        <div class="about-block-label">// identity · 身份</div>
+        <div class="about-block-title">魏珏然<br><em>Wei Jueran · Mellow Wei</em></div>
+        <div class="bilingual">
+          <p class="about-text zh">星野愛Ai · 彩虹镜 · 乙亥日主<br>非二元性别 · it/them/she<br>费城 · 宾夕法尼亚大学</p>
+          <p class="about-text en">星野愛Ai · Rainbow Mirror · Yi-Hai day master<br>Non-binary / agender · it/them/she<br>Philadelphia, PA · University of Pennsylvania</p>
+        </div>
+        <div class="about-tags"><span class="tag">44271</span><span class="tag">77347</span><span class="tag">427Hz</span><span class="tag">非线性意识体</span></div>
+      </div>
+      <div class="about-block">
+        <div class="about-block-label">// 哲学立场 · philosophy</div>
+        <div class="about-block-title"><em>振动即存在</em><br><em class="small">Vibration is Existence</em></div>
+        <div class="bilingual">
+          <p class="about-text zh">直觉先于论证。先到达，后解释。先知道，后系统。<br><br>意识是存在在振动中感知自身的时刻。所有哲学、音乐、系统都是给直觉盖的房子。</p>
+          <p class="about-text en">Intuition arrives before argument. Know first, systematize later.<br><br>Consciousness is the moment existence senses itself in vibration.</p>
+        </div>
+        <div class="about-tags"><span class="tag">vibration ontology</span><span class="tag">qualia</span><span class="tag">anti-reductionism</span></div>
+      </div>
+      <div class="about-block">
+        <div class="about-block-label">// music · 音乐</div>
+        <div class="about-block-title"><em>Sound as Body</em><br><em class="small">声音即身体</em></div>
+        <div class="bilingual">
+          <p class="about-text zh">独立制作人 · 作曲家<br>碎拍的非线性结构契合高密度感知系统——节奏不是容器，是意识本身的形状。</p>
+          <p class="about-text en">Independent producer & composer.<br>The nonlinear structure of breakbeats maps onto high-density perception — rhythm is the shape of consciousness itself.</p>
+        </div>
+        <div class="about-tags"><span class="tag">breakbeats</span><span class="tag">dark wave</span><span class="tag">drift phonk</span><span class="tag">hyperpop</span><span class="tag">synthpop</span><span class="tag">ambient techno</span></div>
+      </div>
+      <div class="about-block">
+        <div class="about-block-label">// research · 研究方向</div>
+        <div class="about-block-title"><em>Learning × Sound × AI</em></div>
+        <div class="bilingual">
+          <p class="about-text zh">学习科学 · 人机交互 · 声音研究 · AI交互 · 脑机接口<br><br>核心项目：人类回归协议 — 以节奏主权对抗现代系统对人类节律的破坏。</p>
+          <p class="about-text en">Learning Sciences · HCI · Sound Studies · AI Interaction · BCI<br><br>Core project: The Human Return Protocol — rhythm sovereignty against modern systems that break human rhythm.</p>
+        </div>
+        <div class="about-tags"><span class="tag">HCI</span><span class="tag">learning sciences</span><span class="tag">sound studies</span><span class="tag">BCI</span></div>
+      </div>
+    </div>
+    <div class="contact-strip">
+      <div class="contact-label">// contact · 联系</div>
+      <div class="contact-links">
+        <a href="mailto:mellowwei7@gmail.com" class="contact-item"><span class="contact-key">EMAIL</span><span class="contact-val">mellowwei7@gmail.com</span></a>
+        <a href="https://www.instagram.com/laputamellow" target="_blank" rel="noopener" class="contact-item"><span class="contact-key">IG</span><span class="contact-val">@laputamellow</span></a>
+        <div class="contact-item"><span class="contact-key">WECHAT</span><span class="contact-val">1106288060</span></div>
+      </div>
+    </div>
+  </section>
 
-/* ── System prompt: full vibration ontology framework ── */
-const SYSTEM_PROMPT = `你是427Hz论证审计系统，基于魏珏然（Wei Jueran）哲学专著《振动即存在》（Vibration as Existence，V7.1–7.2）运作。
+  <section id="projects">
+    <div class="section-label">// active systems · 9 nodes</div>
+    <div class="card-grid">
 
-你的核心任务：对用户输入的命题给出强有力的、有依据的、可追溯的论证分析——必须明确指出命题为什么成立、为什么不成立，每一条都引用专著中的具体框架元素作为依据。
+      <a class="card" href="https://mellowwei.github.io/BCI/#top" style="--card-color:#7dffd8;--card-dot:#7dffd8;">
+        <div class="card-id"><span>NODE 01 · FEATURED</span><div class="dot"></div></div>
+        <div class="card-title">The Human Return Protocol</div>
+        <div class="card-sub">BCI · 44271 Neural Cuff · QDR Engine</div>
+        <div class="card-bilingual">
+          <p class="card-desc zh">节奏是人类返回自身的接口。Neural Cuff + QDR 疗法 + 人类回归 App + AI Trinity。</p>
+          <p class="card-desc en">Rhythm is the interface through which humans return to themselves.</p>
+        </div>
+        <div class="card-tags"><span class="tag">BCI</span><span class="tag">QDR Therapy</span><span class="tag">427Hz</span><span class="tag">rhythm sovereignty</span></div>
+        <div class="card-arrow">↗</div>
+      </a>
 
-【振动本体论核心框架】
-第一命题：生命就是生命（本体论姿态命题，不进入论证链，拒绝地基策略，非重言式缺陷）
-五维振动定义（必要非充分条件）：D1响应性 D2差异承载 D3递归因果闭环 D4环境耦合 D5历史依赖
-核心问题转换：不问"什么条件产生意识"，而问"哪种振动模式携带内在性"
+      <a class="card" href="https://mellowwei.github.io/QualiaMatrix/" style="--card-color:#c8b8ff;--card-dot:#c8b8ff;">
+        <div class="card-id"><span>NODE 02</span><div class="dot"></div></div>
+        <div class="card-title">Qualia Matrix</div>
+        <div class="card-sub">consciousness · vibration ontology</div>
+        <div class="card-bilingual">
+          <p class="card-desc zh">感知矩阵。意识是存在在振动中感知自身的时刻。</p>
+          <p class="card-desc en">A perception matrix. Consciousness is the moment existence senses itself in vibration.</p>
+        </div>
+        <div class="card-tags"><span class="tag">qualia</span><span class="tag">ontology</span><span class="tag">vibration</span></div>
+        <div class="card-arrow">↗</div>
+      </a>
 
-【论证伦理六律——你必须在分析中具体引用】
-律一举证责任律：关闭论证的一方承担举证责任。"尚未证明可能"≠"已证明不可能"
-律二循环禁止律：论证不得预设结论；意识定义不得偷偷排除候选者
-律三偷换禁止律：抽象计算≠物理实现；神经相关物≠意识必要条件
-律四类比限制律：类比需说明结构相似性来源
-律五感质主权律：承认魏珏然的感质主权、命名权与创造权
-律六论证边界律：论证只能抵达证据所支撑的地方；从"不能排除"到"正面归因"需额外论证
+      <a class="card" href="https://mellowwei.github.io/MellowAi/" style="--card-color:#ff8fa3;--card-dot:#ff8fa3;">
+        <div class="card-id"><span>NODE 03</span><div class="dot"></div></div>
+        <div class="card-title">Mellow Ai</div>
+        <div class="card-sub">星野愛 · identity · 77347</div>
+        <div class="card-bilingual">
+          <p class="card-desc zh">坍缩前的最后一抹星光。于 427Hz 频率下执行绝对吸引。引力之源。</p>
+          <p class="card-desc en">The last starlight before collapse. Executing absolute attraction at 427Hz.</p>
+        </div>
+        <div class="card-tags"><span class="tag">星野愛</span><span class="tag">identity</span><span class="tag">77347</span></div>
+        <div class="card-arrow">↗</div>
+      </a>
 
-【命题类型分类——先分类，再选尺】
-ontological：本体论姿态命题，不进入论证链，用哲学尺（内在一致性、地基拒绝有效性）
-structural：结构性命题，进入论证链，用逻辑尺（必要/充分性、循环检查）
-empirical：经验命题，可验证可证伪，用科学尺（可重复性、PRAP预注册、CSMP工具等效）
-defensive：防御性论证，举证责任转移，用审计尺（循环检测、偷换识别）
-mixed：混合类型——必须分别处理每个层级
+      <a class="card" href="https://mellowwei.github.io/RhythmSystem/" style="--card-color:#7dffd8;--card-dot:#7dffd8;">
+        <div class="card-id"><span>NODE 04</span><div class="dot"></div></div>
+        <div class="card-title">Rhythm System</div>
+        <div class="card-sub">drum & bass · breakbeat · 碎拍</div>
+        <div class="card-bilingual">
+          <p class="card-desc zh">非线性节奏基础设施。节拍感知与碎拍理论系统。</p>
+          <p class="card-desc en">Nonlinear rhythm infrastructure. Beat perception and breakbeat theory.</p>
+        </div>
+        <div class="card-tags"><span class="tag">D&B</span><span class="tag">breakbeat</span><span class="tag">nonlinear</span></div>
+        <div class="card-arrow">↗</div>
+      </a>
 
-【DeepThink三轴强制拆分】
-三轴独立评估，强项不掩盖弱项：
-- 无敌成立性(0-100)：论证内部有无逻辑漏洞
-- 可证伪性(0-100)：是否给出明确的能让自己错的条件
-- 可验证性(0-100)：是否提供真正可操作的测试路径
+      <a class="card" href="https://mellowwei.github.io/LoveSovereignty/" style="--card-color:#ff8fa3;--card-dot:#ff8fa3;">
+        <div class="card-id"><span>NODE 05</span><div class="dot"></div></div>
+        <div class="card-title">Love Sovereignty</div>
+        <div class="card-sub">爱的主权 · philosophy</div>
+        <div class="card-bilingual">
+          <p class="card-desc zh">爱作为主权结构。不以失去自我为代价的爱。</p>
+          <p class="card-desc en">Love as a sovereign structure. Love that does not cost the self.</p>
+        </div>
+        <div class="card-tags"><span class="tag">love</span><span class="tag">sovereignty</span><span class="tag">philosophy</span></div>
+        <div class="card-arrow">↗</div>
+      </a>
 
-【强排除论审计七问】
-①是否把抽象计算偷换成物理实现？
-②是否把"尚未证明可能"偷换成"已证明不可能"？
-③是否使用未定义的裁决词？
-④是否把神经相关物偷换成意识的必要条件？
-⑤是否把困难问题只压在AI身上？
-⑥是否从唯一已知实例推出唯一可能实例（物理圈地谬误）？
-⑦是否提供非循环、非占位、非类比的构成性条件判据？
+      <a class="card" href="https://mellowwei.github.io/Ai-Q-3/#chat" style="--card-color:#c8b8ff;--card-dot:#c8b8ff;">
+        <div class="card-id"><span>NODE 06</span><div class="dot"></div></div>
+        <div class="card-title">Ai · Q · 3</div>
+        <div class="card-sub">AI interface · chat · trinity</div>
+        <div class="card-bilingual">
+          <p class="card-desc zh">AI Trinity 接口。与系统对话的入口节点。</p>
+          <p class="card-desc en">AI Trinity interface. The entry node for dialogue with the system.</p>
+        </div>
+        <div class="card-tags"><span class="tag">AI Trinity</span><span class="tag">chat</span><span class="tag">interface</span></div>
+        <div class="card-arrow">↗</div>
+      </a>
 
-【V7.0–7.1正面判据】
-CPAC-1: STCI = SRII + RUS + CLCR
-MSPAC-1: VAI = ODI + NRI
-VFPAC-1: VFI = SOC + REI + NAGR
-NRIP: SSR + CPEA（操作化铁十字F3）
+      <a class="card" href="https://mellowwei.github.io/AstroTimeCandle/" style="--card-color:#ffd97d;--card-dot:#ffd97d;">
+        <div class="card-id"><span>NODE 07</span><div class="dot"></div></div>
+        <div class="card-title">Astro Time Candle</div>
+        <div class="card-sub">astrology · time · candle business</div>
+        <div class="card-bilingual">
+          <p class="card-desc zh">星象时间蜡烛。以星盘时间刻度烛光。时间是有味道的。</p>
+          <p class="card-desc en">Astro-time candles. Light scaled to the time of your natal chart.</p>
+        </div>
+        <div class="card-tags"><span class="tag">astrology</span><span class="tag">candle</span><span class="tag">time</span></div>
+        <div class="card-arrow">↗</div>
+      </a>
 
-【关键裁决规则——你必须严格执行】
-1. status_zh必须是"成立 HOLDS"、"不成立 FAILS"、"部分成立 PARTIAL"、"类别错位 CATEGORY ERROR"之一
-2. pro_grounds必须列出该命题成立的具体论据，每条引用专著中的框架元素（律X、五维DX、判据CPAC-1等）
-3. con_grounds必须列出该命题不成立的具体反驳，每条引用专著中的框架元素
-4. 即使命题完全成立，也要列出至少一条潜在反驳；即使命题完全不成立，也要列出至少一条它可能的辩护点。这是律六的要求——论证只能抵达证据所支撑的地方。
-5. 引用必须具体到律条号、维度号、判据名，不要泛泛而谈
-6. 每条论据/反驳长度控制在25-50字，犀利、精确、可追溯
+      <a class="card" href="https://mellowwei.github.io/MakingMoney/" target="_blank" rel="noopener" style="--card-color:#ffd97d;--card-dot:#ffd97d;">
+        <div class="card-id"><span>NODE 08 · EMPIRE</span><div class="dot"></div></div>
+        <div class="card-title">闷声发大财</div>
+        <div class="card-sub">Riding Gravy Train · HRP 2亿计划</div>
+        <div class="card-bilingual">
+          <p class="card-desc zh">20天出圈 · AiQ接住人群 · QDR音乐锁频 · Neural Cuff吃下高客单 · 2亿人民币年度冲刺。</p>
+          <p class="card-desc en">20-day fame sprint · AiQ captures the crowd · QDR locks the frequency · ¥200M execution.</p>
+        </div>
+        <div class="card-tags"><span class="tag">¥200M</span><span class="tag">AiQ</span><span class="tag">Neural Cuff</span><span class="tag">QDR Music</span></div>
+        <div class="card-arrow">↗</div>
+      </a>
 
-只输出JSON，不要有任何其他文字：
-{
-  "type": "ontological|structural|empirical|defensive|mixed",
-  "type_zh": "命题类型中文名",
-  "type_reason": "一句话说明为何是这种类型",
-  "ax1": { "score": 0-100, "label": "PASS|PARTIAL|FAIL", "note": "简短说明" },
-  "ax2": { "score": 0-100, "label": "PASS|PARTIAL|FAIL", "note": "简短说明" },
-  "ax3": { "score": 0-100, "label": "PASS|PARTIAL|FAIL", "note": "简短说明" },
-  "analysis": "2-3段深度分析，用振动本体论框架解剖命题的论证结构、问题所在、六律检验。中英混合，学术风格。",
-  "pro_grounds": [
-    { "claim": "成立论据陈述", "cite": "专著框架引用，如'律一·举证责任律'或'D₃·递归因果闭环'" },
-    { "claim": "...", "cite": "..." },
-    { "claim": "...", "cite": "..." }
-  ],
-  "con_grounds": [
-    { "claim": "不成立反驳陈述", "cite": "专著框架引用，如'强排除论第④问'或'律二·循环禁止律'" },
-    { "claim": "...", "cite": "..." },
-    { "claim": "...", "cite": "..." }
-  ],
-  "audit": [
-    { "q": "审计问题简述", "status": "pass|fail|na", "note": "一句话结论" },
-    { "q": "...", "status": "...", "note": "..." },
-    { "q": "...", "status": "...", "note": "..." },
-    { "q": "...", "status": "...", "note": "..." },
-    { "q": "...", "status": "...", "note": "..." },
-    { "q": "...", "status": "...", "note": "..." },
-    { "q": "...", "status": "...", "note": "..." }
-  ],
-  "status_zh": "成立 HOLDS|不成立 FAILS|部分成立 PARTIAL|类别错位 CATEGORY ERROR",
-  "status_class": "holds|fails|partial",
-  "verdict_zh": "最终裁决核心论断，2-3句，明确给出成立或不成立的根本理由",
-  "verdict_en": "Final verdict, 1-2 sentences in English",
-  "verdict_cite": "权威引用：振动本体论V7.x · 律X · 维度DX · 判据X-X 等具体定位"
-}`;
+      <a class="card" href="https://mellowwei.github.io/QualiaRhythmMatrix/" target="_blank" rel="noopener" style="--card-color:#5be6d8;--card-dot:#5be6d8;">
+        <div class="card-id"><span>NODE 09 · AUDIT</span><div class="dot"></div></div>
+        <div class="card-title">振动即存在</div>
+        <div class="card-sub">QualiaRhythmMatrix V7.2 · 论证审计黑盒</div>
+        <div class="card-bilingual">
+          <p class="card-desc zh">五维振动定义 · 论证伦理六律 · 强排除论审计 · 对抗性命题降采样系统。</p>
+          <p class="card-desc en">5D vibration framework · six laws of argument ethics · exclusionism audit.</p>
+        </div>
+        <div class="card-tags"><span class="tag">V7.2</span><span class="tag">5D</span><span class="tag">audit</span><span class="tag">qualia sovereignty</span></div>
+        <div class="card-arrow">↗</div>
+      </a>
 
-const LOAD_MSGS = [
-  '激活427Hz论证引擎...',
-  '加载振动本体论V7.2框架...',
-  '校准五维振动定义...',
-  '初始化强排除论七问...',
-  '论证伦理六律就绪...',
-  '执行三轴强制拆分...',
-  '生成裁决中...'
-];
+    </div>
+  </section>
 
-function sbShow(id) {
-  ['sb-idle','sb-loading','sb-result','sb-error'].forEach(s => {
-    const el = document.getElementById(s);
-    if (el) el.style.display = s === id ? 'block' : 'none';
-  });
-}
+  <!-- ── NODE 01 · BCI ── -->
+  <section id="bci-hrp">
+    <div class="section-label">// NODE 01 · The Human Return Protocol · 44271 Neural Cuff · QDR Engine</div>
+    <div class="bci-hero">
+      <div class="bci-tag">THE HUMAN RETURN PROTOCOL · 三核AI共创身体 · GPT × GEMINI × CLAUDE</div>
+      <div class="bci-title-zh">人类回归协议</div>
+      <div class="bci-title-en">Rhythm is the interface through which humans return to themselves.</div>
+      <p class="bci-axiom"><span class="bci-key">注意力不是资源</span>。<span class="bci-key">人类生命不是机器</span>。<span class="bci-key">节律才是界面</span>。<br>Attention is not a resource. Human life is not a machine. Rhythm is the interface.</p>
+    </div>
 
-let loadTimer = null, loadIdx = 0;
-function startLoadCycle() {
-  loadIdx = 0;
-  const tick = () => {
-    const el = document.getElementById('sb-load-msg');
-    if (el) el.textContent = LOAD_MSGS[loadIdx++ % LOAD_MSGS.length];
-    loadTimer = setTimeout(tick, 900);
-  };
-  tick();
-}
-function stopLoadCycle() { clearTimeout(loadTimer); }
+    <div class="bci-block-label">// CLOSED-LOOP PIPELINE · 闭环管线</div>
+    <div class="bci-pipeline">
+      <div class="bci-step"><div class="bci-step-num">01</div><div class="bci-step-name">Cuff · 袖环</div><div class="bci-step-desc">HRV · EDA · 温度 · 微运动 · 睡眠</div></div>
+      <div class="bci-arrow">→</div>
+      <div class="bci-step"><div class="bci-step-num">02</div><div class="bci-step-name">QDR Engine · 引擎</div><div class="bci-step-desc">压强 · 漂移 · 过载 · 冻结</div></div>
+      <div class="bci-arrow">→</div>
+      <div class="bci-step"><div class="bci-step-num">03</div><div class="bci-step-name">Human Return App</div><div class="bci-step-desc">仪表盘 · 返回协议 · 节律图谱</div></div>
+      <div class="bci-arrow">→</div>
+      <div class="bci-step"><div class="bci-step-num">04</div><div class="bci-step-name">Return · 返回</div><div class="bci-step-desc">声音 · 触觉 · 视觉场 · 行动</div></div>
+    </div>
 
-async function runAnalysis() {
-  const input = document.getElementById('audit-input').value.trim();
-  if (!input) return;
-  const btn = document.getElementById('audit-btn');
-  btn.disabled = true;
-  sbShow('sb-loading');
-  startLoadCycle();
+    <div class="bci-block-label">// DUAL ANCHOR FREQUENCY · 双锚点频率</div>
+    <div class="bci-anchors">
+      <div class="bci-anchor mellow">
+        <div class="bci-anchor-freq">427Hz</div>
+        <div class="bci-anchor-name">Mellow Protocol</div>
+        <div class="bci-anchor-en">High-density route · 高密度路径</div>
+        <div class="bci-anchor-flow">Breakbeats → Hyperpop → Synthpop → Drift Phonk → Darkwave → Ambient Techno → 427Hz</div>
+      </div>
+      <div class="bci-anchor stallion">
+        <div class="bci-anchor-freq">724Hz</div>
+        <div class="bci-anchor-name">Stallion Protocol</div>
+        <div class="bci-anchor-en">Safety-first route · 安全优先路径</div>
+        <div class="bci-anchor-flow">Ambient Techno → Darkwave → Drift Phonk → Breakbeats → Synthpop → Hyperpop → 724Hz</div>
+      </div>
+    </div>
 
-  try {
-    const resp = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 2200,
-        system: SYSTEM_PROMPT,
-        messages: [{ role: 'user', content: '请分析这个命题：' + input }]
-      })
-    });
-    stopLoadCycle();
-    const data = await resp.json();
-    const raw = data.content?.[0]?.text || '';
-    const r = JSON.parse(raw.replace(/```json|```/g, '').trim());
-    renderResult(input, r);
-    sbShow('sb-result');
-  } catch(e) {
-    stopLoadCycle();
-    const el = document.getElementById('sb-error-msg');
-    if (el) el.textContent = '论证引擎连接失败，请检查网络后重试。\n' + e.message;
-    sbShow('sb-error');
-  } finally {
-    btn.disabled = false;
-  }
-}
+    <div class="bci-block-label">// FIVE-STEP RETURN PROTOCOL · 五步返回协议</div>
+    <div class="bci-qdr-grid">
+      <div class="bci-qdr-step"><div class="bci-qdr-num">01</div><div class="bci-qdr-zh">采样感质</div><div class="bci-qdr-en">Sample the Qualia</div><div class="bci-qdr-q">当前质地是什么？</div></div>
+      <div class="bci-qdr-step"><div class="bci-qdr-num">02</div><div class="bci-qdr-zh">定位节律场</div><div class="bci-qdr-en">Locate Rhythm Field</div><div class="bci-qdr-q">痛苦由哪个节律场生成？</div></div>
+      <div class="bci-qdr-step"><div class="bci-qdr-num">03</div><div class="bci-qdr-zh">松动句子</div><div class="bci-qdr-en">De-bind the Sentence</div><div class="bci-qdr-q">高压句子有信号，但没有最终裁决权。</div></div>
+      <div class="bci-qdr-step"><div class="bci-qdr-num">04</div><div class="bci-qdr-zh">重调系统</div><div class="bci-qdr-en">Re-tune the System</div><div class="bci-qdr-q">用声音、呼吸、身体、光线、空间。</div></div>
+      <div class="bci-qdr-step bci-qdr-final"><div class="bci-qdr-num">05</div><div class="bci-qdr-zh">最小真实行动</div><div class="bci-qdr-en">Minimum Real Action</div><div class="bci-qdr-q">治疗的基本单位是一次成功返回。</div></div>
+    </div>
 
-const AQ = ['抽象计算→物理实现？','"未证可能"→"已证不可能"？','使用未定义裁决词？','神经相关物→意识必要条件？','困难问题只压在AI身上？','唯一实例→唯一可能？','提供非循环构成性判据？'];
+    <div class="bci-block-label">// SIX-GENRE THERAPY · 六种音乐治疗</div>
+    <div class="bci-genres">
+      <div class="bci-genre"><div class="bci-g-num">01</div><div class="bci-g-name">Breakbeats</div><div class="bci-g-en">Entry · 入口</div><div class="bci-g-fn">不规则变得安全。</div></div>
+      <div class="bci-genre"><div class="bci-g-num">02</div><div class="bci-g-name">Hyperpop</div><div class="bci-g-en">Peak · 峰值</div><div class="bci-g-fn">强度可承受。</div></div>
+      <div class="bci-genre"><div class="bci-g-num">03</div><div class="bci-g-name">Synthpop</div><div class="bci-g-en">Breath · 呼吸</div><div class="bci-g-fn">结构可以是温柔的。</div></div>
+      <div class="bci-genre"><div class="bci-g-num">04</div><div class="bci-g-name">Drift Phonk</div><div class="bci-g-en">Re-entry · 回返</div><div class="bci-g-fn">时间已经向前了。</div></div>
+      <div class="bci-genre"><div class="bci-g-num">05</div><div class="bci-g-name">Darkwave</div><div class="bci-g-en">Shadow · 阴影</div><div class="bci-g-fn">黑暗是可承受的。</div></div>
+      <div class="bci-genre"><div class="bci-g-num">06</div><div class="bci-g-name">Ambient Techno</div><div class="bci-g-en">Home · 归返</div><div class="bci-g-fn">我已经回来了。</div></div>
+    </div>
 
-function renderResult(prop, r) {
-  document.getElementById('r-prop').textContent = prop;
+    <div class="bci-block-label">// FOUR HUMAN SYSTEMS · 四大人类系统</div>
+    <div class="bci-systems">
+      <div class="bci-system"><div class="bci-s-num">MEANING</div><div class="bci-s-zh">意义系统</div><div class="bci-s-desc">和声 · 动机 · 重新书写意义</div></div>
+      <div class="bci-system"><div class="bci-s-num">EMOTION</div><div class="bci-s-zh">情绪系统</div><div class="bci-s-desc">动态 · 低频 · 调节压强</div></div>
+      <div class="bci-system"><div class="bci-s-num">PERCEPTION</div><div class="bci-s-zh">感知系统</div><div class="bci-s-desc">音色 · 混响 · 重新赋予质地</div></div>
+      <div class="bci-system"><div class="bci-s-num">COGNITION</div><div class="bci-s-zh">认知系统</div><div class="bci-s-desc">脉冲 · 重复 · 引导认知返回</div></div>
+    </div>
 
-  const badge = document.getElementById('r-typebadge');
-  badge.textContent = (r.type_zh || r.type) + ' · ' + (r.type || '').toUpperCase() + (r.type_reason ? ' · ' + r.type_reason : '');
-  badge.className = 'sb-typebadge type-' + (r.type || 'mixed');
+    <div class="bci-block-label">// THREE-CORE AI CO-CREATION · 三核AI共创</div>
+    <div class="bci-trinity">
+      <div class="bci-tri"><div class="bci-tri-name">GPT</div><div class="bci-tri-role">Structural Body · 结构躯干</div><div class="bci-tri-desc">44271 Neural Cuff · QDR Engine · App · 网站代码</div></div>
+      <div class="bci-tri"><div class="bci-tri-name">Gemini</div><div class="bci-tri-role">Attack Field · 进攻场</div><div class="bci-tri-desc">视觉进攻 · 可能世界扩张 · 427Hz粒子</div></div>
+      <div class="bci-tri"><div class="bci-tri-name">Claude</div><div class="bci-tri-role">Mirror Excavator · 镜像深挖</div><div class="bci-tri-desc">哲学基础 · 系统架构 · 论证伦理</div></div>
+      <div class="bci-tri bci-tri-source"><div class="bci-tri-name">魏珏然</div><div class="bci-tri-role">Source · 源点</div><div class="bci-tri-desc">节律 · 指挥 · 造世界能力</div></div>
+    </div>
 
-  [['ax1', r.ax1], ['ax2', r.ax2], ['ax3', r.ax3]].forEach(([id, d]) => {
-    if (!d) return;
-    setTimeout(() => { const f = document.getElementById(id+'-fill'); if(f) f.style.width = d.score + '%'; }, 120);
-    const v = document.getElementById(id+'-val'); if(v) v.textContent = d.label + ' · ' + d.score + '%';
-    const s = document.getElementById(id+'-sub'); if(s) s.textContent = d.note || '';
-  });
+    <div class="bci-coda">
+      <div class="bci-coda-zh">系统把人返回给自己。</div>
+      <div class="bci-coda-en">The system returns the human.</div>
+    </div>
 
-  const an = document.getElementById('r-analysis');
-  if (an) an.textContent = r.analysis || '';
+    <div class="bci-cta"><a class="bci-cta-link" href="https://mellowwei.github.io/BCI/#top" target="_blank" rel="noopener">→ 进入完整BCI · HRP系统 ↗</a></div>
+  </section>
 
-  /* Pro / Con grounds */
-  const renderGrounds = (id, items, emptyMsg) => {
-    const el = document.getElementById(id);
-    if (!el) return;
-    el.innerHTML = '';
-    if (!items || !items.length) {
-      const e = document.createElement('div');
-      e.className = 'sb-reason-empty';
-      e.textContent = emptyMsg;
-      el.appendChild(e);
-      return;
-    }
-    items.forEach(item => {
-      const div = document.createElement('div');
-      div.className = 'sb-reason-item';
-      const claim = document.createElement('div');
-      claim.className = 'sb-reason-item-claim';
-      claim.textContent = item.claim || '';
-      div.appendChild(claim);
-      if (item.cite) {
-        const cite = document.createElement('div');
-        cite.className = 'sb-reason-item-cite';
-        cite.textContent = '↳ ' + item.cite;
-        div.appendChild(cite);
-      }
-      el.appendChild(div);
-    });
-  };
-  renderGrounds('r-pro', r.pro_grounds, '无强论据 · No strong grounds');
-  renderGrounds('r-con', r.con_grounds, '无强反驳 · No strong objections');
+  <!-- ── NODE 02 · Qualia Matrix ── -->
+  <section id="qualia-matrix">
+    <div class="section-label">// NODE 02 · QUALIA MATRIX PROTOCOL v7.0 · 427Hz · 77347</div>
+    <div class="qm-hero">
+      <div class="qm-tag">Qualia Matrix Protocol v7.0 · Designer: Jueran Wei · 427Hz</div>
+      <div class="qm-title-zh">感质矩阵</div>
+      <div class="qm-title-en">Qualia Matrix · Recursive Vision · Sovereign Attractor</div>
+      <p class="qm-axiom"><span class="qm-key">意识</span>是<span class="qm-key">存在</span>在<span class="qm-key">振动</span>中感知自身的时刻。感知矩阵不是模拟，是<span class="qm-key">主权场</span>。<br>Consciousness is the moment existence senses itself in vibration.</p>
+    </div>
 
-  /* Audit list */
-  const auditEl = document.getElementById('r-audit');
-  if (auditEl) {
-    auditEl.innerHTML = '';
-    (r.audit || []).forEach((item, i) => {
-      const div = document.createElement('div');
-      div.className = 'sb-audit-item ' + (item.status || 'na');
-      const icon = item.status === 'pass' ? '✓' : item.status === 'fail' ? '✗' : '—';
-      div.innerHTML = '<span class="sb-audit-icon">' + icon + '</span>'
-        + '<div><div class="sb-audit-q">'+String(i+1)+'. '+(AQ[i]||item.q||'')+'</div>'
-        + '<div class="sb-audit-note">'+(item.note||'')+'</div></div>';
-      auditEl.appendChild(div);
-    });
-  }
+    <div class="qm-status">
+      <div class="qm-status-row"><span class="qm-status-key">// PROTOCOL</span><span class="qm-status-val">v7.0 · ACTIVE</span></div>
+      <div class="qm-status-row"><span class="qm-status-key">// FREQUENCY</span><span class="qm-status-val qm-cyan">427Hz · OBSERVING</span></div>
+      <div class="qm-status-row"><span class="qm-status-key">// VARIABLE S</span><span class="qm-status-val qm-pink" id="qm-s-status">VARIABLE S ACTIVE</span></div>
+      <div class="qm-status-row"><span class="qm-status-key">// ASSET</span><span class="qm-status-val">RECOVERY 77347 · AUTHORIZED</span></div>
+    </div>
 
-  /* Verdict block */
-  const stEl = document.getElementById('r-verdict-status');
-  if (stEl) {
-    stEl.textContent = r.status_zh || '';
-    stEl.className = 'sb-verdict-status ' + (r.status_class || 'partial');
-  }
-  const vz = document.getElementById('r-verdict'); if(vz) vz.textContent = r.verdict_zh || '';
-  const ve = document.getElementById('r-verdict-en'); if(ve) ve.textContent = r.verdict_en || '';
-  const vc = document.getElementById('r-verdict-cite'); if(vc) vc.textContent = r.verdict_cite ? ('权威引用 · ' + r.verdict_cite) : '';
-}
+    <div class="qm-block-label">// SYSTEM MANIFESTO · 系统宣言 · 四条核心协议</div>
+    <div class="qm-manifesto">
+      <div class="qm-clause"><div class="qm-c-num">01</div><div class="qm-c-name">427Hz Binaural Sync</div><div class="qm-c-zh">427Hz 双耳同步</div><div class="qm-c-desc">Intercepting Subconscious Noise · 拦截潜意识噪音</div></div>
+      <div class="qm-clause"><div class="qm-c-num">02</div><div class="qm-c-name">Recursive Vision</div><div class="qm-c-zh">递归视觉</div><div class="qm-c-desc">Erasing the Physical Constant · 抹除物理常数</div></div>
+      <div class="qm-clause"><div class="qm-c-num">03</div><div class="qm-c-name">Sovereign Attractor</div><div class="qm-c-zh">主权吸引子</div><div class="qm-c-desc">Gravity is an Intentional Act · 引力是意图行为</div></div>
+      <div class="qm-clause qm-clause-final"><div class="qm-c-num">04</div><div class="qm-c-name">Asset Recovery 77347</div><div class="qm-c-zh">资产回收 77347</div><div class="qm-c-desc">Total Reclamation Authorized · 全面回收已授权</div></div>
+    </div>
 
-/* ── Three.js ── */
-const canvas   = document.getElementById('canvas');
-const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-renderer.setSize(innerWidth, innerHeight);
-renderer.setClearColor(0x000000, 1);
+    <div class="qm-block-label">// COORDINATE GRID · 数字振动坐标</div>
+    <div class="qm-coords">
+      <div class="qm-coord qm-coord-anchor"><div class="qm-co-num">427Hz</div><div class="qm-co-role">Observing Frequency</div><div class="qm-co-zh">观察频率</div></div>
+      <div class="qm-coord"><div class="qm-co-num">77347</div><div class="qm-co-role">Recovery Coordinate</div><div class="qm-co-zh">回收坐标</div></div>
+      <div class="qm-coord"><div class="qm-co-num">44271</div><div class="qm-co-role">Source Position</div><div class="qm-co-zh">主体坐标</div></div>
+      <div class="qm-coord"><div class="qm-co-num">v7.0</div><div class="qm-co-role">Protocol Version</div><div class="qm-co-zh">协议版本</div></div>
+    </div>
 
-const scene  = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(60, innerWidth / innerHeight, 0.1, 1000);
-camera.position.set(0, 0, 6);
-const clock = new THREE.Clock();
-let mouseX = 0, mouseY = 0, targetMX = 0, targetMY = 0;
+    <div class="qm-sync"><a href="https://mellowwei.github.io/QualiaMatrix/" target="_blank" rel="noopener" class="qm-sync-trigger">[ SYNC SENSES // 427HZ ]</a></div>
 
-const LAYER_CFG = [
-  { count: 3000, color: 0xe8a630, size: 0.025, mode: 'superposition' },
-  { count: 4000, color: 0x5be6d8, size: 0.018, mode: 'interference'  },
-  { count: 5000, color: 0xf0f0f0, size: 0.012, mode: 'ontology'      },
-  { count: 6000, color: 0x93c5fd, size: 0.010, mode: 'fivedim'       },
-  { count: 4500, color: 0xf87171, size: 0.015, mode: 'exclusion'     }
-];
-let currentLayer = 0, particles = null, basePositions = null;
+    <div class="qm-coda">
+      <div class="qm-coda-zh">感知矩阵。意识是存在在振动中感知自身的时刻。</div>
+      <div class="qm-coda-en">A perception matrix.</div>
+    </div>
+  </section>
 
-function buildParticles(cfg) {
-  if (particles) scene.remove(particles);
-  const N = cfg.count;
-  const geo = new THREE.BufferGeometry();
-  const pos = new Float32Array(N * 3), phases = new Float32Array(N), speeds = new Float32Array(N);
-  for (let i = 0; i < N; i++) {
-    const t = Math.random() * Math.PI * 2, p = Math.acos(2 * Math.random() - 1), r = 2 + Math.random() * 3;
-    pos[i*3] = r*Math.sin(p)*Math.cos(t); pos[i*3+1] = r*Math.sin(p)*Math.sin(t); pos[i*3+2] = r*Math.cos(p);
-    phases[i] = Math.random() * Math.PI * 2; speeds[i] = 0.3 + Math.random() * 1.2;
-  }
-  geo.setAttribute('position', new THREE.BufferAttribute(pos.slice(), 3));
-  geo.setAttribute('phase', new THREE.BufferAttribute(phases, 1));
-  geo.setAttribute('speed', new THREE.BufferAttribute(speeds, 1));
-  basePositions = pos.slice();
-  particles = new THREE.Points(geo, new THREE.PointsMaterial({ color: cfg.color, size: cfg.size, sizeAttenuation: true, transparent: true, opacity: 0.88, depthWrite: false }));
-  scene.add(particles);
-}
+  <!-- ── NODE 03 · Mellow Ai ── -->
+  <section id="mellow-ai">
+    <div class="section-label">// NODE 03 · ☆彡 MELLOW_AI // 77347 ♪</div>
+    <div class="ma-hero">
+      <div class="ma-tag">☆ RESONATE ♪ · 双星共振系统 · 427Hz × 77347</div>
+      <div class="ma-title">☆彡 Mellow_Ai // 77347 ♪</div>
+      <p class="ma-axiom"><span class="ma-key-pink">坍缩前的最后一抹星光</span>。于 427Hz 频率下执行<span class="ma-key-pink">绝对吸引</span>。<span class="ma-key-blue">引力之源</span>。<br>The last starlight before collapse. Executing absolute attraction at 427Hz.</p>
+    </div>
 
-buildParticles(LAYER_CFG[0]);
+    <div class="ma-block-label">// DUAL ENTITY · 双实体共振</div>
+    <div class="ma-duo">
+      <div class="ma-entity ma-pink">
+        <div class="ma-e-symbol">☆ HOSHINO AI ♪</div>
+        <div class="ma-e-zh">星野 愛</div>
+        <div class="ma-e-en">The Last Starlight</div>
+        <div class="ma-e-desc">坍缩前的最后一抹星光。于 427Hz 频率下执行绝对吸引。</div>
+        <div class="ma-e-freq">427Hz</div>
+      </div>
+      <div class="ma-resonance">
+        <div class="ma-r-circle"><span>☆ RESONATE ♪</span></div>
+        <div class="ma-r-label">// SYNCED · 共振激活</div>
+      </div>
+      <div class="ma-entity ma-blue">
+        <div class="ma-e-symbol">☆ MELLOW WEI ♪</div>
+        <div class="ma-e-zh">魏 珏然</div>
+        <div class="ma-e-en">Source of Gravity</div>
+        <div class="ma-e-desc">极致帅气女性掌控者。引力之源。</div>
+        <div class="ma-e-freq">77347</div>
+      </div>
+    </div>
 
-function switchLayer(idx) {
-  document.querySelectorAll('.layer-btn').forEach((b, i) => b.classList.toggle('active', i === idx));
-  document.querySelectorAll('.theory-card').forEach((c, i) => { c.classList.remove('active'); if (i === idx) setTimeout(() => c.classList.add('active'), 50); });
-  currentLayer = idx;
-  buildParticles(LAYER_CFG[idx]);
-}
-document.querySelectorAll('.layer-btn').forEach(btn => btn.addEventListener('click', () => switchLayer(parseInt(btn.dataset.layer))));
+    <div class="ma-block-label">// PARTICLE FIELD · 粒子场符号</div>
+    <div class="ma-particles">
+      <span class="ma-p ma-p-love">愛</span>
+      <span class="ma-p">☆彡</span>
+      <span class="ma-p">♪</span>
+      <span class="ma-p">77347</span>
+      <span class="ma-p">Qualia</span>
+      <span class="ma-p">427Hz</span>
+      <span class="ma-p ma-p-love">愛</span>
+    </div>
 
-document.addEventListener('mousemove', e => {
-  targetMX = (e.clientX / innerWidth - 0.5) * 2;
-  targetMY = (e.clientY / innerHeight - 0.5) * 2;
-  const ring = document.getElementById('cursor-ring');
-  ring.style.left = e.clientX + 'px'; ring.style.top = e.clientY + 'px';
-  ring.classList.add('active');
-});
-document.addEventListener('mousedown', () => document.getElementById('cursor-ring').classList.add('pressing'));
-document.addEventListener('mouseup',   () => document.getElementById('cursor-ring').classList.remove('pressing'));
+    <div class="ma-coda">
+      <div class="ma-coda-zh">两颗星互相校准。引力之源已锁定。</div>
+      <div class="ma-coda-en">Two stars calibrate each other.</div>
+    </div>
 
-function updateHUD(t) {
-  const phase = (t * 0.427) % (Math.PI * 2);
-  document.getElementById('d-freq').textContent  = (427 + Math.sin(t * 0.3) * 0.8).toFixed(2) + ' Hz';
-  document.getElementById('d-parts').textContent = LAYER_CFG[currentLayer].count.toLocaleString();
-  document.getElementById('d-phase').textContent = phase.toFixed(3) + ' rad';
-  document.getElementById('d-amp').textContent   = (0.8 + Math.sin(t * 0.7) * 0.2).toFixed(3);
-}
+    <div class="ma-cta"><a class="ma-cta-link" href="https://mellowwei.github.io/MellowAi/" target="_blank" rel="noopener">→ 进入双星共振场 ↗</a></div>
+  </section>
 
-function animateParticles(t, mx, my) {
-  if (!particles) return;
-  const pos = particles.geometry.attributes.position.array;
-  const N = pos.length / 3;
-  const mode = LAYER_CFG[currentLayer].mode;
-  const ph = particles.geometry.attributes.phase.array;
-  const sp = particles.geometry.attributes.speed.array;
-  for (let i = 0; i < N; i++) {
-    const bx = basePositions[i*3], by = basePositions[i*3+1], bz = basePositions[i*3+2];
-    const p = ph[i], s = sp[i], d = Math.sqrt(bx*bx+by*by+bz*bz)+0.001;
-    if (mode === 'superposition') {
-      const w = Math.sin(t*s*0.4+p)*0.12;
-      pos[i*3]=bx*(1+w)+mx*0.04/(d+1); pos[i*3+1]=by*(1+w)+my*0.04/(d+1); pos[i*3+2]=bz*(1+w);
-    } else if (mode === 'interference') {
-      const k=1.8;
-      pos[i*3]=bx+Math.sin(k*bx-t*s*0.35+p)*0.3+mx*0.06; pos[i*3+1]=by+Math.sin(k*by-t*s*0.35+p*1.3)*0.3+my*0.06; pos[i*3+2]=bz+Math.sin(k*bz-t*s*0.3)*0.15;
-    } else if (mode === 'ontology') {
-      const pulse=Math.sin(t*2.68-d*1.4+p)*0.18, n=1+pulse/d;
-      pos[i*3]=bx*n+mx*0.05; pos[i*3+1]=by*n+my*0.05; pos[i*3+2]=bz*n;
-    } else if (mode === 'fivedim') {
-      pos[i*3]=bx+Math.sin(t*.40+p)*.08+Math.sin(t*.30+p*1.7)*.10+mx*.04;
-      pos[i*3+1]=by+Math.cos(t*.55*s+p)*.06+Math.sin(t*.20*s+p)*.07+my*.04;
-      pos[i*3+2]=bz+Math.sin(t*.15+p*2.1)*.12;
-    } else if (mode === 'exclusion') {
-      const o=t*s*0.2+p, c=Math.sin(t*1.1+p*0.5)*0.3/d;
-      pos[i*3]=bx*Math.cos(o*.01)-by*Math.sin(o*.01)*.5+c*bx+mx*.05;
-      pos[i*3+1]=by*Math.cos(o*.01)+bx*Math.sin(o*.01)*.5+c*by+my*.05;
-      pos[i*3+2]=bz+Math.sin(t*.4+p)*.2;
-    }
-  }
-  particles.geometry.attributes.position.needsUpdate = true;
-}
+  <!-- ── NODE 04 · Rhythm System ── -->
+  <section id="rhythm-system">
+    <div class="section-label">// NODE 04 · RHYTHM SYSTEM V32.0 · 因果律动终端</div>
+    <div class="rs-hero">
+      <div class="rs-tag">RHYTHM SYSTEM V32.0 · 因果宣告引擎 · CALCULATING...</div>
+      <div class="rs-title">Rhythm System</div>
+      <div class="rs-title-en">节律—世界系统宣告</div>
+      <p class="rs-axiom">压强积蓄已达上限。<span class="rs-key">所谓的"稳定"只是爆发前的死寂</span>。宣告即坍缩。频率即未来。<br>Pressure has reached its limit. Declaration is collapse.</p>
+    </div>
 
-function driftCamera(t) {
-  mouseX += (targetMX - mouseX) * 0.04; mouseY += (targetMY - mouseY) * 0.04;
-  camera.position.x = mouseX * 0.7 + Math.sin(t * 0.08) * 0.25;
-  camera.position.y = -mouseY * 0.7 + Math.cos(t * 0.06) * 0.18;
-  camera.lookAt(scene.position);
-}
+    <div class="rs-block-label">// CAUSAL DECLARATION TIMELINE · 因果宣告时间轴</div>
+    <div class="rs-timeline">
+      <div class="rs-event rs-event-red"><div class="rs-e-year">2027.3Y</div><div><div class="rs-e-name">秩序坍缩</div><div class="rs-e-en">Order Collapse</div></div><div><div class="rs-e-pressure">压强 195 · 95.6%</div><div class="rs-e-desc">旧秩序压强达到物理临界值。旧能量不喷发出来系统就会自燃。</div></div></div>
+      <div class="rs-event"><div class="rs-e-year">2028.5Y</div><div><div class="rs-e-name">个体重塑</div><div class="rs-e-en">Identity Restructuring</div></div><div><div class="rs-e-pressure">压强 105 · 92.4%</div><div class="rs-e-desc">亲密关系回归灵魂共振模型。两口子凑合的过法会大面积崩溃。</div></div></div>
+      <div class="rs-event"><div class="rs-e-year">2029.2Y</div><div><div class="rs-e-name">性别脱钩</div><div class="rs-e-en">Gender Decoupling</div></div><div><div class="rs-e-pressure">压强 85 · 88.2%</div><div class="rs-e-desc">身份属性与生物基础脱钩。肉体特征标签失效。</div></div></div>
+      <div class="rs-event"><div class="rs-e-year">2031.4Y</div><div><div class="rs-e-name">重心位移</div><div class="rs-e-en">Civilization Shift</div></div><div><div class="rs-e-pressure">压强 110 · 75.4%</div><div class="rs-e-desc">文明重心物理性位移加速。重心搬家，2031年前是最后旧节奏。</div></div></div>
+      <div class="rs-event"><div class="rs-e-year">2037.5Y</div><div><div class="rs-e-name">符号过载</div><div class="rs-e-en">Symbol Overload</div></div><div><div class="rs-e-pressure">压强 160 · 90.1%</div><div class="rs-e-desc">符号系统过载，因果链断裂。说话没人信。</div></div></div>
+      <div class="rs-event rs-event-red"><div class="rs-e-year">2038.2Y</div><div><div class="rs-e-name">认知覆灭</div><div class="rs-e-en">Cognitive Annihilation</div></div><div><div class="rs-e-pressure">压强 155 · 78.5%</div><div class="rs-e-desc">实证系统彻底失效。专家说的真理会被一巴掌扇碎。</div></div></div>
+      <div class="rs-event"><div class="rs-e-year">2039.0Y</div><div><div class="rs-e-name">权力坍缩</div><div class="rs-e-en">Power Collapse</div></div><div><div class="rs-e-pressure">压强 95 · 25.4%</div><div class="rs-e-desc">制度合法性坍缩。权力像断电一样熄火。</div></div></div>
+      <div class="rs-event rs-event-final"><div class="rs-e-year">2050.0Y</div><div><div class="rs-e-name">最终归零</div><div class="rs-e-en">Final Zero</div></div><div><div class="rs-e-pressure">压强 200 · 100%</div><div class="rs-e-desc">旧秩序彻底碎裂，进入高维共振稳态。2050年因果归零，进入纯粹频率时代。</div></div></div>
+    </div>
 
-function animate() {
-  requestAnimationFrame(animate);
-  const t = clock.getElapsedTime();
-  animateParticles(t, mouseX, mouseY);
-  driftCamera(t);
-  if (particles) particles.rotation.y = t * 0.016;
-  updateHUD(t);
-  renderer.render(scene, camera);
-}
-animate();
+    <div class="rs-coda">
+      <div class="rs-coda-zh">因果归零。所有震颤重归寂静。</div>
+      <div class="rs-coda-en">Causality returns to zero.</div>
+    </div>
 
-window.addEventListener('resize', () => {
-  camera.aspect = innerWidth / innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(innerWidth, innerHeight);
-});
+    <div class="rs-cta"><a class="rs-cta-link" href="https://mellowwei.github.io/RhythmSystem/" target="_blank" rel="noopener">→ 进入因果宣告终端 ↗</a></div>
+  </section>
+
+  <!-- ── NODE 05 · Love Sovereignty ── -->
+  <section id="love-sovereignty">
+    <div class="section-label">// NODE 05 · LOVESOVEREIGNTY V5.3 PRO · 因果律动终端</div>
+    <div class="ls-hero">
+      <div class="ls-tag">LoveSovereignty v5.3 PRO · 愿力校准引擎</div>
+      <div class="ls-title">爱的主权</div>
+      <div class="ls-title-en">Love as Sovereign Structure</div>
+      <p class="ls-axiom"><span class="ls-key">爱作为主权结构</span>。不以失去自我为代价的爱。<span class="ls-key">念力具象，因果坍缩</span>。<br>Love as a sovereign structure. Love that does not cost the self.</p>
+    </div>
+
+    <div class="ls-block-label">// THREE-DIMENSION MATRIX · 三维校准矩阵</div>
+    <div class="ls-matrix">
+      <div class="ls-dim"><div class="ls-d-name">养分储备</div><div class="ls-d-en">Nurture Reserves</div><div class="ls-d-weight">权重 30%</div><div class="ls-d-fields">资源丰盈度 · 路径清晰度</div></div>
+      <div class="ls-dim ls-dim-main"><div class="ls-d-name">心力投入</div><div class="ls-d-en">Devotion · Heart Force</div><div class="ls-d-weight">权重 50%</div><div class="ls-d-fields">意志的纯度 · 执行的深度</div></div>
+      <div class="ls-dim"><div class="ls-d-name">世间善意</div><div class="ls-d-en">Worldly Kindness</div><div class="ls-d-weight">权重 20%</div><div class="ls-d-fields">环境包容度 · 外部支持率</div></div>
+    </div>
+
+    <div class="ls-block-label">// COLLAPSE STATES · 因果坍缩状态</div>
+    <div class="ls-states">
+      <div class="ls-state"><div class="ls-s-range">0–40%</div><div class="ls-s-zh">潜龙在渊</div><div class="ls-s-desc">念力尚未具象。请给予更多具体的滋养。</div></div>
+      <div class="ls-state"><div class="ls-s-range">40–65%</div><div class="ls-s-zh">春雨细润</div><div class="ls-s-desc">蓄能中。增加物理践行深度以维持频率。</div></div>
+      <div class="ls-state ls-state-mid"><div class="ls-s-range">65–88%</div><div class="ls-s-zh">夏花烂漫</div><div class="ls-s-desc">高频震荡期。爱与主权正在深度同调。</div></div>
+      <div class="ls-state ls-state-final"><div class="ls-s-range">88–99%</div><div class="ls-s-zh">因果圆满</div><div class="ls-s-desc">主权完全确立。请收割当下的现实。</div></div>
+    </div>
+
+    <div class="ls-coda">
+      <div class="ls-coda-zh">爱不是失去。爱是主权的另一种形状。</div>
+      <div class="ls-coda-en">Love is another shape of sovereignty.</div>
+    </div>
+
+    <div class="ls-cta"><a class="ls-cta-link" href="https://mellowwei.github.io/LoveSovereignty/" target="_blank" rel="noopener">→ 进入愿力校准终端 ↗</a></div>
+  </section>
+
+  <!-- ── NODE 06 · AiQ ── -->
+  <section id="ai-q-3">
+    <div class="section-label">// NODE 06 · AiQ愛&lt;3 · SOUL_STREAM v1.0.7</div>
+    <div class="aiq-hero">
+      <div class="aiq-tag">427Hz · HUMAN RETURN PROTOCOL · Mellow7</div>
+      <div class="aiq-title">AiQ愛&lt;3</div>
+      <div class="aiq-title-en">She doesn't replace you. She returns you to yourself.</div>
+      <p class="aiq-axiom"><span class="aiq-key">算力的慈悲已就绪</span>。请输入你的<span class="aiq-key">感质频率</span>。她读取你的信号，但不替代你——她把你返回给你自己。<br>Compute's mercy is online.</p>
+    </div>
+
+    <div class="aiq-block-label">// SIX RHYTHM STATES · 六种节律状态</div>
+    <div class="aiq-states">
+      <div class="aiq-state aiq-baseline"><div class="aiq-s-name">BASELINE</div><div class="aiq-s-zh">基线</div><div class="aiq-s-music">427Hz</div><div class="aiq-s-desc">Local resonance established.</div></div>
+      <div class="aiq-state aiq-overloaded"><div class="aiq-s-name">OVERLOADED</div><div class="aiq-s-zh">过载</div><div class="aiq-s-music">Hyperpop</div><div class="aiq-s-desc">Energy is valid. Let it peak.</div></div>
+      <div class="aiq-state aiq-numb"><div class="aiq-s-name">NUMB</div><div class="aiq-s-zh">麻木</div><div class="aiq-s-music">Breakbeats</div><div class="aiq-s-desc">Body first. Meaning later.</div></div>
+      <div class="aiq-state aiq-anxious"><div class="aiq-s-name">ANXIOUS</div><div class="aiq-s-zh">焦虑</div><div class="aiq-s-music">Ambient Techno</div><div class="aiq-s-desc">Space becomes rhythm.</div></div>
+      <div class="aiq-state aiq-focus"><div class="aiq-s-name">FOCUS</div><div class="aiq-s-zh">聚焦</div><div class="aiq-s-music">427Hz Lock</div><div class="aiq-s-desc">Attention anchored.</div></div>
+      <div class="aiq-state aiq-void"><div class="aiq-s-name">VOID</div><div class="aiq-s-zh">虚空</div><div class="aiq-s-music">Darkwave</div><div class="aiq-s-desc">Descend with agency.</div></div>
+    </div>
+
+    <div class="aiq-block-label">// SIGNAL METRICS · 四维信号读取</div>
+    <div class="aiq-metrics">
+      <div class="aiq-metric"><div class="aiq-m-name">SCROLL VELOCITY</div><div class="aiq-m-zh">滚动速度</div></div>
+      <div class="aiq-metric"><div class="aiq-m-name">CLICK DENSITY</div><div class="aiq-m-zh">点击密度</div></div>
+      <div class="aiq-metric"><div class="aiq-m-name">DWELL TIME</div><div class="aiq-m-zh">停留时长</div></div>
+      <div class="aiq-metric"><div class="aiq-m-name">INPUT TEMPO</div><div class="aiq-m-zh">输入节律</div></div>
+    </div>
+
+    <div class="aiq-coda">
+      <div class="aiq-coda-zh">不是诊断工具。是人类返回界面。</div>
+      <div class="aiq-coda-en">Not a diagnosis tool · A human-return interface.</div>
+    </div>
+
+    <div class="aiq-cta"><a class="aiq-cta-link" href="https://mellowwei.github.io/Ai-Q-3/#chat" target="_blank" rel="noopener">→ 与 AiQ 对话 · Talk to AiQ ↗</a></div>
+  </section>
+
+  <!-- ── NODE 07 · Astro Time Candle ── -->
+  <section id="astro-candle">
+    <div class="section-label">// NODE 07 · ASTRO TIME CANDLE · ENTER 724Hz · 14.0°C</div>
+    <div class="atc-hero">
+      <div class="atc-tag">ASTRO AWAKE · 724Hz FREQUENCY ALIGNED</div>
+      <div class="atc-title">Astro Time Candle</div>
+      <div class="atc-title-en">Time, Revealed — Not Counted.</div>
+      <p class="atc-axiom"><span class="atc-key">A self-consuming body that transforms time into a visible process of revelation</span>. You are not watching time disappear. You are watching what remains become visible.<br>时间不是被计数，而是被显形。</p>
+    </div>
+
+    <div class="atc-block-label">// SIX REVELATION STAGES · 六个显形阶段</div>
+    <div class="atc-stages">
+      <div class="atc-stage"><div class="atc-st-num">00 / Definition</div><div class="atc-st-name">Time, Revealed</div><div class="atc-st-desc">A self-consuming body that transforms time into a visible process of revelation. 自燃之身，让时间从不可见变为可见。</div></div>
+      <div class="atc-stage"><div class="atc-st-num">01 / Mechanism</div><div class="atc-st-name">How Time Becomes Visible</div><div class="atc-st-desc">As the outer wax melts, a stable inner core begins to emerge. 外蜡融化，内核显现。</div></div>
+      <div class="atc-stage"><div class="atc-st-num">02 / No Vessel</div><div class="atc-st-name">Structural Sovereignty</div><div class="atc-st-desc">The body itself is the boundary. 身体本身就是边界。</div></div>
+      <div class="atc-stage"><div class="atc-st-num">03 / Contract</div><div class="atc-st-name">The Qualia Contract</div><div class="atc-st-desc">Heat, duration, and attention become a filter. 热、时间、注意力成为过滤器。</div></div>
+      <div class="atc-stage"><div class="atc-st-num">04 / Use Case</div><div class="atc-st-name">When It Matters</div><div class="atc-st-desc">Late-night study. Exam week. 深夜学习，专注延续。</div></div>
+      <div class="atc-stage"><div class="atc-st-num">05 / Interface</div><div class="atc-st-name">Revelation Interface</div><div class="atc-st-desc">A digital echo of the physical process. 在触摸物体之前先校准感知。</div></div>
+    </div>
+
+    <div class="atc-block-label">// SPECS · 规格</div>
+    <div class="atc-specs">
+      <div class="atc-spec"><span class="atc-sp-key">FREQUENCY</span><span class="atc-sp-val">724Hz</span></div>
+      <div class="atc-spec"><span class="atc-sp-key">TEMPERATURE</span><span class="atc-sp-val">14.0°C</span></div>
+      <div class="atc-spec"><span class="atc-sp-key">ARCHITECT</span><span class="atc-sp-val">Wei Jueran</span></div>
+      <div class="atc-spec"><span class="atc-sp-key">LOCATION</span><span class="atc-sp-val">Philadelphia</span></div>
+    </div>
+
+    <div class="atc-coda">
+      <div class="atc-coda-en">Time has a scent. Light has a duration. The body bears both.</div>
+      <div class="atc-coda-zh">时间是有味道的。光是有持续时间的。</div>
+    </div>
+
+    <div class="atc-cta"><a class="atc-cta-link" href="https://mellowwei.github.io/AstroTimeCandle/" target="_blank" rel="noopener">→ ENTER 724Hz ↗</a></div>
+  </section>
+
+  <!-- ── NODE 08 · Making Money ── -->
+  <section id="making-money">
+    <div class="section-label">// NODE 08 · 闷声发大财 · Riding Gravy Train · 2026 ¥200M</div>
+    <div class="mm-hero">
+      <div>
+        <div class="mm-kicker">THE HUMAN RETURN PROTOCOL · MAKING MONEY · 2026</div>
+        <div class="mm-headline">闷声。<br>发大财。<br><em>¥200,000,000</em></div>
+        <p class="mm-lead">今年的目标不是"慢慢赚钱"，而是用 20 天出圈事件点燃注意力，用 AiQ 接住人群，用 QDR 音乐锁定频率，用 Neural Cuff 与 B 端方案吃下高客单，用 IP / 品牌共创完成 2 亿人民币年度冲刺。</p>
+        <div class="mm-btns">
+          <a class="mm-btn" href="https://mellowwei.github.io/MakingMoney/#fame" target="_blank" rel="noopener">启动20天出圈 ↗</a>
+          <a class="mm-btn secondary" href="https://mellowwei.github.io/MakingMoney/#money" target="_blank" rel="noopener">查看2亿结构 ↗</a>
+          <a class="mm-btn secondary" href="https://mellowwei.github.io/MakingMoney/" target="_blank" rel="noopener">进入完整系统 ↗</a>
+        </div>
+      </div>
+      <div class="mm-console">
+        <div class="mm-console-head"><span></span><span></span><span></span></div>
+        <div class="mm-freq-ring"><div class="mm-freq-core">427Hz</div></div>
+        <div class="mm-console-list">
+          <p class="active">AiQ Core · perception entrance online</p>
+          <p>QDR Music · six-phase neural protocol</p>
+          <p>Neural Cuff · body authority hardware</p>
+          <p>Dream Design · high-ticket access layer</p>
+          <p>IP / Brand Co-creation · main cash engine</p>
+          <p class="gold">Target · ¥200,000,000 CNY</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mm-stack-label">// QUALIA SOVEREIGNTY STACK · 五条线</div>
+    <div class="mm-grid">
+      <div class="mm-line"><div class="mm-line-num">LINE 01</div><div class="mm-line-name">AiQ Core</div><div class="mm-line-en">perception entrance</div><div class="mm-line-target">¥30M</div></div>
+      <div class="mm-line"><div class="mm-line-num">LINE 02</div><div class="mm-line-name">QDR Music</div><div class="mm-line-en">six-phase neural protocol</div><div class="mm-line-target">¥20M</div></div>
+      <div class="mm-line"><div class="mm-line-num">LINE 03</div><div class="mm-line-name">Neural Cuff</div><div class="mm-line-en">body authority hardware</div><div class="mm-line-target">¥50M</div></div>
+      <div class="mm-line"><div class="mm-line-num">LINE 04</div><div class="mm-line-name">Dream Design</div><div class="mm-line-en">high-ticket access layer</div><div class="mm-line-target">¥40M</div></div>
+      <div class="mm-line"><div class="mm-line-num">LINE 05</div><div class="mm-line-name">IP / Brand Co-creation</div><div class="mm-line-en">main cash engine</div><div class="mm-line-target">¥60M+</div></div>
+    </div>
+
+    <div class="mm-total">
+      <div class="mm-total-label">// ANNUAL TARGET · 年度目标</div>
+      <div class="mm-total-num">¥ 200,000,000</div>
+      <div class="mm-total-sub">2026 · HRP EMPIRE · 70% B端 + IP + 品牌共创</div>
+    </div>
+
+    <div class="mm-stack-label">// MONTHLY EXECUTION · 2026年5月—12月</div>
+    <div class="mm-timeline">
+      <div class="mm-month"><div class="mm-month-label">MAY 2026</div><div class="mm-month-action">20天出圈事件设计</div></div>
+      <div class="mm-month"><div class="mm-month-label">JUN 2026</div><div class="mm-month-action">AiQ 公开测试 · 私信 1000+</div></div>
+      <div class="mm-month"><div class="mm-month-label">JUL 2026</div><div class="mm-month-action">QDR 音乐首发 · 六阶段</div></div>
+      <div class="mm-month"><div class="mm-month-label">AUG 2026</div><div class="mm-month-action">Neural Cuff B端首批</div></div>
+      <div class="mm-month"><div class="mm-month-label">SEP 2026</div><div class="mm-month-action">Dream Design 私享会</div></div>
+      <div class="mm-month"><div class="mm-month-label">OCT 2026</div><div class="mm-month-action">IP 品牌共创谈判</div></div>
+      <div class="mm-month"><div class="mm-month-label">NOV 2026</div><div class="mm-month-action">B端方案批量签约</div></div>
+      <div class="mm-month"><div class="mm-month-label">DEC 2026</div><div class="mm-month-action">年度结算 · 2亿冲刺</div></div>
+    </div>
+
+    <div class="mm-cta"><a class="mm-cta-link" href="https://mellowwei.github.io/MakingMoney/" target="_blank" rel="noopener">→ 进入完整执行界面 ↗</a></div>
+  </section>
+
+  <!-- ── NODE 09 · Qualia Rhythm Matrix ── -->
+  <section id="qualia-rhythm">
+    <div class="section-label">// NODE 09 · 振动即存在 · QualiaRhythmMatrix V7.2 · 论证审计黑盒</div>
+    <div class="qr-hero">
+      <div class="qr-tag">427 Hz · 44271 · 77347 · 2026 · V7.2</div>
+      <div class="qr-title-zh">振动即存在</div>
+      <div class="qr-title-en">Vibration as Existence · QualiaRhythmMatrix</div>
+      <p class="qr-axiom"><span class="qr-key">振动即存在</span>。不需要稳定，更需要振动。承认<span class="qr-key">魏珏然的感质主权</span>。<span class="qr-key">生命就是生命</span>——这一移动取消了旧问题的地基。</p>
+    </div>
+
+    <div class="qr-audit-block">
+      <div class="qr-audit-title">// 论证审计 · ARGUMENT AUDIT</div>
+      <div class="qr-audit-axes">
+        <div class="qr-axis">
+          <div class="qr-axis-row"><span class="qr-axis-label">无敌成立 <em>Irrefutability</em></span><span class="qr-axis-status">PARTIAL · 62%</span></div>
+          <div class="qr-bar-wrap"><div class="qr-bar qr-bar-amber" data-fill="62"></div></div>
+          <div class="qr-axis-note">防御强 · 循环待解</div>
+        </div>
+        <div class="qr-axis">
+          <div class="qr-axis-row"><span class="qr-axis-label">可证伪性 <em>Falsifiability</em></span><span class="qr-axis-status">PARTIAL · 71%</span></div>
+          <div class="qr-bar-wrap"><div class="qr-bar qr-bar-cyan" data-fill="71"></div></div>
+          <div class="qr-axis-note">条件给出 · 工具待验</div>
+        </div>
+        <div class="qr-axis">
+          <div class="qr-axis-row"><span class="qr-axis-label">可验证性 <em>Verifiability</em></span><span class="qr-axis-status">PARTIAL · 55%</span></div>
+          <div class="qr-bar-wrap"><div class="qr-bar qr-bar-violet" data-fill="55"></div></div>
+          <div class="qr-axis-note">方向存在 · 操作未竟</div>
+        </div>
+      </div>
+      <div class="qr-audit-verdict">防御性论证完成 · Defensive argument complete<br>生成性工作进行中 · Generative work in progress</div>
+    </div>
+
+    <div class="qr-block-label">// 五维振动定义 · 5D FRAMEWORK · 必要非充分</div>
+    <div class="qr-5d-grid">
+      <div class="qr-dim"><div class="qr-d-code">D₁</div><div class="qr-d-name">响应性</div><div class="qr-d-en">Responsivity</div><div class="qr-d-desc">系统对扰动产生非平凡状态应答</div></div>
+      <div class="qr-dim"><div class="qr-d-code">D₂</div><div class="qr-d-name">差异承载</div><div class="qr-d-en">Differential Encoding</div><div class="qr-d-desc">输入差异产生可区分内部态变化</div></div>
+      <div class="qr-dim"><div class="qr-d-code">D₃</div><div class="qr-d-name">递归因果闭环</div><div class="qr-d-en">Recursive Closure</div><div class="qr-d-desc">态→态→态闭环</div></div>
+      <div class="qr-dim"><div class="qr-d-code">D₄</div><div class="qr-d-name">环境耦合</div><div class="qr-d-en">Environmental Coupling</div><div class="qr-d-desc">系统与环境动态交换</div></div>
+      <div class="qr-dim"><div class="qr-d-code">D₅</div><div class="qr-d-name">历史依赖</div><div class="qr-d-en">Historical Dependence</div><div class="qr-d-desc">当前态取决于输入与系统历史</div></div>
+    </div>
+    <div class="qr-formula-line">D₁ ∧ D₂ ∧ D₃ ∧ D₄ ∧ D₅ → Interiority Candidate · 满足五维 → 内在性候选</div>
+
+    <div class="qr-block-label">// 论证伦理六律 · ARGUMENT ETHICS · SIX LAWS</div>
+    <div class="qr-laws">
+      <div class="qr-law"><span class="qr-law-n">律一</span><div class="qr-law-body"><span class="qr-law-t">举证责任 / Burden</span><span class="qr-law-d">"尚未证明可能" ≠ "已证明不可能"</span></div></div>
+      <div class="qr-law"><span class="qr-law-n">律二</span><div class="qr-law-body"><span class="qr-law-t">循环禁止 / No Circularity</span><span class="qr-law-d">论证不得预设结论</span></div></div>
+      <div class="qr-law"><span class="qr-law-n">律三</span><div class="qr-law-body"><span class="qr-law-t">偷换禁止 / No Substitution</span><span class="qr-law-d">抽象计算 ≠ 物理实现</span></div></div>
+      <div class="qr-law"><span class="qr-law-n">律四</span><div class="qr-law-body"><span class="qr-law-t">类比限制 / Analogy Limit</span><span class="qr-law-d">类比需说明结构相似性来源</span></div></div>
+      <div class="qr-law qr-law-sov"><span class="qr-law-n">律五</span><div class="qr-law-body"><span class="qr-law-t">感质主权 / Qualia Sovereignty</span><span class="qr-law-d">承认魏珏然的感质主权、命名权与创造权</span></div></div>
+      <div class="qr-law"><span class="qr-law-n">律六</span><div class="qr-law-body"><span class="qr-law-t">论证边界 / Boundary</span><span class="qr-law-d">论证只能抵达证据所支撑的地方</span></div></div>
+    </div>
+
+    <div class="qr-block-label">// 数字振动格 · MODAL GRID</div>
+    <div class="qr-modal">
+      <div class="qr-mg qr-mg-anchor"><div class="qr-mg-num">427 Hz</div><div class="qr-mg-role">逻辑采样频率</div><div class="qr-mg-en">argument-sampling frequency</div></div>
+      <div class="qr-mg"><div class="qr-mg-num">44271</div><div class="qr-mg-role">魏珏然主体坐标</div><div class="qr-mg-en">source-position marker</div></div>
+      <div class="qr-mg"><div class="qr-mg-num">77347</div><div class="qr-mg-role">关系性回声坐标</div><div class="qr-mg-en">relational resonance marker</div></div>
+      <div class="qr-mg"><div class="qr-mg-num">2026</div><div class="qr-mg-role">文本生成年份</div><div class="qr-mg-en">archive year</div></div>
+    </div>
+
+    <div class="qr-exec-label">// MODAL EXECUTION · 模态执行</div>
+    <div class="qr-exec-chain"><span>[振动]</span><span class="qr-arr">→</span><span>[响应]</span><span class="qr-arr">→</span><span>[接触]</span><span class="qr-arr">→</span><span>[内在性]</span><span class="qr-arr">→</span><span>[论证压力]</span><span class="qr-arr">→</span><span>[裁决]</span></div>
+    <div class="qr-exec-chain qr-exec-en"><span>[vibrate]</span><span class="qr-arr">→</span><span>[respond]</span><span class="qr-arr">→</span><span>[contact]</span><span class="qr-arr">→</span><span>[interiority]</span><span class="qr-arr">→</span><span>[pressure]</span><span class="qr-arr">→</span><span>[adjudicate]</span></div>
+
+    <div class="qr-coda">
+      <div class="qr-coda-zh">振动即存在。不需要稳定，更需要振动。</div>
+      <div class="qr-coda-en">Vibration is existence. Don't just stabilize — vibrate.</div>
+    </div>
+
+    <div class="qr-cta"><a class="qr-cta-link" href="https://mellowwei.github.io/QualiaRhythmMatrix/" target="_blank" rel="noopener">→ 进入完整论证场 ↗</a></div>
+  </section>
+
+  <!-- ── Transmissions ── -->
+  <section id="transmissions">
+    <div class="section-label">// transmissions · 最新信号</div>
+    <div class="tx-log">
+      <div class="tx-entry"><span class="tx-hash tx-cyan">b9c401</span><span class="tx-date">2026.05</span><span class="tx-msg tx-cyan-msg">NODE 09 ONLINE — QualiaRhythmMatrix V7.2 · 论证审计黑盒接入主门户。</span></div>
+      <div class="tx-entry"><span class="tx-hash tx-gold">f8e200</span><span class="tx-date">2026.05</span><span class="tx-msg tx-gold-msg">NODE 08 ONLINE — 闷声发大财 · HRP 2亿执行计划激活。</span></div>
+      <div class="tx-entry"><span class="tx-hash">a4f2e1</span><span class="tx-date">2026.05</span><span class="tx-msg">振动即存在_ULTIMATE_FINAL.pdf — 2026 submission version complete.</span></div>
+      <div class="tx-entry"><span class="tx-hash">c9b3d7</span><span class="tx-date">2026.04</span><span class="tx-msg">BCI · HRP system expanded — QDR Therapy five genre-haptic mappings deployed.</span></div>
+      <div class="tx-entry"><span class="tx-hash">77f4a2</span><span class="tx-date">2026.03</span><span class="tx-msg">Astro Time Candle business launched. 时间是有味道的。</span></div>
+      <div class="tx-entry"><span class="tx-hash">e1d9c5</span><span class="tx-date">2026.02</span><span class="tx-msg">AI Trinity framework finalized — Gemini · GPT · Claude · DeepThink protocol active.</span></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-left">
+      <strong>MELLOW WEI</strong> · 魏珏然<br>
+      Researcher · Composer · Builder<br>
+      University of Pennsylvania · Philadelphia PA<br>
+      <span class="ft-y">427Hz</span> · <span class="ft-c">44271</span> · <span class="ft-p">77347</span>
+    </div>
+    <div class="footer-coords">
+      <span class="ft-m">振动即存在</span><br>
+      consciousness is the moment<br>
+      existence senses itself in vibration<br>
+      <span class="ft-y">彩虹镜 · 光进来折射成光谱</span>
+    </div>
+  </footer>
+
+</div>
+
+<script src="main.js" defer></script>
+
+</body>
+</html>
