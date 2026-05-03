@@ -49,6 +49,29 @@ a { color: inherit; text-decoration: none; }
   display: block;
 }
 
+/* ── Bilingual sub-line (added EN translations) ── */
+.bci-step-desc em,
+.bci-qdr-q em,
+.bci-g-fn em,
+.bci-s-desc em,
+.bci-tri-desc em,
+.ma-e-desc em,
+.rs-e-desc em,
+.ls-d-fields em,
+.ls-s-desc em,
+.aiq-s-desc em,
+.mm-month-action em,
+.qr-d-desc em {
+  display: block;
+  font-style: italic;
+  font-family: var(--mono);
+  font-size: 0.85em;
+  opacity: 0.55;
+  margin-top: 0.3em;
+  letter-spacing: 0.02em;
+  font-weight: 300;
+}
+
 .wrapper {
   position: relative;
   z-index: 1;
