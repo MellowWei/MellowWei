@@ -826,5 +826,31 @@
 
 <script src="main.js" defer></script>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    function updateCurrentTime() {
+      const el = document.getElementById("currentTime");
+      if (!el) return;
+
+      const formatted = new Intl.DateTimeFormat("en-US", {
+        timeZone: "America/New_York",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: true,
+        timeZoneName: "short"
+      }).format(new Date());
+
+      el.textContent = formatted + " · CAMDEN / PHILADELPHIA FIELD";
+    }
+
+    updateCurrentTime();
+    setInterval(updateCurrentTime, 1000);
+  });
+</script>
+
 </body>
 </html>
