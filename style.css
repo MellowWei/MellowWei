@@ -1346,3 +1346,524 @@ footer strong { color: var(--text); font-weight: 400; letter-spacing: 0.1em; }
   .pcr-step::after { display: none; }
 }
 
+/* ============================================================
+   NODE 11 · SCHOLAR–SOURCE DUAL CHANNEL · CSS
+   Append to your existing style.css
+   Color anchor: #ffd700 (gold) · matches NODE 07 / NODE 08 family
+   Visual grammar: matches existing NODE sections exactly
+   ============================================================ */
+
+/* -------- Hero -------- */
+#dual-channel { padding: 4rem 1.5rem; }
+
+.dc-hero {
+  max-width: 880px;
+  margin: 0 auto 3rem;
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  border: 1px solid rgba(255, 215, 0, 0.25);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 215, 0, 0.08) 0%, transparent 60%),
+    rgba(10, 10, 10, 0.6);
+  position: relative;
+}
+
+.dc-hero::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border: 1px solid rgba(255, 215, 0, 0.1);
+  pointer-events: none;
+  animation: dc-pulse 4s ease-in-out infinite;
+}
+
+@keyframes dc-pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+}
+
+.dc-tag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  color: #ffd700;
+  margin-bottom: 1.2rem;
+  opacity: 0.85;
+}
+
+.dc-title-zh {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: #f0f0f0;
+  margin-bottom: 0.5rem;
+}
+
+.dc-title-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: #ffd700;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+  opacity: 0.85;
+}
+
+.dc-axiom {
+  max-width: 720px;
+  margin: 0 auto;
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 1rem;
+  line-height: 1.85;
+  color: #d8d8d8;
+}
+
+.dc-axiom em {
+  color: rgba(255, 215, 0, 0.7);
+  font-size: 0.9rem;
+  display: block;
+  margin-top: 0.8rem;
+}
+
+.dc-key {
+  color: #ffd700;
+  font-weight: 600;
+  border-bottom: 1px dotted rgba(255, 215, 0, 0.5);
+  padding-bottom: 1px;
+}
+
+/* -------- Block label -------- */
+.dc-block-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  color: rgba(255, 215, 0, 0.7);
+  margin: 3rem auto 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* -------- Dual channels -------- */
+.dc-channels {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.dc-channel {
+  background: rgba(15, 15, 15, 0.7);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  padding: 2rem 1.5rem;
+  position: relative;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.dc-channel:hover {
+  border-color: rgba(255, 215, 0, 0.6);
+  transform: translateY(-2px);
+}
+
+.dc-source { border-left: 3px solid #ffd700; }
+.dc-scholar { border-right: 3px solid #ffd700; }
+
+.dc-ch-tag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  color: rgba(255, 215, 0, 0.6);
+  margin-bottom: 0.8rem;
+}
+
+.dc-ch-name {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #ffd700;
+  margin-bottom: 0.3rem;
+}
+
+.dc-ch-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: rgba(232, 232, 232, 0.65);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.03em;
+}
+
+.dc-ch-body {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #d8d8d8;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px dashed rgba(255, 215, 0, 0.2);
+}
+
+.dc-ch-body em {
+  display: block;
+  margin-top: 0.7rem;
+  color: rgba(255, 215, 0, 0.55);
+  font-size: 0.85rem;
+}
+
+.dc-ev-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  color: rgba(255, 215, 0, 0.6);
+  margin: 1rem 0 0.6rem;
+}
+
+.dc-ev-item {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.78rem;
+  color: #d0d0d0;
+  margin-bottom: 0.4rem;
+  padding-left: 0.8rem;
+  border-left: 2px solid rgba(255, 215, 0, 0.3);
+}
+
+.dc-ch-row {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+  margin-bottom: 0.35rem;
+  padding: 0.2rem 0;
+  border-bottom: 1px dotted rgba(255, 215, 0, 0.1);
+}
+
+.dc-ch-k {
+  color: rgba(255, 215, 0, 0.75);
+  letter-spacing: 0.05em;
+}
+
+.dc-ch-v {
+  color: rgba(232, 232, 232, 0.85);
+  font-size: 0.72rem;
+}
+
+/* -------- Resonance circle (between channels) -------- */
+.dc-resonance {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.5rem;
+}
+
+.dc-r-circle {
+  width: 80px;
+  height: 80px;
+  border: 2px solid #ffd700;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: #ffd700;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.15) 0%, transparent 70%);
+  animation: dc-rotate 12s linear infinite;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+}
+
+@keyframes dc-rotate {
+  0% { transform: rotate(0deg); box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(255, 215, 0, 0.5); }
+  100% { transform: rotate(360deg); box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); }
+}
+
+.dc-r-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: rgba(255, 215, 0, 0.7);
+  margin-top: 1rem;
+  text-align: center;
+}
+
+/* -------- Compare grid (single vs single vs dual) -------- */
+.dc-compare {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.dc-cmp {
+  background: rgba(15, 15, 15, 0.6);
+  border: 1px solid rgba(255, 215, 0, 0.15);
+  padding: 1.5rem 1.2rem;
+  text-align: center;
+  transition: border-color 0.3s;
+}
+
+.dc-cmp:hover { border-color: rgba(255, 215, 0, 0.4); }
+
+.dc-cmp-dual {
+  border: 1px solid rgba(255, 215, 0, 0.5);
+  background: rgba(255, 215, 0, 0.05);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+}
+
+.dc-cmp-tag {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 1.3rem;
+  color: #ffd700;
+  margin-bottom: 0.3rem;
+}
+
+.dc-cmp-en {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: rgba(232, 232, 232, 0.55);
+  margin-bottom: 1rem;
+}
+
+.dc-cmp-desc {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: #c8c8c8;
+}
+
+.dc-cmp-desc em {
+  display: block;
+  margin-top: 0.5rem;
+  color: rgba(255, 215, 0, 0.55);
+  font-size: 0.78rem;
+}
+
+/* -------- Velocity (vertical vs horizontal) -------- */
+.dc-velocity {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.dc-vel {
+  background: rgba(15, 15, 15, 0.6);
+  border-top: 2px solid rgba(255, 215, 0, 0.4);
+  padding: 1.8rem 1.5rem;
+}
+
+.dc-v-name {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 1.4rem;
+  color: #ffd700;
+  margin-bottom: 0.2rem;
+}
+
+.dc-v-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: rgba(232, 232, 232, 0.6);
+  margin-bottom: 0.8rem;
+}
+
+.dc-v-formula {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.8rem;
+  color: #ffd700;
+  background: rgba(255, 215, 0, 0.08);
+  padding: 0.5rem 0.8rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.dc-v-desc {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: #d0d0d0;
+}
+
+.dc-v-desc em {
+  display: block;
+  margin-top: 0.5rem;
+  color: rgba(255, 215, 0, 0.55);
+  font-size: 0.8rem;
+}
+
+/* -------- Interlocking works -------- */
+.dc-interlock {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.dc-il {
+  background: rgba(15, 15, 15, 0.5);
+  border: 1px solid rgba(255, 215, 0, 0.15);
+  padding: 1.3rem 1.2rem;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.dc-il:hover {
+  border-color: rgba(255, 215, 0, 0.5);
+  transform: translateY(-2px);
+}
+
+.dc-il-name {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 1.2rem;
+  color: #ffd700;
+  margin-bottom: 0.2rem;
+}
+
+.dc-il-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: rgba(232, 232, 232, 0.6);
+  margin-bottom: 0.8rem;
+}
+
+.dc-il-desc {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: #c8c8c8;
+}
+
+.dc-il-desc em {
+  display: block;
+  margin-top: 0.4rem;
+  color: rgba(255, 215, 0, 0.5);
+  font-size: 0.75rem;
+}
+
+/* -------- Coords -------- */
+.dc-coords {
+  max-width: 800px;
+  margin: 3rem auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid rgba(255, 215, 0, 0.25);
+}
+
+.dc-co {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border-right: 1px solid rgba(255, 215, 0, 0.15);
+}
+
+.dc-co:last-child { border-right: none; }
+
+.dc-co-anchor {
+  background: rgba(255, 215, 0, 0.08);
+}
+
+.dc-co-num {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1.4rem;
+  color: #ffd700;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.3rem;
+}
+
+.dc-co-role {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: rgba(232, 232, 232, 0.6);
+}
+
+/* -------- Coda -------- */
+.dc-coda {
+  max-width: 800px;
+  margin: 3rem auto 2rem;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  border-top: 1px solid rgba(255, 215, 0, 0.2);
+  border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.dc-coda-zh {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 1.3rem;
+  font-style: italic;
+  color: #ffd700;
+  margin-bottom: 0.7rem;
+  letter-spacing: 0.05em;
+}
+
+.dc-coda-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: rgba(232, 232, 232, 0.7);
+}
+
+/* -------- CTA -------- */
+.dc-cta {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.dc-cta-link {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  border: 1px solid #ffd700;
+  color: #ffd700;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  background: rgba(255, 215, 0, 0.05);
+}
+
+.dc-cta-link:hover {
+  background: rgba(255, 215, 0, 0.15);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+  letter-spacing: 0.25em;
+}
+
+/* -------- Mobile -------- */
+@media (max-width: 800px) {
+  .dc-channels {
+    grid-template-columns: 1fr;
+  }
+  .dc-resonance {
+    padding: 1rem 0;
+  }
+  .dc-r-circle {
+    width: 60px;
+    height: 60px;
+    font-size: 0.55rem;
+  }
+  .dc-compare,
+  .dc-velocity {
+    grid-template-columns: 1fr;
+  }
+  .dc-coords {
+    grid-template-columns: 1fr;
+  }
+  .dc-co {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.15);
+  }
+  .dc-co:last-child { border-bottom: none; }
+  .dc-title-zh {
+    font-size: 2.2rem;
+  }
+}
+
+
