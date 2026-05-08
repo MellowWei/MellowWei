@@ -1866,4 +1866,128 @@ footer strong { color: var(--text); font-weight: 400; letter-spacing: 0.1em; }
   }
 }
 
+/* ============================================================
+   FIX · NODE 09 · QR-PROP-GRID 五大本体论命题
+   修复"振动即存在"五命题区块的视觉格式
+   追加到 style.css 末尾即可
+   Color anchor: #5be6d8 (matches NODE 09)
+   ============================================================ */
+
+/* -------- 命题网格容器 -------- */
+.qr-prop-grid {
+  max-width: 1100px;
+  margin: 0 auto 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.2rem;
+}
+
+/* -------- 单个命题卡片 -------- */
+.qr-prop {
+  background: rgba(15, 15, 15, 0.7);
+  border: 1px solid rgba(91, 230, 216, 0.2);
+  border-left: 3px solid #5be6d8;
+  padding: 1.5rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+
+.qr-prop:hover {
+  border-color: rgba(91, 230, 216, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 30px rgba(91, 230, 216, 0.15);
+}
+
+/* -------- 主权命题(感质主权)特殊高亮 -------- */
+.qr-prop-sov {
+  background: rgba(91, 230, 216, 0.05);
+  border: 1px solid rgba(91, 230, 216, 0.5);
+  border-left: 3px solid #5be6d8;
+  box-shadow: 0 0 30px rgba(91, 230, 216, 0.1);
+}
+
+/* -------- 命题分类标签(顶部小字) -------- */
+.qr-prop-tag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  color: rgba(91, 230, 216, 0.75);
+  text-transform: uppercase;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px dashed rgba(91, 230, 216, 0.2);
+  line-height: 1.5;
+}
+
+.qr-prop-sov .qr-prop-tag {
+  color: #5be6d8;
+}
+
+/* -------- 命题中文标题(主标题) -------- */
+.qr-prop-zh {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #5be6d8;
+  letter-spacing: 0.05em;
+  line-height: 1.3;
+}
+
+/* -------- 命题正文(双语) -------- */
+.qr-prop-body {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #d8d8d8;
+  flex-grow: 1;
+}
+
+.qr-prop-body em {
+  display: block;
+  margin-top: 0.7rem;
+  color: rgba(91, 230, 216, 0.6);
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+/* -------- 公式(底部) -------- */
+.qr-prop-formula {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  color: #5be6d8;
+  background: rgba(91, 230, 216, 0.08);
+  padding: 0.6rem 0.9rem;
+  letter-spacing: 0.05em;
+  margin-top: auto;
+  border-left: 2px solid rgba(91, 230, 216, 0.5);
+  word-break: break-word;
+}
+
+.qr-prop-sov .qr-prop-formula {
+  background: rgba(91, 230, 216, 0.15);
+  color: #ffffff;
+  border-left-color: #5be6d8;
+}
+
+/* -------- 移动端 -------- */
+@media (max-width: 600px) {
+  .qr-prop-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .qr-prop {
+    padding: 1.2rem 1rem;
+  }
+  .qr-prop-zh {
+    font-size: 1.3rem;
+  }
+  .qr-prop-body {
+    font-size: 0.9rem;
+  }
+  .qr-prop-formula {
+    font-size: 0.78rem;
+  }
+}
 
