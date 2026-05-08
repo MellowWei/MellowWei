@@ -1991,3 +1991,868 @@ footer strong { color: var(--text); font-weight: 400; letter-spacing: 0.1em; }
   }
 }
 
+/* ============================================================
+   FIX · NODE 09 · 振动即存在 · QualiaRhythmMatrix V7.4 OPUS
+   完整 CSS 修复 · 一次性追加到 style.css 末尾
+   Color anchor: #5be6d8 (NODE 09 主色)
+   ============================================================ */
+
+/* ============ HERO ============ */
+#qualia-rhythm { padding: 4rem 1.5rem; }
+
+.qr-hero {
+  max-width: 880px;
+  margin: 0 auto 3rem;
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  border: 1px solid rgba(91, 230, 216, 0.25);
+  background: radial-gradient(circle at 50% 0%, rgba(91, 230, 216, 0.08) 0%, transparent 60%), rgba(10, 10, 10, 0.6);
+}
+
+.qr-tag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  color: #5be6d8;
+  margin-bottom: 1.2rem;
+  opacity: 0.85;
+}
+
+.qr-title-zh {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: #f0f0f0;
+  margin-bottom: 0.5rem;
+}
+
+.qr-title-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: #5be6d8;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+  opacity: 0.85;
+}
+
+.qr-axiom {
+  max-width: 720px;
+  margin: 0 auto;
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 1rem;
+  line-height: 1.85;
+  color: #d8d8d8;
+}
+
+.qr-key {
+  color: #5be6d8;
+  font-weight: 600;
+  border-bottom: 1px dotted rgba(91, 230, 216, 0.5);
+  padding-bottom: 1px;
+}
+
+/* ============ BLOCK LABELS ============ */
+.qr-block-label,
+.qr-exec-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  color: rgba(91, 230, 216, 0.7);
+  margin: 3rem auto 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  max-width: 1100px;
+}
+
+/* ============ AUDIT BLOCK (三轴评分) ============ */
+.qr-audit-block {
+  max-width: 900px;
+  margin: 0 auto 2rem;
+  background: rgba(15, 15, 15, 0.7);
+  border: 1px solid rgba(91, 230, 216, 0.25);
+  padding: 2rem 1.8rem;
+}
+
+.qr-audit-title {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+  color: #5be6d8;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.qr-audit-axes { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.qr-axis-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.qr-axis-label {
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  color: #f0f0f0;
+}
+
+.qr-axis-label em {
+  color: rgba(232, 232, 232, 0.55);
+  font-style: italic;
+  margin-left: 0.5rem;
+}
+
+.qr-axis-status {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: #5be6d8;
+}
+
+.qr-bar-wrap {
+  width: 100%;
+  height: 6px;
+  background: rgba(91, 230, 216, 0.1);
+  overflow: hidden;
+}
+
+.qr-bar {
+  height: 100%;
+  width: 0;
+  transition: width 1.2s ease;
+}
+.qr-bar-amber { background: linear-gradient(90deg, #ffd97d, #ffb347); }
+.qr-bar-cyan { background: linear-gradient(90deg, #5be6d8, #4fd1ff); }
+.qr-bar-violet { background: linear-gradient(90deg, #c8b8ff, #a78bfa); }
+
+/* set widths via attribute */
+.qr-bar[data-fill="62"] { width: 62%; }
+.qr-bar[data-fill="71"] { width: 71%; }
+.qr-bar[data-fill="55"] { width: 55%; }
+
+.qr-axis-note {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 0.85rem;
+  color: rgba(232, 232, 232, 0.65);
+  margin-top: 0.4rem;
+  line-height: 1.5;
+}
+
+.qr-audit-verdict {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 0.95rem;
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1.2rem;
+  border-top: 1px dashed rgba(91, 230, 216, 0.2);
+  color: #5be6d8;
+  line-height: 1.8;
+  font-style: italic;
+}
+
+/* ============ PARTICLES (粒子场) ============ */
+.qr-particles {
+  max-width: 1000px;
+  margin: 0 auto 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.qr-pt {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  padding: 0.4rem 0.9rem;
+  background: rgba(91, 230, 216, 0.08);
+  border: 1px solid rgba(91, 230, 216, 0.25);
+  color: #5be6d8;
+  transition: all 0.3s;
+}
+
+.qr-pt:hover {
+  background: rgba(91, 230, 216, 0.18);
+  border-color: #5be6d8;
+}
+
+/* ============ PROP GRID (五大命题) ============ */
+.qr-prop-grid {
+  max-width: 1100px;
+  margin: 0 auto 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.2rem;
+}
+
+.qr-prop {
+  background: rgba(15, 15, 15, 0.7);
+  border: 1px solid rgba(91, 230, 216, 0.2);
+  border-left: 3px solid #5be6d8;
+  padding: 1.5rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  transition: all 0.3s;
+}
+
+.qr-prop:hover {
+  border-color: rgba(91, 230, 216, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 30px rgba(91, 230, 216, 0.15);
+}
+
+.qr-prop-sov {
+  background: rgba(91, 230, 216, 0.05);
+  border: 1px solid rgba(91, 230, 216, 0.5);
+  border-left: 3px solid #5be6d8;
+  box-shadow: 0 0 30px rgba(91, 230, 216, 0.1);
+}
+
+.qr-prop-tag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  color: rgba(91, 230, 216, 0.75);
+  text-transform: uppercase;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px dashed rgba(91, 230, 216, 0.2);
+  line-height: 1.5;
+}
+
+.qr-prop-zh {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 1.5rem;
+  color: #5be6d8;
+  letter-spacing: 0.05em;
+  line-height: 1.3;
+}
+
+.qr-prop-body {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #d8d8d8;
+  flex-grow: 1;
+}
+
+.qr-prop-body em {
+  display: block;
+  margin-top: 0.7rem;
+  color: rgba(91, 230, 216, 0.6);
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.qr-prop-formula {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  color: #5be6d8;
+  background: rgba(91, 230, 216, 0.08);
+  padding: 0.6rem 0.9rem;
+  letter-spacing: 0.05em;
+  margin-top: auto;
+  border-left: 2px solid rgba(91, 230, 216, 0.5);
+  word-break: break-word;
+}
+
+/* ============ 5D GRID (五维定义) ============ */
+.qr-5d-grid {
+  max-width: 1200px;
+  margin: 0 auto 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 0.9rem;
+}
+
+.qr-dim {
+  background: rgba(15, 15, 15, 0.6);
+  border-top: 2px solid #5be6d8;
+  padding: 1.3rem 1rem;
+  text-align: center;
+}
+
+.qr-d-code {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1.4rem;
+  color: #5be6d8;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.4rem;
+}
+
+.qr-d-name {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 1.15rem;
+  color: #f0f0f0;
+  margin-bottom: 0.2rem;
+}
+
+.qr-d-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: rgba(232, 232, 232, 0.6);
+  margin-bottom: 0.7rem;
+}
+
+.qr-d-desc {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: #c8c8c8;
+}
+
+.qr-d-desc em {
+  display: block;
+  margin-top: 0.3rem;
+  color: rgba(91, 230, 216, 0.55);
+  font-size: 0.75rem;
+}
+
+.qr-formula-line {
+  max-width: 1100px;
+  margin: 0 auto 3rem;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  text-align: center;
+  color: #5be6d8;
+  background: rgba(91, 230, 216, 0.05);
+  padding: 0.9rem 1.2rem;
+  letter-spacing: 0.05em;
+  border: 1px dashed rgba(91, 230, 216, 0.3);
+}
+
+/* ============ LAWS (论证伦理六律) ============ */
+.qr-laws {
+  max-width: 1000px;
+  margin: 0 auto 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 0.8rem;
+}
+
+.qr-law {
+  background: rgba(15, 15, 15, 0.6);
+  border: 1px solid rgba(91, 230, 216, 0.2);
+  padding: 1.2rem 1rem;
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+}
+
+.qr-law-sov {
+  background: rgba(91, 230, 216, 0.06);
+  border-color: rgba(91, 230, 216, 0.5);
+  box-shadow: 0 0 20px rgba(91, 230, 216, 0.08);
+}
+
+.qr-law-n {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: #5be6d8;
+  white-space: nowrap;
+  padding-top: 0.15rem;
+  flex-shrink: 0;
+}
+
+.qr-law-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.qr-law-t {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 1.05rem;
+  color: #f0f0f0;
+}
+
+.qr-law-d {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: rgba(232, 232, 232, 0.75);
+}
+
+.qr-law-d em {
+  display: block;
+  margin-top: 0.3rem;
+  color: rgba(91, 230, 216, 0.55);
+  font-size: 0.78rem;
+}
+
+/* ============ DRAFTS (V7 草案) ============ */
+.qr-drafts {
+  max-width: 1100px;
+  margin: 0 auto 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0.9rem;
+}
+
+.qr-draft {
+  background: rgba(15, 15, 15, 0.6);
+  border-left: 3px solid rgba(91, 230, 216, 0.4);
+  padding: 1.3rem 1.2rem;
+}
+
+.qr-draft-fix {
+  border-left-color: #ffd700;
+  background: rgba(255, 215, 0, 0.04);
+}
+
+.qr-draft-tag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  color: rgba(91, 230, 216, 0.75);
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.qr-draft-fix .qr-draft-tag {
+  color: #ffd700;
+}
+
+.qr-draft-name {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 1.15rem;
+  color: #f0f0f0;
+  margin-bottom: 0.3rem;
+}
+
+.qr-draft-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: rgba(232, 232, 232, 0.6);
+  margin-bottom: 0.7rem;
+}
+
+.qr-draft-d {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: #c8c8c8;
+}
+
+.qr-draft-d em {
+  display: block;
+  margin-top: 0.3rem;
+  color: rgba(91, 230, 216, 0.55);
+  font-size: 0.78rem;
+}
+
+/* ============ SEVEN (强排除论七问) ============ */
+.qr-seven {
+  max-width: 1000px;
+  margin: 0 auto 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 0.7rem;
+}
+
+.qr-q {
+  background: rgba(15, 15, 15, 0.5);
+  border: 1px solid rgba(91, 230, 216, 0.18);
+  padding: 1rem 1.1rem;
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: #d8d8d8;
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+}
+
+.qr-q em {
+  display: block;
+  margin-top: 0.4rem;
+  color: rgba(91, 230, 216, 0.55);
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+.qr-q-n {
+  color: #5be6d8;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.qr-seven-verdict {
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  text-align: center;
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 0.95rem;
+  line-height: 1.85;
+  color: #5be6d8;
+  padding: 1.5rem 1.5rem;
+  border-top: 1px solid rgba(91, 230, 216, 0.25);
+  border-bottom: 1px solid rgba(91, 230, 216, 0.25);
+  font-style: italic;
+}
+
+.qr-seven-verdict em {
+  color: rgba(91, 230, 216, 0.65);
+  font-size: 0.85rem;
+}
+
+/* ============ TYPES (命题分类) ============ */
+.qr-types {
+  max-width: 1100px;
+  margin: 0 auto 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.9rem;
+}
+
+.qr-type {
+  background: rgba(15, 15, 15, 0.6);
+  border: 1px solid rgba(91, 230, 216, 0.2);
+  padding: 1.3rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.qr-type-defensive {
+  border-color: rgba(255, 215, 0, 0.4);
+  background: rgba(255, 215, 0, 0.04);
+}
+
+.qr-t-name {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 1.15rem;
+  color: #5be6d8;
+}
+
+.qr-type-defensive .qr-t-name {
+  color: #ffd700;
+}
+
+.qr-t-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: rgba(232, 232, 232, 0.6);
+  margin-bottom: 0.4rem;
+}
+
+.qr-t-rule {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: rgba(91, 230, 216, 0.7);
+  padding: 0.3rem 0;
+}
+
+.qr-t-ex {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 0.88rem;
+  color: #d0d0d0;
+  padding: 0.4rem 0;
+  border-top: 1px dashed rgba(91, 230, 216, 0.15);
+  border-bottom: 1px dashed rgba(91, 230, 216, 0.15);
+  margin: 0.3rem 0;
+}
+
+.qr-t-tool {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.72rem;
+  color: rgba(91, 230, 216, 0.65);
+  letter-spacing: 0.05em;
+  line-height: 1.6;
+}
+
+.qr-types-note {
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  text-align: center;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  color: rgba(91, 230, 216, 0.6);
+}
+
+/* ============ MODAL GRID (数字振动格) ============ */
+.qr-modal {
+  max-width: 1000px;
+  margin: 0 auto 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0;
+  border: 1px solid rgba(91, 230, 216, 0.25);
+}
+
+.qr-mg {
+  text-align: center;
+  padding: 1.4rem 1rem;
+  border-right: 1px solid rgba(91, 230, 216, 0.15);
+}
+
+.qr-mg:last-child { border-right: none; }
+
+.qr-mg-anchor { background: rgba(91, 230, 216, 0.08); }
+
+.qr-mg-num {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1.3rem;
+  color: #5be6d8;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.4rem;
+}
+
+.qr-mg-role {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 0.95rem;
+  color: #f0f0f0;
+  margin-bottom: 0.2rem;
+}
+
+.qr-mg-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.78rem;
+  color: rgba(232, 232, 232, 0.55);
+}
+
+/* ============ EXEC CHAIN (模态执行) ============ */
+.qr-exec-chain {
+  max-width: 1100px;
+  margin: 0 auto 0.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  color: #5be6d8;
+}
+
+.qr-exec-chain span {
+  padding: 0.4rem 0.8rem;
+  background: rgba(91, 230, 216, 0.06);
+  border: 1px solid rgba(91, 230, 216, 0.25);
+  letter-spacing: 0.05em;
+}
+
+.qr-exec-chain .qr-arr {
+  background: none;
+  border: none;
+  color: rgba(91, 230, 216, 0.6);
+  padding: 0;
+}
+
+.qr-exec-en {
+  font-size: 0.78rem;
+  color: rgba(91, 230, 216, 0.7);
+  margin-bottom: 2.5rem;
+}
+
+.qr-exec-en span {
+  background: rgba(91, 230, 216, 0.03);
+  border-color: rgba(91, 230, 216, 0.15);
+}
+
+/* ============ ENGINE BLOCK (论证分析引擎) ============ */
+.qr-engine-block {
+  max-width: 1000px;
+  margin: 0 auto 3rem;
+  background: rgba(15, 15, 15, 0.7);
+  border: 1px solid rgba(91, 230, 216, 0.3);
+  padding: 2rem 1.8rem;
+  text-align: center;
+}
+
+.qr-engine-title {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.25em;
+  color: #5be6d8;
+  margin-bottom: 0.4rem;
+}
+
+.qr-engine-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: rgba(232, 232, 232, 0.6);
+  margin-bottom: 1.5rem;
+}
+
+.qr-engine-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.qr-eng-tag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  padding: 0.35rem 0.75rem;
+  background: rgba(232, 232, 232, 0.05);
+  border: 1px solid rgba(232, 232, 232, 0.2);
+  color: rgba(232, 232, 232, 0.7);
+  text-decoration: line-through;
+  opacity: 0.65;
+}
+
+.qr-eng-tag-active {
+  background: rgba(91, 230, 216, 0.12);
+  border-color: #5be6d8;
+  color: #5be6d8;
+  text-decoration: none;
+  opacity: 1;
+}
+
+.qr-engine-flow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  color: #5be6d8;
+  margin-bottom: 0.6rem;
+}
+
+.qr-engine-flow span:not(.qr-arr) {
+  padding: 0.4rem 0.7rem;
+  background: rgba(91, 230, 216, 0.06);
+  border: 1px solid rgba(91, 230, 216, 0.2);
+}
+
+.qr-engine-flow .qr-arr {
+  color: rgba(91, 230, 216, 0.6);
+}
+
+.qr-engine-flow-en {
+  font-size: 0.75rem;
+  color: rgba(91, 230, 216, 0.7);
+  margin-bottom: 0;
+}
+
+.qr-engine-flow-en span:not(.qr-arr) {
+  background: rgba(91, 230, 216, 0.03);
+  border-color: rgba(91, 230, 216, 0.12);
+}
+
+/* ============ STATS ============ */
+.qr-stats {
+  max-width: 1000px;
+  margin: 0 auto 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0;
+  border: 1px solid rgba(91, 230, 216, 0.25);
+}
+
+.qr-stat {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 1rem 0.8rem;
+  border-right: 1px solid rgba(91, 230, 216, 0.12);
+}
+
+.qr-stat:last-child { border-right: none; }
+
+.qr-stat-version { background: rgba(91, 230, 216, 0.06); }
+
+.qr-stat-k {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: rgba(91, 230, 216, 0.6);
+  margin-bottom: 0.4rem;
+}
+
+.qr-stat-v {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.95rem;
+  color: #5be6d8;
+  letter-spacing: 0.05em;
+}
+
+/* ============ CODA ============ */
+.qr-coda {
+  max-width: 800px;
+  margin: 3rem auto 2rem;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  border-top: 1px solid rgba(91, 230, 216, 0.2);
+  border-bottom: 1px solid rgba(91, 230, 216, 0.2);
+}
+
+.qr-coda-zh {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 1.3rem;
+  font-style: italic;
+  color: #5be6d8;
+  margin-bottom: 0.7rem;
+  letter-spacing: 0.05em;
+}
+
+.qr-coda-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: rgba(232, 232, 232, 0.7);
+}
+
+/* ============ CTA ============ */
+.qr-cta {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.qr-cta-link {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  border: 1px solid #5be6d8;
+  color: #5be6d8;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  background: rgba(91, 230, 216, 0.05);
+}
+
+.qr-cta-link:hover {
+  background: rgba(91, 230, 216, 0.15);
+  box-shadow: 0 0 20px rgba(91, 230, 216, 0.4);
+  letter-spacing: 0.25em;
+}
+
+/* ============ MOBILE ============ */
+@media (max-width: 700px) {
+  .qr-title-zh { font-size: 2.2rem; }
+  .qr-prop-grid,
+  .qr-laws,
+  .qr-drafts,
+  .qr-types,
+  .qr-seven {
+    grid-template-columns: 1fr;
+  }
+  .qr-modal,
+  .qr-stats {
+    grid-template-columns: 1fr;
+  }
+  .qr-mg, .qr-stat {
+    border-right: none;
+    border-bottom: 1px solid rgba(91, 230, 216, 0.12);
+  }
+  .qr-mg:last-child, .qr-stat:last-child { border-bottom: none; }
+}
