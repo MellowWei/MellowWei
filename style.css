@@ -871,3 +871,478 @@ footer strong { color: var(--text); font-weight: 400; letter-spacing: 0.1em; }
 .qr-cta { display: flex; justify-content: center; padding: 1.5rem 0 0.5rem; }
 .qr-cta-link { font-family: var(--mono); font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--qr-cyan); border-bottom: 1px solid rgba(91,230,216,0.3); padding-bottom: 2px; transition: border-color 0.2s, color 0.2s; }
 .qr-cta-link:hover { color: #fff; border-color: var(--qr-cyan); }
+
+/* ============================================
+   NODE 10 · PCR-QR DUAL-LAYER FRAMEWORK
+   ============================================
+   把这一整段粘贴到现有 style.css 的最末尾。
+   不要删除原有任何样式。
+   ============================================ */
+
+#pcr-qr {
+  --pcr-cyan: #4fd1ff;
+  --pcr-pink: #ff3d9a;
+  --pcr-amber: #f0c674;
+  --pcr-violet: #a78bfa;
+  --pcr-cold: #92e6f0;
+  --pcr-warm: #ff7a45;
+  --pcr-warn: #ffd97d;
+}
+
+.pcr-hero {
+  border: 1px solid rgba(79, 209, 255, 0.25);
+  background: linear-gradient(180deg, rgba(79, 209, 255, 0.04) 0%, rgba(15, 20, 30, 0.4) 100%);
+  padding: 2.4rem 2rem;
+  margin: 1rem 0 2rem;
+  position: relative;
+}
+.pcr-hero::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: -1px;
+  width: 24px; height: 24px;
+  border-top: 1px solid var(--pcr-cyan);
+  border-left: 1px solid var(--pcr-cyan);
+}
+.pcr-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; right: -1px;
+  width: 24px; height: 24px;
+  border-bottom: 1px solid var(--pcr-pink);
+  border-right: 1px solid var(--pcr-pink);
+}
+.pcr-tag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--pcr-cyan);
+  letter-spacing: 0.12em;
+  margin-bottom: 1.2rem;
+  opacity: 0.85;
+}
+.pcr-title-zh {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-weight: 400;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 1.1;
+  color: #d4dde6;
+  margin-bottom: 0.3rem;
+}
+.pcr-title-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(0.95rem, 1.8vw, 1.2rem);
+  color: var(--pcr-cyan);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.pcr-axiom {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: clamp(0.95rem, 1.6vw, 1.08rem);
+  line-height: 1.75;
+  color: #8a96a6;
+  max-width: 720px;
+}
+.pcr-axiom em {
+  font-style: italic;
+  display: block;
+  margin-top: 0.4rem;
+  color: #525d6c;
+  font-size: 0.95em;
+}
+.pcr-key {
+  color: var(--pcr-cyan);
+  font-style: normal;
+  font-weight: 500;
+}
+
+.pcr-block-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.74rem;
+  color: var(--pcr-cyan);
+  letter-spacing: 0.15em;
+  margin: 2.2rem 0 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid rgba(79, 209, 255, 0.15);
+}
+
+.pcr-interface {
+  background: rgba(79, 209, 255, 0.03);
+  border-left: 2px solid var(--pcr-cyan);
+  padding: 1.6rem 1.8rem;
+  margin-bottom: 1.5rem;
+}
+.pcr-int-zh {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: #d4dde6;
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+.pcr-int-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.98rem;
+  color: #8a96a6;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+.pcr-int-formula {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.95rem;
+  color: var(--pcr-pink);
+  letter-spacing: 0.1em;
+  text-align: center;
+  padding-top: 0.8rem;
+  border-top: 1px dashed rgba(255, 61, 154, 0.2);
+}
+
+.pcr-layers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.pcr-layer {
+  background: rgba(15, 20, 30, 0.4);
+  border: 1px solid rgba(120, 200, 255, 0.12);
+  padding: 1.5rem;
+  position: relative;
+}
+.pcr-outer { border-color: rgba(79, 209, 255, 0.25); }
+.pcr-inner { border-color: rgba(255, 61, 154, 0.25); }
+.pcr-l-tag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  color: #525d6c;
+  margin-bottom: 0.5rem;
+}
+.pcr-outer .pcr-l-tag { color: var(--pcr-cyan); }
+.pcr-inner .pcr-l-tag { color: var(--pcr-pink); }
+.pcr-l-name {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 1.5rem;
+  color: #d4dde6;
+  margin-bottom: 0.2rem;
+  font-weight: 500;
+}
+.pcr-l-en {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  color: #8a96a6;
+  margin-bottom: 1.2rem;
+}
+.pcr-l-axes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+.pcr-axis {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.5rem 0.8rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-left: 2px solid var(--pcr-cyan);
+}
+.pcr-inner .pcr-axis { border-left-color: var(--pcr-pink); }
+.pcr-ax-code {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.95rem;
+  color: var(--pcr-cyan);
+  font-weight: bold;
+  min-width: 1.5em;
+}
+.pcr-inner .pcr-ax-code { color: var(--pcr-pink); }
+.pcr-ax-name {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 0.95rem;
+  color: #d4dde6;
+}
+.pcr-l-q {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-style: italic;
+  font-size: 0.92rem;
+  color: #8a96a6;
+  line-height: 1.55;
+  padding-top: 0.8rem;
+  border-top: 1px dashed rgba(120, 200, 255, 0.1);
+}
+.pcr-l-q em {
+  display: block;
+  color: #525d6c;
+  margin-top: 0.3rem;
+  font-size: 0.92em;
+}
+
+.pcr-steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.pcr-step {
+  background: rgba(15, 20, 30, 0.5);
+  border: 1px solid rgba(79, 209, 255, 0.15);
+  padding: 1rem 0.8rem;
+  text-align: center;
+  position: relative;
+}
+.pcr-step::after {
+  content: '→';
+  position: absolute;
+  right: -0.4rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--pcr-cyan);
+  font-family: 'Share Tech Mono', monospace;
+  opacity: 0.5;
+  z-index: 1;
+}
+.pcr-step:last-child::after { display: none; }
+.pcr-step-final {
+  border-color: var(--pcr-pink);
+  background: rgba(255, 61, 154, 0.03);
+}
+.pcr-st-num {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--pcr-cyan);
+  letter-spacing: 0.15em;
+  margin-bottom: 0.4rem;
+}
+.pcr-step-final .pcr-st-num { color: var(--pcr-pink); }
+.pcr-st-zh {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 0.95rem;
+  color: #d4dde6;
+  margin-bottom: 0.2rem;
+}
+.pcr-st-en {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  color: #8a96a6;
+  letter-spacing: 0.05em;
+}
+
+.pcr-cases {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 0.7rem;
+}
+.pcr-case {
+  background: rgba(15, 20, 30, 0.45);
+  border: 1px solid rgba(120, 200, 255, 0.12);
+  padding: 1.4rem;
+  border-left-width: 2px;
+}
+.pcr-case-cold { border-left-color: var(--pcr-cold); }
+.pcr-case-warm { border-left-color: var(--pcr-warm); }
+.pcr-case-violet { border-left-color: var(--pcr-violet); }
+.pcr-c-num {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: var(--pcr-cyan);
+  margin-bottom: 0.4rem;
+}
+.pcr-c-name {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 1.2rem;
+  color: #d4dde6;
+  margin-bottom: 0.2rem;
+  font-weight: 500;
+}
+.pcr-c-en {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.72rem;
+  color: #8a96a6;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.7rem;
+}
+.pcr-c-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-bottom: 0.8rem;
+}
+.pcr-c-tag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid rgba(146, 230, 240, 0.3);
+  color: var(--pcr-cold);
+}
+.pcr-c-tag.pcr-tag-warm {
+  border-color: rgba(255, 122, 69, 0.3);
+  color: var(--pcr-warm);
+}
+.pcr-c-tag.pcr-tag-violet {
+  border-color: rgba(167, 139, 250, 0.3);
+  color: var(--pcr-violet);
+}
+.pcr-c-tag.pcr-tag-main {
+  border-color: var(--pcr-cyan);
+  color: var(--pcr-cyan);
+}
+.pcr-c-tag.pcr-tag-warn {
+  border-color: rgba(255, 217, 125, 0.4);
+  color: var(--pcr-warn);
+}
+.pcr-c-finding {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 0.92rem;
+  color: #8a96a6;
+  line-height: 1.6;
+}
+.pcr-c-finding em {
+  display: block;
+  color: #525d6c;
+  margin-top: 0.3rem;
+  font-size: 0.92em;
+}
+
+.pcr-engs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0.7rem;
+}
+.pcr-eng {
+  background: rgba(15, 20, 30, 0.45);
+  border: 1px solid rgba(120, 200, 255, 0.15);
+  padding: 1.4rem;
+  position: relative;
+}
+.pcr-eng-new {
+  border-color: rgba(167, 139, 250, 0.4);
+  background: linear-gradient(180deg, rgba(167, 139, 250, 0.04) 0%, rgba(15, 20, 30, 0.45) 100%);
+}
+.pcr-eng-new::before {
+  content: 'NEW · v2.0';
+  position: absolute;
+  top: 0.6rem;
+  right: 0.7rem;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--pcr-violet);
+  letter-spacing: 0.1em;
+}
+.pcr-eng-name {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 1.3rem;
+  color: #d4dde6;
+  margin-bottom: 0.2rem;
+  font-weight: 500;
+}
+.pcr-eng-en {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--pcr-cyan);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.9rem;
+}
+.pcr-eng-new .pcr-eng-en { color: var(--pcr-violet); }
+.pcr-eng-desc {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 0.95rem;
+  color: #d4dde6;
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+}
+.pcr-eng-desc em {
+  display: block;
+  color: #8a96a6;
+  margin-top: 0.3rem;
+  font-size: 0.92em;
+}
+.pcr-eng-ref {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.74rem;
+  color: #8a96a6;
+  letter-spacing: 0.03em;
+  padding-top: 0.7rem;
+  border-top: 1px dashed rgba(120, 200, 255, 0.1);
+  line-height: 1.5;
+}
+.pcr-eng-ref em {
+  display: block;
+  color: #525d6c;
+  margin-top: 0.2rem;
+}
+
+.pcr-arch {
+  background: rgba(0, 0, 0, 0.3);
+  border-left: 2px solid var(--pcr-cyan);
+  padding: 1.4rem 1.6rem;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  line-height: 2;
+  overflow-x: auto;
+}
+.pcr-arch-line { color: #8a96a6; white-space: nowrap; }
+.pcr-arch-indent { padding-left: 1em; }
+.pcr-arch-indent2 { padding-left: 2em; }
+.pcr-arch-indent3 { padding-left: 3em; }
+.pcr-arch-indent4 { padding-left: 4em; }
+.pcr-arch-indent5 { padding-left: 5em; }
+.pcr-arch-here {
+  color: var(--pcr-cyan);
+  text-shadow: 0 0 10px rgba(79, 209, 255, 0.4);
+}
+
+.pcr-coda {
+  text-align: center;
+  margin: 2.5rem 0 1.5rem;
+  padding: 1.8rem 1rem;
+  border-top: 1px solid rgba(79, 209, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 61, 154, 0.15);
+}
+.pcr-coda-zh {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: #d4dde6;
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+.pcr-coda-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #8a96a6;
+  line-height: 1.6;
+}
+
+.pcr-cta {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+.pcr-cta-link {
+  display: inline-block;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  color: var(--pcr-cyan);
+  text-decoration: none;
+  padding: 0.8rem 1.6rem;
+  border: 1px solid var(--pcr-cyan);
+  background: rgba(79, 209, 255, 0.04);
+  transition: all 0.3s ease;
+}
+.pcr-cta-link:hover {
+  background: rgba(79, 209, 255, 0.12);
+  box-shadow: 0 0 20px rgba(79, 209, 255, 0.4);
+}
+
+@media (max-width: 720px) {
+  .pcr-layers { grid-template-columns: 1fr; }
+  .pcr-steps { grid-template-columns: repeat(2, 1fr); }
+  .pcr-step::after { display: none; }
+}
+
