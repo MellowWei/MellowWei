@@ -151,6 +151,370 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+/* ─────────────────────────────────────────────
+   VISUAL SYSTEM SPLIT · NODE 11 vs NODE 12
+   NODE 11 = Gold Epistemic Chamber / 学者-源场裁决场
+   NODE 12 = Green Educational Sanctuary / Human Return Learning 返回场
+───────────────────────────────────────────── */
+
+/* NODE 11 · SCHOLAR-SOURCE DUAL CHANNEL · gold pressure */
+#dual-channel{
+  position: relative;
+  padding: 120px 0 112px;
+  isolation: isolate;
+}
+
+#dual-channel::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255,205,60,0.105), transparent 34%),
+    radial-gradient(circle at 12% 72%, rgba(255,210,70,0.045), transparent 24%),
+    linear-gradient(to bottom, rgba(255,215,0,0.045), transparent 22%, transparent 80%, rgba(255,215,0,0.035));
+  z-index:-1;
+}
+
+#dual-channel .section-label,
+#dual-channel .dc-tag,
+#dual-channel .dc-coda-zh,
+#dual-channel .dc-cta-link,
+#dual-channel .dc-co-num,
+#dual-channel .dc-cmp-tag,
+#dual-channel .dc-v-formula,
+#dual-channel .dc-il-name,
+#dual-channel .dc-block-label{
+  color:#ffd84f;
+}
+
+#dual-channel .dc-title-zh{
+  color:#ffe066;
+  text-shadow:0 0 20px rgba(255,210,70,0.14);
+}
+
+#dual-channel .dc-title-en,
+#dual-channel .dc-axiom,
+#dual-channel .dc-coda-en{
+  color:rgba(255,245,220,0.86);
+}
+
+#dual-channel .dc-channel,
+#dual-channel .dc-cmp,
+#dual-channel .dc-vel,
+#dual-channel .dc-il,
+#dual-channel .dc-co{
+  border:1px solid rgba(255,215,0,0.24);
+  background:linear-gradient(180deg, rgba(20,16,5,0.58), rgba(10,8,2,0.28));
+  box-shadow:0 0 26px rgba(255,215,0,0.045);
+  backdrop-filter:blur(10px);
+}
+
+#dual-channel .dc-cmp-dual,
+#dual-channel .dc-co-anchor{
+  border-color:rgba(255,220,90,0.48);
+  box-shadow:0 0 34px rgba(255,215,0,0.085);
+}
+
+#dual-channel .dc-r-circle{
+  border:1px solid rgba(255,215,0,0.35);
+  box-shadow:0 0 24px rgba(255,215,0,0.10), inset 0 0 24px rgba(255,215,0,0.055);
+  color:#ffd84f;
+}
+
+#dual-channel .dc-cta{
+  margin-top: 34px;
+  display:flex;
+  justify-content:center;
+}
+
+#dual-channel .dc-cta-link{
+  padding:18px 56px;
+  border-radius:0;
+  border:1px solid rgba(255,215,0,0.58);
+  background:rgba(255,215,0,0.045);
+  font-family:'Share Tech Mono', monospace;
+  letter-spacing:0.20em;
+  text-transform:uppercase;
+  font-size:15px;
+  min-width:min(420px, 100%);
+  justify-content:center;
+  transition:all .3s ease;
+}
+
+#dual-channel .dc-cta-link:hover{
+  background:rgba(255,215,0,0.11);
+  transform:translateY(-2px);
+  box-shadow:0 0 30px rgba(255,215,0,0.12);
+}
+
+/* NODE 12 · HUMAN RETURN LEARNING · green return field */
+#mellow-ed{
+  position: relative;
+  padding: 132px 0 122px;
+  margin-top: 42px;
+  border-top:1px solid rgba(130,255,210,0.12);
+  isolation:isolate;
+}
+
+#mellow-ed::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 24% 18%, rgba(130,255,210,0.12), transparent 30%),
+    radial-gradient(circle at 82% 76%, rgba(255,150,210,0.065), transparent 32%),
+    radial-gradient(circle at 52% 50%, rgba(125,255,216,0.045), transparent 46%),
+    linear-gradient(to bottom, rgba(100,255,210,0.04), transparent 18%, transparent 82%, rgba(100,255,210,0.035));
+  z-index:-1;
+}
+
+#mellow-ed::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:74px;
+  width:min(860px, 78vw);
+  height:1px;
+  transform:translateX(-50%);
+  background:linear-gradient(90deg, transparent, rgba(140,255,214,0.42), rgba(255,150,210,0.18), transparent);
+  opacity:.76;
+}
+
+#mellow-ed .section-label{
+  color:rgba(190,255,230,0.74);
+  letter-spacing:.24em;
+}
+
+.me-hero{
+  position:relative;
+  z-index:1;
+  border:1px solid rgba(140,255,214,0.22);
+  background:
+    radial-gradient(circle at 18% 0%, rgba(140,255,214,0.11), transparent 33%),
+    radial-gradient(circle at 85% 90%, rgba(255,150,210,0.06), transparent 35%),
+    linear-gradient(180deg, rgba(8,22,18,0.58), rgba(5,10,14,0.30));
+  backdrop-filter:blur(15px);
+  box-shadow:0 0 42px rgba(120,255,210,0.052);
+  border-radius:26px;
+  padding:48px 42px;
+  display:grid;
+  grid-template-columns:minmax(0, 1fr) auto;
+  gap:28px;
+  align-items:end;
+}
+
+.me-kicker,
+.me-panel-tag,
+.me-mini strong,
+.me-metric-label{
+  font-family:'Share Tech Mono', monospace;
+  color:#8cf7d6;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+
+.me-kicker{
+  font-size:12px;
+  margin-bottom:24px;
+}
+
+.me-title{
+  font-family:'Cormorant Garamond', serif;
+  font-size:clamp(56px, 7vw, 104px);
+  font-weight:400;
+  letter-spacing:.045em;
+  line-height:.98;
+  color:#f6fff9;
+  text-shadow:0 0 26px rgba(140,247,214,0.085);
+  margin:0 0 18px 0;
+}
+
+.me-subtitle{
+  font-family:'Cormorant Garamond', serif;
+  font-size:clamp(26px, 2.6vw, 42px);
+  font-weight:500;
+  color:#c8ffe7;
+  margin:0 0 22px 0;
+}
+
+.me-lead{
+  color:rgba(230,245,240,0.86);
+  font-size:18px;
+  line-height:1.9;
+  max-width:980px;
+  margin:0 0 12px;
+}
+
+.me-lead strong,
+.me-gold{
+  color:#ffe87d;
+  font-weight:600;
+}
+
+.me-portal-button,
+.me-link-row a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  border:1px solid rgba(140,247,214,0.36);
+  color:#baffea;
+  background:rgba(140,247,214,0.055);
+  transition:all .28s ease;
+  border-radius:999px;
+  padding:14px 22px;
+  font-family:'Share Tech Mono', monospace;
+  letter-spacing:0.08em;
+  text-decoration:none;
+  white-space:nowrap;
+}
+
+.me-portal-button:hover,
+.me-link-row a:hover{
+  background:rgba(140,247,214,0.13);
+  transform:translateY(-2px);
+  box-shadow:0 0 28px rgba(140,247,214,0.10);
+}
+
+.me-grid-two,
+.me-grid-three{
+  display:grid;
+  gap:22px;
+  margin-top:24px;
+}
+
+.me-grid-two{
+  grid-template-columns:repeat(2, minmax(0,1fr));
+}
+
+.me-grid-three{
+  grid-template-columns:repeat(3, minmax(0,1fr));
+}
+
+.me-panel,
+.me-mini,
+.me-metric{
+  position:relative;
+  z-index:1;
+  border:1px solid rgba(140,255,214,0.20);
+  background:
+    radial-gradient(circle at 16% 0%, rgba(140,255,214,0.075), transparent 34%),
+    linear-gradient(180deg, rgba(8,20,18,0.50), rgba(5,10,14,0.26));
+  backdrop-filter:blur(14px);
+  box-shadow:0 0 34px rgba(120,255,210,0.04);
+}
+
+.me-panel{
+  border-radius:20px;
+  padding:30px;
+}
+
+.me-mini{
+  border-radius:18px;
+  padding:24px;
+}
+
+.me-panel h3,
+.me-mini h4{
+  color:#c8ffe7;
+  font-family:'Cormorant Garamond', serif;
+  font-weight:500;
+  line-height:1.16;
+  margin:10px 0 12px;
+}
+
+.me-panel h3{
+  font-size:34px;
+}
+
+.me-mini h4{
+  font-size:24px;
+}
+
+.me-panel p,
+.me-mini p{
+  color:rgba(230,245,240,0.82);
+  line-height:1.86;
+  margin:0 0 12px;
+}
+
+.me-mini strong{
+  display:inline-block;
+  font-size:13px;
+  color:#8cf7d6;
+  margin-bottom:8px;
+}
+
+.me-breath-line{
+  margin:26px auto 0;
+  height:1px;
+  max-width:880px;
+  background:linear-gradient(90deg, transparent, rgba(140,255,214,0.45), transparent);
+  opacity:.78;
+}
+
+.me-metrics{
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0,1fr));
+  gap:16px;
+  margin-top:26px;
+}
+
+.me-metric{
+  border-radius:16px;
+  padding:18px;
+}
+
+.me-metric-value{
+  color:rgba(250,255,252,.88);
+  font-size:15px;
+  line-height:1.6;
+  margin-top:8px;
+}
+
+.me-link-row{
+  margin-top:28px;
+  display:flex;
+  justify-content:center;
+}
+
+.me-coda{
+  margin-top:30px;
+  text-align:center;
+  color:rgba(230,245,240,0.80);
+  font-family:'Cormorant Garamond', serif;
+  font-size:clamp(24px, 2.6vw, 40px);
+  line-height:1.35;
+}
+
+.me-coda em{
+  display:block;
+  color:rgba(190,255,230,0.66);
+  font-size:.58em;
+  margin-top:8px;
+}
+
+@media (max-width: 980px){
+  .me-hero,
+  .me-grid-two,
+  .me-grid-three,
+  .me-metrics{
+    grid-template-columns:1fr;
+  }
+
+  .me-hero{
+    padding:34px 24px;
+  }
+
+  .me-portal-button{
+    width:100%;
+  }
+}
+
 </style>
 
 </head>
@@ -1365,176 +1729,109 @@
 
 
   <!-- ── NODE 12 · Human Return Learning / MellowEd ── -->
-  <section id="mellow-ed">
+  <section id="mellow-ed" class="node-section">
     <div class="section-label">// NODE 12 · HUMAN RETURN LEARNING · MELLOWED · EDUCATION CONTRIBUTION PORTAL</div>
-    <div class="dc-hero">
-      <div class="dc-tag">MELLOWED · 2026 · LEARNING SCIENCES · QUALIA-RHYTHM EDUCATION · 427Hz</div>
-      <div class="dc-title-zh">Human Return Learning</div>
-      <div class="dc-title-en">教育贡献母站 · Learning as Rhythm Return</div>
-      <p class="dc-axiom">
-        <span class="dc-key">学习不是把人压进制度</span>。学习是让人返回自己的<span class="dc-key">节律</span>、感知、身体、语言和意义生成能力。<br>
-        <em>Learning is not the compression of the learner into an institution. Learning is the return of the learner to their own rhythm.</em>
-      </p>
+
+    <div class="me-hero">
+      <div>
+        <p class="me-kicker">MELLOWED · 2026 · LEARNING SCIENCES · QUALIA-RHYTHM EDUCATION · 427Hz</p>
+        <h2 class="me-title">Human Return Learning</h2>
+        <h3 class="me-subtitle">教育贡献母站 · Learning as Rhythm Return</h3>
+
+        <p class="me-lead">
+          <strong>学习不是把人压进制度。</strong>
+          学习是让人返回自己的<span class="me-gold">节律</span>、感知、身体、语言和意义生成能力。
+        </p>
+
+        <p class="me-lead">
+          <strong>Learning is not the compression of the learner into an institution.</strong>
+          Learning is the return of the learner to their own rhythm, perception, body, language, and meaning-making capacity.
+        </p>
+      </div>
+
+      <a class="me-portal-button" href="https://mellowwei.github.io/MellowEd/#contributions" target="_blank" rel="noopener">
+        → ENTER MELLOWED ↗
+      </a>
     </div>
 
-    <div class="dc-block-label">// CORE POSITION · 核心定位</div>
-    <div class="dc-channels">
-      <div class="dc-channel dc-source">
-        <div class="dc-ch-tag">CHANNEL 01</div>
-        <div class="dc-ch-name">教育贡献</div>
-        <div class="dc-ch-en">Education Contribution · Human Return Learning</div>
-        <div class="dc-ch-body">
-          我的教育贡献不是传统教育科技,也不是单纯学习效率优化。它把学习重新定义为:学习者在时间中重新组织感知、注意力、身体、情绪、音乐和意义的过程。<br>
-          <em>My contribution is not conventional edtech or productivity optimization. It reframes learning as the learner's re-organization of perception, attention, body, emotion, music, and meaning across time.</em>
-        </div>
-        <div class="dc-ch-evidence">
-          <div class="dc-ev-label">SYSTEMS · 系统入口</div>
-          <div class="dc-ev-item">MellowEd · Human Return Learning</div>
-          <div class="dc-ev-item">BCI-HRP · human-machine music learning system</div>
-          <div class="dc-ev-item">Qualia Rhythm Matrix · theory engine</div>
-          <div class="dc-ev-item">AiQ愛&lt;7 · AI as rhythm mirror</div>
-        </div>
-        <div class="dc-ch-chart">
-          <div class="dc-ev-label">KEY THESIS · 核心命题</div>
-          <div class="dc-ch-row"><span class="dc-ch-k">Learning</span><span class="dc-ch-v">return to rhythm · 返回节律</span></div>
-          <div class="dc-ch-row"><span class="dc-ch-k">Difficulty</span><span class="dc-ch-v">rhythm mismatch · 节律错位</span></div>
-          <div class="dc-ch-row"><span class="dc-ch-k">AI</span><span class="dc-ch-v">rhythm mirror · 节律镜面</span></div>
-          <div class="dc-ch-row"><span class="dc-ch-k">Music</span><span class="dc-ch-v">state-entry interface · 状态入口</span></div>
-        </div>
-      </div>
+    <div class="me-breath-line"></div>
 
-      <div class="dc-resonance">
-        <div class="dc-r-circle"><span>EDU ♪</span></div>
-        <div class="dc-r-label">// LEARNING RETURNS · 学习返回</div>
-      </div>
+    <div class="me-grid-two">
+      <article class="me-panel">
+        <div class="me-panel-tag">CORE THESIS · 核心命题</div>
+        <h3>Learning as Rhythm Return</h3>
+        <p>
+          我的教育工作不是传统 edtech，也不是单纯学习效率优化。
+          我把学习重新定义为：学习者在时间中重新组织注意力、感知、身体、情绪、音乐与意义的过程。
+        </p>
+        <p>
+          I redefine learning as a temporal process in which learners reorganize attention, perception, body, emotion, music, and meaning.
+        </p>
+      </article>
 
-      <div class="dc-channel dc-scholar">
-        <div class="dc-ch-tag">CHANNEL 02</div>
-        <div class="dc-ch-name">学习科学承载</div>
-        <div class="dc-ch-en">Learning Sciences · Academic Carrying Channel</div>
-        <div class="dc-ch-body">
-          这一节点把我的学习科学、参与式教育、音乐学习、AI学习镜面、人机接口与ADHD/高感知密度学习支持统一成一个可以给教授、实验室和合作方快速进入的教育母站。<br>
-          <em>This node gives professors, labs, and collaborators a direct entrance into my work across learning sciences, participatory education, music-based learning, AI reflection, human-machine interfaces, and ADHD / high-density learner support.</em>
-        </div>
-        <div class="dc-ch-evidence">
-          <div class="dc-ev-label">CONTRIBUTION NODES · 贡献节点</div>
-          <div class="dc-ev-item">Qualia-Rhythm Learning Model</div>
-          <div class="dc-ev-item">Rhythm Mismatch Diagnostic Framework</div>
-          <div class="dc-ev-item">Music as Learning Interface</div>
-          <div class="dc-ev-item">AI as Rhythm Mirror</div>
-        </div>
-        <div class="dc-ch-chart">
-          <div class="dc-ev-label">COLLABORATION TARGETS · 合作方向</div>
-          <div class="dc-ch-row"><span class="dc-ch-k">Labs</span><span class="dc-ch-v">HCI · AI · affective computing · music tech</span></div>
-          <div class="dc-ch-row"><span class="dc-ch-k">Education</span><span class="dc-ch-v">learning sciences · participatory design</span></div>
-          <div class="dc-ch-row"><span class="dc-ch-k">Support</span><span class="dc-ch-v">ADHD · neurodiversity · attention</span></div>
-          <div class="dc-ch-row"><span class="dc-ch-k">System</span><span class="dc-ch-v">human-machine music interface</span></div>
-        </div>
-      </div>
+      <article class="me-panel">
+        <div class="me-panel-tag">DIAGNOSTIC FRAME · 诊断框架</div>
+        <h3>Rhythm Mismatch</h3>
+        <p>
+          很多学习困难不是智力、自律或动机失败，而是制度节律与真实生命学习节律之间的错位。
+        </p>
+        <p>
+          Many learning difficulties are not failures of intelligence or motivation, but mismatches between institutional rhythm and lived learning rhythm.
+        </p>
+      </article>
     </div>
 
-    <div class="dc-block-label">// SIX CONTRIBUTIONS · 六个教育贡献节点</div>
-    <div class="pcr-cases">
-      <div class="pcr-case pcr-case-violet">
-        <div class="pcr-c-num">EDU 01</div>
-        <div class="pcr-c-name">感质-节律学习模型</div>
-        <div class="pcr-c-en">Qualia-Rhythm Learning Model</div>
-        <div class="pcr-c-tags"><span class="pcr-c-tag pcr-tag-violet">theory</span><span class="pcr-c-tag">learning sciences</span></div>
-        <div class="pcr-c-finding">学习不是信息进入大脑,而是在时间中重新组织感知、身体、情绪和意义。<br><em>Learning is the organization of perception, body, emotion, and meaning across time.</em></div>
+    <div class="me-grid-three">
+      <article class="me-mini">
+        <strong>01 · MODEL</strong>
+        <h4>Qualia-Rhythm Learning Model</h4>
+        <p>感质-节律学习模型：学习是感知、身体、时间与意义的共同生成。</p>
+        <p><em>Learning is co-generated by qualia, body, time, rhythm, and meaning.</em></p>
+      </article>
+
+      <article class="me-mini">
+        <strong>02 · INTERFACE</strong>
+        <h4>Music as Learning Interface</h4>
+        <p>音乐不是背景音，而是进入学习状态、调节注意力和完成状态转换的接口。</p>
+        <p><em>Music becomes a state-entry technology for attention and transition.</em></p>
+      </article>
+
+      <article class="me-mini">
+        <strong>03 · MIRROR</strong>
+        <h4>AI as Rhythm Mirror</h4>
+        <p>AI 不是普通 tutor，而是节律镜面：反射状态、降采样混乱、生成行动路径。</p>
+        <p><em>AI reflects learner state, down-samples overload, and turns complexity into action.</em></p>
+      </article>
+    </div>
+
+    <div class="me-metrics">
+      <div class="me-metric">
+        <div class="me-metric-label">SYSTEM</div>
+        <div class="me-metric-value">BCI-HRP · MellowEd · AiQ愛&lt;7 · Astro Time Candle</div>
       </div>
-      <div class="pcr-case pcr-case-cold">
-        <div class="pcr-c-num">EDU 02</div>
-        <div class="pcr-c-name">节律错位诊断</div>
-        <div class="pcr-c-en">Rhythm Mismatch Framework</div>
-        <div class="pcr-c-tags"><span class="pcr-c-tag">diagnostic</span><span class="pcr-c-tag pcr-tag-main">ADHD support</span></div>
-        <div class="pcr-c-finding">很多学习困难不是能力失败,而是制度节律与生命学习节律错位。<br><em>Many learning struggles are mismatches between institutional rhythm and lived learning rhythm.</em></div>
+      <div class="me-metric">
+        <div class="me-metric-label">LEARNER</div>
+        <div class="me-metric-value">ADHD · high-density perception · rhythm mismatch · self-return</div>
       </div>
-      <div class="pcr-case pcr-case-warm">
-        <div class="pcr-c-num">EDU 03</div>
-        <div class="pcr-c-name">音乐作为学习接口</div>
-        <div class="pcr-c-en">Music as Learning Interface</div>
-        <div class="pcr-c-tags"><span class="pcr-c-tag pcr-tag-warm">music</span><span class="pcr-c-tag">state transition</span></div>
-        <div class="pcr-c-finding">音乐不是背景音,而是注意力、身体调节和状态转换的入口技术。<br><em>Music is not background sound; it is a state-entry technology.</em></div>
+      <div class="me-metric">
+        <div class="me-metric-label">METHOD</div>
+        <div class="me-metric-value">Qualia · Rhythm · Music · AI · Human-Machine Interface</div>
       </div>
-      <div class="pcr-case pcr-case-violet">
-        <div class="pcr-c-num">EDU 04</div>
-        <div class="pcr-c-name">AI 作为节律镜面</div>
-        <div class="pcr-c-en">AI as Rhythm Mirror</div>
-        <div class="pcr-c-tags"><span class="pcr-c-tag pcr-tag-violet">AI</span><span class="pcr-c-tag">reflection</span></div>
-        <div class="pcr-c-finding">AI 反射学习者状态,降采样混乱,生成语言,把内在复杂度转化为行动路径。<br><em>AI reflects learner state, down-samples overload, and turns complexity into action.</em></div>
-      </div>
-      <div class="pcr-case pcr-case-cold">
-        <div class="pcr-c-num">EDU 05</div>
-        <div class="pcr-c-name">参与式教育与主体返回</div>
-        <div class="pcr-c-en">Participatory Education & Subject Return</div>
-        <div class="pcr-c-tags"><span class="pcr-c-tag">agency</span><span class="pcr-c-tag pcr-tag-main">co-design</span></div>
-        <div class="pcr-c-finding">学习者不是被教育接收者,而是自己学习条件、工具与节律的共同设计者。<br><em>Learners become co-designers of their own learning conditions, tools, and rhythms.</em></div>
-      </div>
-      <div class="pcr-case pcr-case-warm">
-        <div class="pcr-c-num">EDU 06</div>
-        <div class="pcr-c-name">人机音乐学习系统</div>
-        <div class="pcr-c-en">Human-Machine Music Learning System</div>
-        <div class="pcr-c-tags"><span class="pcr-c-tag pcr-tag-warm">HMI</span><span class="pcr-c-tag">BCI-HRP</span></div>
-        <div class="pcr-c-finding">音乐、AI、生理信号与学习科学连接为注意力、恢复和自我返回系统。<br><em>Music, AI, physiological signals, and learning sciences become a system for attention, recovery, and self-return.</em></div>
+      <div class="me-metric">
+        <div class="me-metric-label">FIELD</div>
+        <div class="me-metric-value">Learning Sciences · HCI · Affective Computing · Music Technology</div>
       </div>
     </div>
 
-    <div class="dc-block-label">// EDUCATION PROJECT MATRIX · 教育项目矩阵</div>
-    <div class="dc-interlock">
-      <div class="dc-il">
-        <div class="dc-il-name">MellowEd</div>
-        <div class="dc-il-en">Education Contribution Portal</div>
-        <div class="dc-il-desc">教育母站。教授/实验室/合作方进入我教育贡献的第一入口。<br><em>The first entrance into my education contribution system.</em></div>
-      </div>
-      <div class="dc-il">
-        <div class="dc-il-name">BCI-HRP</div>
-        <div class="dc-il-en">Human-Machine Music Interface</div>
-        <div class="dc-il-desc">面向实验室合作的人机音乐学习系统。<br><em>A lab-facing human-machine music learning system.</em></div>
-      </div>
-      <div class="dc-il">
-        <div class="dc-il-name">Qualia Rhythm Matrix</div>
-        <div class="dc-il-en">Theory Engine</div>
-        <div class="dc-il-desc">解释学习状态如何由感质、节律、语言、身体和环境共同生成。<br><em>Explains how learning states are generated by qualia, rhythm, language, body, and environment.</em></div>
-      </div>
-      <div class="dc-il">
-        <div class="dc-il-name">Astro Time Candle</div>
-        <div class="dc-il-en">Embodied Time Anchor</div>
-        <div class="dc-il-desc">把时间从压力倒计时转化为可见的持续、专注与内在真实显影。<br><em>Turns time from pressure countdown into visible duration and revelation.</em></div>
-      </div>
+    <div class="me-coda">
+      教育不是压缩学习者。教育是把人返回给自己的节律。
+      <em>Education does not compress the learner. Education returns the human to their own rhythm.</em>
     </div>
 
-    <div class="dc-block-label">// FOUR-LAYER LOGIC · 四层全维定性</div>
-    <div class="dc-compare">
-      <div class="dc-cmp">
-        <div class="dc-cmp-tag">命名行为</div>
-        <div class="dc-cmp-en">Naming</div>
-        <div class="dc-cmp-desc">不是 education portfolio,而是 Human Return Learning。教育被重新命名为人的节律返回。<br><em>Not an education portfolio, but Human Return Learning.</em></div>
-      </div>
-      <div class="dc-cmp">
-        <div class="dc-cmp-tag">加压行为</div>
-        <div class="dc-cmp-en">Intensification</div>
-        <div class="dc-cmp-desc">理论 → 音乐 → AI → 人机接口 → 教育系统,连续加压成一个可合作入口。<br><em>Theory → music → AI → HMI → educational system.</em></div>
-      </div>
-      <div class="dc-cmp dc-cmp-dual">
-        <div class="dc-cmp-tag">相变行为</div>
-        <div class="dc-cmp-en">Phase Transition</div>
-        <div class="dc-cmp-desc">当它进入主站,你的主页从个人系统陈列相变为教育贡献、实验室合作与公共研究入口。<br><em>The homepage phase-shifts into a portal for education contribution and lab collaboration.</em></div>
-      </div>
-    </div>
-
-    <div class="dc-coords">
-      <div class="dc-co"><div class="dc-co-num">MellowEd</div><div class="dc-co-role">教育母站 · Education Portal</div></div>
-      <div class="dc-co dc-co-anchor"><div class="dc-co-num">427Hz</div><div class="dc-co-role">节律返回 · Rhythm Return</div></div>
-      <div class="dc-co"><div class="dc-co-num">NODE 12</div><div class="dc-co-role">主站教育入口 · Homepage Education Node</div></div>
-    </div>
-
-    <div class="dc-coda">
-      <div class="dc-coda-zh">教育不是压缩学习者。教育是把人返回给自己的节律。</div>
-      <div class="dc-coda-en">Education does not compress the learner. Education returns the human to their own rhythm.</div>
-    </div>
-
-    <div class="dc-cta">
-      <a class="dc-cta-link" href="https://mellowwei.github.io/MellowEd/#contributions" target="_blank" rel="noopener">→ 进入 MellowEd 完整教育贡献 ↗</a>
+    <div class="me-link-row">
+      <a href="https://mellowwei.github.io/MellowEd/#contributions" target="_blank" rel="noopener">
+        → 查看完整教育贡献 / View Full Education Contributions ↗
+      </a>
     </div>
   </section>
 
