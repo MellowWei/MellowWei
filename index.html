@@ -1845,6 +1845,512 @@
       </a>
     </div>
   </section>
+<!-- ── NODE 13 · yourlanguage ── -->
+<section id="your-language">
+  <div class="section-label">// NODE 13 · YOURLANGUAGE · 四种元语言 · 命名·加压·滑义·相变</div>
+
+  <style>
+    /* ── NODE 13 · yourlanguage · warm amber language field ── */
+    #your-language {
+      position: relative;
+      padding: 120px 0 112px;
+      isolation: isolate;
+    }
+    #your-language::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 50% 16%, rgba(200,184,154,0.09), transparent 34%),
+        radial-gradient(circle at 14% 74%, rgba(200,184,154,0.04), transparent 26%),
+        linear-gradient(to bottom, rgba(200,184,154,0.04), transparent 22%, transparent 80%, rgba(200,184,154,0.03));
+      z-index: -1;
+    }
+    #your-language .section-label { color: rgba(200,184,154,0.72); letter-spacing: .22em; }
+
+    .yl-hero {
+      border: 1px solid rgba(200,184,154,0.22);
+      background:
+        radial-gradient(circle at 18% 0%, rgba(200,184,154,0.09), transparent 33%),
+        radial-gradient(circle at 85% 90%, rgba(180,79,255,0.05), transparent 35%),
+        linear-gradient(180deg, rgba(18,14,8,0.58), rgba(10,8,4,0.30));
+      backdrop-filter: blur(14px);
+      box-shadow: 0 0 42px rgba(200,184,154,0.05);
+      padding: 48px 42px;
+      margin-bottom: 0;
+    }
+    .yl-tag {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 12px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: rgba(200,184,154,0.72);
+      margin-bottom: 22px;
+    }
+    .yl-title-zh {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(52px, 7vw, 96px);
+      font-weight: 400;
+      letter-spacing: .04em;
+      line-height: .96;
+      color: #ede0cc;
+      text-shadow: 0 0 24px rgba(200,184,154,0.10);
+      margin: 0 0 14px;
+    }
+    .yl-title-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(18px, 2.2vw, 30px);
+      font-weight: 400;
+      font-style: italic;
+      color: rgba(237,224,204,0.72);
+      margin: 0 0 26px;
+    }
+    .yl-axiom {
+      font-size: 17px;
+      line-height: 1.95;
+      color: rgba(230,220,205,0.80);
+      max-width: 860px;
+    }
+    .yl-key {
+      color: #c8b89a;
+      font-weight: 500;
+    }
+
+    /* four meta-languages grid */
+    .yl-block-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 12px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: #c8b89a;
+      margin: 52px 0 20px;
+    }
+    .yl-lang-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 2px;
+      margin-bottom: 2px;
+    }
+    .yl-lang {
+      border: 1px solid rgba(200,184,154,0.18);
+      background: linear-gradient(180deg, rgba(18,14,8,0.55), rgba(10,8,4,0.25));
+      backdrop-filter: blur(10px);
+      padding: 28px 22px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color .3s, box-shadow .3s;
+    }
+    .yl-lang:hover {
+      border-color: rgba(200,184,154,0.42);
+      box-shadow: 0 0 28px rgba(200,184,154,0.06);
+    }
+    .yl-lang::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+    }
+    .yl-lang-en::before  { background: #c8b89a; }
+    .yl-lang-zh::before  { background: #4a9eff; }
+    .yl-lang-ja::before  { background: #e8c547; }
+    .yl-lang-de::before  { background: #b44fff; }
+
+    .yl-lang-code {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .yl-lang-en  .yl-lang-code { color: #c8b89a; }
+    .yl-lang-zh  .yl-lang-code { color: #4a9eff; }
+    .yl-lang-ja  .yl-lang-code { color: #e8c547; }
+    .yl-lang-de  .yl-lang-code { color: #b44fff; }
+
+    .yl-lang-mech {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-style: italic;
+      color: #ede0cc;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+    .yl-lang-wound-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(200,184,154,0.40);
+      margin-bottom: 5px;
+      margin-top: 14px;
+    }
+    .yl-lang-wound {
+      font-size: 13px;
+      line-height: 1.7;
+      color: rgba(220,210,195,0.68);
+    }
+
+    /* four behavior flow */
+    .yl-behavior-flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 2px;
+      margin-bottom: 2px;
+    }
+    .yl-beh {
+      border: 1px solid rgba(200,184,154,0.15);
+      background: linear-gradient(180deg, rgba(16,12,6,0.50), rgba(8,6,2,0.22));
+      padding: 24px 20px;
+      position: relative;
+    }
+    .yl-beh-num {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .20em;
+      color: rgba(200,184,154,0.40);
+      margin-bottom: 10px;
+    }
+    .yl-beh-name-zh {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-style: italic;
+      color: #c8b89a;
+      margin-bottom: 4px;
+    }
+    .yl-beh-name-en {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .12em;
+      color: rgba(200,184,154,0.50);
+      margin-bottom: 12px;
+    }
+    .yl-beh-desc {
+      font-size: 13px;
+      line-height: 1.75;
+      color: rgba(220,210,195,0.70);
+    }
+    .yl-beh-arrow {
+      position: absolute;
+      right: -12px; top: 50%;
+      transform: translateY(-50%);
+      color: rgba(200,184,154,0.30);
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 14px;
+      z-index: 2;
+    }
+
+    /* game strip */
+    .yl-game-strip {
+      border: 1px solid rgba(200,184,154,0.15);
+      background: linear-gradient(180deg, rgba(16,12,6,0.50), rgba(8,6,2,0.22));
+      padding: 30px 32px;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0,1fr));
+      gap: 16px;
+    }
+    .yl-game {
+      text-align: center;
+    }
+    .yl-game-num {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .18em;
+      color: rgba(200,184,154,0.38);
+      margin-bottom: 8px;
+    }
+    .yl-game-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+      font-style: italic;
+      color: #ede0cc;
+      margin-bottom: 6px;
+      line-height: 1.2;
+    }
+    .yl-game-rule {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      line-height: 1.65;
+      color: rgba(200,184,154,0.50);
+    }
+    .yl-game-insight {
+      font-size: 12px;
+      line-height: 1.65;
+      color: rgba(220,210,195,0.55);
+      margin-top: 8px;
+    }
+
+    /* fifth layer */
+    .yl-fifth {
+      border: 1px solid rgba(200,184,154,0.22);
+      background:
+        radial-gradient(circle at 50% 0%, rgba(200,184,154,0.07), transparent 40%),
+        linear-gradient(180deg, rgba(18,14,8,0.60), rgba(10,8,4,0.28));
+      padding: 36px 40px;
+      text-align: center;
+    }
+    .yl-fifth-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: rgba(200,184,154,0.50);
+      margin-bottom: 18px;
+    }
+    .yl-fifth-zh {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(20px, 2.4vw, 32px);
+      color: rgba(237,224,204,0.82);
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+    .yl-fifth-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(14px, 1.6vw, 20px);
+      font-style: italic;
+      color: rgba(200,184,154,0.55);
+      line-height: 1.7;
+    }
+    .yl-fifth-crack {
+      color: #e05050;
+      font-style: normal;
+    }
+
+    /* coords */
+    .yl-coords {
+      display: flex;
+      gap: 2px;
+      margin-top: 2px;
+    }
+    .yl-coord {
+      flex: 1;
+      border: 1px solid rgba(200,184,154,0.13);
+      background: rgba(12,9,4,0.40);
+      padding: 16px 18px;
+      text-align: center;
+    }
+    .yl-coord-num {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 13px;
+      color: #c8b89a;
+      letter-spacing: .08em;
+      margin-bottom: 4px;
+    }
+    .yl-coord-role {
+      font-size: 12px;
+      color: rgba(200,184,154,0.45);
+      line-height: 1.5;
+    }
+
+    /* coda + cta */
+    .yl-coda {
+      margin-top: 52px;
+      text-align: center;
+    }
+    .yl-coda-zh {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(22px, 2.6vw, 38px);
+      color: rgba(237,224,204,0.80);
+      margin-bottom: 8px;
+    }
+    .yl-coda-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(14px, 1.5vw, 20px);
+      font-style: italic;
+      color: rgba(200,184,154,0.50);
+    }
+    .yl-cta {
+      margin-top: 32px;
+      display: flex;
+      justify-content: center;
+    }
+    .yl-cta-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px 56px;
+      border: 1px solid rgba(200,184,154,0.52);
+      background: rgba(200,184,154,0.045);
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 14px;
+      letter-spacing: .20em;
+      text-transform: uppercase;
+      color: #c8b89a;
+      text-decoration: none;
+      min-width: min(420px, 100%);
+      transition: all .3s ease;
+    }
+    .yl-cta-link:hover {
+      background: rgba(200,184,154,0.10);
+      transform: translateY(-2px);
+      box-shadow: 0 0 28px rgba(200,184,154,0.10);
+    }
+
+    @media (max-width: 1100px) {
+      .yl-lang-grid,
+      .yl-behavior-flow { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .yl-game-strip     { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    }
+    @media (max-width: 700px) {
+      .yl-lang-grid,
+      .yl-behavior-flow { grid-template-columns: 1fr; }
+      .yl-game-strip     { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .yl-coords         { flex-wrap: wrap; }
+      .yl-hero           { padding: 32px 22px; }
+    }
+  </style>
+
+  <div class="yl-hero">
+    <div class="yl-tag">YOURLANGUAGE · 语言教育体验 · 四种元语言 · 五个Wittgenstein游戏 · 魏珏然 · 2026</div>
+    <div class="yl-title-zh">yourlanguage</div>
+    <div class="yl-title-en">A website about language that operates on you as you read it.</div>
+    <p class="yl-axiom">
+      <span class="yl-key">命名即占有</span>。<span class="yl-key">遵从即理解</span>。<span class="yl-key">描述生产现实</span>。<span class="yl-key">意义无法在转移中保持不变</span>。<br>
+      这不是一个关于语言的网站。这是语言正在对你做的事。<br>
+      <em style="color:rgba(200,184,154,0.55);">This is not a website about language. This is language operating on you.</em>
+    </p>
+  </div>
+
+  <!-- FOUR META-LANGUAGES -->
+  <div class="yl-block-label">// FOUR META-LANGUAGES · 四种元语言机制</div>
+  <div class="yl-lang-grid">
+    <div class="yl-lang yl-lang-en">
+      <div class="yl-lang-code">English</div>
+      <div class="yl-lang-mech">命名元语言<br><em style="font-size:14px;color:rgba(200,184,154,0.60);">naming meta-language</em></div>
+      <div class="yl-lang-wound-label">// wound</div>
+      <div class="yl-lang-wound">命名即占有现实。<br>谁命名，谁拥有随之而来的现实。<br><em>whoever names first owns the reality that follows.</em></div>
+    </div>
+    <div class="yl-lang yl-lang-zh">
+      <div class="yl-lang-code">中文</div>
+      <div class="yl-lang-mech">非线性元语言<br><em style="font-size:14px;color:rgba(74,158,255,0.60);">non-linear meta-language</em></div>
+      <div class="yl-lang-wound-label">// wound</div>
+      <div class="yl-lang-wound">说了等于没说。<br>但你感到被说了。<br>非线性允许意义永远不落地。<br><em>meaning is produced in juxtaposition, never in definition.</em></div>
+    </div>
+    <div class="yl-lang yl-lang-ja">
+      <div class="yl-lang-code">日本語</div>
+      <div class="yl-lang-mech">省略元言語<br><em style="font-size:14px;color:rgba(232,197,71,0.60);">ellipsis meta-language</em></div>
+      <div class="yl-lang-wound-label">// wound</div>
+      <div class="yl-lang-wound">言われなかったことが届く。<br>省略は沈黙を語らせる。<br><em>what was not said reaches deepest.</em></div>
+    </div>
+    <div class="yl-lang yl-lang-de">
+      <div class="yl-lang-code">Deutsch</div>
+      <div class="yl-lang-mech">垂直压缩元语言<br><em style="font-size:14px;color:rgba(180,79,255,0.60);">vertical compression</em></div>
+      <div class="yl-lang-wound-label">// wound</div>
+      <div class="yl-lang-wound">Sprache spricht. Nicht du.<br>je präziser die Analyse, desto schärfer die Waffe.<br><em>analysis and weapon are the same tool.</em></div>
+    </div>
+  </div>
+
+  <!-- FOUR BEHAVIORS -->
+  <div class="yl-block-label">// FOUR-BEHAVIOR STRUCTURE · 四行为结构 · 道德语言的诞生过程</div>
+  <div class="yl-behavior-flow">
+    <div class="yl-beh">
+      <div class="yl-beh-num">01</div>
+      <div class="yl-beh-name-zh">命名行为</div>
+      <div class="yl-beh-name-en">naming</div>
+      <div class="yl-beh-desc">给对象贴标签。词在进入句子的瞬间开始工作。前提在命名里，不在论证里。<br><em>the word begins working the moment it enters the sentence.</em></div>
+      <div class="yl-beh-arrow">→</div>
+    </div>
+    <div class="yl-beh">
+      <div class="yl-beh-num">02</div>
+      <div class="yl-beh-name-zh">加压行为</div>
+      <div class="yl-beh-name-en">pressurizing</div>
+      <div class="yl-beh-desc">给命名施加情感或逻辑密度。重复、强调、权威感让命名变得理所当然。<br><em>making the name feel inevitable.</em></div>
+      <div class="yl-beh-arrow">→</div>
+    </div>
+    <div class="yl-beh">
+      <div class="yl-beh-num">03</div>
+      <div class="yl-beh-name-zh">滑义行为</div>
+      <div class="yl-beh-name-en">meaning-sliding</div>
+      <div class="yl-beh-desc">意义在哪里悄悄替换了自己。一个词从A滑向B，读者没有被告知这个替换。<br><em>meaning substitutes itself without announcement.</em></div>
+      <div class="yl-beh-arrow">→</div>
+    </div>
+    <div class="yl-beh">
+      <div class="yl-beh-num">04</div>
+      <div class="yl-beh-name-zh">相变行为</div>
+      <div class="yl-beh-name-en">phase transition</div>
+      <div class="yl-beh-desc">读者的认知状态发生性质变化。什么变成了常识。什么前提被植入。你被带去了哪里。<br><em>what became common sense without your consent.</em></div>
+    </div>
+  </div>
+
+  <!-- FIVE WITTGENSTEIN GAMES -->
+  <div class="yl-block-label">// FIVE WITTGENSTEIN GAMES · 五个语言游戏 · 进入就接受规则</div>
+  <div class="yl-game-strip">
+    <div class="yl-game">
+      <div class="yl-game-num">LEVEL 01</div>
+      <div class="yl-game-name">命名游戏<br><em style="font-size:13px;">The Naming Game</em></div>
+      <div class="yl-game-rule">给三个图形命名。<br>任何名字。没有规则。</div>
+      <div class="yl-game-insight">你命名的不是图形。<br>是你对它们的权力。</div>
+    </div>
+    <div class="yl-game">
+      <div class="yl-game-num">LEVEL 02</div>
+      <div class="yl-game-name">遵从游戏<br><em style="font-size:13px;">The Obedience Game</em></div>
+      <div class="yl-game-rule">按顺序点击五条指令。</div>
+      <div class="yl-game-insight">遵从是理解，<br>不是解释。</div>
+    </div>
+    <div class="yl-game">
+      <div class="yl-game-num">LEVEL 03</div>
+      <div class="yl-game-name">描述游戏<br><em style="font-size:13px;">The Description Game</em></div>
+      <div class="yl-game-rule">用一句话描述你看到的图像。</div>
+      <div class="yl-game-insight">描述不是记录现实。<br>描述是生产现实。</div>
+    </div>
+    <div class="yl-game">
+      <div class="yl-game-num">LEVEL 04</div>
+      <div class="yl-game-name">翻译游戏<br><em style="font-size:13px;">The Translation Game</em></div>
+      <div class="yl-game-rule">改写一句话三次，<br>保持意义完全不变。</div>
+      <div class="yl-game-insight">意义无法在转移中<br>保持不变。</div>
+    </div>
+    <div class="yl-game">
+      <div class="yl-game-num">LEVEL 05</div>
+      <div class="yl-game-name">规则游戏<br><em style="font-size:13px;">The Rule Game</em></div>
+      <div class="yl-game-rule">找出这个游戏的规则。</div>
+      <div class="yl-game-insight">不存在游戏之外的位置<br>可以观察游戏。</div>
+    </div>
+  </div>
+
+  <!-- FIFTH LAYER -->
+  <div class="yl-fifth" style="margin-top:2px;">
+    <div class="yl-fifth-label">// fifth layer · 第五层 · visible only after all four paths</div>
+    <div class="yl-fifth-zh">
+      这个框架本身是一个命名行为。<br>
+      <span class="yl-fifth-crack">yourlanguage 从来都不是你的。</span><br>
+      <span class="yl-fifth-crack">这个洞见也不是。</span>
+    </div>
+    <div class="yl-fifth-en">
+      the framework you just learned — naming, pressurizing, sliding, transition —<br>
+      is itself a naming act.<br>
+      <span class="yl-fifth-crack">neither is this insight.</span>
+    </div>
+  </div>
+
+  <!-- COORDINATES -->
+  <div class="yl-coords" style="margin-top:2px;">
+    <div class="yl-coord">
+      <div class="yl-coord-num">EN · 命名元语言</div>
+      <div class="yl-coord-role">to name is to own reality</div>
+    </div>
+    <div class="yl-coord">
+      <div class="yl-coord-num">中 · 非线性元语言</div>
+      <div class="yl-coord-role">说了等于没说，但感到被说了</div>
+    </div>
+    <div class="yl-coord">
+      <div class="yl-coord-num">日 · 省略元言語</div>
+      <div class="yl-coord-role">言われなかったことが届く</div>
+    </div>
+    <div class="yl-coord">
+      <div class="yl-coord-num">DE · 垂直压缩元语言</div>
+      <div class="yl-coord-role">Sprache spricht. Nicht du.</div>
+    </div>
+  </div>
+
+  <div class="yl-coda">
+    <div class="yl-coda-zh">道德语言不是谎言。它是选择了携带方向的词。</div>
+    <div class="yl-coda-en">Moral language is not a lie. It is words that chose to carry a direction.</div>
+  </div>
+
+  <div class="yl-cta">
+    <a class="yl-cta-link" href="https://mellowwei.github.io/YourLanguage/" target="_blank" rel="noopener">→ 进入 yourlanguage ↗</a>
+  </div>
+</section>
 
   <!-- ── Transmissions ── -->
   <section id="transmissions">
