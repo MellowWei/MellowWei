@@ -903,6 +903,40 @@
   </div>
   <div class="card-arrow">↗</div>
 </a>
+   <!-- NODE 15 · LIFE SYSTEM -->
+<div class="node-card" onclick="document.getElementById('whoyou-overlay').style.display='flex'" style="cursor:pointer;">
+  <div class="node-header">
+    <span class="node-label">NODE 15 · LIFE SYSTEM</span>
+    <span class="node-dot" style="background:#00ff9f; box-shadow:0 0 6px #00ff9f;"></span>
+  </div>
+  <h2 class="node-title" style="font-family:'Share Tech Mono',monospace; color:#00ff9f;">WhoYou</h2>
+  <div class="node-subtitle">人生系统 · 赛博扫描 · 五节点冒险</div>
+  <p class="node-desc">你是谁？移动进入扫描空间，触碰节点，回答问题。人机 xingyeLing7Ai 为你生成专属频率档案。</p>
+  <p class="node-desc-en"><em>Who are you? Navigate the scan space, activate nodes, answer questions. xingyeLing7Ai generates your frequency profile.</em></p>
+  <div class="node-tags">
+    <span class="tag">起源</span>
+    <span class="tag">追求</span>
+    <span class="tag">恐惧</span>
+    <span class="tag">力量</span>
+    <span class="tag">核心</span>
+    <span class="tag">427Hz</span>
+  </div>
+  <div class="node-arrow">↗</div>
+</div>
+
+<!-- 全屏 overlay -->
+<div id="whoyou-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,5,3,0.97); z-index:9999; align-items:center; justify-content:center; flex-direction:column;">
+  <div style="position:absolute; top:16px; right:20px;">
+    <button onclick="document.getElementById('whoyou-overlay').style.display='none'" style="background:none; border:1px solid rgba(0,255,159,0.2); color:rgba(0,255,159,.5); cursor:pointer; font-family:'Share Tech Mono',monospace; font-size:11px; letter-spacing:.1em; padding:5px 14px;">
+      [ CLOSE ]
+    </button>
+  </div>
+  <iframe
+    src="https://who-you.vercel.app"
+    style="width:100%; max-width:980px; height:90vh; border:none; display:block;"
+    allow="autoplay"
+  ></iframe>
+</div>
       </a>
     </div>
   </section>
