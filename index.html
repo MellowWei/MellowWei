@@ -115,9 +115,47 @@ canvas#starfield{
 .me-coda{margin-top:30px;text-align:center;color:rgba(230,245,240,.80);font-family:'Cormorant Garamond',serif;font-size:clamp(24px,2.6vw,40px);line-height:1.35}
 .me-coda em{display:block;color:rgba(190,255,230,.66);font-size:.58em;margin-top:8px}
 @media(max-width:980px){.me-hero,.me-grid-two,.me-grid-three,.me-metrics{grid-template-columns:1fr}.me-hero{padding:34px 24px}.me-portal-button{width:100%}}
-@media(max-width:720px){
-.academic-root-bar{grid-template-columns:1fr !important;}
-.academic-root-bar > a{width:100%;text-align:center;box-sizing:border-box;}
+
+/* ============================================================
+   ☆ MOBILE FIX · 顶部 root bars 在窄屏全部单列堆叠
+   修复 AllSources / MellowAcademic / Source / Method / Phil 的 2 列 grid
+   在移动端文字被挤成单字宽的问题
+   ============================================================ */
+@media(max-width:760px){
+  /* academic-root-bar 已有规则 */
+  .academic-root-bar{
+    grid-template-columns:1fr !important;
+    text-align:left;
+  }
+  .academic-root-bar > a{
+    width:100%;
+    text-align:center;
+    box-sizing:border-box;
+    margin-top:8px;
+  }
+  /* AllSources / 任何顶部 2 列 grid 的 div(margin:18px 0 0 的) */
+  div[style*="grid-template-columns:minmax(0,1fr) auto"]{
+    display:block !important;
+  }
+  div[style*="grid-template-columns:minmax(0,1fr) auto"] > a{
+    display:block !important;
+    width:auto !important;
+    text-align:center !important;
+    margin-top:14px !important;
+    white-space:normal !important;
+    box-sizing:border-box !important;
+  }
+  /* phil-root-bar 系列(SOURCE / METHOD / PHILOSOPHY ROOT)按钮换行 */
+  .phil-root-bar{
+    flex-direction:column;
+    align-items:stretch;
+  }
+  .phil-root-bar .phil-root-link{
+    width:100%;
+    text-align:center;
+    margin-top:10px;
+    box-sizing:border-box;
+  }
 }
 
 /* ============================================================
