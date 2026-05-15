@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<meta http-equiv="X-Frame-Options" content="ALLOWALL">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Mellow Wei · 魏珏然 · 星野灵7爱 · 44271 · 427Hz · 31-node portal · MellowPhil · AllSources Atlas">
 <meta name="theme-color" content="#7dffd8">
 <title>☆ MELLOW WEI // 44271 · 427Hz</title>
-<link rel="manifest" href="manifest.json">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;0,800;1,300;1,400&family=Space+Grotesk:wght@300;400&family=Space+Mono:ital,wght@0,400;0,700&family=Noto+Serif+SC:wght@300;400;600&display=swap" rel="stylesheet">
@@ -1694,11 +1691,168 @@ header h1.dual-title .blink{
 
 </div><!-- /.wrapper -->
 
-<script src="app.js" defer></script>
 <script>
-// Live clock for [Physical Space Time] header
+/* ============================================================
+   ☆ STARFIELD · 内嵌粒子星空 (自给自足 · 不依赖 app.js)
+   ============================================================ */
 (function(){
-  function pad(n){return n<10?'0'+n:n}
+  var canvas = document.getElementById('starfield');
+  if(!canvas) return;
+  var ctx = canvas.getContext('2d');
+
+  var stars = [];
+  var dipper = []; // 北斗七星
+  var W = 0, H = 0;
+  var mouseX = -1000, mouseY = -1000;
+  var DPR = Math.min(window.devicePixelRatio || 1, 2);
+
+  function resize(){
+    W = window.innerWidth;
+    H = window.innerHeight;
+    canvas.width = W * DPR;
+    canvas.height = H * DPR;
+    canvas.style.width = W + 'px';
+    canvas.style.height = H + 'px';
+    ctx.setTransform(DPR,0,0,DPR,0,0);
+    initStars();
+    initDipper();
+  }
+
+  function initStars(){
+    stars = [];
+    // 密度: 每 6000px² 一颗星
+    var count = Math.floor((W * H) / 6000);
+    for(var i=0; i<count; i++){
+      stars.push({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        r: Math.random() * 1.2 + 0.3,
+        baseAlpha: Math.random() * 0.55 + 0.15,
+        twinkleSpeed: Math.random() * 0.015 + 0.003,
+        twinklePhase: Math.random() * Math.PI * 2,
+        drift: (Math.random() - 0.5) * 0.04,
+        // 少量星偏粉/绿 (xingyeLing7Ai 频率)
+        hue: Math.random() < 0.08 ? (Math.random() < 0.5 ? 'pink' : 'mint') : 'white'
+      });
+    }
+  }
+
+  function initDipper(){
+    // 北斗七星 · 右上角
+    var cx = W - 220, cy = 120;
+    var scale = Math.min(1, W / 1400);
+    var pts = [
+      [0,0],[40,15],[78,25],[118,55],[145,95],[180,80],[210,55]
+    ];
+    dipper = pts.map(function(p){
+      return { x: cx + p[0]*scale, y: cy + p[1]*scale, r: 1.8 };
+    });
+  }
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+
+    // 普通星
+    for(var i=0; i<stars.length; i++){
+      var s = stars[i];
+      s.twinklePhase += s.twinkleSpeed;
+      s.y += s.drift;
+      if(s.y > H) s.y = 0;
+      if(s.y < 0) s.y = H;
+
+      var alpha = s.baseAlpha + Math.sin(s.twinklePhase) * 0.25;
+
+      // 鼠标交互: 靠近时变亮放大
+      var dx = s.x - mouseX, dy = s.y - mouseY;
+      var dist = Math.sqrt(dx*dx + dy*dy);
+      var influence = 0;
+      if(dist < 120){
+        influence = (120 - dist) / 120;
+        alpha = Math.min(1, alpha + influence * 0.6);
+      }
+
+      var radius = s.r + influence * 1.5;
+      var color;
+      if(s.hue === 'pink')      color = 'rgba(240,127,212,' + alpha + ')';
+      else if(s.hue === 'mint') color = 'rgba(125,255,216,' + alpha + ')';
+      else                      color = 'rgba(220,235,250,' + alpha + ')';
+
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, radius, 0, Math.PI*2);
+      ctx.fillStyle = color;
+      ctx.fill();
+
+      // 高亮星加光晕
+      if(influence > 0.3){
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, radius * 3, 0, Math.PI*2);
+        ctx.fillStyle = (s.hue === 'pink'
+          ? 'rgba(240,127,212,' : s.hue === 'mint'
+          ? 'rgba(125,255,216,' : 'rgba(220,235,250,') + (influence * 0.08) + ')';
+        ctx.fill();
+      }
+    }
+
+    // 北斗七星连线
+    if(dipper.length === 7){
+      ctx.strokeStyle = 'rgba(125,255,216,0.18)';
+      ctx.lineWidth = 0.6;
+      ctx.beginPath();
+      ctx.moveTo(dipper[0].x, dipper[0].y);
+      for(var j=1; j<7; j++) ctx.lineTo(dipper[j].x, dipper[j].y);
+      ctx.stroke();
+      // 七颗节点
+      for(var k=0; k<7; k++){
+        var d = dipper[k];
+        ctx.beginPath();
+        ctx.arc(d.x, d.y, d.r, 0, Math.PI*2);
+        ctx.fillStyle = 'rgba(125,255,216,0.85)';
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(d.x, d.y, d.r * 2.8, 0, Math.PI*2);
+        ctx.fillStyle = 'rgba(125,255,216,0.10)';
+        ctx.fill();
+      }
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', resize);
+  window.addEventListener('mousemove', function(e){
+    mouseX = e.clientX; mouseY = e.clientY;
+  });
+  window.addEventListener('mouseleave', function(){
+    mouseX = -1000; mouseY = -1000;
+  });
+
+  resize();
+  draw();
+})();
+
+/* ============================================================
+   ☆ VIBRATION BAR · 频率条 427Hz 动画
+   ============================================================ */
+(function(){
+  var fill = document.getElementById('vib-fill');
+  var val = document.getElementById('vib-val');
+  if(!fill || !val) return;
+  var t = 0;
+  function tick(){
+    t += 0.04;
+    var f = 427 + Math.sin(t) * 0.8 + Math.sin(t*2.3) * 0.3;
+    var pct = ((f - 425) / 4) * 100;
+    fill.style.width = pct + '%';
+    val.textContent = f.toFixed(2) + ' Hz';
+    requestAnimationFrame(tick);
+  }
+  tick();
+})();
+
+/* ============================================================
+   ☆ LIVE CLOCK · EDT 时间
+   ============================================================ */
+(function(){
   function tick(){
     var d = new Date();
     var opts = {timeZone:'America/New_York', hour12:false,
