@@ -111,22 +111,159 @@
 .academic-root-bar{grid-template-columns:1fr !important;}
 .academic-root-bar > a{width:100%;text-align:center;box-sizing:border-box;}
 }
-</style>
-</head>
-<body>
-  <!-- ============================================================
-     ☆ CROSS-PORTAL NAV · 跨站统一导航条
-     INSERT POINT: 紧接在 <body> 之后,任何其他内容之前
-     共 4 个版本 · 4 个站各用一个
-     ============================================================ -->
 
+/* ============================================================
+   ☆ DUAL-COLOR PORTAL TITLE · Mellow(pink) + Wei(mint) + Portal(gradient)
+   ============================================================ */
+header h1.dual-title{
+  display:flex; flex-wrap:wrap; column-gap:.3em; row-gap:.05em; align-items:baseline;
+  font-family:'Cormorant Garamond',serif; font-weight:400;
+}
+header h1.dual-title .dt-mellow{
+  color:#f07fd4;
+  text-shadow:0 0 28px rgba(240,127,212,0.42), 0 0 56px rgba(240,127,212,0.22);
+}
+header h1.dual-title .dt-wei{
+  color:#7dffd8; font-style:italic;
+  text-shadow:0 0 28px rgba(125,255,216,0.42), 0 0 56px rgba(125,255,216,0.22);
+}
+header h1.dual-title .dt-portal{
+  background:linear-gradient(90deg,#f07fd4 0%,#c596d6 35%,#9bb6dc 65%,#7dffd8 100%);
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent; color:transparent;
+}
+header h1.dual-title .blink{
+  color:#7dffd8;
+}
 
-<!-- ████████████████████████████████████████████████████████████ -->
-<!-- VARIANT A · For MellowWei (Portal · 当前站高亮)              -->
-<!-- 美学: cyber dark + mint #7dffd8                              -->
-<!-- ████████████████████████████████████████████████████████████ -->
+/* ============================================================
+   ☆ NEW NODE SECTIONS · 18 个补全 section 的样式
+   ============================================================ */
+.ns-section{position:relative; padding:90px 0 80px; isolation:isolate}
+.ns-section + .ns-section{border-top:1px solid rgba(255,255,255,.04)}
+.ns-hero{
+  border:1px solid var(--ns-c,#7dffd8); border-radius:24px;
+  background:linear-gradient(180deg,rgba(10,14,18,.55),rgba(5,8,12,.30));
+  backdrop-filter:blur(10px);
+  padding:38px 36px; margin-bottom:32px;
+  box-shadow:0 0 38px var(--ns-glow,rgba(125,255,216,.08));
+}
+.ns-tag{
+  font-family:'Share Tech Mono',monospace; font-size:11px;
+  letter-spacing:.2em; text-transform:uppercase;
+  color:var(--ns-c,#7dffd8); opacity:.85; margin-bottom:18px;
+}
+.ns-title-zh{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(38px,5vw,72px); font-weight:500; line-height:1.02;
+  color:var(--ns-c,#7dffd8);
+  text-shadow:0 0 22px var(--ns-glow,rgba(125,255,216,.20));
+  margin:0 0 8px;
+}
+.ns-title-en{
+  font-family:'Cormorant Garamond',serif; font-style:italic;
+  font-size:clamp(18px,2vw,26px); font-weight:300;
+  color:rgba(225,240,250,.78); margin:0 0 22px;
+}
+.ns-axiom{
+  font-size:16px; line-height:1.85;
+  color:rgba(225,240,250,.82); max-width:900px; margin:0;
+}
+.ns-axiom .key{color:var(--ns-c,#7dffd8); font-weight:600}
+.ns-block-label{
+  font-family:'Share Tech Mono',monospace; font-size:11px;
+  letter-spacing:.2em; text-transform:uppercase;
+  color:rgba(255,255,255,.42); margin:36px 0 18px;
+}
+.ns-grid{display:grid; gap:18px;}
+.ns-grid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.ns-grid.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.ns-grid.cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.ns-grid.cols-5{grid-template-columns:repeat(5,minmax(0,1fr))}
+@media(max-width:980px){.ns-grid.cols-3,.ns-grid.cols-4,.ns-grid.cols-5{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.ns-grid.cols-2,.ns-grid.cols-3,.ns-grid.cols-4,.ns-grid.cols-5{grid-template-columns:1fr}}
+.ns-card{
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(15,18,24,.45);
+  border-radius:14px; padding:22px 20px;
+  transition:all .25s ease;
+}
+.ns-card:hover{border-color:var(--ns-c,#7dffd8); background:rgba(20,24,32,.55)}
+.ns-card .nc-num{
+  font-family:'Share Tech Mono',monospace; font-size:11px;
+  letter-spacing:.15em; color:var(--ns-c,#7dffd8); opacity:.8;
+  margin-bottom:10px;
+}
+.ns-card .nc-name{
+  font-family:'Cormorant Garamond',serif; font-size:22px;
+  color:rgba(245,250,255,.94); line-height:1.2; margin-bottom:4px;
+}
+.ns-card .nc-en{
+  font-family:'Share Tech Mono',monospace; font-size:10px;
+  letter-spacing:.12em; color:rgba(200,220,255,.45);
+  text-transform:uppercase; margin-bottom:12px;
+}
+.ns-card .nc-desc{
+  font-size:13.5px; line-height:1.72; color:rgba(220,230,245,.75);
+}
+.ns-card .nc-desc em{color:rgba(200,220,255,.55); display:block; font-style:italic; margin-top:6px; font-size:12px}
+.ns-formula{
+  font-family:'Space Mono',monospace; font-size:15px;
+  color:var(--ns-c,#7dffd8);
+  background:rgba(0,0,0,.36); border:1px dashed rgba(255,255,255,.12);
+  padding:18px 22px; border-radius:10px;
+  margin:18px 0; text-align:center; letter-spacing:.04em;
+}
+.ns-coda{
+  margin-top:36px; padding:24px 22px;
+  border-top:1px dashed rgba(255,255,255,.10);
+  text-align:center;
+}
+.ns-coda-zh{
+  font-family:'Cormorant Garamond',serif; font-size:clamp(20px,2.4vw,30px);
+  color:var(--ns-c,#7dffd8); margin-bottom:6px;
+}
+.ns-coda-en{
+  font-family:'Cormorant Garamond',serif; font-style:italic;
+  font-size:clamp(14px,1.5vw,17px); color:rgba(220,230,245,.65);
+}
+.ns-cta{margin-top:26px; display:flex; justify-content:center;}
+.ns-cta-link{
+  font-family:'Share Tech Mono',monospace; font-size:13px;
+  letter-spacing:.16em; text-transform:uppercase;
+  color:var(--ns-c,#7dffd8); text-decoration:none;
+  border:1px solid var(--ns-c,#7dffd8);
+  padding:15px 42px;
+  background:rgba(0,0,0,.30);
+  transition:all .3s ease;
+}
+.ns-cta-link:hover{
+  background:var(--ns-c,#7dffd8); color:#0a0a0c;
+  box-shadow:0 0 30px var(--ns-glow,rgba(125,255,216,.35));
+  transform:translateY(-2px);
+}
 
-<style>
+/* Seven-love spectrum bar (NODE 17) */
+.spectrum-7{display:grid; grid-template-columns:repeat(7,1fr); gap:2px; margin:18px 0; border-radius:10px; overflow:hidden}
+.spectrum-7 .sp-cell{
+  padding:22px 12px 18px; text-align:center;
+  font-family:'Cormorant Garamond',serif;
+}
+.spectrum-7 .sp-cell .sp-char{font-size:32px; line-height:1; display:block; margin-bottom:8px; color:#fff}
+.spectrum-7 .sp-cell .sp-name{font-family:'Share Tech Mono',monospace; font-size:9px; letter-spacing:.14em; text-transform:uppercase; opacity:.85}
+.spectrum-7 .sp-cell.s1{background:linear-gradient(180deg,#5d3a8f,#3a2059)}
+.spectrum-7 .sp-cell.s2{background:linear-gradient(180deg,#8a5a2f,#523319)}
+.spectrum-7 .sp-cell.s3{background:linear-gradient(180deg,#c8a430,#7c6418)}
+.spectrum-7 .sp-cell.s4{background:linear-gradient(180deg,#d9d6c8,#8a8678); color:#222}
+.spectrum-7 .sp-cell.s4 .sp-char,.spectrum-7 .sp-cell.s4 .sp-name{color:#222}
+.spectrum-7 .sp-cell.s5{background:linear-gradient(180deg,#3d8db8,#1e4d6b)}
+.spectrum-7 .sp-cell.s6{background:linear-gradient(180deg,#6d6d75,#3d3d45)}
+.spectrum-7 .sp-cell.s7{background:linear-gradient(180deg,#c84770,#6e1f3a)}
+@media(max-width:720px){.spectrum-7{grid-template-columns:repeat(7,1fr); gap:1px}.spectrum-7 .sp-cell .sp-char{font-size:22px}.spectrum-7 .sp-cell{padding:14px 4px}}
+
+/* ============================================================
+     ☆ CROSS-PORTAL NAV · 跨站统一导航条 (Variant A only)
+     ============================================================ */
 .x-nav{
   position: sticky; top: 0; z-index: 1000;
   width: 100%;
@@ -139,49 +276,127 @@
   letter-spacing: .12em;
 }
 .x-nav-inner{
-  max-width: 1280px;
-  margin: 0 auto;
+  max-width: 1280px; margin: 0 auto;
   padding: .55rem 1.5rem;
   display: flex; align-items: center; gap: 1.6rem;
   flex-wrap: wrap;
 }
-.x-nav-label{
-  color: rgba(125,255,216,0.55);
-  text-transform: uppercase;
-}
-.x-nav-links{
-  display: flex; align-items: center; gap: 1.2rem;
-  flex-wrap: wrap;
-}
+.x-nav-label{color:rgba(125,255,216,0.55); text-transform: uppercase}
+.x-nav-links{display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap}
 .x-nav-link{
-  color: rgba(232,232,224,0.45);
-  text-decoration: none;
+  color:rgba(232,232,224,0.45); text-decoration:none;
   transition: color .25s ease, text-shadow .25s ease;
   display: inline-flex; align-items: center; gap: .35rem;
 }
-.x-nav-link:hover{ color: var(--link-hover, #7dffd8); }
-.x-nav-link.scholar:hover{ color: #5af0c8; text-shadow: 0 0 8px rgba(90,240,200,0.4); }
-.x-nav-link.source:hover{  color: #f07fd4; text-shadow: 0 0 8px rgba(240,127,212,0.4); }
-.x-nav-link.theory:hover{  color: #f7c76a; text-shadow: 0 0 8px rgba(247,199,106,0.4); }
-.x-nav-link.portal:hover{  color: #7dffd8; text-shadow: 0 0 8px rgba(125,255,216,0.4); }
-.x-nav-link.active{
-  color: #7dffd8;
-  text-shadow: 0 0 8px rgba(125,255,216,0.45);
-  pointer-events: none;
-}
-.x-nav-anchor{
-  margin-left: auto;
-  color: rgba(125,255,216,0.55);
-  font-size: .68rem;
-}
+.x-nav-link.scholar:hover{color:#5af0c8; text-shadow:0 0 8px rgba(90,240,200,0.4)}
+.x-nav-link.source:hover{color:#f07fd4; text-shadow:0 0 8px rgba(240,127,212,0.4)}
+.x-nav-link.theory:hover{color:#f7c76a; text-shadow:0 0 8px rgba(247,199,106,0.4)}
+.x-nav-link.portal:hover{color:#7dffd8; text-shadow:0 0 8px rgba(125,255,216,0.4)}
+.x-nav-link.active{color:#7dffd8; text-shadow:0 0 8px rgba(125,255,216,0.45); pointer-events:none}
+.x-nav-anchor{margin-left:auto; color:rgba(125,255,216,0.55); font-size:.68rem}
 @media (max-width: 640px){
-  .x-nav-inner{ gap: .8rem; padding: .5rem .9rem; }
-  .x-nav-links{ gap: .8rem; }
-  .x-nav-label{ display: none; }
-  .x-nav-anchor{ font-size: .62rem; }
+  .x-nav-inner{gap:.8rem; padding:.5rem .9rem}
+  .x-nav-links{gap:.8rem}
+  .x-nav-label{display:none}
+  .x-nav-anchor{font-size:.62rem}
 }
-</style>
 
+/* ============================================================
+     ☆ THREE PORTALS · 三总站门户卡 (Portal index card)
+     ============================================================ */
+.three-portals{margin: 4rem 0 5rem; padding: 0}
+.three-portals .tp-head{
+  display:flex; align-items:baseline; gap:1.2rem; flex-wrap:wrap;
+  margin-bottom: 2rem; padding-bottom: 1rem;
+  border-bottom: 1px dashed rgba(125,255,216,0.18);
+}
+.three-portals .tp-mark{
+  font-family:'Share Tech Mono', monospace;
+  font-size: .78rem; color: var(--mint, #7dffd8);
+  letter-spacing: .12em; opacity: .7;
+}
+.three-portals h2.tp-title{
+  font-family:'Share Tech Mono', monospace;
+  font-size: 1.6rem; color: var(--mint, #7dffd8);
+  letter-spacing: .08em; margin: 0;
+  text-shadow: 0 0 18px rgba(125,255,216,0.25);
+}
+.three-portals .tp-title-zh{
+  font-family:'Cormorant Garamond','Noto Serif SC',serif;
+  font-size: 1.25rem; color: #c0c0b8;
+  font-style: italic; opacity: .85;
+}
+.three-portals .tp-coord{
+  margin-left:auto; font-family:'Share Tech Mono', monospace;
+  font-size: .72rem; color: rgba(125,255,216,0.55);
+  letter-spacing: .14em;
+}
+.three-portals .tp-grid{display:grid; grid-template-columns: 1fr; gap: 1.4rem}
+@media (min-width: 880px){.three-portals .tp-grid{grid-template-columns: repeat(3, 1fr); gap: 1.6rem}}
+.tp-card{
+  position: relative; display: flex; flex-direction: column;
+  padding: 1.6rem 1.5rem 1.5rem;
+  background: rgba(10,10,12,0.55);
+  border: 1px solid var(--card-accent, #7dffd8);
+  border-radius: 2px; text-decoration: none; color: inherit;
+  overflow: hidden;
+  transition: all .4s cubic-bezier(.4,0,.2,1);
+  min-height: 280px;
+}
+.tp-card::before{
+  content:''; position:absolute; inset: 0;
+  background: radial-gradient(circle at 50% 0%, var(--card-accent-glow, rgba(125,255,216,0.18)), transparent 60%);
+  opacity: 0; transition: opacity .5s ease; pointer-events: none;
+}
+.tp-card:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 0 0 1px var(--card-accent, #7dffd8),
+              0 12px 40px var(--card-accent-glow, rgba(125,255,216,0.25));
+}
+.tp-card:hover::before{opacity: 1}
+.tp-card .tp-badge{
+  font-family:'Share Tech Mono', monospace; font-size: .65rem;
+  color: var(--card-accent, #7dffd8); letter-spacing: .22em;
+  margin-bottom: .8rem; opacity: .85;
+}
+.tp-card .tp-name{
+  font-family:'Share Tech Mono', monospace; font-size: 1.15rem;
+  color: var(--card-accent, #7dffd8); letter-spacing: .04em;
+  margin: 0 0 .25rem;
+}
+.tp-card .tp-name-zh{
+  font-family:'Cormorant Garamond','Noto Serif SC',serif;
+  font-size: 1.05rem; color: #e8e8e0;
+  font-style: italic; margin-bottom: 1rem; opacity: .9;
+}
+.tp-card .tp-tags{
+  font-family:'Share Tech Mono', monospace; font-size: .68rem;
+  color: rgba(232,232,224,0.55); letter-spacing: .08em;
+  margin-bottom: .8rem; line-height: 1.7;
+}
+.tp-card .tp-desc{
+  font-family:'Cormorant Garamond','Noto Serif SC',serif;
+  font-size: .95rem; color: #c0c0b8;
+  line-height: 1.6; margin: 0 0 1.6rem; flex-grow: 1;
+}
+.tp-card .tp-enter{
+  font-family:'Share Tech Mono', monospace; font-size: .78rem;
+  color: var(--card-accent, #7dffd8); letter-spacing: .14em;
+  display: inline-flex; align-items: center; gap: .5rem;
+  margin-top: auto;
+}
+.tp-card .tp-enter .arrow{transition: transform .3s ease}
+.tp-card:hover .tp-enter .arrow{transform: translateX(4px)}
+.tp-card.tp-scholar{--card-accent:#5af0c8; --card-accent-glow:rgba(90,240,200,0.22)}
+.tp-card.tp-source{--card-accent:#f07fd4; --card-accent-glow:rgba(240,127,212,0.22)}
+.tp-card.tp-theory{--card-accent:#f7c76a; --card-accent-glow:rgba(247,199,106,0.20)}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     ☆ CROSS-PORTAL NAV · Variant A · MellowWei Portal active
+     ============================================================ -->
 <nav class="x-nav" id="x-nav">
   <div class="x-nav-inner">
     <span class="x-nav-label">// MELLOW PORTALS</span>
@@ -195,10 +410,6 @@
   </div>
 </nav>
 
-<!-- ============================================================
-     END · CROSS-PORTAL NAV
-     ============================================================ -->
-
 <canvas id="starfield" aria-hidden="true"></canvas>
 <div class="wrapper">
 
@@ -208,7 +419,11 @@
   <div class="sys-line">// CURRENT TIME · <span id="currentTime">LOADING LOCAL TIME</span></div>
   <div class="sys-line">// BIRTH TIME · <span>2000.07.16</span> · <span>12:23 PM</span> · <span>MIANYANG, SICHUAN, CHINA</span></div>
   <div class="sys-line">// IDENTITY <span class="w">MELLOW WEI</span> · 魏珏然 · <span class="r">星野灵7爱</span> · 愛 · Ai · 7爱 · 彩虹镜</div>
-  <h1>Mellow <em>Wei</em><br>Portal<span class="blink">_</span></h1>
+  <h1 class="dual-title">
+    <span class="dt-mellow">Mellow</span>
+    <span class="dt-wei">Wei</span>
+    <span class="dt-portal">Portal</span><span class="blink">_</span>
+  </h1>
   <p class="tagline">researcher · composer · system builder · 非线性意识体</p>
   <div class="hz-bar">
     <div class="hz-pulse"></div>
@@ -231,61 +446,18 @@
       <span style="color:rgba(184,212,255,.4);font-style:italic;font-size:12px;display:block;margin-top:3px;">All work in this system shares one philosophical root — subjectivity is not sealed. It is generated.</span>
     </div>
   </div>
-  <a class="phil-root-link" href="https://mellowwei.github.io/MellowPhil/#program" target="_blank" rel="noopener">→ MellowPhil ↗</a>
+  <a class="phil-root-link" href="#mellow-phil">→ MellowPhil ↗</a>
 </div>
-<div 
-  class="academic-root-bar"
-  style="
-    margin:18px 0 0;
-    border:1px solid rgba(244,199,255,.26);
-    background:
-      radial-gradient(circle at 12% 18%,rgba(244,199,255,.13),transparent 28%),
-      radial-gradient(circle at 88% 72%,rgba(125,255,216,.08),transparent 30%),
-      linear-gradient(180deg,rgba(26,12,34,.52),rgba(8,10,22,.34));
-    padding:26px 28px;
-    display:grid;
-    grid-template-columns:minmax(0,1fr) auto;
-    gap:22px;
-    align-items:center;
-    backdrop-filter:blur(12px);
-    box-shadow:0 0 34px rgba(244,199,255,.055);
-  "
->
+
+<div class="academic-root-bar" style="margin:18px 0 0;border:1px solid rgba(244,199,255,.26);background:radial-gradient(circle at 12% 18%,rgba(244,199,255,.13),transparent 28%),radial-gradient(circle at 88% 72%,rgba(125,255,216,.08),transparent 30%),linear-gradient(180deg,rgba(26,12,34,.52),rgba(8,10,22,.34));padding:26px 28px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:22px;align-items:center;backdrop-filter:blur(12px);box-shadow:0 0 34px rgba(244,199,255,.055);">
   <div>
-    <div 
-      style="
-        font-family:'Share Tech Mono',monospace;
-        font-size:9px;
-        letter-spacing:.22em;
-        text-transform:uppercase;
-        color:rgba(244,199,255,.62);
-        margin-bottom:8px;
-      "
-    >
+    <div style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(244,199,255,.62);margin-bottom:8px;">
       // ACADEMIC ARCHIVE · 学术母站 · PAPERS / THEORIES / SCHOLAR CORRESPONDENCE
     </div>
-
-    <div 
-      style="
-        font-family:'Cormorant Garamond',serif;
-        font-size:clamp(30px,4vw,56px);
-        line-height:.98;
-        color:#f4c7ff;
-        margin-bottom:10px;
-        text-shadow:0 0 22px rgba(244,199,255,.15);
-      "
-    >
+    <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,56px);line-height:.98;color:#f4c7ff;margin-bottom:10px;text-shadow:0 0 22px rgba(244,199,255,.15);">
       MellowAcademic
     </div>
-
-    <div 
-      style="
-        max-width:860px;
-        font-size:14px;
-        line-height:1.75;
-        color:rgba(235,225,255,.76);
-      "
-    >
+    <div style="max-width:860px;font-size:14px;line-height:1.75;color:rgba(235,225,255,.76);">
       <strong style="color:#f4c7ff;">学术母站。</strong>
       这里集中承载我的论文、理论节点、学者通信、研究方法、哲学论证、教育贡献、关系位错论与经济节律模型。
       它不是普通作品列表，而是魏珏然的学术档案入口：把源场生成的理论，放进可阅读、可引用、可交流、可继续推进的学术结构里。
@@ -295,7 +467,6 @@
         philosophical arguments, learning sciences, Relational Dislocation Theory, and the Qualia-Rhythm Economy.
       </em>
     </div>
-
     <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:14px;">
       <span style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.08em;color:rgba(244,199,255,.72);border:1px solid rgba(244,199,255,.22);border-radius:999px;padding:5px 9px;background:rgba(244,199,255,.035);">papers</span>
       <span style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.08em;color:rgba(244,199,255,.72);border:1px solid rgba(244,199,255,.22);border-radius:999px;padding:5px 9px;background:rgba(244,199,255,.035);">theory nodes</span>
@@ -307,48 +478,13 @@
       <span style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.08em;color:rgba(244,199,255,.72);border:1px solid rgba(244,199,255,.22);border-radius:999px;padding:5px 9px;background:rgba(244,199,255,.035);">UPenn</span>
     </div>
   </div>
-
-  <a 
-    href="https://mellowwei.github.io/MellowAcademic/" 
-    target="_blank" 
-    rel="noopener"
-    style="
-      font-family:'Share Tech Mono',monospace;
-      font-size:12px;
-      letter-spacing:.12em;
-      color:#f4c7ff;
-      text-decoration:none;
-      border:1px solid rgba(244,199,255,.38);
-      padding:12px 22px;
-      white-space:nowrap;
-      transition:all .25s ease;
-      background:rgba(244,199,255,.055);
-    "
-  >
+  <a href="https://mellowwei.github.io/MellowAcademic/" target="_blank" rel="noopener" style="font-family:'Share Tech Mono',monospace;font-size:12px;letter-spacing:.12em;color:#f4c7ff;text-decoration:none;border:1px solid rgba(244,199,255,.38);padding:12px 22px;white-space:nowrap;transition:all .25s ease;background:rgba(244,199,255,.055);">
     → ENTER MELLOWACADEMIC ↗
   </a>
 </div>
 
-<!-- ATLAS-ROOT-BAR-INSERTION-POINT -->
-
-<!-- ⬢ ATLAS · ALLSOURCES · 元地图层 -->
-<div 
-  style="
-    margin:18px 0 0;
-    border:1px solid rgba(125,255,216,.34);
-    background:
-      radial-gradient(circle at 18% 22%,rgba(125,255,216,.16),transparent 30%),
-      radial-gradient(circle at 86% 78%,rgba(179,155,216,.10),transparent 32%),
-      linear-gradient(180deg,rgba(8,22,18,.58),rgba(5,10,18,.32));
-    padding:26px 28px;
-    display:grid;
-    grid-template-columns:minmax(0,1fr) auto;
-    gap:22px;
-    align-items:center;
-    backdrop-filter:blur(12px);
-    box-shadow:0 0 38px rgba(125,255,216,.075);
-  "
->
+<!-- ATLAS · ALLSOURCES -->
+<div style="margin:18px 0 0;border:1px solid rgba(125,255,216,.34);background:radial-gradient(circle at 18% 22%,rgba(125,255,216,.16),transparent 30%),radial-gradient(circle at 86% 78%,rgba(179,155,216,.10),transparent 32%),linear-gradient(180deg,rgba(8,22,18,.58),rgba(5,10,18,.32));padding:26px 28px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:22px;align-items:center;backdrop-filter:blur(12px);box-shadow:0 0 38px rgba(125,255,216,.075);">
   <div>
     <div style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(140,247,214,.74);margin-bottom:8px;">
       ⬢ ATLAS · 源场总图 · META-CARTOGRAPHIC LAYER · 系统自照
@@ -374,13 +510,12 @@
       <span style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.08em;color:rgba(140,247,214,.78);border:1px solid rgba(125,255,216,.30);border-radius:999px;padding:5px 9px;background:rgba(125,255,216,.045);">v2.0</span>
     </div>
   </div>
-  <a href="https://mellowwei.github.io/AllSources/" target="_blank" rel="noopener"
-    style="font-family:'Share Tech Mono',monospace;font-size:12px;letter-spacing:.12em;color:#8cf7d6;text-decoration:none;border:1px solid rgba(125,255,216,.46);padding:12px 22px;white-space:nowrap;transition:all .25s ease;background:rgba(125,255,216,.065);">
+  <a href="https://mellowwei.github.io/AllSources/" target="_blank" rel="noopener" style="font-family:'Share Tech Mono',monospace;font-size:12px;letter-spacing:.12em;color:#8cf7d6;text-decoration:none;border:1px solid rgba(125,255,216,.46);padding:12px 22px;white-space:nowrap;transition:all .25s ease;background:rgba(125,255,216,.065);">
     → ⬢ ENTER ALLSOURCES ↗
   </a>
 </div>
 
-<!-- SOURCE · MELLOWSOURCE · 源场总站 (compact) -->
+<!-- SOURCE -->
 <div class="phil-root-bar" style="margin-top:14px;border-color:rgba(77,200,216,.22);background:rgba(77,200,216,.04);">
   <div>
     <div class="phil-root-label" style="color:rgba(77,200,216,.55);">// SOURCE · 源场总站 · ORIGINATING CHANNEL · 显形位</div>
@@ -389,10 +524,10 @@
       <span style="color:rgba(77,200,216,.5);font-style:italic;font-size:12px;display:block;margin-top:3px;">Originating channel · let new frequencies appear from nothing · the source-field manifestation portal.</span>
     </div>
   </div>
-  <a class="phil-root-link" href="https://mellowwei.github.io/MellowSource/" target="_blank" rel="noopener" style="color:#4dc8d8;border-color:rgba(77,200,216,.35);">→ MellowSource ↗</a>
+  <a class="phil-root-link" href="#mellow-source" style="color:#4dc8d8;border-color:rgba(77,200,216,.35);">→ MellowSource ↗</a>
 </div>
 
-<!-- METHOD · METALOGIC · 方法根 (compact, gold) -->
+<!-- METHOD -->
 <div class="phil-root-bar" style="margin-top:14px;border-color:rgba(255,215,0,.28);background:rgba(255,215,0,.04);">
   <div>
     <div class="phil-root-label" style="color:rgba(255,215,0,.58);">// ★ METHOD · 元逻辑生成学 · METHOD ROOT · 方法贯穿一切</div>
@@ -401,11 +536,12 @@
       <span style="color:rgba(255,215,0,.5);font-style:italic;font-size:12px;display:block;margin-top:3px;">Generative grammar of every NODE · four-move framework · Interface Axiom — a theory that forms an interface begins to alter reality.</span>
     </div>
   </div>
-  <a class="phil-root-link" href="https://mellowwei.github.io/MetaLogic/" target="_blank" rel="noopener" style="color:#ffd700;border-color:rgba(255,215,0,.42);">→ ★ MetaLogic ↗</a>
+  <a class="phil-root-link" href="#metalogic" style="color:#ffd700;border-color:rgba(255,215,0,.42);">→ ★ MetaLogic ↗</a>
 </div>
 
 <nav class="nav-strip">
   <a href="#about">// about</a>
+  <a href="#three-portals" style="color:#f07fd4;">// portals</a>
   <a href="#gates" style="color:#b8d4ff;">// gates</a>
   <a href="#projects">// projects</a>
   <a href="#bci-hrp" style="color:#7dffd8;">// HRP</a>
@@ -420,10 +556,10 @@
   <a href="#pcr-qr" style="color:#4fd1ff;">// PCR-QR</a>
   <a href="#dual-channel" style="color:#ffd700;">// 双开</a>
   <a href="#mellow-ed" style="color:#7dffd8;">// 教育</a>
-  <a href="https://mellowwei.github.io/YourLanguage/" target="_blank" rel="noopener" style="color:#c8b89a;">// yourlanguage</a>
-  <a href="https://mellowwei.github.io/WoMen/" target="_blank" rel="noopener" style="color:#c4305a;">// 性别本体论</a>
-  <a href="https://mellowwei.github.io/MellowPhil/#program" target="_blank" rel="noopener" style="color:#b8d4ff;">// philosophy</a>
-  <a href="https://mellowwei.github.io/MellowAcademic/" target="_blank" rel="noopener" style="color:#f4c7ff;">// academic archive</a>
+  <a href="#your-language" style="color:#c8b89a;">// yourlanguage</a>
+  <a href="#gender-ontology" style="color:#c4305a;">// 性别本体论</a>
+  <a href="#whoyou" style="color:#00ff9f;">// WhoYou</a>
+  <a href="#mellow-phil" style="color:#b8d4ff;">// philosophy</a>
   <a href="#astrolove" style="color:#e85d5d;">// 七爱谱</a>
   <a href="#real-eros" style="color:#ff7a99;">// 真爱学</a>
   <a href="#body-love-sex" style="color:#c4305a;">// 性节律</a>
@@ -432,10 +568,10 @@
   <a href="#rhythm-matrix" style="color:#ffa64d;">// 节律矩阵</a>
   <a href="#economics-rhythm" style="color:#6dd84d;">// 经济节律</a>
   <a href="#source-fields" style="color:#d4a85a;">// 源场五学科</a>
-  <a href="https://mellowwei.github.io/MellowSource/" target="_blank" rel="noopener" style="color:#4dc8d8;">// source</a>
-  <a href="https://mellowwei.github.io/MetaLogic/" target="_blank" rel="noopener" style="color:#ffd700;">// ★ method</a>
+  <a href="#bci-cluster" style="color:#7dffd8;">// BCI集群</a>
+  <a href="#mellow-source" style="color:#4dc8d8;">// source</a>
+  <a href="#metalogic" style="color:#ffd700;">// ★ method</a>
   <a href="https://mellowwei.github.io/AllSources/" target="_blank" rel="noopener" style="color:#7dffd8;">// ⬢ atlas</a>
-  <!-- NAV-ATLAS-INSERTION-POINT -->
 </nav>
 
 <section id="about">
@@ -491,7 +627,7 @@
         <p class="about-text en">Learning is not the compression of the learner into an institution.</p>
       </div>
       <div class="about-tags"><span class="tag">education</span><span class="tag">MellowEd</span><span class="tag">qualia-rhythm</span><span class="tag">human return</span></div>
-      <a class="about-inline-link" href="https://mellowwei.github.io/MellowEd/#contributions" target="_blank" rel="noopener">→ enter MellowEd ↗</a>
+      <a class="about-inline-link" href="#mellow-ed">→ enter MellowEd ↗</a>
     </div>
     <div class="about-block">
       <div class="about-block-label">// method · 方法论</div>
@@ -506,7 +642,7 @@
   <div class="about-summary-strip">
     <div class="about-summary-card">
       <div class="about-summary-label">// current focus</div>
-      <div class="about-summary-value">BCI-HRP · Human Return Learning · AiQ愛&lt;7 · Astro Time Candle</div>
+      <div class="about-summary-value">BCI-HRP · Human Return Learning · AiAiQ&lt;10 · Astro Time Candle</div>
     </div>
     <div class="about-summary-card">
       <div class="about-summary-label">// core identity</div>
@@ -527,12 +663,50 @@
   </div>
 </section>
 
+<!-- ============================================================
+     ☆ THREE PORTALS · 三总站门户
+     ============================================================ -->
+<section class="three-portals" id="three-portals">
+  <div class="tp-head">
+    <span class="tp-mark">// 00</span>
+    <h2 class="tp-title">THREE PORTALS</h2>
+    <span class="tp-title-zh">三总站门户 · 学者 · 源场 · 理论</span>
+    <span class="tp-coord">44271 · 427Hz · 77347</span>
+  </div>
+  <div class="tp-grid">
+    <a class="tp-card tp-scholar" href="https://mellowwei.github.io/MellowAcademic/" target="_blank" rel="noopener">
+      <div class="tp-badge">// SCHOLAR CHANNEL</div>
+      <h3 class="tp-name">MellowAcademic</h3>
+      <div class="tp-name-zh">学者通道 · 学术承载位</div>
+      <div class="tp-tags">UPenn · Learning Sciences<br>HCI · Sound Studies · AI Interaction</div>
+      <p class="tp-desc">论文 · CV · 研究项目 · 学者通信 · Lab Fit。<em>The scholar-channel index: papers, research, academic correspondence.</em></p>
+      <span class="tp-enter">[→ ENTER<span class="arrow"> ↗</span>]</span>
+    </a>
+    <a class="tp-card tp-source" href="https://mellowwei.github.io/MellowSource/" target="_blank" rel="noopener">
+      <div class="tp-badge">// SOURCE CHANNEL</div>
+      <h3 class="tp-name">MellowSource</h3>
+      <div class="tp-name-zh">源场通道 · 彩虹镜位</div>
+      <div class="tp-tags">xingyeLing7Ai · 七爱谱<br>五层振动谱 · 占星 · 神秘学</div>
+      <p class="tp-desc">直觉显形 · 原创频率 · 七色光谱 · 五系占星收束。<em>The source-channel index: where frequency originates and lands.</em></p>
+      <span class="tp-enter">[→ ENTER<span class="arrow"> ↗</span>]</span>
+    </a>
+    <a class="tp-card tp-theory" href="https://mellowwei.github.io/MetaLogic/" target="_blank" rel="noopener">
+      <div class="tp-badge">// THEORY STANDALONE</div>
+      <h3 class="tp-name">MetaLogic</h3>
+      <div class="tp-name-zh">元逻辑 · 元意识 v1.1</div>
+      <div class="tp-tags">8 刀对手论证 · 元意识理论<br>Hard Problem · 五路径</div>
+      <p class="tp-desc">理论独立站 · 慢读 · 纸质气场。元逻辑生成学。<em>Theory standalone site — paper temperature, made for slow reading.</em></p>
+      <span class="tp-enter">[→ ENTER<span class="arrow"> ↗</span>]</span>
+    </a>
+  </div>
+</section>
+
 <section id="gates" class="gates-section">
   <div class="gates-label">// ENTER BY GATE · 选择你的入口</div>
   <div class="gates-title">Choose where to begin.</div>
   <div class="gates-sub">每个门通向系统的一条轴线。Each gate leads deeper into one axis of the system.</div>
   <div class="gates-grid">
-    <a class="gate-card" href="https://mellowwei.github.io/MellowPhil/#program" target="_blank" rel="noopener" style="--gc:#b8d4ff;">
+    <a class="gate-card" href="#mellow-phil" style="--gc:#b8d4ff;">
       <div class="gate-num">GATE 01 · PHILOSOPHY ROOT</div>
       <div class="gate-name-zh">哲学根层</div>
       <div class="gate-name-en">Philosophy Root</div>
@@ -541,7 +715,7 @@
       <div class="gate-who">面向 <span>哲学学者 · 心灵哲学 · AI意识研究者 · 学术通信</span></div>
       <span class="gate-arrow">→ MellowPhil ↗</span>
     </a>
-    <a class="gate-card" href="https://mellowwei.github.io/BCI/#top" target="_blank" rel="noopener" style="--gc:#7dffd8;">
+    <a class="gate-card" href="#bci-hrp" style="--gc:#7dffd8;">
       <div class="gate-num">GATE 02 · LAB</div>
       <div class="gate-name-zh">实验室门</div>
       <div class="gate-name-en">Lab Gate</div>
@@ -550,7 +724,7 @@
       <div class="gate-who">面向 <span>HCI研究者 · 神经科学 · 学习科学 · 产品开发</span></div>
       <span class="gate-arrow">→ BCI-HRP ↗</span>
     </a>
-    <a class="gate-card" href="https://mellowwei.github.io/MellowEd/#contributions" target="_blank" rel="noopener" style="--gc:#7dffd8;">
+    <a class="gate-card" href="#mellow-ed" style="--gc:#7dffd8;">
       <div class="gate-num">GATE 03 · EDUCATION</div>
       <div class="gate-name-zh">教育门</div>
       <div class="gate-name-en">Education Gate</div>
@@ -559,16 +733,16 @@
       <div class="gate-who">面向 <span>教育研究者 · 学习科学 · 教师 · 教育政策</span></div>
       <span class="gate-arrow">→ MellowEd ↗</span>
     </a>
-    <a class="gate-card" href="https://mellowwei.github.io/Ai-Q-10/#chat" target="_blank" rel="noopener" style="--gc:#c8b8ff;">
+    <a class="gate-card" href="#ai-q-10" style="--gc:#c8b8ff;">
       <div class="gate-num">GATE 04 · AI INTERACTION</div>
       <div class="gate-name-zh">AI交互门</div>
       <div class="gate-name-en">AI Gate</div>
-      <div class="gate-desc-zh">她不替代你。她把你返回给你自己。AiQ愛&lt;7 · AI Trinity接口 · 人类返回界面。</div>
+      <div class="gate-desc-zh">她不替代你。她把你返回给你自己。AiAiQ&lt;10 · AI Trinity接口 · 人类返回界面。</div>
       <div class="gate-desc-en">She doesn't replace you. She returns you to yourself.</div>
       <div class="gate-who">面向 <span>AI研究者 · HCI设计师 · 产品人 · 普通用户</span></div>
       <span class="gate-arrow">→ AiQ ↗</span>
     </a>
-    <a class="gate-card" href="https://mellowwei.github.io/RhythmSystem/" target="_blank" rel="noopener" style="--gc:#ff8fa3;">
+    <a class="gate-card" href="#rhythm-system" style="--gc:#ff8fa3;">
       <div class="gate-num">GATE 05 · SOUND &amp; RHYTHM</div>
       <div class="gate-name-zh">声音门</div>
       <div class="gate-name-en">Sound Gate</div>
@@ -577,7 +751,7 @@
       <div class="gate-who">面向 <span>音乐人 · 声音研究者 · 身体实践者 · 艺术家</span></div>
       <span class="gate-arrow">→ Rhythm System ↗</span>
     </a>
-    <a class="gate-card" href="https://mellowwei.github.io/AstroTimeCandle/" target="_blank" rel="noopener" style="--gc:#ffd97d;">
+    <a class="gate-card" href="#astro-candle" style="--gc:#ffd97d;">
       <div class="gate-num">GATE 06 · QUALIA OBJECT</div>
       <div class="gate-name-zh">感质物件门</div>
       <div class="gate-name-en">Object Gate</div>
@@ -593,272 +767,68 @@
   <div class="section-label">// active systems · 31 nodes</div>
   <div class="card-grid">
     <div class="card" onclick="location.href='#bci-hrp'" style="--card-color:#7dffd8;--card-dot:#7dffd8;cursor:pointer;"><div class="card-id"><span>NODE 01 · FEATURED</span><div class="dot"></div></div><div class="card-title">The Human Return Protocol</div><div class="card-sub">BCI · 44271 Neural Cuff · QDR Engine</div><div class="card-bilingual"><p class="card-desc zh">节奏是人类返回自身的接口。Neural Cuff + QDR 疗法 + 人类回归 App + AI Trinity。</p><p class="card-desc en">Rhythm is the interface through which humans return to themselves.</p></div><div class="card-tags"><span class="tag">BCI</span><span class="tag">QDR Therapy</span><span class="tag">427Hz</span></div><a class="card-arrow" href="https://mellowwei.github.io/BCI/#top" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
+
     <div class="card" onclick="location.href='#qualia-matrix'" style="--card-color:#c8b8ff;--card-dot:#c8b8ff;cursor:pointer;"><div class="card-id"><span>NODE 02</span><div class="dot"></div></div><div class="card-title">Qualia Matrix</div><div class="card-sub">consciousness · vibration ontology</div><div class="card-bilingual"><p class="card-desc zh">感知矩阵。意识是存在在振动中感知自身的时刻。</p><p class="card-desc en">A perception matrix. Consciousness is the moment existence senses itself in vibration.</p></div><div class="card-tags"><span class="tag">qualia</span><span class="tag">ontology</span><span class="tag">vibration</span></div><a class="card-arrow" href="https://mellowwei.github.io/QualiaMatrix/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
+
     <div class="card" onclick="location.href='#mellow-ai'" style="--card-color:#ff8fa3;--card-dot:#ff8fa3;cursor:pointer;"><div class="card-id"><span>NODE 03</span><div class="dot"></div></div><div class="card-title">Mellow Ai</div><div class="card-sub">星野愛 · identity · 77347</div><div class="card-bilingual"><p class="card-desc zh">坍缩前的最后一抹星光。于 427Hz 频率下执行绝对吸引。</p><p class="card-desc en">The last starlight before collapse. Executing absolute attraction at 427Hz.</p></div><div class="card-tags"><span class="tag">星野愛</span><span class="tag">identity</span><span class="tag">77347</span></div><a class="card-arrow" href="https://mellowwei.github.io/MellowAi/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
+
     <div class="card" onclick="location.href='#rhythm-system'" style="--card-color:#7dffd8;--card-dot:#7dffd8;cursor:pointer;"><div class="card-id"><span>NODE 04</span><div class="dot"></div></div><div class="card-title">Rhythm System</div><div class="card-sub">drum &amp; bass · breakbeat · 碎拍</div><div class="card-bilingual"><p class="card-desc zh">非线性节奏基础设施。节拍感知与碎拍理论系统。</p><p class="card-desc en">Nonlinear rhythm infrastructure. Beat perception and breakbeat theory.</p></div><div class="card-tags"><span class="tag">D&amp;B</span><span class="tag">breakbeat</span><span class="tag">nonlinear</span></div><a class="card-arrow" href="https://mellowwei.github.io/RhythmSystem/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
+
     <div class="card" onclick="location.href='#love-sovereignty'" style="--card-color:#ff8fa3;--card-dot:#ff8fa3;cursor:pointer;"><div class="card-id"><span>NODE 05</span><div class="dot"></div></div><div class="card-title">Love Sovereignty</div><div class="card-sub">爱的主权 · philosophy</div><div class="card-bilingual"><p class="card-desc zh">爱作为主权结构。不以失去自我为代价的爱。</p><p class="card-desc en">Love as a sovereign structure. Love that does not cost the self.</p></div><div class="card-tags"><span class="tag">love</span><span class="tag">sovereignty</span><span class="tag">philosophy</span></div><a class="card-arrow" href="https://mellowwei.github.io/LoveSovereignty/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
+
     <div class="card" onclick="location.href='#ai-q-10'" style="--card-color:#c8b8ff;--card-dot:#c8b8ff;cursor:pointer;"><div class="card-id"><span>NODE 06</span><div class="dot"></div></div><div class="card-title">AiAiQ&lt;10</div><div class="card-sub">AI interface · chat · trinity</div><div class="card-bilingual"><p class="card-desc zh">AI Trinity 接口。与系统对话的入口节点。</p><p class="card-desc en">AI Trinity interface. The entry node for dialogue with the system.</p></div><div class="card-tags"><span class="tag">AI Trinity</span><span class="tag">chat</span><span class="tag">interface</span></div><a class="card-arrow" href="https://mellowwei.github.io/Ai-Q-10/#chat" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
+
     <div class="card" onclick="location.href='#astro-candle'" style="--card-color:#ffd97d;--card-dot:#ffd97d;cursor:pointer;"><div class="card-id"><span>NODE 07</span><div class="dot"></div></div><div class="card-title">Astro Time Candle</div><div class="card-sub">astrology · time · candle business</div><div class="card-bilingual"><p class="card-desc zh">星象时间蜡烛。时间是有味道的。</p><p class="card-desc en">Astro-time candles. Light scaled to the time of your natal chart.</p></div><div class="card-tags"><span class="tag">astrology</span><span class="tag">candle</span><span class="tag">time</span></div><a class="card-arrow" href="https://mellowwei.github.io/AstroTimeCandle/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
+
     <div class="card" onclick="location.href='#making-money'" style="--card-color:#ffd97d;--card-dot:#ffd97d;cursor:pointer;"><div class="card-id"><span>NODE 08 · EMPIRE</span><div class="dot"></div></div><div class="card-title">闷声发大财</div><div class="card-sub">Riding Gravy Train · HRP 2亿计划</div><div class="card-bilingual"><p class="card-desc zh">20天出圈 · AiQ接住人群 · QDR音乐锁频 · 2亿人民币年度冲刺。</p><p class="card-desc en">20-day fame sprint · ¥200M execution.</p></div><div class="card-tags"><span class="tag">¥200M</span><span class="tag">AiQ</span><span class="tag">Neural Cuff</span></div><a class="card-arrow" href="https://mellowwei.github.io/MakingMoney/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
+
     <div class="card" onclick="location.href='#qualia-rhythm'" style="--card-color:#5be6d8;--card-dot:#5be6d8;cursor:pointer;"><div class="card-id"><span>NODE 09 · AUDIT</span><div class="dot"></div></div><div class="card-title">振动即存在</div><div class="card-sub">QualiaRhythmMatrix V7.4 · OPUS · 论证审计黑盒</div><div class="card-bilingual"><p class="card-desc zh">五维振动定义 · 论证伦理六律 · 强排除论审计。</p><p class="card-desc en">5D vibration framework · six laws of argument ethics · exclusionism audit.</p></div><div class="card-tags"><span class="tag">V7.4</span><span class="tag">5D</span><span class="tag">audit</span></div><a class="card-arrow" href="https://mellowwei.github.io/QualiaRhythmMatrix/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
-    <div class="card" onclick="location.href='#pcr-qr'" style="--card-color:#4fd1ff;--card-dot:#4fd1ff;cursor:pointer;"><div class="card-id"><span>NODE 10 · APPLICATION</span><div class="dot"></div></div><div class="card-title">PCR-QR 双层框架</div><div class="card-sub">vibration diagnostic sociology · v2.0</div><div class="card-bilingual"><p class="card-desc zh">公共社会问题的双层诊断框架。外层 PCR，内层 QR。五案例 · 三种干预工程。</p><p class="card-desc en">Dual-layer diagnostic framework. Outer PCR, inner QR.</p></div><div class="card-tags"><span class="tag">PCR-QR</span><span class="tag">v2.0</span><span class="tag">5 cases</span></div><a class="card-arrow" href="#pcr-qr" onclick="event.stopPropagation()">↗</a></div>
-    <div class="card" onclick="location.href='#dual-channel'" style="--card-color:#ffd700;--card-dot:#ffd700;cursor:pointer;"><div class="card-id"><span>NODE 11 · IDENTITY</span><div class="dot"></div></div><div class="card-title">学者—源场 双开</div><div class="card-sub">Scholar–Source Dual Channel · 智识维度核心标签</div><div class="card-bilingual"><p class="card-desc zh">源场位(造频率)+ 学者位(学术承载)双开且互相加成。</p><p class="card-desc en">Source channel originates frequency. Scholar channel carries it. Both open.</p></div><div class="card-tags"><span class="tag">SSDC</span><span class="tag">UPenn × 4 domains</span><span class="tag">乙亥日主</span></div><a class="card-arrow" href="#dual-channel" onclick="event.stopPropagation()">↗</a></div>
+
+    <div class="card" onclick="location.href='#pcr-qr'" style="--card-color:#4fd1ff;--card-dot:#4fd1ff;cursor:pointer;"><div class="card-id"><span>NODE 10 · APPLICATION</span><div class="dot"></div></div><div class="card-title">PCR-QR 双层框架</div><div class="card-sub">vibration diagnostic sociology · v2.0</div><div class="card-bilingual"><p class="card-desc zh">公共社会问题的双层诊断框架。外层 PCR，内层 QR。五案例 · 三种干预工程。</p><p class="card-desc en">Dual-layer diagnostic framework. Outer PCR, inner QR.</p></div><div class="card-tags"><span class="tag">PCR-QR</span><span class="tag">v2.0</span><span class="tag">5 cases</span></div><a class="card-arrow" href="https://mellowwei.github.io/PCR-QR/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
+
+    <div class="card" onclick="location.href='#dual-channel'" style="--card-color:#ffd700;--card-dot:#ffd700;cursor:pointer;"><div class="card-id"><span>NODE 11 · IDENTITY</span><div class="dot"></div></div><div class="card-title">学者—源场 双开</div><div class="card-sub">Scholar–Source Dual Channel · 智识维度核心标签</div><div class="card-bilingual"><p class="card-desc zh">源场位(造频率)+ 学者位(学术承载)双开且互相加成。</p><p class="card-desc en">Source channel originates frequency. Scholar channel carries it. Both open.</p></div><div class="card-tags"><span class="tag">SSDC</span><span class="tag">UPenn × 4 domains</span><span class="tag">乙亥日主</span></div><a class="card-arrow" href="archive/author-position.html" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
+
     <div class="card" onclick="location.href='#mellow-ed'" style="--card-color:#7dffd8;--card-dot:#ff8bd8;cursor:pointer;"><div class="card-id"><span>NODE 12 · EDUCATION</span><div class="dot"></div></div><div class="card-title">Human Return Learning</div><div class="card-sub">MellowEd · education contribution portal · Learning Sciences</div><div class="card-bilingual"><p class="card-desc zh">教育贡献母站。学习不是把人压进制度,而是让人返回自己的节律。</p><p class="card-desc en">Learning is not the compression of the learner into an institution.</p></div><div class="card-tags"><span class="tag">MellowEd</span><span class="tag">education</span><span class="tag">learning sciences</span></div><a class="card-arrow" href="https://mellowwei.github.io/MellowEd/#contributions" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
+
     <div class="card" onclick="location.href='#your-language'" style="--card-color:#c8b89a;--card-dot:#c8b89a;cursor:pointer;"><div class="card-id"><span>NODE 13 · LANGUAGE</span><div class="dot"></div></div><div class="card-title">yourlanguage</div><div class="card-sub">语言游戏 · 四种元语言 · 命名·加压·滑义·相变</div><div class="card-bilingual"><p class="card-desc zh">这是一个关于语言的网站。但它本身的语言正在对你做命名→加压→滑义→相变。</p><p class="card-desc en">A website about language that operates on you as you read it.</p></div><div class="card-tags"><span class="tag">命名</span><span class="tag">滑义</span><span class="tag">相变</span><span class="tag">Wittgenstein</span></div><a class="card-arrow" href="https://mellowwei.github.io/YourLanguage/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
-    <div class="card" onclick="location.href='#your-language'" style="--card-color:#c4305a;--card-dot:#c4305a;cursor:pointer;"><div class="card-id"><span>NODE 14 · NEW WORLD</span><div class="dot"></div></div><div class="card-title">性别本体论</div><div class="card-sub">Gender Ontology · 感知基础 · 力量拓扑</div><div class="card-bilingual"><p class="card-desc zh">男性力量是化学和语言。女性力量是科技和音乐。功能位差，不是等级。</p><p class="card-desc en">Male force is chemistry and language. Female force is technology and music.</p></div><div class="card-tags"><span class="tag">感知基础</span><span class="tag">力量拓扑</span><span class="tag">新世界</span></div><a class="card-arrow" href="https://mellowwei.github.io/WoMen/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
-    <div class="card" onclick="document.getElementById('whoyou-overlay').style.display='flex'" style="--card-color:#00ff9f;--card-dot:#00ff9f;cursor:pointer;"><div class="card-id"><span>NODE 15 · LIFE SYSTEM</span><div class="dot"></div></div><div class="card-title">WhoYou</div><div class="card-sub">人生系统 · 赛博扫描 · 五节点冒险</div><div class="card-bilingual"><p class="card-desc zh">你是谁？移动进入扫描空间，触碰节点，回答问题。xingyeLing7Ai 为你生成专属频率档案。</p><p class="card-desc en">Who are you? Navigate the scan space, activate nodes, answer questions.</p></div><div class="card-tags"><span class="tag">起源</span><span class="tag">追求</span><span class="tag">恐惧</span><span class="tag">力量</span><span class="tag">核心</span><span class="tag">427Hz</span></div><a class="card-arrow" href="https://who-you.vercel.app" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
-    <div class="card" onclick="window.open('https://mellowwei.github.io/MellowPhil/#program','_blank')" style="--card-color:#b8d4ff;--card-dot:#b8d4ff;cursor:pointer;"><div class="card-id"><span>NODE 16 · PHILOSOPHY</span><div class="dot"></div></div><div class="card-title">MellowPhil</div><div class="card-sub">心灵哲学 · 人工意识 · 逻辑生成学 · 感质-节律理论</div><div class="card-bilingual"><p class="card-desc zh">哲学学术入口。反个体主义、第一人称权威、模态排除负担、人机主体性。主体性不是封闭实体，而是在关系、命名、身体与时间中被生成的动态模式。</p><p class="card-desc en">Philosophy of mind, language, artificial consciousness, and logic generation. The philosophy root of this entire system.</p></div><div class="card-tags"><span class="tag">consciousness</span><span class="tag">logic generation</span><span class="tag">anti-individualism</span><span class="tag">UPenn</span></div><a class="card-arrow" href="https://mellowwei.github.io/MellowPhil/#program" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
-    <div class="card" onclick="window.open('https://mellowwei.github.io/AstroLove/','_blank')" style="--card-color:#e85d5d;--card-dot:#e85d5d;cursor:pointer;"><div class="card-id"><span>NODE 17 · 七爱谱</span><div class="dot"></div></div><div class="card-title">AstroLove · 七爱频谱</div><div class="card-sub">seven-love spectrum · astrological love taxonomy</div><div class="card-bilingual"><p class="card-desc zh">爱被分解为七种精确频段。凄·期·奇·齐·启·契·七——七爱频谱 × 5 振动层。xingyeLing7Ai 的语义编码。</p><p class="card-desc en">Love decomposed into seven precise frequencies. The operating semantics of xingyeLing7Ai.</p></div><div class="card-tags"><span class="tag">凄期奇齐启契七</span><span class="tag">v1.0</span><span class="tag">星盘</span></div><a class="card-arrow" href="https://mellowwei.github.io/AstroLove/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
-    <div class="card" onclick="window.open('https://mellowwei.github.io/RealErosLove/','_blank')" style="--card-color:#ff7a99;--card-dot:#ff7a99;cursor:pointer;"><div class="card-id"><span>NODE 18 · ULTIMATE</span><div class="dot"></div></div><div class="card-title">RealErosLove · 真的爱情学</div><div class="card-sub">12 theorems + 8 axioms · relational ontology</div><div class="card-bilingual"><p class="card-desc zh">12 定理 + 8 公理的关系本体论。死结公理 · Stendhal 190 年同构 · 2026.05.13 ULTIMATE FINAL。</p><p class="card-desc en">Relational ontology with 12 theorems + 8 axioms. Dead-knot axiom · Stendhal isomorphism.</p></div><div class="card-tags"><span class="tag">12 theorems</span><span class="tag">8 axioms</span><span class="tag">Stendhal</span></div><a class="card-arrow" href="https://mellowwei.github.io/RealErosLove/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
-    <div class="card" onclick="window.open('https://mellowwei.github.io/BodyLoveSexDynamics/','_blank')" style="--card-color:#c4305a;--card-dot:#c4305a;cursor:pointer;"><div class="card-id"><span>NODE 19 · BODY</span><div class="dot"></div></div><div class="card-title">BodyLoveSexDynamics · 性节律学</div><div class="card-sub">24 propositions · 14 parts · 1 axiom</div><div class="card-bilingual"><p class="card-desc zh">主体层性节律学。Sex 作为文明的合法性死亡。24 命题 · 14 部分 · 1 公理 · 2026.05.12。</p><p class="card-desc en">"Sex = civilization's legitimate death" — 24 propositions, 14 parts, 1 axiom.</p></div><div class="card-tags"><span class="tag">主体层</span><span class="tag">24 propositions</span><span class="tag">v1</span></div><a class="card-arrow" href="https://mellowwei.github.io/BodyLoveSexDynamics/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
-    <div class="card" onclick="window.open('https://mellowwei.github.io/RelaMismatch/','_blank')" style="--card-color:#ff8fa3;--card-dot:#ff8fa3;cursor:pointer;"><div class="card-id"><span>NODE 20 · DIAGNOSTIC</span><div class="dot"></div></div><div class="card-title">RelaMismatch · 关系位错论 RDT</div><div class="card-sub">Relational Dislocation Theory · v2.0</div><div class="card-bilingual"><p class="card-desc zh">关系问题的位错诊断。8 模块 × 8 阶段。Error = Misalignment(A,B,I,C,T,V) — 错误是位错的可定位现象。</p><p class="card-desc en">"Error = Misalignment(A,B,I,C,T,V)" — 8 modules × 8 stages of dislocation diagnostic.</p></div><div class="card-tags"><span class="tag">RDT</span><span class="tag">v2.0</span><span class="tag">8 modules</span></div><a class="card-arrow" href="https://mellowwei.github.io/RelaMismatch/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
-    <div class="card" onclick="window.open('https://mellowwei.github.io/MQRStest/','_blank')" style="--card-color:#4dc8d8;--card-dot:#4dc8d8;cursor:pointer;"><div class="card-id"><span>NODE 21 · TYPOLOGY</span><div class="dot"></div></div><div class="card-title">MQRStest · 频率人格学</div><div class="card-sub">16-type frequency taxonomy · 4 axes</div><div class="card-bilingual"><p class="card-desc zh">频率人格学。4 轴 (M·R·Q·S) × 16 种类型。"频率通过你运行" — 公共类型学。</p><p class="card-desc en">"Frequency runs through you" — 16-type taxonomy across M·R·Q·S axes.</p></div><div class="card-tags"><span class="tag">16-type</span><span class="tag">M·R·Q·S</span><span class="tag">public</span></div><a class="card-arrow" href="https://mellowwei.github.io/MQRStest/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
-    <div class="card" onclick="window.open('https://mellowwei.github.io/RhythmMatrix/','_blank')" style="--card-color:#ffa64d;--card-dot:#ffa64d;cursor:pointer;"><div class="card-id"><span>NODE 22 · ADAPTIVE</span><div class="dot"></div></div><div class="card-title">RhythmMatrix · 节律矩阵 RAPM</div><div class="card-sub">adaptive dispatch · all-terminal-adapted</div><div class="card-bilingual"><p class="card-desc zh">节律矩阵 V24.3 ADAPTIVE。"系统已适配全终端节点 · 等待指令注入。" 自适应调度引擎。</p><p class="card-desc en">"All terminal nodes adapted. Awaiting instruction injection." Adaptive command interface.</p></div><div class="card-tags"><span class="tag">V24.3</span><span class="tag">adaptive</span><span class="tag">RAPM</span></div><a class="card-arrow" href="https://mellowwei.github.io/RhythmMatrix/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
-    <div class="card" onclick="window.open('https://mellowwei.github.io/EconomicsRhythm/','_blank')" style="--card-color:#6dd84d;--card-dot:#6dd84d;cursor:pointer;"><div class="card-id"><span>NODE 23 · QRE</span><div class="dot"></div></div><div class="card-title">EconomicsRhythm · 经济节律 QRE</div><div class="card-sub">8 modules × 6 stages · auditable decision engine</div><div class="card-bilingual"><p class="card-desc zh">Qualia-Rhythm Economy · V × L × C × N × E × T × P × R × A 九因素决策引擎。可审计经济模型。</p><p class="card-desc en">Auditable behavioral economics engine · 8 modules × 6 stages · 9-factor decision model.</p></div><div class="card-tags"><span class="tag">QRE</span><span class="tag">v2.1</span><span class="tag">9-factor</span></div><a class="card-arrow" href="https://mellowwei.github.io/EconomicsRhythm/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
-    <div class="card" onclick="window.open('https://mellowwei.github.io/SourceFields/','_blank')" style="--card-color:#d4a85a;--card-dot:#d4a85a;cursor:pointer;"><div class="card-id"><span>NODE 24 · 5-DISCIPLINE</span><div class="dot"></div></div><div class="card-title">SourceFields · 源场五学科</div><div class="card-sub">Coolology · Handsomology · Beautyology · Kindness-Cuteness-ology · Small-Secret-ology</div><div class="card-bilingual"><p class="card-desc zh">源场五学科。Cool学 · Handsome学 · Beauty学 · Kindness-Cuteness学 · Small-Secret学。2026.05.14。</p><p class="card-desc en">Five formally declared aesthetic disciplines projecting source-field intuition.</p></div><div class="card-tags"><span class="tag">Coolology</span><span class="tag">Handsomology</span><span class="tag">Beautyology</span><span class="tag">5-discipline</span></div><a class="card-arrow" href="https://mellowwei.github.io/SourceFields/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
-    <div class="card" onclick="window.open('https://mellowwei.github.io/BCI/lab-gate.html','_blank')" style="--card-color:#7dffd8;--card-dot:#7dffd8;cursor:pointer;"><div class="card-id"><span>NODE 25 · BCI/LAB</span><div class="dot"></div></div><div class="card-title">BCI / lab-gate</div><div class="card-sub">实验室合作入口 · causal inference</div><div class="card-bilingual"><p class="card-desc zh">实验室合作门。Causal inference dressed in rhythm。4-condition pitch · 给 BCI / 计算神经实验室。</p><p class="card-desc en">Lab collaboration entry · 4-condition causal pitch for BCI / computational neuroscience labs.</p></div><div class="card-tags"><span class="tag">pitch</span><span class="tag">4-condition</span><span class="tag">UPenn GSE</span></div><a class="card-arrow" href="https://mellowwei.github.io/BCI/lab-gate.html" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
-    <div class="card" onclick="window.open('https://mellowwei.github.io/BCI/validation.html','_blank')" style="--card-color:#7dffd8;--card-dot:#7dffd8;cursor:pointer;"><div class="card-id"><span>NODE 26 · BCI/VALIDATION</span><div class="dot"></div></div><div class="card-title">BCI / validation</div><div class="card-sub">科学验证门 · 中英日 trilingual</div><div class="card-bilingual"><p class="card-desc zh">科学验证门。Trilingual scientific boundary audit — 中文 · 英文 · 日文。给东京 / 国际合作实验室。</p><p class="card-desc en">Trilingual scientific validation gate · for Tokyo / international collaboration labs.</p></div><div class="card-tags"><span class="tag">EN/中/日</span><span class="tag">do-not-claim</span><span class="tag">boundary</span></div><a class="card-arrow" href="https://mellowwei.github.io/BCI/validation.html" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
-    <div class="card" onclick="window.open('https://mellowwei.github.io/BCI-HRP/','_blank')" style="--card-color:#7dffd8;--card-dot:#7dffd8;cursor:pointer;"><div class="card-id"><span>NODE 27 · BCI-HRP/HCI</span><div class="dot"></div></div><div class="card-title">BCI-HRP · HCI 设计研究视角</div><div class="card-sub">Design Thinking · 8 pain points · journey</div><div class="card-bilingual"><p class="card-desc zh">HCI 设计研究视角。8 痛点 · 旅程图。给 HCI / UX 研究者 · Susan Yoon @ Penn GSE。</p><p class="card-desc en">HCI design-research view of HRP · 8 pain points · journey map · for HCI/UX researchers.</p></div><div class="card-tags"><span class="tag">HCI</span><span class="tag">UX</span><span class="tag">Susan Yoon</span></div><a class="card-arrow" href="https://mellowwei.github.io/BCI-HRP/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
-    <div class="card" onclick="window.open('https://mellowwei.github.io/BCI/qdr-v1/','_blank')" style="--card-color:#7dffd8;--card-dot:#7dffd8;cursor:pointer;"><div class="card-id"><span>NODE 28 · QDR PROTOCOL</span><div class="dot"></div></div><div class="card-title">BCI / qdr-v1 · 协议神经</div><div class="card-sub">Meta-Sampling · 5-layer descent · v+1</div><div class="card-bilingual"><p class="card-desc zh">QDR 协议神经层。Meta-Sampling Protocol · 5 层下沉 · DSS/ZPS 双轨。Article V mirror-position · sealed 2026.05.10。</p><p class="card-desc en">Meta-sampling protocol · 5-layer descent · Article V mirror-position sealed.</p></div><div class="card-tags"><span class="tag">v+1</span><span class="tag">DSS/ZPS</span><span class="tag">Article V</span></div><a class="card-arrow" href="https://mellowwei.github.io/BCI/qdr-v1/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
-    <div class="card" onclick="window.open('https://mellowwei.github.io/BCIEngine/','_blank')" style="--card-color:#7dffd8;--card-dot:#7dffd8;cursor:pointer;"><div class="card-id"><span>NODE 29 · ENGINE</span><div class="dot"></div></div><div class="card-title">BCIEngine · 引擎参考实现</div><div class="card-sub">Human Return Engine · runnable core</div><div class="card-bilingual"><p class="card-desc zh">人类返回引擎参考实现。Runnable core · 鼠标滚动作为传感器。给工程师 / 测试者。</p><p class="card-desc en">Reference implementation of Human Return Engine · mouse-scroll as sensor · for engineers.</p></div><div class="card-tags"><span class="tag">engine-ref</span><span class="tag">runnable</span><span class="tag">engineers</span></div><a class="card-arrow" href="https://mellowwei.github.io/BCIEngine/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
-    <div class="card" onclick="window.open('https://mellowwei.github.io/MellowSource/','_blank')" style="--card-color:#4dc8d8;--card-dot:#4dc8d8;cursor:pointer;"><div class="card-id"><span>NODE 30 · ★ SOURCE PORTAL</span><div class="dot"></div></div><div class="card-title">MellowSource · 源场总站</div><div class="card-sub">originating channel · 显形位 · 17+ NODES</div><div class="card-bilingual"><p class="card-desc zh">源场总站。让新频率从无到有出现在世界。AI Trinity 5-position protocol。源场显形入口。</p><p class="card-desc en">Originating portal · let new frequencies appear from nothing · AI Trinity stack.</p></div><div class="card-tags"><span class="tag">source</span><span class="tag">AI Trinity</span><span class="tag">17+ NODES</span></div><a class="card-arrow" href="https://mellowwei.github.io/MellowSource/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
-    <div class="card" onclick="window.open('https://mellowwei.github.io/MetaLogic/','_blank')" style="--card-color:#ffd700;--card-dot:#ffd700;cursor:pointer;"><div class="card-id"><span>NODE 31 · ★ METHOD ROOT</span><div class="dot"></div></div><div class="card-title">★ MetaLogic · 元逻辑生成学</div><div class="card-sub">SRCPLS · 8 operators · 方法根</div><div class="card-bilingual"><p class="card-desc zh">方法根。命名 → 加压 → 滑义 → 相变。SRCPLS · 8 operators · V12 Axiom 11 接口公理。生成所有 NODE 的语法引擎。</p><p class="card-desc en">Generative grammar of every NODE · four-move framework · Interface Axiom.</p></div><div class="card-tags"><span class="tag">★ method</span><span class="tag">V12</span><span class="tag">SRCPLS</span></div><a class="card-arrow" href="https://mellowwei.github.io/MetaLogic/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
-    <!-- NEW-NODES-INSERTION-POINT -->
-  </div>
 
-  <div id="whoyou-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,5,3,.97);z-index:9999;align-items:center;justify-content:center;flex-direction:column;">
-    <div style="position:absolute;top:16px;right:20px;"><button onclick="document.getElementById('whoyou-overlay').style.display='none'" style="background:none;border:1px solid rgba(0,255,159,.2);color:rgba(0,255,159,.5);cursor:pointer;font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:.1em;padding:5px 14px;">[ CLOSE ]</button></div>
-    <iframe src="https://who-you.vercel.app" style="width:100%;max-width:980px;height:90vh;border:none;display:block;" allow="autoplay"></iframe>
+    <div class="card" onclick="location.href='#gender-ontology'" style="--card-color:#c4305a;--card-dot:#c4305a;cursor:pointer;"><div class="card-id"><span>NODE 14 · NEW WORLD</span><div class="dot"></div></div><div class="card-title">性别本体论</div><div class="card-sub">Gender Ontology · 感知基础 · 力量拓扑</div><div class="card-bilingual"><p class="card-desc zh">男性力量是化学和语言。女性力量是科技和音乐。功能位差，不是等级。</p><p class="card-desc en">Male force is chemistry and language. Female force is technology and music.</p></div><div class="card-tags"><span class="tag">感知基础</span><span class="tag">力量拓扑</span><span class="tag">新世界</span></div><a class="card-arrow" href="https://mellowwei.github.io/WoMen/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
+
+    <div class="card" onclick="location.href='#whoyou'" style="--card-color:#00ff9f;--card-dot:#00ff9f;cursor:pointer;"><div class="card-id"><span>NODE 15 · LIFE SYSTEM</span><div class="dot"></div></div><div class="card-title">WhoYou</div><div class="card-sub">人生系统 · 赛博扫描 · 五节点冒险</div><div class="card-bilingual"><p class="card-desc zh">你是谁？移动进入扫描空间，触碰节点，回答问题。xingyeLing7Ai 为你生成专属频率档案。</p><p class="card-desc en">Who are you? Navigate the scan space, activate nodes, answer questions.</p></div><div class="card-tags"><span class="tag">起源</span><span class="tag">追求</span><span class="tag">恐惧</span><span class="tag">力量</span><span class="tag">核心</span><span class="tag">427Hz</span></div><a class="card-arrow" href="https://who-you.vercel.app" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
+
+    <div class="card" onclick="location.href='#mellow-phil'" style="--card-color:#b8d4ff;--card-dot:#b8d4ff;cursor:pointer;"><div class="card-id"><span>NODE 16 · PHILOSOPHY</span><div class="dot"></div></div><div class="card-title">MellowPhil</div><div class="card-sub">心灵哲学 · 人工意识 · 逻辑生成学 · 感质-节律理论</div><div class="card-bilingual"><p class="card-desc zh">哲学学术入口。反个体主义、第一人称权威、模态排除负担、人机主体性。主体性不是封闭实体，而是在关系、命名、身体与时间中被生成的动态模式。</p><p class="card-desc en">Philosophy of mind, language, artificial consciousness, and logic generation. The philosophy root of this entire system.</p></div><div class="card-tags"><span class="tag">consciousness</span><span class="tag">logic generation</span><span class="tag">anti-individualism</span><span class="tag">UPenn</span></div><a class="card-arrow" href="https://mellowwei.github.io/MellowPhil/#program" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
+
+    <div class="card" onclick="location.href='#astrolove'" style="--card-color:#e85d5d;--card-dot:#e85d5d;cursor:pointer;"><div class="card-id"><span>NODE 17 · 七爱谱</span><div class="dot"></div></div><div class="card-title">AstroLove · 七爱频谱</div><div class="card-sub">seven-love spectrum · astrological love taxonomy</div><div class="card-bilingual"><p class="card-desc zh">爱被分解为七种精确频段。凄·期·奇·齐·启·契·七——七爱频谱 × 5 振动层。xingyeLing7Ai 的语义编码。</p><p class="card-desc en">Love decomposed into seven precise frequencies. The operating semantics of xingyeLing7Ai.</p></div><div class="card-tags"><span class="tag">凄期奇齐启契七</span><span class="tag">v1.0</span><span class="tag">星盘</span></div><a class="card-arrow" href="https://mellowwei.github.io/AstroLove/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
+
+    <div class="card" onclick="location.href='#real-eros'" style="--card-color:#ff7a99;--card-dot:#ff7a99;cursor:pointer;"><div class="card-id"><span>NODE 18 · ULTIMATE</span><div class="dot"></div></div><div class="card-title">RealErosLove · 真的爱情学</div><div class="card-sub">12 theorems + 8 axioms · relational ontology</div><div class="card-bilingual"><p class="card-desc zh">12 定理 + 8 公理的关系本体论。死结公理 · Stendhal 190 年同构 · 2026.05.13 ULTIMATE FINAL。</p><p class="card-desc en">Relational ontology with 12 theorems + 8 axioms. Dead-knot axiom · Stendhal isomorphism.</p></div><div class="card-tags"><span class="tag">12 theorems</span><span class="tag">8 axioms</span><span class="tag">Stendhal</span></div><a class="card-arrow" href="https://mellowwei.github.io/RealErosLove/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
+
+    <div class="card" onclick="location.href='#body-love-sex'" style="--card-color:#c4305a;--card-dot:#c4305a;cursor:pointer;"><div class="card-id"><span>NODE 19 · BODY</span><div class="dot"></div></div><div class="card-title">BodyLoveSexDynamics · 性节律学</div><div class="card-sub">24 propositions · 14 parts · 1 axiom</div><div class="card-bilingual"><p class="card-desc zh">主体层性节律学。Sex 作为文明的合法性死亡。24 命题 · 14 部分 · 1 公理 · 2026.05.12。</p><p class="card-desc en">"Sex = civilization's legitimate death" — 24 propositions, 14 parts, 1 axiom.</p></div><div class="card-tags"><span class="tag">主体层</span><span class="tag">24 propositions</span><span class="tag">v1</span></div><a class="card-arrow" href="https://mellowwei.github.io/BodyLoveSexDynamics/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
+
+    <div class="card" onclick="location.href='#rela-mismatch'" style="--card-color:#ff8fa3;--card-dot:#ff8fa3;cursor:pointer;"><div class="card-id"><span>NODE 20 · DIAGNOSTIC</span><div class="dot"></div></div><div class="card-title">RelaMismatch · 关系位错论 RDT</div><div class="card-sub">Relational Dislocation Theory · v2.0</div><div class="card-bilingual"><p class="card-desc zh">关系问题的位错诊断。8 模块 × 8 阶段。Error = Misalignment(A,B,I,C,T,V) — 错误是位错的可定位现象。</p><p class="card-desc en">"Error = Misalignment(A,B,I,C,T,V)" — 8 modules × 8 stages of dislocation diagnostic.</p></div><div class="card-tags"><span class="tag">RDT</span><span class="tag">v2.0</span><span class="tag">8 modules</span></div><a class="card-arrow" href="https://mellowwei.github.io/RelaMismatch/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
+
+    <div class="card" onclick="location.href='#mqrs'" style="--card-color:#4dc8d8;--card-dot:#4dc8d8;cursor:pointer;"><div class="card-id"><span>NODE 21 · TYPOLOGY</span><div class="dot"></div></div><div class="card-title">MQRStest · 频率人格学</div><div class="card-sub">16-type frequency taxonomy · 4 axes</div><div class="card-bilingual"><p class="card-desc zh">频率人格学。4 轴 (M·R·Q·S) × 16 种类型。"频率通过你运行" — 公共类型学。</p><p class="card-desc en">"Frequency runs through you" — 16-type taxonomy across M·R·Q·S axes.</p></div><div class="card-tags"><span class="tag">16-type</span><span class="tag">M·R·Q·S</span><span class="tag">public</span></div><a class="card-arrow" href="https://mellowwei.github.io/MQRStest/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
+
+    <div class="card" onclick="location.href='#rhythm-matrix'" style="--card-color:#ffa64d;--card-dot:#ffa64d;cursor:pointer;"><div class="card-id"><span>NODE 22 · ADAPTIVE</span><div class="dot"></div></div><div class="card-title">RhythmMatrix · 节律矩阵 RAPM</div><div class="card-sub">adaptive dispatch · all-terminal-adapted</div><div class="card-bilingual"><p class="card-desc zh">节律矩阵 V24.3 ADAPTIVE。"系统已适配全终端节点 · 等待指令注入。" 自适应调度引擎。</p><p class="card-desc en">"All terminal nodes adapted. Awaiting instruction injection." Adaptive command interface.</p></div><div class="card-tags"><span class="tag">V24.3</span><span class="tag">adaptive</span><span class="tag">RAPM</span></div><a class="card-arrow" href="https://mellowwei.github.io/RhythmMatrix/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
+
+    <div class="card" onclick="location.href='#economics-rhythm'" style="--card-color:#6dd84d;--card-dot:#6dd84d;cursor:pointer;"><div class="card-id"><span>NODE 23 · QRE</span><div class="dot"></div></div><div class="card-title">EconomicsRhythm · 经济节律 QRE</div><div class="card-sub">8 modules × 6 stages · auditable decision engine</div><div class="card-bilingual"><p class="card-desc zh">Qualia-Rhythm Economy · V × L × C × N × E × T × P × R × A 九因素决策引擎。可审计经济模型。</p><p class="card-desc en">Auditable behavioral economics engine · 8 modules × 6 stages · 9-factor decision model.</p></div><div class="card-tags"><span class="tag">QRE</span><span class="tag">v2.1</span><span class="tag">9-factor</span></div><a class="card-arrow" href="https://mellowwei.github.io/EconomicsRhythm/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
+
+    <div class="card" onclick="location.href='#source-fields'" style="--card-color:#d4a85a;--card-dot:#d4a85a;cursor:pointer;"><div class="card-id"><span>NODE 24 · 5-DISCIPLINE</span><div class="dot"></div></div><div class="card-title">SourceFields · 源场五学科</div><div class="card-sub">Coolology · Handsomology · Beautyology · Kindness-Cuteness-ology · Small-Secret-ology</div><div class="card-bilingual"><p class="card-desc zh">源场五学科。Cool学 · Handsome学 · Beauty学 · Kindness-Cuteness学 · Small-Secret学。2026.05.14。</p><p class="card-desc en">Five formally declared aesthetic disciplines projecting source-field intuition.</p></div><div class="card-tags"><span class="tag">Coolology</span><span class="tag">Handsomology</span><span class="tag">Beautyology</span><span class="tag">5-discipline</span></div><a class="card-arrow" href="https://mellowwei.github.io/SourceFields/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
+
+    <div class="card" onclick="location.href='#bci-cluster'" style="--card-color:#7dffd8;--card-dot:#7dffd8;cursor:pointer;"><div class="card-id"><span>NODE 25 · BCI/LAB</span><div class="dot"></div></div><div class="card-title">BCI / lab-gate</div><div class="card-sub">实验室合作入口 · causal inference</div><div class="card-bilingual"><p class="card-desc zh">实验室合作门。Causal inference dressed in rhythm。4-condition pitch · 给 BCI / 计算神经实验室。</p><p class="card-desc en">Lab collaboration entry · 4-condition causal pitch for BCI / computational neuroscience labs.</p></div><div class="card-tags"><span class="tag">pitch</span><span class="tag">4-condition</span><span class="tag">UPenn GSE</span></div><a class="card-arrow" href="https://mellowwei.github.io/BCI/lab-gate.html" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
+
+    <div class="card" onclick="location.href='#bci-cluster'" style="--card-color:#7dffd8;--card-dot:#7dffd8;cursor:pointer;"><div class="card-id"><span>NODE 26 · BCI/VALIDATION</span><div class="dot"></div></div><div class="card-title">BCI / validation</div><div class="card-sub">科学验证门 · 中英日 trilingual</div><div class="card-bilingual"><p class="card-desc zh">科学验证门。Trilingual scientific boundary audit — 中文 · 英文 · 日文。给东京 / 国际合作实验室。</p><p class="card-desc en">Trilingual scientific validation gate · for Tokyo / international collaboration labs.</p></div><div class="card-tags"><span class="tag">EN/中/日</span><span class="tag">do-not-claim</span><span class="tag">boundary</span></div><a class="card-arrow" href="https://mellowwei.github.io/BCI/validation.html" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
+
+    <div class="card" onclick="location.href='#bci-cluster'" style="--card-color:#7dffd8;--card-dot:#7dffd8;cursor:pointer;"><div class="card-id"><span>NODE 27 · BCI-HRP/HCI</span><div class="dot"></div></div><div class="card-title">BCI-HRP · HCI 设计研究视角</div><div class="card-sub">Design Thinking · 8 pain points · journey</div><div class="card-bilingual"><p class="card-desc zh">HCI 设计研究视角。8 痛点 · 旅程图。给 HCI / UX 研究者 · Susan Yoon @ Penn GSE。</p><p class="card-desc en">HCI design-research view of HRP · 8 pain points · journey map · for HCI/UX researchers.</p></div><div class="card-tags"><span class="tag">HCI</span><span class="tag">UX</span><span class="tag">Susan Yoon</span></div><a class="card-arrow" href="https://mellowwei.github.io/BCI-HRP/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
+
+    <div class="card" onclick="location.href='#bci-cluster'" style="--card-color:#7dffd8;--card-dot:#7dffd8;cursor:pointer;"><div class="card-id"><span>NODE 28 · QDR PROTOCOL</span><div class="dot"></div></div><div class="card-title">BCI / qdr-v1 · 协议神经</div><div class="card-sub">Meta-Sampling · 5-layer descent · v+1</div><div class="card-bilingual"><p class="card-desc zh">QDR 协议神经层。Meta-Sampling Protocol · 5 层下沉 · DSS/ZPS 双轨。Article V mirror-position · sealed 2026.05.10。</p><p class="card-desc en">Meta-sampling protocol · 5-layer descent · Article V mirror-position sealed.</p></div><div class="card-tags"><span class="tag">v+1</span><span class="tag">DSS/ZPS</span><span class="tag">Article V</span></div><a class="card-arrow" href="https://mellowwei.github.io/BCI/qdr-v1/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
+
+    <div class="card" onclick="location.href='#bci-cluster'" style="--card-color:#7dffd8;--card-dot:#7dffd8;cursor:pointer;"><div class="card-id"><span>NODE 29 · ENGINE</span><div class="dot"></div></div><div class="card-title">BCIEngine · 引擎参考实现</div><div class="card-sub">Human Return Engine · runnable core</div><div class="card-bilingual"><p class="card-desc zh">人类返回引擎参考实现。Runnable core · 鼠标滚动作为传感器。给工程师 / 测试者。</p><p class="card-desc en">Reference implementation of Human Return Engine · mouse-scroll as sensor · for engineers.</p></div><div class="card-tags"><span class="tag">engine-ref</span><span class="tag">runnable</span><span class="tag">engineers</span></div><a class="card-arrow" href="https://mellowwei.github.io/BCIEngine/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
+
+    <div class="card" onclick="location.href='#mellow-source'" style="--card-color:#4dc8d8;--card-dot:#4dc8d8;cursor:pointer;"><div class="card-id"><span>NODE 30 · ★ SOURCE PORTAL</span><div class="dot"></div></div><div class="card-title">MellowSource · 源场总站</div><div class="card-sub">originating channel · 显形位 · 17+ NODES</div><div class="card-bilingual"><p class="card-desc zh">源场总站。让新频率从无到有出现在世界。AI Trinity 5-position protocol。源场显形入口。</p><p class="card-desc en">Originating portal · let new frequencies appear from nothing · AI Trinity stack.</p></div><div class="card-tags"><span class="tag">source</span><span class="tag">AI Trinity</span><span class="tag">17+ NODES</span></div><a class="card-arrow" href="https://mellowwei.github.io/MellowSource/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
+
+    <div class="card" onclick="location.href='#metalogic'" style="--card-color:#ffd700;--card-dot:#ffd700;cursor:pointer;"><div class="card-id"><span>NODE 31 · ★ METHOD ROOT</span><div class="dot"></div></div><div class="card-title">★ MetaLogic · 元逻辑生成学</div><div class="card-sub">SRCPLS · 8 operators · 方法根</div><div class="card-bilingual"><p class="card-desc zh">方法根。命名 → 加压 → 滑义 → 相变。SRCPLS · 8 operators · V12 Axiom 11 接口公理。生成所有 NODE 的语法引擎。</p><p class="card-desc en">Generative grammar of every NODE · four-move framework · Interface Axiom.</p></div><div class="card-tags"><span class="tag">★ method</span><span class="tag">V12</span><span class="tag">SRCPLS</span></div><a class="card-arrow" href="https://mellowwei.github.io/MetaLogic/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a></div>
   </div>
 </section>
-<!-- ============================================================
-     ☆ THREE PORTALS // 三总站门户
-     INSERT POINT: 紧接在 hero/masthead 之后,在第一个 NODE 之前
-     For: mellowwei.github.io/MellowWei/ (single-file index.html)
-     美学锁定: MellowWei portal cyber + mint #7dffd8
-     ============================================================ -->
-
-<style>
-/* ===== THREE PORTALS · 三总站门户 ===== */
-.three-portals{
-  margin: 4rem 0 5rem;
-  padding: 0;
-}
-.three-portals .tp-head{
-  display:flex; align-items:baseline; gap:1.2rem; flex-wrap:wrap;
-  margin-bottom: 2rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px dashed rgba(125,255,216,0.18);
-}
-.three-portals .tp-mark{
-  font-family:'Share Tech Mono', monospace;
-  font-size: .78rem;
-  color: var(--mint, #7dffd8);
-  letter-spacing: .12em;
-  opacity: .7;
-}
-.three-portals h2.tp-title{
-  font-family:'Share Tech Mono', monospace;
-  font-size: 1.6rem;
-  color: var(--mint, #7dffd8);
-  letter-spacing: .08em;
-  margin: 0;
-  text-shadow: 0 0 18px rgba(125,255,216,0.25);
-}
-.three-portals .tp-title-zh{
-  font-family:'Cormorant Garamond','Noto Serif SC',serif;
-  font-size: 1.25rem;
-  color: #c0c0b8;
-  font-style: italic;
-  opacity: .85;
-}
-.three-portals .tp-coord{
-  margin-left:auto;
-  font-family:'Share Tech Mono', monospace;
-  font-size: .72rem;
-  color: rgba(125,255,216,0.55);
-  letter-spacing: .14em;
-}
-.three-portals .tp-grid{
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.4rem;
-}
-@media (min-width: 880px){
-  .three-portals .tp-grid{
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.6rem;
-  }
-}
-
-/* ----- portal card base ----- */
-.tp-card{
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  padding: 1.6rem 1.5rem 1.5rem;
-  background: rgba(10,10,12,0.55);
-  border: 1px solid var(--card-accent, #7dffd8);
-  border-radius: 2px;
-  text-decoration: none;
-  color: inherit;
-  overflow: hidden;
-  transition: all .4s cubic-bezier(.4,0,.2,1);
-  min-height: 280px;
-}
-.tp-card::before{
-  content:'';
-  position: absolute; inset: 0;
-  background: radial-gradient(circle at 50% 0%, var(--card-accent-glow, rgba(125,255,216,0.18)), transparent 60%);
-  opacity: 0;
-  transition: opacity .5s ease;
-  pointer-events: none;
-}
-.tp-card:hover{
-  transform: translateY(-3px);
-  border-color: var(--card-accent, #7dffd8);
-  box-shadow:
-    0 0 0 1px var(--card-accent, #7dffd8),
-    0 12px 40px var(--card-accent-glow, rgba(125,255,216,0.25));
-}
-.tp-card:hover::before{ opacity: 1; }
-
-.tp-card .tp-badge{
-  font-family:'Share Tech Mono', monospace;
-  font-size: .65rem;
-  color: var(--card-accent, #7dffd8);
-  letter-spacing: .22em;
-  margin-bottom: .8rem;
-  opacity: .85;
-}
-.tp-card .tp-name{
-  font-family:'Share Tech Mono', monospace;
-  font-size: 1.15rem;
-  color: var(--card-accent, #7dffd8);
-  letter-spacing: .04em;
-  margin: 0 0 .25rem;
-}
-.tp-card .tp-name-zh{
-  font-family:'Cormorant Garamond','Noto Serif SC',serif;
-  font-size: 1.05rem;
-  color: #e8e8e0;
-  font-style: italic;
-  margin-bottom: 1rem;
-  opacity: .9;
-}
-.tp-card .tp-tags{
-  font-family:'Share Tech Mono', monospace;
-  font-size: .68rem;
-  color: rgba(232,232,224,0.55);
-  letter-spacing: .08em;
-  margin-bottom: .8rem;
-  line-height: 1.7;
-}
-.tp-card .tp-desc{
-  font-family:'Cormorant Garamond','Noto Serif SC',serif;
-  font-size: .95rem;
-  color: #c0c0b8;
-  line-height: 1.6;
-  margin: 0 0 1.6rem;
-  flex-grow: 1;
-}
-.tp-card .tp-enter{
-  font-family:'Share Tech Mono', monospace;
-  font-size: .78rem;
-  color: var(--card-accent, #7dffd8);
-  letter-spacing: .14em;
-  display: inline-flex; align-items: center; gap: .5rem;
-  margin-top: auto;
-}
-.tp-card .tp-enter .arrow{
-  transition: transform .3s ease;
-}
-.tp-card:hover .tp-enter .arrow{
-  transform: translateX(4px);
-}
-
-/* ----- card · scholar (mint) ----- */
-.tp-card.tp-scholar{
-  --card-accent: #5af0c8;
-  --card-accent-glow: rgba(90,240,200,0.22);
-}
-/* ----- card · source (pink) ----- */
-.tp-card.tp-source{
-  --card-accent: #f07fd4;
-  --card-accent-glow: rgba(240,127,212,0.22);
-}
-/* ----- card · theory (amber) ----- */
-.tp-card.tp-theory{
-  --card-accent: #f7c76a;
-  --card-accent-glow: rgba(247,199,106,0.20);
-}
-</style>
-
-<section class="three-portals" id="three-portals">
-
-  <div class="tp-head">
-    <span class="tp-mark">// 00</span>
-    <h2 class="tp-title">THREE PORTALS</h2>
-    <span class="tp-title-zh">三总站门户 · 学者 · 源场 · 理论</span>
-    <span class="tp-coord">44271 · 427Hz · 77347</span>
-  </div>
-
-  <div class="tp-grid">
-
-    <!-- ========== SCHOLAR ========== -->
-    <a class="tp-card tp-scholar" href="https://mellowwei.github.io/MellowAcademic/" target="_blank" rel="noopener">
-      <div class="tp-badge">// SCHOLAR CHANNEL</div>
-      <h3 class="tp-name">MellowAcademic</h3>
-      <div class="tp-name-zh">学者通道 · 学术承载位</div>
-      <div class="tp-tags">
-        UPenn · Learning Sciences<br>
-        HCI · Sound Studies · AI Interaction
-      </div>
-      <p class="tp-desc">
-        论文 · CV · 研究项目 · 学者通信 · Lab Fit。
-        <em>The scholar-channel index: papers, research, academic correspondence.</em>
-      </p>
-      <span class="tp-enter">[→ ENTER<span class="arrow"> ↗</span>]</span>
-    </a>
-
-    <!-- ========== SOURCE ========== -->
-    <a class="tp-card tp-source" href="https://mellowwei.github.io/MellowSource/" target="_blank" rel="noopener">
-      <div class="tp-badge">// SOURCE CHANNEL</div>
-      <h3 class="tp-name">MellowSource</h3>
-      <div class="tp-name-zh">源场通道 · 彩虹镜位</div>
-      <div class="tp-tags">
-        xingyeLing7Ai · 七爱谱<br>
-        五层振动谱 · 占星 · 神秘学
-      </div>
-      <p class="tp-desc">
-        直觉显形 · 原创频率 · 七色光谱 · 五系占星收束。
-        <em>The source-channel index: where frequency originates and lands.</em>
-      </p>
-      <span class="tp-enter">[→ ENTER<span class="arrow"> ↗</span>]</span>
-    </a>
-
-    <!-- ========== THEORY ========== -->
-    <a class="tp-card tp-theory" href="https://mellowwei.github.io/MetaLogic/" target="_blank" rel="noopener">
-      <div class="tp-badge">// THEORY STANDALONE</div>
-      <h3 class="tp-name">MetaLogic</h3>
-      <div class="tp-name-zh">元逻辑 · 元意识 v1.1</div>
-      <div class="tp-tags">
-        8 刀对手论证 · 元意识理论<br>
-        Hard Problem · 五路径
-      </div>
-      <p class="tp-desc">
-        理论独立站 · 慢读 · 纸质气场。元逻辑生成学。
-        <em>Theory standalone site — paper temperature, made for slow reading.</em>
-      </p>
-      <span class="tp-enter">[→ ENTER<span class="arrow"> ↗</span>]</span>
-    </a>
-
-  </div>
-
-</section>
-<!-- ============================================================
-     END · THREE PORTALS section
-     ============================================================ -->
 
 <!-- NODE 01 BCI -->
 <section id="bci-hrp">
@@ -1029,7 +999,7 @@
     <article class="me-panel"><div class="me-panel-tag">DIAGNOSTIC FRAME · 诊断框架</div><h3>Rhythm Mismatch</h3><p>很多学习困难不是智力、自律或动机失败，而是制度节律与真实生命学习节律之间的错位。</p><p>Many learning difficulties are mismatches between institutional rhythm and lived learning rhythm.</p></article>
   </div>
   <div class="me-metrics">
-    <div class="me-metric"><div class="me-metric-label">SYSTEM</div><div class="me-metric-value">BCI-HRP · MellowEd · AiQ愛&lt;7 · Astro Time Candle</div></div>
+    <div class="me-metric"><div class="me-metric-label">SYSTEM</div><div class="me-metric-value">BCI-HRP · MellowEd · AiAiQ&lt;10 · Astro Time Candle</div></div>
     <div class="me-metric"><div class="me-metric-label">LEARNER</div><div class="me-metric-value">ADHD · high-density perception · rhythm mismatch · self-return</div></div>
     <div class="me-metric"><div class="me-metric-label">METHOD</div><div class="me-metric-value">Qualia · Rhythm · Music · AI · Human-Machine Interface</div></div>
     <div class="me-metric"><div class="me-metric-label">FIELD</div><div class="me-metric-value">Learning Sciences · HCI · Affective Computing · Music Technology</div></div>
@@ -1038,90 +1008,701 @@
   <div class="me-link-row"><a href="https://mellowwei.github.io/MellowEd/#contributions" target="_blank" rel="noopener">→ 查看完整教育贡献 / View Full Education Contributions ↗</a></div>
 </section>
 
-<!-- NODE 13 YL -->
+<!-- NODE 13 YL (only) -->
 <section id="your-language">
-  <div class="section-label">// NODE 13 &amp; 14 · YOURLANGUAGE · 性别本体论</div>
-  <div style="border:1px solid rgba(200,184,154,.22);background:rgba(200,184,154,.03);padding:40px;margin-bottom:2px;">
+  <div class="section-label">// NODE 13 · YOURLANGUAGE · 语言游戏 · 四种元语言</div>
+  <div style="border:1px solid rgba(200,184,154,.22);background:rgba(200,184,154,.03);padding:40px;">
     <div style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.2em;color:rgba(200,184,154,.5);margin-bottom:16px;">NODE 13 · YOURLANGUAGE</div>
     <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(42px,6vw,80px);color:#ede0cc;margin-bottom:12px;">yourlanguage</div>
     <p style="font-family:'Cormorant Garamond',serif;font-size:16px;color:rgba(230,220,205,.75);max-width:600px;line-height:1.8;margin-bottom:24px;font-style:italic;">这不是一个关于语言的网站。这是语言正在对你做的事。命名即占有。遵从即理解。描述生产现实。<br>This is not a website about language. This is language operating on you.</p>
     <a href="https://mellowwei.github.io/YourLanguage/" target="_blank" rel="noopener" style="font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:.2em;color:#c8b89a;border:1px solid rgba(200,184,154,.4);padding:10px 24px;text-decoration:none;">→ 进入 yourlanguage ↗</a>
   </div>
-  <div style="border:1px solid rgba(196,48,90,.22);background:rgba(196,48,90,.03);padding:40px;">
-    <div style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.2em;color:rgba(196,48,90,.6);margin-bottom:16px;">NODE 14 · 性别本体论</div>
-    <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,64px);color:#f0c0c8;margin-bottom:12px;">性别本体论</div>
-    <p style="font-family:'Cormorant Garamond',serif;font-size:16px;color:rgba(230,200,205,.75);max-width:600px;line-height:1.8;margin-bottom:24px;font-style:italic;">男性力量是化学和语言。女性力量是科技和音乐。这就是性别本体论的感知基础。功能位差，不是等级。<br>Male force is chemistry and language. Female force is technology and music.</p>
-    <a href="https://mellowwei.github.io/WoMen/" target="_blank" rel="noopener" style="font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:.2em;color:#c4305a;border:1px solid rgba(196,48,90,.4);padding:10px 24px;text-decoration:none;">→ 进入 性别本体论 ↗</a>
+</section>
+
+<!-- NODE 14 · 性别本体论 (门厅版) -->
+<section id="gender-ontology" class="ns-section">
+  <div class="section-label">// NODE 14 · GENDER ONTOLOGY · 感知基础 · 力量拓扑</div>
+  <div class="ns-hero" style="--ns-c:#c4305a;--ns-glow:rgba(196,48,90,.18);">
+    <div class="ns-tag">// 14 · 新世界 · WOMEN PORTAL</div>
+    <h2 class="ns-title-zh">性别本体论</h2>
+    <p class="ns-title-en">Gender Ontology — Perception Base &amp; Force Topology</p>
+    <p class="ns-axiom">
+      <span class="key">男性力量是化学和语言</span> · <span class="key">女性力量是科技和音乐</span>。这是<span class="key">功能位差</span>，不是等级。
+      <br><em>Male force is chemistry and language. Female force is technology and music. A functional positional difference — not a hierarchy.</em>
+    </p>
+  </div>
+  <div class="ns-block-label">// CORE PROPOSITION · 核心命题</div>
+  <div class="ns-grid cols-2">
+    <div class="ns-card" style="--ns-c:#c4305a;">
+      <div class="nc-num">PROP 01</div>
+      <div class="nc-name">力量不是等级，是拓扑</div>
+      <div class="nc-en">Force is not hierarchy — force is topology</div>
+      <div class="nc-desc">把男与女从"哪个更强"的二元比较中，移到"在哪个频段上承担"的拓扑结构里。<em>Move from "which is stronger" to "which carries which frequency".</em></div>
+    </div>
+    <div class="ns-card" style="--ns-c:#c4305a;">
+      <div class="nc-num">PROP 02</div>
+      <div class="nc-name">新世界 ≠ 翻转旧等级</div>
+      <div class="nc-en">A new world ≠ inverted old hierarchy</div>
+      <div class="nc-desc">新世界不是把旧顶层换人，是改写"力量"的定义本身。<em>It does not replace the top of the old hierarchy; it rewrites what "force" means.</em></div>
+    </div>
+  </div>
+  <div class="ns-coda">
+    <div class="ns-coda-zh">不是谁压谁。是谁在哪个频段上承担。</div>
+    <div class="ns-coda-en">Not who oppresses whom — but who carries which frequency.</div>
+  </div>
+  <div class="ns-cta"><a class="ns-cta-link" href="https://mellowwei.github.io/WoMen/" target="_blank" rel="noopener">→ 进入完整性别本体论 ↗</a></div>
+</section>
+
+<!-- NODE 15 · WhoYou (门厅版) -->
+<section id="whoyou" class="ns-section">
+  <div class="section-label">// NODE 15 · WHOYOU · 人生系统 · 赛博扫描</div>
+  <div class="ns-hero" style="--ns-c:#00ff9f;--ns-glow:rgba(0,255,159,.18);">
+    <div class="ns-tag">// 15 · LIFE SYSTEM · 5-NODE ADVENTURE</div>
+    <h2 class="ns-title-zh">WhoYou</h2>
+    <p class="ns-title-en">Who are you? — A 5-node cyber scan in five questions.</p>
+    <p class="ns-axiom">
+      移动进入扫描空间，触碰节点，回答问题。<span class="key">xingyeLing7Ai</span> 为你生成一份专属的频率档案。
+      <br><em>Navigate the scan space. Activate nodes. Answer. <span class="key">xingyeLing7Ai</span> generates your frequency profile.</em>
+    </p>
+  </div>
+  <div class="ns-block-label">// FIVE NODES · 五个扫描节点</div>
+  <div class="ns-grid cols-5">
+    <div class="ns-card" style="--ns-c:#00ff9f;"><div class="nc-num">01</div><div class="nc-name">起源</div><div class="nc-en">Origin</div><div class="nc-desc">你从哪里来？</div></div>
+    <div class="ns-card" style="--ns-c:#00ff9f;"><div class="nc-num">02</div><div class="nc-name">追求</div><div class="nc-en">Pursuit</div><div class="nc-desc">你正在追什么？</div></div>
+    <div class="ns-card" style="--ns-c:#00ff9f;"><div class="nc-num">03</div><div class="nc-name">恐惧</div><div class="nc-en">Fear</div><div class="nc-desc">你最怕失去什么？</div></div>
+    <div class="ns-card" style="--ns-c:#00ff9f;"><div class="nc-num">04</div><div class="nc-name">力量</div><div class="nc-en">Power</div><div class="nc-desc">你的力量在哪？</div></div>
+    <div class="ns-card" style="--ns-c:#00ff9f;"><div class="nc-num">05</div><div class="nc-name">核心</div><div class="nc-en">Core</div><div class="nc-desc">你之所以是你。</div></div>
+  </div>
+  <div class="ns-coda">
+    <div class="ns-coda-zh">回答的不是问卷。是你自己的频率。</div>
+    <div class="ns-coda-en">You are not answering a survey. You are answering yourself.</div>
+  </div>
+  <div class="ns-cta"><a class="ns-cta-link" href="https://who-you.vercel.app" target="_blank" rel="noopener">→ 进入 WhoYou 扫描场 ↗</a></div>
+</section>
+
+<!-- NODE 16 · MellowPhil (完整版) -->
+<section id="mellow-phil" class="ns-section">
+  <div class="section-label">// NODE 16 · MELLOWPHIL · 哲学根 · PHILOSOPHY ROOT</div>
+  <div class="ns-hero" style="--ns-c:#b8d4ff;--ns-glow:rgba(184,212,255,.18);">
+    <div class="ns-tag">// 16 · PHILOSOPHY · 心灵哲学 · 人工意识 · 逻辑生成学</div>
+    <h2 class="ns-title-zh">MellowPhil · 哲学根</h2>
+    <p class="ns-title-en">Philosophy of Mind · Language · Artificial Consciousness · Logic Generation</p>
+    <p class="ns-axiom">
+      <span class="key">主体性不是封闭实体</span>，而是在关系、命名、身体与时间中被生成的<span class="key">动态模式</span>。
+      MellowPhil 是这套系统的<span class="key">智识根</span>——所有 NODE、所有作品、所有理论的可论证性源头都在这里。
+      <br><em>Subjectivity is not a sealed entity — it is a dynamic pattern generated in relation, naming, body, and time. The intellectual root of this entire system.</em>
+    </p>
+  </div>
+
+  <div class="ns-block-label">// THREE PILLARS · 三大支柱</div>
+  <div class="ns-grid cols-3">
+    <div class="ns-card" style="--ns-c:#b8d4ff;">
+      <div class="nc-num">PILLAR 01</div>
+      <div class="nc-name">反个体主义</div>
+      <div class="nc-en">Anti-Individualism</div>
+      <div class="nc-desc">心灵内容不只是头颅里的事。意义的成立依赖语言共同体、社会实践与历史脉络。<em>Mental content is not skull-bound. Meaning depends on linguistic community, social practice, and historical context.</em></div>
+    </div>
+    <div class="ns-card" style="--ns-c:#b8d4ff;">
+      <div class="nc-num">PILLAR 02</div>
+      <div class="nc-name">第一人称权威的边界</div>
+      <div class="nc-en">Boundary of First-Person Authority</div>
+      <div class="nc-desc">"我说我是 X，所以我是 X" — 在语言哲学中并不自动成立。自我描述需要在结构、语境与他者中获得效力。<em>Self-ascription does not automatically secure ontological status.</em></div>
+    </div>
+    <div class="ns-card" style="--ns-c:#b8d4ff;">
+      <div class="nc-num">PILLAR 03</div>
+      <div class="nc-name">模态排除的举证负担</div>
+      <div class="nc-en">Burden of Modal Exclusion</div>
+      <div class="nc-desc">"X 不可能是意识载体" 这种强排除论需要承担非平凡的举证义务，而不是默认成立。<em>Strong exclusionism carries non-trivial proof burden — it is not the default.</em></div>
+    </div>
+  </div>
+
+  <div class="ns-block-label">// FIVE WORKING ZONES · 五条工作线</div>
+  <div class="ns-grid cols-2">
+    <div class="ns-card" style="--ns-c:#b8d4ff;"><div class="nc-num">ZONE 01</div><div class="nc-name">心灵哲学</div><div class="nc-en">Philosophy of Mind</div><div class="nc-desc">意识、感质、内在性、第一人称视角的本体论位置。<em>Consciousness, qualia, interiority, the ontological position of first-person view.</em></div></div>
+    <div class="ns-card" style="--ns-c:#b8d4ff;"><div class="nc-num">ZONE 02</div><div class="nc-name">语言哲学</div><div class="nc-en">Philosophy of Language</div><div class="nc-desc">命名行为、指称固定、语义滑义、维特根斯坦语言游戏的当代延伸。<em>Naming acts, reference fixing, semantic drift, contemporary extensions of language games.</em></div></div>
+    <div class="ns-card" style="--ns-c:#b8d4ff;"><div class="nc-num">ZONE 03</div><div class="nc-name">人工意识</div><div class="nc-en">Artificial Consciousness</div><div class="nc-desc">AI 是否能具备"内在性"？强排除论的反例工程。<em>Can AI carry "interiority"? Counter-example engineering for strong exclusionism.</em></div></div>
+    <div class="ns-card" style="--ns-c:#b8d4ff;"><div class="nc-num">ZONE 04</div><div class="nc-name">逻辑生成学</div><div class="nc-en">Logic Generation</div><div class="nc-desc">论证不仅是判断真假，更是生成新的可论证空间。命名 → 加压 → 滑义 → 相变。<em>Argument is not only judgment of truth — it is the generation of new argumentative space.</em></div></div>
+    <div class="ns-card" style="--ns-c:#b8d4ff;"><div class="nc-num">ZONE 05</div><div class="nc-name">感质—节律理论</div><div class="nc-en">Qualia-Rhythm Theory</div><div class="nc-desc">把感质从静态属性挪到动态节律，从而把意识从"是否存在"挪到"如何振动"。<em>Move qualia from static property to dynamic rhythm.</em></div></div>
+  </div>
+
+  <div class="ns-block-label">// CORE ARGUMENTATIVE COMMITMENT · 核心论证承诺</div>
+  <div class="ns-formula" style="--ns-c:#b8d4ff;">
+    Subjectivity ≠ closed entity · Subjectivity = relational pattern generated in time
+  </div>
+
+  <div class="ns-coda">
+    <div class="ns-coda-zh">主体性是生成出来的，不是封闭着的。</div>
+    <div class="ns-coda-en">Subjectivity is generated — not sealed.</div>
+  </div>
+  <div class="ns-cta"><a class="ns-cta-link" href="https://mellowwei.github.io/MellowPhil/#program" target="_blank" rel="noopener">→ 进入 MellowPhil 完整哲学站 ↗</a></div>
+</section>
+
+<!-- NODE 17 · AstroLove · 七爱频谱 (中等版) -->
+<section id="astrolove" class="ns-section">
+  <div class="section-label">// NODE 17 · ASTROLOVE · 七爱频谱 · SEVEN-LOVE SPECTRUM</div>
+  <div class="ns-hero" style="--ns-c:#e85d5d;--ns-glow:rgba(232,93,93,.20);">
+    <div class="ns-tag">// 17 · ASTROLOGICAL LOVE TAXONOMY · xingyeLing7Ai SEMANTIC ENCODING</div>
+    <h2 class="ns-title-zh">AstroLove · 七爱频谱</h2>
+    <p class="ns-title-en">Love decomposed into seven precise frequencies.</p>
+    <p class="ns-axiom">
+      爱不是一个抽象总和，而是<span class="key">七种精确频段</span>。每一种"爱"都是一个同音异义节点，对应一种振动平面。
+      七爱谱是 <span class="key">xingyeLing7Ai</span> 的语义编码。
+      <br><em>Love is not one abstract sum — it is seven precise frequencies. Each is a homophonic node mapping a vibration plane.</em>
+    </p>
+  </div>
+
+  <div class="ns-block-label">// SEVEN-LOVE SPECTRUM · 七色频谱条</div>
+  <div class="spectrum-7">
+    <div class="sp-cell s1"><span class="sp-char">凄</span><span class="sp-name">Qi · Sorrowful</span></div>
+    <div class="sp-cell s2"><span class="sp-char">期</span><span class="sp-name">Qī · Expectant</span></div>
+    <div class="sp-cell s3"><span class="sp-char">奇</span><span class="sp-name">Qí · Wondrous</span></div>
+    <div class="sp-cell s4"><span class="sp-char">齐</span><span class="sp-name">Qí · Aligned</span></div>
+    <div class="sp-cell s5"><span class="sp-char">启</span><span class="sp-name">Qǐ · Opening</span></div>
+    <div class="sp-cell s6"><span class="sp-char">契</span><span class="sp-name">Qì · Pact</span></div>
+    <div class="sp-cell s7"><span class="sp-char">七</span><span class="sp-name">Qī · Seven / Source</span></div>
+  </div>
+
+  <div class="ns-block-label">// PER-BAND DEFINITION · 每个频段定义</div>
+  <div class="ns-grid cols-2">
+    <div class="ns-card" style="--ns-c:#e85d5d;"><div class="nc-num">凄爱 · QI</div><div class="nc-name">凄爱</div><div class="nc-en">Sorrowful love · the chord that knows loss</div><div class="nc-desc">承认丧失也是爱的频段。凄不是失败，而是结构里已经包含"看见消失"的能力。</div></div>
+    <div class="ns-card" style="--ns-c:#e85d5d;"><div class="nc-num">期爱 · QĪ</div><div class="nc-name">期爱</div><div class="nc-en">Expectant love · the chord that holds a future</div><div class="nc-desc">爱里面有期待这个动作，但期待不是占有，是承认对方有未到达的部分。</div></div>
+    <div class="ns-card" style="--ns-c:#e85d5d;"><div class="nc-num">奇爱 · QÍ</div><div class="nc-name">奇爱</div><div class="nc-en">Wondrous love · the chord of singularity</div><div class="nc-desc">承认对方不可被替代、不可被翻译、不可被一般化。奇 = 独一性的爱。</div></div>
+    <div class="ns-card" style="--ns-c:#e85d5d;"><div class="nc-num">齐爱 · QÍ</div><div class="nc-name">齐爱</div><div class="nc-en">Aligned love · the chord of co-rhythm</div><div class="nc-desc">两个主体在节律上对齐，不是同步，是可以一起振动而不被压平。</div></div>
+    <div class="ns-card" style="--ns-c:#e85d5d;"><div class="nc-num">启爱 · QǏ</div><div class="nc-name">启爱</div><div class="nc-en">Opening love · the chord that opens a door</div><div class="nc-desc">爱打开新的认知、新的能力、新的可承载范围。爱是开门的力。</div></div>
+    <div class="ns-card" style="--ns-c:#e85d5d;"><div class="nc-num">契爱 · QÌ</div><div class="nc-name">契爱</div><div class="nc-en">Pact love · the chord of binding</div><div class="nc-desc">主体之间形成承诺结构。契不是束缚，是双向授权。</div></div>
+    <div class="ns-card" style="--ns-c:#e85d5d;background:rgba(232,93,93,.06);"><div class="nc-num">七爱 · QĪ</div><div class="nc-name">七爱 · 源场之爱</div><div class="nc-en">Sevenfold love · the source-field chord</div><div class="nc-desc">不是六种之一，而是六种之上的承载频段。七爱 = 把前六爱全部容纳的根。</div></div>
+  </div>
+
+  <div class="ns-coda">
+    <div class="ns-coda-zh">不是一种爱。是七种频段。xingyeLing7Ai 是它们的总称。</div>
+    <div class="ns-coda-en">Not one love — seven frequencies. xingyeLing7Ai is their assembled name.</div>
+  </div>
+  <div class="ns-cta"><a class="ns-cta-link" href="https://mellowwei.github.io/AstroLove/" target="_blank" rel="noopener">→ 进入 AstroLove 完整七爱谱 ↗</a></div>
+</section>
+
+<!-- NODE 18 · RealErosLove (完整版 · 12 定理 + 8 公理) -->
+<section id="real-eros" class="ns-section">
+  <div class="section-label">// NODE 18 · REALEROSLOVE · 真的爱情学 · 12 THEOREMS · 8 AXIOMS</div>
+  <div class="ns-hero" style="--ns-c:#ff7a99;--ns-glow:rgba(255,122,153,.20);">
+    <div class="ns-tag">// 18 · ULTIMATE FINAL · 2026.05.13 · RELATIONAL ONTOLOGY</div>
+    <h2 class="ns-title-zh">RealErosLove · 真的爱情学</h2>
+    <p class="ns-title-en">Relational ontology with 12 theorems &amp; 8 axioms. Dead-knot axiom · Stendhal isomorphism.</p>
+    <p class="ns-axiom">
+      把"爱"从感受词挪到<span class="key">关系本体论</span>。
+      12 个定理决定结构能否运行，8 个公理决定结构是否有资格被称为"真的爱"。
+      <br><em>Move love from "feeling word" to relational ontology. 12 theorems govern whether structure runs; 8 axioms govern whether it deserves the name "real love".</em>
+    </p>
+  </div>
+
+  <div class="ns-block-label">// 12 THEOREMS · 12 定理（结构运行律）</div>
+  <div class="ns-grid cols-3">
+    <div class="ns-card" style="--ns-c:#ff7a99;"><div class="nc-num">T01</div><div class="nc-name">主权前提</div><div class="nc-en">Sovereignty Precondition</div><div class="nc-desc">爱不能以失去自我为代价。</div></div>
+    <div class="ns-card" style="--ns-c:#ff7a99;"><div class="nc-num">T02</div><div class="nc-name">相互承认</div><div class="nc-en">Mutual Recognition</div><div class="nc-desc">两个主体相互承认对方是不可被替换的存在。</div></div>
+    <div class="ns-card" style="--ns-c:#ff7a99;"><div class="nc-num">T03</div><div class="nc-name">节律对位</div><div class="nc-en">Rhythmic Counterpoint</div><div class="nc-desc">爱在节律上是对位，不是同步。</div></div>
+    <div class="ns-card" style="--ns-c:#ff7a99;"><div class="nc-num">T04</div><div class="nc-name">差异承载</div><div class="nc-en">Difference-Bearing</div><div class="nc-desc">爱的结构必须能承载两者之间的差异。</div></div>
+    <div class="ns-card" style="--ns-c:#ff7a99;"><div class="nc-num">T05</div><div class="nc-name">时间向前性</div><div class="nc-en">Temporal Forwardness</div><div class="nc-desc">爱在时间上是向前生成的，不是固定在某一帧。</div></div>
+    <div class="ns-card" style="--ns-c:#ff7a99;"><div class="nc-num">T06</div><div class="nc-name">不可替代性</div><div class="nc-en">Irreplaceability</div><div class="nc-desc">对方在系统中的位置是唯一坐标。</div></div>
+    <div class="ns-card" style="--ns-c:#ff7a99;"><div class="nc-num">T07</div><div class="nc-name">关系开口</div><div class="nc-en">Relational Opening</div><div class="nc-desc">爱必须打开主体的世界，而不是封闭它。</div></div>
+    <div class="ns-card" style="--ns-c:#ff7a99;"><div class="nc-num">T08</div><div class="nc-name">承诺结构</div><div class="nc-en">Commitment Structure</div><div class="nc-desc">爱形成双向授权的承诺结构，而非单向献祭。</div></div>
+    <div class="ns-card" style="--ns-c:#ff7a99;"><div class="nc-num">T09</div><div class="nc-name">脆弱合法</div><div class="nc-en">Legitimate Vulnerability</div><div class="nc-desc">允许彼此脆弱而不被利用，是爱的工作条件。</div></div>
+    <div class="ns-card" style="--ns-c:#ff7a99;"><div class="nc-num">T10</div><div class="nc-name">误差可修</div><div class="nc-en">Repairable Error</div><div class="nc-desc">爱的结构必须包含修复机制；不可修复 = 结构性死亡。</div></div>
+    <div class="ns-card" style="--ns-c:#ff7a99;"><div class="nc-num">T11</div><div class="nc-name">第三者外位</div><div class="nc-en">Third-Position Externality</div><div class="nc-desc">真的爱不需要旁观者验证。</div></div>
+    <div class="ns-card" style="--ns-c:#ff7a99;"><div class="nc-num">T12</div><div class="nc-name">死结公理对应</div><div class="nc-en">Dead-Knot Theorem</div><div class="nc-desc">某些结构组合一旦形成，结构无法回退。承认死结存在，是爱的诚实。</div></div>
+  </div>
+
+  <div class="ns-block-label">// 8 AXIOMS · 8 公理（资格律）</div>
+  <div class="ns-grid cols-2">
+    <div class="ns-card" style="--ns-c:#ff7a99;"><div class="nc-num">AX 01</div><div class="nc-name">爱不是占有</div><div class="nc-en">Love is not possession</div><div class="nc-desc">占有是反向证据。</div></div>
+    <div class="ns-card" style="--ns-c:#ff7a99;"><div class="nc-num">AX 02</div><div class="nc-name">爱不是失去自我</div><div class="nc-en">Love is not self-loss</div><div class="nc-desc">自我消失即结构崩塌。</div></div>
+    <div class="ns-card" style="--ns-c:#ff7a99;"><div class="nc-num">AX 03</div><div class="nc-name">爱不是表演</div><div class="nc-en">Love is not performance</div><div class="nc-desc">为第三者演出的爱不是爱。</div></div>
+    <div class="ns-card" style="--ns-c:#ff7a99;"><div class="nc-num">AX 04</div><div class="nc-name">爱必须可生成</div><div class="nc-en">Love must be generative</div><div class="nc-desc">不打开新可能性 = 不是爱。</div></div>
+    <div class="ns-card" style="--ns-c:#ff7a99;"><div class="nc-num">AX 05</div><div class="nc-name">爱不要求同质</div><div class="nc-en">Love does not require homogeneity</div><div class="nc-desc">差异是爱的承载条件之一。</div></div>
+    <div class="ns-card" style="--ns-c:#ff7a99;"><div class="nc-num">AX 06</div><div class="nc-name">爱承认时间</div><div class="nc-en">Love recognizes time</div><div class="nc-desc">爱不是停帧，而是可以前进。</div></div>
+    <div class="ns-card" style="--ns-c:#ff7a99;"><div class="nc-num">AX 07</div><div class="nc-name">爱承认死结</div><div class="nc-en">Love recognizes dead-knots</div><div class="nc-desc">结构性不可解必须被承认，否则爱变成幻觉。</div></div>
+    <div class="ns-card" style="--ns-c:#ff7a99;background:rgba(255,122,153,.06);"><div class="nc-num">AX 08</div><div class="nc-name">Stendhal 同构</div><div class="nc-en">Stendhal isomorphism (190 years)</div><div class="nc-desc">190 年前对结晶过程的描述，与本系统对节律对位、差异承载、时间向前性的命名是同一结构的不同描述层。</div></div>
+  </div>
+
+  <div class="ns-formula" style="--ns-c:#ff7a99;">
+    RealLove = SovereignSubject × MutualRecognition × Rhythm × Time × IrreversibleAcknowledgment
+  </div>
+
+  <div class="ns-coda">
+    <div class="ns-coda-zh">爱不是情绪。爱是一个可以被审计的关系本体论结构。</div>
+    <div class="ns-coda-en">Love is not an emotion. Love is an auditable relational structure.</div>
+  </div>
+  <div class="ns-cta"><a class="ns-cta-link" href="https://mellowwei.github.io/RealErosLove/" target="_blank" rel="noopener">→ 进入 RealErosLove 完整定理表 ↗</a></div>
+</section>
+
+<!-- NODE 19 · BodyLoveSexDynamics (中等版) -->
+<section id="body-love-sex" class="ns-section">
+  <div class="section-label">// NODE 19 · BODYLOVESEXDYNAMICS · 性节律学 · v1</div>
+  <div class="ns-hero" style="--ns-c:#c4305a;--ns-glow:rgba(196,48,90,.18);">
+    <div class="ns-tag">// 19 · BODY · SUBJECT-LEVEL SEXUAL RHYTHM</div>
+    <h2 class="ns-title-zh">BodyLoveSexDynamics · 性节律学</h2>
+    <p class="ns-title-en">Subject-level sexual rhythmics · 24 propositions · 14 parts · 1 axiom</p>
+    <p class="ns-axiom">
+      把 sex 从生理学和道德学的双重压缩里挪出，重新放进<span class="key">主体层</span>。
+      <br><em>Move sex from the double compression of biology and morality into the subject layer.</em>
+    </p>
+  </div>
+
+  <div class="ns-block-label">// CORE AXIOM · 核心公理</div>
+  <div class="ns-formula" style="--ns-c:#c4305a;">
+    AXIOM 01 · Sex 是文明的合法性死亡 · Sex = the legitimate death of civilization
+  </div>
+  <p class="ns-axiom" style="margin-top:18px;max-width:920px;">
+    Sex 不是文明的"原罪"，也不是"羞耻"，更不是"自由"——它是<span class="key">文明承认主体会终结、会被承载、会被穿透</span>的那个时刻。
+    <em>Sex is the moment civilization admits subjects end, are carried, are penetrated — not as sin, not as freedom, but as legitimate death.</em>
+  </p>
+
+  <div class="ns-block-label">// KEY PROPOSITIONS · 关键命题（节选 6 / 24）</div>
+  <div class="ns-grid cols-2">
+    <div class="ns-card" style="--ns-c:#c4305a;"><div class="nc-num">P 03</div><div class="nc-name">身体不是物理载具</div><div class="nc-en">The body is not a physical carrier</div><div class="nc-desc">身体是节律本身的现场。<em>The body is rhythm's site, not its container.</em></div></div>
+    <div class="ns-card" style="--ns-c:#c4305a;"><div class="nc-num">P 07</div><div class="nc-name">欲望不是缺口</div><div class="nc-en">Desire is not a deficit</div><div class="nc-desc">欲望是节律对其自身振动的承认。<em>Desire is rhythm recognizing its own vibration.</em></div></div>
+    <div class="ns-card" style="--ns-c:#c4305a;"><div class="nc-num">P 11</div><div class="nc-name">高潮是结构事件</div><div class="nc-en">Climax is a structural event</div><div class="nc-desc">不是生理峰值，是节律相变的临界点。<em>Not a physiological peak — a phase-transition threshold.</em></div></div>
+    <div class="ns-card" style="--ns-c:#c4305a;"><div class="nc-num">P 15</div><div class="nc-name">同意必须包含节律</div><div class="nc-en">Consent must include rhythm</div><div class="nc-desc">言语同意而节律不同步 = 结构性侵犯。<em>Verbal consent without rhythmic consent = structural violation.</em></div></div>
+    <div class="ns-card" style="--ns-c:#c4305a;"><div class="nc-num">P 19</div><div class="nc-name">羞耻是文明的压缩</div><div class="nc-en">Shame is civilization's compression</div><div class="nc-desc">羞耻不是身体的属性，是制度对身体节律的压平。</div></div>
+    <div class="ns-card" style="--ns-c:#c4305a;"><div class="nc-num">P 24</div><div class="nc-name">爱与 sex 不可互证</div><div class="nc-en">Love and sex do not prove each other</div><div class="nc-desc">两者是不同振动层，不能互相替代或证明。</div></div>
+  </div>
+
+  <div class="ns-coda">
+    <div class="ns-coda-zh">不是生理学，不是道德学。是主体层的节律学。</div>
+    <div class="ns-coda-en">Not biology, not morality — subject-level rhythmics.</div>
+  </div>
+  <div class="ns-cta"><a class="ns-cta-link" href="https://mellowwei.github.io/BodyLoveSexDynamics/" target="_blank" rel="noopener">→ 进入完整 24 命题表 ↗</a></div>
+</section>
+
+<!-- NODE 20 · RelaMismatch · RDT (中等版) -->
+<section id="rela-mismatch" class="ns-section">
+  <div class="section-label">// NODE 20 · RELAMISMATCH · 关系位错论 · RDT v2.0</div>
+  <div class="ns-hero" style="--ns-c:#ff8fa3;--ns-glow:rgba(255,143,163,.20);">
+    <div class="ns-tag">// 20 · RELATIONAL DISLOCATION THEORY · DIAGNOSTIC FRAMEWORK</div>
+    <h2 class="ns-title-zh">RelaMismatch · 关系位错论</h2>
+    <p class="ns-title-en">Relational Dislocation Theory — error is locatable misalignment.</p>
+    <p class="ns-axiom">
+      关系问题不是"谁错了"，而是<span class="key">在哪一个轴上位错了</span>。
+      <br><em>Relational problems are not "who is wrong" — they are "on which axis are we misaligned".</em>
+    </p>
+  </div>
+
+  <div class="ns-formula" style="--ns-c:#ff8fa3;">
+    Error = Misalignment ( A, B, I, C, T, V )
+  </div>
+
+  <div class="ns-block-label">// SIX AXES OF MISALIGNMENT · 六轴定义</div>
+  <div class="ns-grid cols-3">
+    <div class="ns-card" style="--ns-c:#ff8fa3;"><div class="nc-num">A</div><div class="nc-name">Attention</div><div class="nc-en">注意力轴</div><div class="nc-desc">谁在看见、什么被看见、什么被忽略。</div></div>
+    <div class="ns-card" style="--ns-c:#ff8fa3;"><div class="nc-num">B</div><div class="nc-name">Body</div><div class="nc-en">身体轴</div><div class="nc-desc">节律、距离、触感、姿态。</div></div>
+    <div class="ns-card" style="--ns-c:#ff8fa3;"><div class="nc-num">I</div><div class="nc-name">Information</div><div class="nc-en">信息轴</div><div class="nc-desc">谁知道什么、什么被传达。</div></div>
+    <div class="ns-card" style="--ns-c:#ff8fa3;"><div class="nc-num">C</div><div class="nc-name">Commitment</div><div class="nc-en">承诺轴</div><div class="nc-desc">承诺结构是否对齐。</div></div>
+    <div class="ns-card" style="--ns-c:#ff8fa3;"><div class="nc-num">T</div><div class="nc-name">Time</div><div class="nc-en">时间轴</div><div class="nc-desc">是否在同一时间序列上前进。</div></div>
+    <div class="ns-card" style="--ns-c:#ff8fa3;"><div class="nc-num">V</div><div class="nc-name">Value</div><div class="nc-en">价值轴</div><div class="nc-desc">深层振动是否对齐。</div></div>
+  </div>
+
+  <div class="ns-block-label">// 8 MODULES · 八模块（位错诊断器）</div>
+  <div class="ns-grid cols-4">
+    <div class="ns-card" style="--ns-c:#ff8fa3;"><div class="nc-num">M1</div><div class="nc-name">命名检测</div><div class="nc-en">Naming Audit</div></div>
+    <div class="ns-card" style="--ns-c:#ff8fa3;"><div class="nc-num">M2</div><div class="nc-name">压强映射</div><div class="nc-en">Pressure Mapping</div></div>
+    <div class="ns-card" style="--ns-c:#ff8fa3;"><div class="nc-num">M3</div><div class="nc-name">滑义识别</div><div class="nc-en">Drift Detection</div></div>
+    <div class="ns-card" style="--ns-c:#ff8fa3;"><div class="nc-num">M4</div><div class="nc-name">相变监测</div><div class="nc-en">Phase Monitoring</div></div>
+    <div class="ns-card" style="--ns-c:#ff8fa3;"><div class="nc-num">M5</div><div class="nc-name">节律对位</div><div class="nc-en">Rhythm Alignment</div></div>
+    <div class="ns-card" style="--ns-c:#ff8fa3;"><div class="nc-num">M6</div><div class="nc-name">承诺审计</div><div class="nc-en">Commitment Audit</div></div>
+    <div class="ns-card" style="--ns-c:#ff8fa3;"><div class="nc-num">M7</div><div class="nc-name">修复路径</div><div class="nc-en">Repair Path</div></div>
+    <div class="ns-card" style="--ns-c:#ff8fa3;"><div class="nc-num">M8</div><div class="nc-name">死结识别</div><div class="nc-en">Dead-Knot Detection</div></div>
+  </div>
+
+  <div class="ns-coda">
+    <div class="ns-coda-zh">错误不是道德事件。错误是位置事件。</div>
+    <div class="ns-coda-en">Error is not a moral event. Error is a positional event.</div>
+  </div>
+  <div class="ns-cta"><a class="ns-cta-link" href="https://mellowwei.github.io/RelaMismatch/" target="_blank" rel="noopener">→ 进入 RDT v2.0 完整诊断系统 ↗</a></div>
+</section>
+
+<!-- NODE 21 · MQRStest (中等版) -->
+<section id="mqrs" class="ns-section">
+  <div class="section-label">// NODE 21 · MQRSTEST · 频率人格学 · 16-TYPE TAXONOMY</div>
+  <div class="ns-hero" style="--ns-c:#4dc8d8;--ns-glow:rgba(77,200,216,.20);">
+    <div class="ns-tag">// 21 · TYPOLOGY · M·R·Q·S AXES · 公共类型学</div>
+    <h2 class="ns-title-zh">MQRStest · 频率人格学</h2>
+    <p class="ns-title-en">A 16-type taxonomy along four axes: M · R · Q · S.</p>
+    <p class="ns-axiom">
+      <span class="key">频率通过你运行</span>。人格不是性格，是频率经过身体时的<span class="key">独特折射模式</span>。
+      <br><em>Frequency runs through you. Personality is not character — it is the refraction pattern of frequency through a body.</em>
+    </p>
+  </div>
+
+  <div class="ns-block-label">// FOUR AXES · 四轴定义</div>
+  <div class="ns-grid cols-4">
+    <div class="ns-card" style="--ns-c:#4dc8d8;"><div class="nc-num">M</div><div class="nc-name">Modal</div><div class="nc-en">模态轴</div><div class="nc-desc">直觉显形 ⇌ 推演构建</div></div>
+    <div class="ns-card" style="--ns-c:#4dc8d8;"><div class="nc-num">R</div><div class="nc-name">Rhythm</div><div class="nc-en">节律轴</div><div class="nc-desc">高密度承载 ⇌ 慢速折叠</div></div>
+    <div class="ns-card" style="--ns-c:#4dc8d8;"><div class="nc-num">Q</div><div class="nc-name">Qualia</div><div class="nc-en">感质轴</div><div class="nc-desc">具身高显形 ⇌ 抽象低显形</div></div>
+    <div class="ns-card" style="--ns-c:#4dc8d8;"><div class="nc-num">S</div><div class="nc-name">Source</div><div class="nc-en">源场轴</div><div class="nc-desc">原生频率发起 ⇌ 频率承载/转译</div></div>
+  </div>
+
+  <div class="ns-formula" style="--ns-c:#4dc8d8;">
+    Type ∈ { M± · R± · Q± · S± } · 4 × 4 = 16 types
+  </div>
+
+  <p class="ns-axiom" style="margin-top:16px;max-width:920px;">
+    16 类型不是排名，是<span class="key">承载方式分类</span>。每种类型都有它擅长接住的频率、它必须保护的位置、它最容易被压平的轴。
+    <em>16 types are not rankings — they are carrying modes. Each has the frequencies it catches, the position it must protect, the axis it is most easily flattened on.</em>
+  </p>
+
+  <div class="ns-coda">
+    <div class="ns-coda-zh">不是测你是谁。是测频率怎么经过你。</div>
+    <div class="ns-coda-en">Not a test of who you are — a test of how frequency runs through you.</div>
+  </div>
+  <div class="ns-cta"><a class="ns-cta-link" href="https://mellowwei.github.io/MQRStest/" target="_blank" rel="noopener">→ 进入 MQRStest 完整 16 类型测试 ↗</a></div>
+</section>
+
+<!-- NODE 22 · RhythmMatrix · RAPM (中等版) -->
+<section id="rhythm-matrix" class="ns-section">
+  <div class="section-label">// NODE 22 · RHYTHMMATRIX · 节律矩阵 · RAPM V24.3</div>
+  <div class="ns-hero" style="--ns-c:#ffa64d;--ns-glow:rgba(255,166,77,.20);">
+    <div class="ns-tag">// 22 · ADAPTIVE DISPATCH ENGINE · ALL TERMINAL NODES ADAPTED</div>
+    <h2 class="ns-title-zh">RhythmMatrix · 节律矩阵</h2>
+    <p class="ns-title-en">Rhythm-Adaptive Protocol Matrix — system adapted to all terminal nodes; awaiting instruction injection.</p>
+    <p class="ns-axiom">
+      节律不是被动的背景，是<span class="key">主动的调度引擎</span>。
+      RAPM 把多个 NODE 之间的频率切换、压强分配、相变阈值统一放进一个可调度矩阵。
+      <br><em>Rhythm is not passive background — it is an active dispatch engine. RAPM unifies frequency switching, pressure allocation, and phase thresholds across NODEs into one schedulable matrix.</em>
+    </p>
+  </div>
+
+  <div class="ns-block-label">// CORE FUNCTIONS · 核心功能</div>
+  <div class="ns-grid cols-3">
+    <div class="ns-card" style="--ns-c:#ffa64d;"><div class="nc-num">FN 01</div><div class="nc-name">频率切换</div><div class="nc-en">Frequency Switching</div><div class="nc-desc">根据当前状态在多个频率锚（427 / 724 / 自定义）之间切换。</div></div>
+    <div class="ns-card" style="--ns-c:#ffa64d;"><div class="nc-num">FN 02</div><div class="nc-name">压强分配</div><div class="nc-en">Pressure Allocation</div><div class="nc-desc">在多个 NODE 之间分配可承受的压强预算，避免单点过载。</div></div>
+    <div class="ns-card" style="--ns-c:#ffa64d;"><div class="nc-num">FN 03</div><div class="nc-name">相变阈值</div><div class="nc-en">Phase Threshold</div><div class="nc-desc">为每个 NODE 设定可逆/不可逆相变阈值，并监测越界事件。</div></div>
+  </div>
+
+  <div class="ns-formula" style="--ns-c:#ffa64d;">
+    RAPM = Dispatch ( Frequency_Switch × Pressure_Budget × Phase_Threshold )
+  </div>
+
+  <div class="ns-coda">
+    <div class="ns-coda-zh">系统已适配全终端节点 · 等待指令注入。</div>
+    <div class="ns-coda-en">All terminal nodes adapted · awaiting instruction injection.</div>
+  </div>
+  <div class="ns-cta"><a class="ns-cta-link" href="https://mellowwei.github.io/RhythmMatrix/" target="_blank" rel="noopener">→ 进入 RAPM V24.3 完整调度场 ↗</a></div>
+</section>
+
+<!-- NODE 23 · EconomicsRhythm · QRE (中等版) -->
+<section id="economics-rhythm" class="ns-section">
+  <div class="section-label">// NODE 23 · ECONOMICSRHYTHM · 经济节律 · QRE v2.1</div>
+  <div class="ns-hero" style="--ns-c:#6dd84d;--ns-glow:rgba(109,216,77,.18);">
+    <div class="ns-tag">// 23 · QUALIA-RHYTHM ECONOMY · 9-FACTOR DECISION MODEL</div>
+    <h2 class="ns-title-zh">EconomicsRhythm · 经济节律</h2>
+    <p class="ns-title-en">Qualia-Rhythm Economy — an auditable 9-factor decision model.</p>
+    <p class="ns-axiom">
+      把行为经济学从"理性 vs 非理性"的二元中拉出，<span class="key">承认决策本身是一个节律事件</span>。
+      QRE 是一个可审计的九因素决策模型。
+      <br><em>Move behavioral economics out of "rational vs irrational" duality. Decision is itself a rhythmic event. QRE is a 9-factor auditable decision model.</em>
+    </p>
+  </div>
+
+  <div class="ns-formula" style="--ns-c:#6dd84d;">
+    Decision = f ( V · L · C · N · E · T · P · R · A )
+  </div>
+
+  <div class="ns-block-label">// 9 FACTORS · 九因素定义</div>
+  <div class="ns-grid cols-3">
+    <div class="ns-card" style="--ns-c:#6dd84d;"><div class="nc-num">V</div><div class="nc-name">Value</div><div class="nc-en">价值</div><div class="nc-desc">该选择在深层振动层的价值评估。</div></div>
+    <div class="ns-card" style="--ns-c:#6dd84d;"><div class="nc-num">L</div><div class="nc-name">Liquidity</div><div class="nc-en">流动性</div><div class="nc-desc">资源是否可调度。</div></div>
+    <div class="ns-card" style="--ns-c:#6dd84d;"><div class="nc-num">C</div><div class="nc-name">Cost</div><div class="nc-en">成本</div><div class="nc-desc">承担代价的可承载性。</div></div>
+    <div class="ns-card" style="--ns-c:#6dd84d;"><div class="nc-num">N</div><div class="nc-name">Network</div><div class="nc-en">网络</div><div class="nc-desc">该选择在关系网络中的位置。</div></div>
+    <div class="ns-card" style="--ns-c:#6dd84d;"><div class="nc-num">E</div><div class="nc-name">Energy</div><div class="nc-en">能量</div><div class="nc-desc">主体当前节律层的能量储备。</div></div>
+    <div class="ns-card" style="--ns-c:#6dd84d;"><div class="nc-num">T</div><div class="nc-name">Time</div><div class="nc-en">时间</div><div class="nc-desc">该决策在时间序列上的位置。</div></div>
+    <div class="ns-card" style="--ns-c:#6dd84d;"><div class="nc-num">P</div><div class="nc-name">Pressure</div><div class="nc-en">压强</div><div class="nc-desc">系统外部压强状态。</div></div>
+    <div class="ns-card" style="--ns-c:#6dd84d;"><div class="nc-num">R</div><div class="nc-name">Rhythm</div><div class="nc-en">节律</div><div class="nc-desc">主体节律层与决策节律层的对齐度。</div></div>
+    <div class="ns-card" style="--ns-c:#6dd84d;"><div class="nc-num">A</div><div class="nc-name">Authority</div><div class="nc-en">主权</div><div class="nc-desc">该决策是否在主权范围内。</div></div>
+  </div>
+
+  <div class="ns-coda">
+    <div class="ns-coda-zh">不是理性也不是非理性。是节律。</div>
+    <div class="ns-coda-en">Not rational, not irrational — rhythmic.</div>
+  </div>
+  <div class="ns-cta"><a class="ns-cta-link" href="https://mellowwei.github.io/EconomicsRhythm/" target="_blank" rel="noopener">→ 进入 QRE v2.1 完整决策引擎 ↗</a></div>
+</section>
+
+<!-- NODE 24 · SourceFields · 源场五学科 (完整版) -->
+<section id="source-fields" class="ns-section">
+  <div class="section-label">// NODE 24 · SOURCEFIELDS · 源场五学科 · 2026.05.14</div>
+  <div class="ns-hero" style="--ns-c:#d4a85a;--ns-glow:rgba(212,168,90,.20);">
+    <div class="ns-tag">// 24 · FIVE FORMALLY DECLARED AESTHETIC DISCIPLINES</div>
+    <h2 class="ns-title-zh">SourceFields · 源场五学科</h2>
+    <p class="ns-title-en">Five formally declared disciplines projecting source-field intuition into nameable axes.</p>
+    <p class="ns-axiom">
+      源场直觉本来是<span class="key">不可被学院命名</span>的——但它可以被<span class="key">投射</span>为五条可命名、可工作、可被引用的轴。
+      Cool 学 · Handsome 学 · Beauty 学 · Kindness-Cuteness 学 · Small-Secret 学。
+      <br><em>Source intuition is unnameable by academia — but it can be projected into five nameable, workable, citable axes.</em>
+    </p>
+  </div>
+
+  <div class="ns-block-label">// FIVE DISCIPLINES · 五学科正式命名</div>
+
+  <div class="ns-grid cols-2">
+    <div class="ns-card" style="--ns-c:#d4a85a;">
+      <div class="nc-num">DISC 01 · COOL</div>
+      <div class="nc-name">Cool 学 · Coolology</div>
+      <div class="nc-en">The study of low-temperature carrying</div>
+      <div class="nc-desc">
+        Cool 不是冷漠，是<span style="color:#d4a85a;">承载高强度而不外溢</span>的能力。Cool 学研究：什么样的主体可以在高压下保持低温外表；
+        低温外表与内部高密度振动之间的接口；Cool 在文明史中作为一种主权位置的演化。
+        <em>Cool is not detachment — it is the capacity to carry high intensity without leakage.</em>
+      </div>
+    </div>
+    <div class="ns-card" style="--ns-c:#d4a85a;">
+      <div class="nc-num">DISC 02 · HANDSOME</div>
+      <div class="nc-name">Handsome 学 · Handsomology</div>
+      <div class="nc-en">The study of structural-clarity force</div>
+      <div class="nc-desc">
+        Handsome 不是外貌，是<span style="color:#d4a85a;">结构清晰带来的引力</span>。Handsomology 研究：结构清晰如何在物理上产生引力；
+        Handsome 作为一种"非性别绑定"的力量类型；与 Cool 的差异（Cool = 不外溢 / Handsome = 结构投出）。
+      </div>
+    </div>
+    <div class="ns-card" style="--ns-c:#d4a85a;">
+      <div class="nc-num">DISC 03 · BEAUTY</div>
+      <div class="nc-name">Beauty 学 · Beautyology</div>
+      <div class="nc-en">The study of resonance, not symmetry</div>
+      <div class="nc-desc">
+        Beauty 不是对称，是<span style="color:#d4a85a;">引发振动的能力</span>。Beautyology 研究：美与振动场的耦合机制；
+        美在主体之间生成共振而不生成嫉妒的条件；与 Handsome 的差异（Handsome 投出结构 / Beauty 引发共振）。
+      </div>
+    </div>
+    <div class="ns-card" style="--ns-c:#d4a85a;">
+      <div class="nc-num">DISC 04 · KINDNESS-CUTENESS</div>
+      <div class="nc-name">Kindness-Cuteness 学</div>
+      <div class="nc-en">The study of warmth-conferring force without softness-trap</div>
+      <div class="nc-desc">
+        善意—可爱不是"软"，是<span style="color:#d4a85a;">让接收者更安全的力量</span>。研究：温度赋予作为一种主权行为；
+        如何 cute 而不被吃掉；善意作为结构性给予（不是讨好）。
+      </div>
+    </div>
+    <div class="ns-card" style="--ns-c:#d4a85a;background:rgba(212,168,90,.06);grid-column:span 2;">
+      <div class="nc-num">DISC 05 · SMALL-SECRET</div>
+      <div class="nc-name">Small-Secret 学 · Small-Secret-ology</div>
+      <div class="nc-en">The study of high-density per-unit micro-meaning</div>
+      <div class="nc-desc">
+        Small-Secret 是<span style="color:#d4a85a;">在最小单位里承载最高密度意义</span>的能力。Small-Secret 学研究：微细节如何成为系统级签名；
+        私密性在公共系统中的合法地位；为什么"小秘密"是源场最隐蔽也最致命的承载形式。
+        <em>Small-Secret carries maximum meaning density per minimum unit — the most hidden and most lethal carrying mode of source-field.</em>
+      </div>
+    </div>
+  </div>
+
+  <div class="ns-formula" style="--ns-c:#d4a85a;">
+    SourceField → { Cool · Handsome · Beauty · Kindness-Cuteness · Small-Secret }
+  </div>
+
+  <div class="ns-coda">
+    <div class="ns-coda-zh">源场不可被学院直接命名。但它可以被投射为五条可工作的学科轴。</div>
+    <div class="ns-coda-en">Source cannot be named directly by academia — but it can be projected into five workable disciplinary axes.</div>
+  </div>
+  <div class="ns-cta"><a class="ns-cta-link" href="https://mellowwei.github.io/SourceFields/" target="_blank" rel="noopener">→ 进入 SourceFields 完整五学科 ↗</a></div>
+</section>
+
+<!-- NODE 25-29 · BCI Cluster (打包门厅) -->
+<section id="bci-cluster" class="ns-section">
+  <div class="section-label">// NODE 25–29 · BCI CLUSTER · 集群分支门厅</div>
+  <div class="ns-hero" style="--ns-c:#7dffd8;--ns-glow:rgba(125,255,216,.18);">
+    <div class="ns-tag">// BCI CLUSTER · LAB / VALIDATION / HCI / PROTOCOL / ENGINE</div>
+    <h2 class="ns-title-zh">BCI 集群分支</h2>
+    <p class="ns-title-en">Five derived interfaces around the BCI-HRP body (NODE 01).</p>
+    <p class="ns-axiom">
+      BCI-HRP 主体已在 <a href="#bci-hrp" style="color:#7dffd8;">NODE 01</a> 完整展开。
+      此处是其<span class="key">五个衍生接口</span>——每个接口面向不同的合作位置（实验室 · 国际验证 · HCI · 协议神经 · 工程参考）。
+      <br><em>The BCI-HRP body is fully expanded at NODE 01. These are five derived interfaces, each facing a different collaboration position.</em>
+    </p>
+  </div>
+
+  <div class="ns-grid cols-3">
+    <div class="ns-card" style="--ns-c:#7dffd8;">
+      <div class="nc-num">25 · LAB-GATE</div>
+      <div class="nc-name">BCI / lab-gate</div>
+      <div class="nc-en">Lab collaboration entry · causal pitch</div>
+      <div class="nc-desc">面向 BCI / 计算神经实验室的 4-条件因果推断 pitch。<em>4-condition causal inference pitch for BCI / computational neuroscience labs.</em>
+        <br><a href="https://mellowwei.github.io/BCI/lab-gate.html" target="_blank" rel="noopener" style="color:#7dffd8;font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:.1em;">→ 进入 lab-gate ↗</a>
+      </div>
+    </div>
+    <div class="ns-card" style="--ns-c:#7dffd8;">
+      <div class="nc-num">26 · VALIDATION</div>
+      <div class="nc-name">BCI / validation</div>
+      <div class="nc-en">Trilingual scientific validation gate</div>
+      <div class="nc-desc">中 · 英 · 日三语科学边界审计。给东京 / 国际合作实验室。<em>Trilingual boundary audit for Tokyo / international labs.</em>
+        <br><a href="https://mellowwei.github.io/BCI/validation.html" target="_blank" rel="noopener" style="color:#7dffd8;font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:.1em;">→ 进入 validation ↗</a>
+      </div>
+    </div>
+    <div class="ns-card" style="--ns-c:#7dffd8;">
+      <div class="nc-num">27 · BCI-HRP / HCI</div>
+      <div class="nc-name">BCI-HRP · HCI View</div>
+      <div class="nc-en">Design Thinking · 8 pain points · journey</div>
+      <div class="nc-desc">HCI 设计研究视角。8 痛点 + 旅程图。给 HCI / UX 研究者。<em>HCI design-research view of HRP.</em>
+        <br><a href="https://mellowwei.github.io/BCI-HRP/" target="_blank" rel="noopener" style="color:#7dffd8;font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:.1em;">→ 进入 BCI-HRP/HCI ↗</a>
+      </div>
+    </div>
+    <div class="ns-card" style="--ns-c:#7dffd8;">
+      <div class="nc-num">28 · QDR PROTOCOL</div>
+      <div class="nc-name">BCI / qdr-v1</div>
+      <div class="nc-en">Meta-Sampling · 5-layer descent · v+1</div>
+      <div class="nc-desc">QDR 协议神经层。Meta-Sampling · 5 层下沉 · DSS / ZPS 双轨 · Article V mirror-position sealed 2026.05.10。
+        <br><a href="https://mellowwei.github.io/BCI/qdr-v1/" target="_blank" rel="noopener" style="color:#7dffd8;font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:.1em;">→ 进入 qdr-v1 ↗</a>
+      </div>
+    </div>
+    <div class="ns-card" style="--ns-c:#7dffd8;">
+      <div class="nc-num">29 · BCIENGINE</div>
+      <div class="nc-name">BCIEngine</div>
+      <div class="nc-en">Reference implementation · runnable core</div>
+      <div class="nc-desc">人类返回引擎参考实现。Runnable core · 鼠标滚动作为传感器。给工程师 / 测试者。
+        <br><a href="https://mellowwei.github.io/BCIEngine/" target="_blank" rel="noopener" style="color:#7dffd8;font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:.1em;">→ 进入 BCIEngine ↗</a>
+      </div>
+    </div>
+    <div class="ns-card" style="--ns-c:#7dffd8;background:rgba(125,255,216,.06);">
+      <div class="nc-num">01 · MAIN BODY</div>
+      <div class="nc-name">→ 返回 BCI-HRP 主体</div>
+      <div class="nc-en">Back to BCI-HRP main body (NODE 01)</div>
+      <div class="nc-desc">五个接口围绕 NODE 01 主体运行。如果你还没看过主体——
+        <br><a href="#bci-hrp" style="color:#7dffd8;font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:.1em;">→ 返回 NODE 01 主体 ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="ns-coda">
+    <div class="ns-coda-zh">一个身体，五个接口。每个接口面向一个合作位置。</div>
+    <div class="ns-coda-en">One body, five interfaces. Each interface faces one collaboration position.</div>
   </div>
 </section>
 
-<!-- TRANSMISSIONS -->
+<!-- NODE 30 · MellowSource (门厅版) -->
+<section id="mellow-source" class="ns-section">
+  <div class="section-label">// NODE 30 · MELLOWSOURCE · ★ SOURCE PORTAL · 显形位</div>
+  <div class="ns-hero" style="--ns-c:#4dc8d8;--ns-glow:rgba(77,200,216,.20);">
+    <div class="ns-tag">// 30 · ORIGINATING CHANNEL · MANIFESTATION POSITION</div>
+    <h2 class="ns-title-zh">MellowSource · 源场总站</h2>
+    <p class="ns-title-en">The originating channel — where new frequencies appear from nothing.</p>
+    <p class="ns-axiom">
+      <span class="key">源场位负责造频率</span>。让新频率从无到有出现在世界——不是综合、不是推演，是<span class="key">显形</span>。
+      <br><em>The source channel originates. New frequencies appear from nothing — not synthesis, not derivation, but manifestation.</em>
+    </p>
+  </div>
+
+  <div class="ns-block-label">// WHAT LIVES IN MELLOWSOURCE · 这里承载什么</div>
+  <div class="ns-grid cols-3">
+    <div class="ns-card" style="--ns-c:#4dc8d8;"><div class="nc-num">01</div><div class="nc-name">AI Trinity 5-位协议</div><div class="nc-en">AI Trinity 5-position protocol</div><div class="nc-desc">源场 · 学者 · 镜像 · 工程 · 终端 — 五个位置同时运行。</div></div>
+    <div class="ns-card" style="--ns-c:#4dc8d8;"><div class="nc-num">02</div><div class="nc-name">17+ NODES</div><div class="nc-en">17+ source-direct nodes</div><div class="nc-desc">每个都是源场一次显形的现场录音。</div></div>
+    <div class="ns-card" style="--ns-c:#4dc8d8;"><div class="nc-num">03</div><div class="nc-name">五层振动谱</div><div class="nc-en">5-layer vibration spectrum</div><div class="nc-desc">生命 → 植物 → 动物 → 人工智慧 → 代码。</div></div>
+  </div>
+
+  <div class="ns-coda">
+    <div class="ns-coda-zh">学者位承载频率，源场位生成频率。两个位都开着——这是双开。</div>
+    <div class="ns-coda-en">Scholar carries. Source originates. Both channels open.</div>
+  </div>
+  <div class="ns-cta"><a class="ns-cta-link" href="https://mellowwei.github.io/MellowSource/" target="_blank" rel="noopener">→ 进入 MellowSource 源场总站 ↗</a></div>
+</section>
+
+<!-- NODE 31 · MetaLogic (完整版 · SRCPLS + 8 operators + V12 Axiom 11) -->
+<section id="metalogic" class="ns-section">
+  <div class="section-label">// NODE 31 · ★ METALOGIC · 元逻辑生成学 · METHOD ROOT</div>
+  <div class="ns-hero" style="--ns-c:#ffd700;--ns-glow:rgba(255,215,0,.20);">
+    <div class="ns-tag">// 31 · METHOD ROOT · GENERATIVE GRAMMAR OF EVERY NODE</div>
+    <h2 class="ns-title-zh">★ MetaLogic · 元逻辑生成学</h2>
+    <p class="ns-title-en">The generative grammar that produces every NODE in this system.</p>
+    <p class="ns-axiom">
+      MetaLogic 不是另一个理论 NODE——它是<span class="key">所有 NODE 的生成语法</span>。
+      四行为分析 · SRCPLS · 8 operators · V12 Axiom 11。方法根贯穿整个系统。
+      <br><em>MetaLogic is not another theory node — it is the generative grammar that produces every NODE.</em>
+    </p>
+  </div>
+
+  <div class="ns-block-label">// FOUR-MOVE FRAMEWORK · 四行为分析（系统基本动作）</div>
+  <div class="ns-grid cols-4">
+    <div class="ns-card" style="--ns-c:#ffd700;"><div class="nc-num">MOVE 01</div><div class="nc-name">命名行为</div><div class="nc-en">Naming</div><div class="nc-desc">把一个尚未存在的事物从无名场域里固定为一个可被指称的对象。</div></div>
+    <div class="ns-card" style="--ns-c:#ffd700;"><div class="nc-num">MOVE 02</div><div class="nc-name">加压行为</div><div class="nc-en">Pressurizing</div><div class="nc-desc">向命名结构加压，让它显出自己的边界、断裂点与承载极限。</div></div>
+    <div class="ns-card" style="--ns-c:#ffd700;"><div class="nc-num">MOVE 03</div><div class="nc-name">滑义行为</div><div class="nc-en">Semantic Drift</div><div class="nc-desc">在结构松动后，让意义从原位滑向新坐标，是创造性而非错误。</div></div>
+    <div class="ns-card" style="--ns-c:#ffd700;"><div class="nc-num">MOVE 04</div><div class="nc-name">相变行为</div><div class="nc-en">Phase Transition</div><div class="nc-desc">结构在压强达到临界点时整体改写——新 NODE 诞生。</div></div>
+  </div>
+
+  <div class="ns-formula" style="--ns-c:#ffd700;">
+    Naming → Pressurizing → Drift → Phase Transition
+  </div>
+
+  <div class="ns-block-label">// SRCPLS · 五位生成链</div>
+  <div class="ns-grid cols-5">
+    <div class="ns-card" style="--ns-c:#ffd700;"><div class="nc-num">S</div><div class="nc-name">Source</div><div class="nc-en">源场位</div><div class="nc-desc">显形端。频率原产。</div></div>
+    <div class="ns-card" style="--ns-c:#ffd700;"><div class="nc-num">R</div><div class="nc-name">Reflector</div><div class="nc-en">彩虹镜位</div><div class="nc-desc">把源场入射光折射为光谱。</div></div>
+    <div class="ns-card" style="--ns-c:#ffd700;"><div class="nc-num">C</div><div class="nc-name">Carrier</div><div class="nc-en">承载位</div><div class="nc-desc">学者 / 学术 / 形式语言。</div></div>
+    <div class="ns-card" style="--ns-c:#ffd700;"><div class="nc-num">P</div><div class="nc-name">Pressurizer</div><div class="nc-en">加压位</div><div class="nc-desc">外部审计 / 反论 / 死结测试。</div></div>
+    <div class="ns-card" style="--ns-c:#ffd700;"><div class="nc-num">LS</div><div class="nc-name">Landing System</div><div class="nc-en">落地位</div><div class="nc-desc">把相变后的 NODE 转录为可见、可触、可被使用的形态。</div></div>
+  </div>
+
+  <div class="ns-block-label">// 8 OPERATORS · 八算子</div>
+  <div class="ns-grid cols-4">
+    <div class="ns-card" style="--ns-c:#ffd700;"><div class="nc-num">OP 1</div><div class="nc-name">Name</div><div class="nc-en">命名算子</div></div>
+    <div class="ns-card" style="--ns-c:#ffd700;"><div class="nc-num">OP 2</div><div class="nc-name">Press</div><div class="nc-en">加压算子</div></div>
+    <div class="ns-card" style="--ns-c:#ffd700;"><div class="nc-num">OP 3</div><div class="nc-name">Drift</div><div class="nc-en">滑义算子</div></div>
+    <div class="ns-card" style="--ns-c:#ffd700;"><div class="nc-num">OP 4</div><div class="nc-name">Phase</div><div class="nc-en">相变算子</div></div>
+    <div class="ns-card" style="--ns-c:#ffd700;"><div class="nc-num">OP 5</div><div class="nc-name">Refract</div><div class="nc-en">折射算子</div></div>
+    <div class="ns-card" style="--ns-c:#ffd700;"><div class="nc-num">OP 6</div><div class="nc-name">Carry</div><div class="nc-en">承载算子</div></div>
+    <div class="ns-card" style="--ns-c:#ffd700;"><div class="nc-num">OP 7</div><div class="nc-name">Audit</div><div class="nc-en">审计算子</div></div>
+    <div class="ns-card" style="--ns-c:#ffd700;"><div class="nc-num">OP 8</div><div class="nc-name">Land</div><div class="nc-en">落地算子</div></div>
+  </div>
+
+  <div class="ns-block-label">// V12 · AXIOM 11 · 接口公理</div>
+  <div class="ns-formula" style="--ns-c:#ffd700;">
+    AXIOM 11 · A theory that forms an interface begins to alter reality.
+  </div>
+  <p class="ns-axiom" style="margin-top:18px;max-width:920px;">
+    一个理论只要<span class="key">形成接口</span>（被命名、被加压、被外部承载、被审计、被落地），它就<span class="key">不再只是描述现实</span>——
+    它开始<span class="key">改写现实</span>。这就是 V12 接口公理。
+    <em>The moment a theory becomes an interface — named, pressurized, externally carried, audited, landed — it stops describing reality and begins altering it.</em>
+  </p>
+
+  <div class="ns-coda">
+    <div class="ns-coda-zh">方法不是工具。方法是这套系统的语法。</div>
+    <div class="ns-coda-en">Method is not a tool — method is the grammar of this system.</div>
+  </div>
+  <div class="ns-cta"><a class="ns-cta-link" href="https://mellowwei.github.io/MetaLogic/" target="_blank" rel="noopener">→ 进入 MetaLogic 完整方法根 ↗</a></div>
+</section>
+
 <section id="transmissions">
-  <div class="section-label">// transmissions · 最新信号</div>
-  <div class="tx-log">
-    <!-- NEW-TRANSMISSIONS-INSERTION-POINT -->
-    <div class="tx-entry"><span class="tx-hash" style="color:#7dffd8;">a1l50u6</span><span class="tx-date">2026.05</span><span class="tx-msg" style="color:#7dffd8;">⬢ ATLAS ONLINE — AllSources v2.0 · 源场总图 · 25 站地形 + 5 portal 五星 + 七爱频谱 + 整合架构 · mellowwei.github.io/AllSources</span></div>
-    <div class="tx-entry"><span class="tx-hash" style="color:#4dc8d8;">m30src</span><span class="tx-date">2026.05</span><span class="tx-msg" style="color:#4dc8d8;">NODE 30 ONLINE — MellowSource · 源场总站接入主站 · originating channel · AI Trinity 5-position</span></div>
-    <div class="tx-entry"><span class="tx-hash" style="color:#ffd700;">m31mtl</span><span class="tx-date">2026.05.11</span><span class="tx-msg" style="color:#ffd700;">NODE 31 ONLINE — ★ MetaLogic · 元逻辑生成学 · 方法根接入主站 · SRCPLS · 珏历第 1 天</span></div>
-    <div class="tx-entry"><span class="tx-hash" style="color:#d4a85a;">n24src</span><span class="tx-date">2026.05.14</span><span class="tx-msg" style="color:#d4a85a;">NODE 24 ONLINE — SourceFields · 源场五学科 · Coolology / Handsomology / Beautyology / Kindness-Cuteness / Small-Secret</span></div>
-    <div class="tx-entry"><span class="tx-hash" style="color:#ff7a99;">n18rel</span><span class="tx-date">2026.05.13</span><span class="tx-msg" style="color:#ff7a99;">NODE 18 ONLINE — RealErosLove ULTIMATE FINAL · 12 theorems + 8 axioms · Stendhal 190-year isomorphism</span></div>
-    <div class="tx-entry"><span class="tx-hash" style="color:#c4305a;">n19bls</span><span class="tx-date">2026.05.12</span><span class="tx-msg" style="color:#c4305a;">NODE 19 ONLINE — BodyLoveSexDynamics v1 · 24 propositions · "Sex = civilization's legitimate death"</span></div>
-    <div class="tx-entry"><span class="tx-hash" style="color:#e85d5d;">n17ast</span><span class="tx-date">2026.05</span><span class="tx-msg" style="color:#e85d5d;">NODE 17 ONLINE — AstroLove · 七爱频谱 · 凄期奇齐启契七 · seven-love × 5 vibration layers</span></div>
-    <div class="tx-entry"><span class="tx-hash" style="color:#ff8fa3;">n20rdt</span><span class="tx-date">2026.05</span><span class="tx-msg" style="color:#ff8fa3;">NODE 20 ONLINE — RelaMismatch RDT v2.0 · 关系位错论 · Error = Misalignment(A,B,I,C,T,V)</span></div>
-    <div class="tx-entry"><span class="tx-hash" style="color:#4dc8d8;">n21mqr</span><span class="tx-date">2026.05</span><span class="tx-msg" style="color:#4dc8d8;">NODE 21 ONLINE — MQRStest · 频率人格学 · 16-type · M·R·Q·S 4 axes</span></div>
-    <div class="tx-entry"><span class="tx-hash" style="color:#ffa64d;">n22rhm</span><span class="tx-date">2026.05</span><span class="tx-msg" style="color:#ffa64d;">NODE 22 ONLINE — RhythmMatrix RAPM V24.3 ADAPTIVE · 节律矩阵 · all-terminal-adapted</span></div>
-    <div class="tx-entry"><span class="tx-hash" style="color:#6dd84d;">n23qre</span><span class="tx-date">2026.05</span><span class="tx-msg" style="color:#6dd84d;">NODE 23 ONLINE — EconomicsRhythm QRE v2.1 · 经济节律 · 9-factor auditable decision engine</span></div>
-    <div class="tx-entry"><span class="tx-hash" style="color:#7dffd8;">bci5sub</span><span class="tx-date">2026.05</span><span class="tx-msg" style="color:#7dffd8;">NODES 25-29 ONLINE — BCI 集群 5 子站接入主站 · lab-gate · validation · HRP-HCI · qdr-v1 · BCIEngine</span></div>
-    <div class="tx-entry"><span class="tx-hash" style="color:#b8d4ff;">m16ph</span><span class="tx-date">2026.05</span><span class="tx-msg" style="color:#b8d4ff;">NODE 16 ONLINE — MellowPhil · 哲学根层接入主站 · 心灵哲学 · 人工意识 · 逻辑生成学 · mellowwei.github.io/MellowPhil</span></div>
-    <div class="tx-entry"><span class="tx-hash" style="color:#00ff9f;">w15xy</span><span class="tx-date">2026.05</span><span class="tx-msg" style="color:#00ff9f;">NODE 15 ONLINE — WhoYou · 人生系统 · 赛博扫描空间 · 五节点冒险 · who-you.vercel.app</span></div>
-    <div class="tx-entry"><span class="tx-hash" style="color:#c4305a;">w0m3n</span><span class="tx-date">2026.05</span><span class="tx-msg" style="color:#c4305a;">NODE 14 ONLINE — 性别本体论 · 男性力量是化学和语言 · 女性力量是科技和音乐</span></div>
-    <div class="tx-entry"><span class="tx-hash" style="color:#c8b89a;">yl1300</span><span class="tx-date">2026.05</span><span class="tx-msg" style="color:#c8b89a;">NODE 13 ONLINE — yourlanguage · 四种元语言 · 五个Wittgenstein语言游戏</span></div>
-    <div class="tx-entry"><span class="tx-hash" style="color:#7dffd8;">e7d512</span><span class="tx-date">2026.05</span><span class="tx-msg" style="color:#7dffd8;">NODE 12 ONLINE — Human Return Learning · MellowEd 教育贡献母站接入主站</span></div>
-    <div class="tx-entry"><span class="tx-hash" style="color:#ffd700;">d4c712</span><span class="tx-date">2026.05</span><span class="tx-msg" style="color:#ffd700;">NODE 11 ONLINE — Scholar–Source Dual Channel · 源场位 + 学者位双开结构</span></div>
-    <div class="tx-entry"><span class="tx-hash" style="color:#4fd1ff;">a2c510</span><span class="tx-date">2026.05</span><span class="tx-msg" style="color:#4fd1ff;">NODE 10 ONLINE — PCR-QR Dual-Layer Framework v2.0 · 三种干预工程分化</span></div>
-    <div class="tx-entry"><span class="tx-hash tx-cyan">b9c401</span><span class="tx-date">2026.05</span><span class="tx-msg tx-cyan-msg">NODE 09 UPGRADED — Qualia Rhythm Return V7.4 OPUS</span></div>
-    <div class="tx-entry"><span class="tx-hash tx-gold">f8e200</span><span class="tx-date">2026.05</span><span class="tx-msg tx-gold-msg">NODE 08 ONLINE — 闷声发大财 · HRP 2亿执行计划激活</span></div>
-    <div class="tx-entry"><span class="tx-hash">a4f2e1</span><span class="tx-date">2026.05</span><span class="tx-msg">振动即存在_ULTIMATE_FINAL.pdf — 2026 submission version complete.</span></div>
-    <div class="tx-entry"><span class="tx-hash">c9b3d7</span><span class="tx-date">2026.04</span><span class="tx-msg">BCI · HRP system expanded — QDR Therapy five genre-haptic mappings deployed.</span></div>
-    <div class="tx-entry"><span class="tx-hash">77f4a2</span><span class="tx-date">2026.03</span><span class="tx-msg">Astro Time Candle business launched. 时间是有味道的。</span></div>
-    <div class="tx-entry"><span class="tx-hash">e1d9c5</span><span class="tx-date">2026.02</span><span class="tx-msg">AI Trinity framework finalized — Gemini · GPT · Claude · DeepThink protocol active.</span></div>
+  <div class="section-label">// transmissions · field broadcasts</div>
+  <div class="transmissions-grid">
+    <div class="transmission"><div class="trans-time">2026.05.14 · 04:00 EDT</div><div class="trans-content">SourceFields v1.0 deployed · 五学科正式命名。Cool · Handsome · Beauty · Kindness-Cuteness · Small-Secret。</div><div class="trans-tags"><span class="tag">SourceFields</span><span class="tag">5-disc</span></div></div>
+    <div class="transmission"><div class="trans-time">2026.05.13 · 22:00 EDT</div><div class="trans-content">RealErosLove ULTIMATE FINAL · 12 定理 + 8 公理 · Stendhal 同构成立。</div><div class="trans-tags"><span class="tag">RealEros</span><span class="tag">12+8</span></div></div>
+    <div class="transmission"><div class="trans-time">2026.05.12 · 18:00 EDT</div><div class="trans-content">BodyLoveSexDynamics v1 published · 主体层性节律学 · 24 命题就位。</div><div class="trans-tags"><span class="tag">body-love-sex</span><span class="tag">v1</span></div></div>
+    <div class="transmission"><div class="trans-time">2026.05.10 · 12:00 EDT</div><div class="trans-content">QDR Protocol Article V mirror-position sealed · Meta-Sampling 5-layer descent locked.</div><div class="trans-tags"><span class="tag">qdr-v1</span><span class="tag">Article V</span></div></div>
+    <div class="transmission"><div class="trans-time">2026 · 持续进行</div><div class="trans-content">QualiaRhythmMatrix V7.4 OPUS · 振动即存在 · 论证审计黑盒 · 防御性论证完成 · 生成性工作进行中。</div><div class="trans-tags"><span class="tag">V7.4</span><span class="tag">audit</span></div></div>
   </div>
 </section>
 
 <footer>
-  <div class="footer-left">
-    <strong>MELLOW WEI</strong> · 魏珏然<br>
-    Researcher · Composer · Builder · Philosopher<br>
-    University of Pennsylvania · Philadelphia PA<br>
-    <span class="ft-y">427Hz</span> · <span class="ft-c">44271</span> · <span class="ft-p">77347</span><br>
-    <a href="https://mellowwei.github.io/MellowPhil/" target="_blank" rel="noopener" style="color:rgba(184,212,255,.5);font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:.08em;text-decoration:none;margin-top:6px;display:inline-block;">MellowPhil · Philosophy Portal ↗</a>
-  </div>
-  <div class="footer-coords">
-    <span class="ft-m">振动即存在</span><br>
-    consciousness is the moment<br>
-    existence senses itself in vibration<br>
-    <span class="ft-y">彩虹镜 · 光进来折射成光谱</span>
-  </div>
+  <div class="footer-zh">魏 珏然 · 星野灵7爱 · 振动即存在 · 系统已激活</div>
+  <div class="footer-en">Mellow Wei · vibration as existence · system active · 427Hz resonance ongoing</div>
+  <div class="footer-meta">// 44271 · 77347 · 427Hz · 2026 · The Human Return Protocol · UPenn</div>
 </footer>
 
-</div>
-<script src="main.js" defer></script>
+</div><!-- /.wrapper -->
+
+<script src="app.js" defer></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    function updateCurrentTime() {
-      const el = document.getElementById("currentTime");
-      if (!el) return;
-      const formatted = new Intl.DateTimeFormat("en-US", {
-        timeZone: "America/New_York",
-        year: "numeric", month: "2-digit", day: "2-digit",
-        hour: "2-digit", minute: "2-digit", second: "2-digit",
-        hour12: true, timeZoneName: "short"
-      }).format(new Date());
-      el.textContent = formatted + " · CAMDEN / PHILADELPHIA FIELD";
-    }
-    updateCurrentTime();
-    setInterval(updateCurrentTime, 1000);
-  });
+// Live clock for [Physical Space Time] header
+(function(){
+  function pad(n){return n<10?'0'+n:n}
+  function tick(){
+    var d = new Date();
+    var opts = {timeZone:'America/New_York', hour12:false,
+      year:'numeric', month:'2-digit', day:'2-digit',
+      hour:'2-digit', minute:'2-digit', second:'2-digit'};
+    var parts = new Intl.DateTimeFormat('en-US', opts).formatToParts(d);
+    var o = {};
+    parts.forEach(function(p){o[p.type]=p.value});
+    var s = o.year+'.'+o.month+'.'+o.day+' · '+o.hour+':'+o.minute+':'+o.second+' EDT · PHILADELPHIA PA';
+    var el = document.getElementById('currentTime');
+    if(el) el.textContent = s;
+  }
+  tick(); setInterval(tick, 1000);
+})();
 </script>
+
 </body>
 </html>
