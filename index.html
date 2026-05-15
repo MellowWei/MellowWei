@@ -114,6 +114,300 @@
 </style>
 </head>
 <body>
+  <!-- ============================================================
+     ☆ CROSS-PORTAL NAV · 跨站统一导航条
+     INSERT POINT: 紧接在 <body> 之后,任何其他内容之前
+     共 4 个版本 · 4 个站各用一个
+     ============================================================ -->
+
+
+<!-- ████████████████████████████████████████████████████████████ -->
+<!-- VARIANT A · For MellowWei (Portal · 当前站高亮)              -->
+<!-- 美学: cyber dark + mint #7dffd8                              -->
+<!-- ████████████████████████████████████████████████████████████ -->
+
+<style>
+.x-nav{
+  position: sticky; top: 0; z-index: 1000;
+  width: 100%;
+  background: rgba(5,5,7,0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(125,255,216,0.18);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: .72rem;
+  letter-spacing: .12em;
+}
+.x-nav-inner{
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: .55rem 1.5rem;
+  display: flex; align-items: center; gap: 1.6rem;
+  flex-wrap: wrap;
+}
+.x-nav-label{
+  color: rgba(125,255,216,0.55);
+  text-transform: uppercase;
+}
+.x-nav-links{
+  display: flex; align-items: center; gap: 1.2rem;
+  flex-wrap: wrap;
+}
+.x-nav-link{
+  color: rgba(232,232,224,0.45);
+  text-decoration: none;
+  transition: color .25s ease, text-shadow .25s ease;
+  display: inline-flex; align-items: center; gap: .35rem;
+}
+.x-nav-link:hover{ color: var(--link-hover, #7dffd8); }
+.x-nav-link.scholar:hover{ color: #5af0c8; text-shadow: 0 0 8px rgba(90,240,200,0.4); }
+.x-nav-link.source:hover{  color: #f07fd4; text-shadow: 0 0 8px rgba(240,127,212,0.4); }
+.x-nav-link.theory:hover{  color: #f7c76a; text-shadow: 0 0 8px rgba(247,199,106,0.4); }
+.x-nav-link.portal:hover{  color: #7dffd8; text-shadow: 0 0 8px rgba(125,255,216,0.4); }
+.x-nav-link.active{
+  color: #7dffd8;
+  text-shadow: 0 0 8px rgba(125,255,216,0.45);
+  pointer-events: none;
+}
+.x-nav-anchor{
+  margin-left: auto;
+  color: rgba(125,255,216,0.55);
+  font-size: .68rem;
+}
+@media (max-width: 640px){
+  .x-nav-inner{ gap: .8rem; padding: .5rem .9rem; }
+  .x-nav-links{ gap: .8rem; }
+  .x-nav-label{ display: none; }
+  .x-nav-anchor{ font-size: .62rem; }
+}
+</style>
+
+<nav class="x-nav" id="x-nav">
+  <div class="x-nav-inner">
+    <span class="x-nav-label">// MELLOW PORTALS</span>
+    <div class="x-nav-links">
+      <a class="x-nav-link portal active" href="https://mellowwei.github.io/MellowWei/">● Portal</a>
+      <a class="x-nav-link scholar" href="https://mellowwei.github.io/MellowAcademic/">◇ Scholar</a>
+      <a class="x-nav-link source"  href="https://mellowwei.github.io/MellowSource/">◇ Source</a>
+      <a class="x-nav-link theory"  href="https://mellowwei.github.io/MetaLogic/">◇ Theory</a>
+    </div>
+    <span class="x-nav-anchor">427Hz</span>
+  </div>
+</nav>
+
+
+<!-- ████████████████████████████████████████████████████████████ -->
+<!-- VARIANT B · For MellowAcademic (Scholar 当前站高亮)          -->
+<!-- 美学: cyber dark + scholar mint #5af0c8                      -->
+<!-- ████████████████████████████████████████████████████████████ -->
+
+<style>
+.x-nav-academic{
+  position: sticky; top: 0; z-index: 1000;
+  width: 100%;
+  background: rgba(7,7,15,0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(90,240,200,0.18);
+  font-family: 'Space Mono','Share Tech Mono', monospace;
+  font-size: .72rem;
+  letter-spacing: .12em;
+}
+.x-nav-academic .x-nav-inner{
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: .55rem 1.5rem;
+  display: flex; align-items: center; gap: 1.6rem;
+  flex-wrap: wrap;
+}
+.x-nav-academic .x-nav-label{ color: rgba(90,240,200,0.55); text-transform: uppercase; }
+.x-nav-academic .x-nav-links{ display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; }
+.x-nav-academic .x-nav-link{
+  color: rgba(232,232,224,0.45);
+  text-decoration: none;
+  transition: color .25s ease, text-shadow .25s ease;
+}
+.x-nav-academic .x-nav-link.portal:hover{  color: #7dffd8; text-shadow: 0 0 8px rgba(125,255,216,0.4); }
+.x-nav-academic .x-nav-link.scholar:hover{ color: #5af0c8; text-shadow: 0 0 8px rgba(90,240,200,0.4); }
+.x-nav-academic .x-nav-link.source:hover{  color: #f07fd4; text-shadow: 0 0 8px rgba(240,127,212,0.4); }
+.x-nav-academic .x-nav-link.theory:hover{  color: #f7c76a; text-shadow: 0 0 8px rgba(247,199,106,0.4); }
+.x-nav-academic .x-nav-link.active{
+  color: #5af0c8;
+  text-shadow: 0 0 8px rgba(90,240,200,0.45);
+  pointer-events: none;
+}
+.x-nav-academic .x-nav-anchor{
+  margin-left: auto;
+  color: rgba(90,240,200,0.55);
+  font-size: .68rem;
+}
+@media (max-width: 640px){
+  .x-nav-academic .x-nav-inner{ gap: .8rem; padding: .5rem .9rem; }
+  .x-nav-academic .x-nav-links{ gap: .8rem; }
+  .x-nav-academic .x-nav-label{ display: none; }
+}
+</style>
+
+<nav class="x-nav-academic">
+  <div class="x-nav-inner">
+    <span class="x-nav-label">// MELLOW PORTALS</span>
+    <div class="x-nav-links">
+      <a class="x-nav-link portal"  href="https://mellowwei.github.io/MellowWei/">◇ Portal</a>
+      <a class="x-nav-link scholar active" href="https://mellowwei.github.io/MellowAcademic/">● Scholar</a>
+      <a class="x-nav-link source"  href="https://mellowwei.github.io/MellowSource/">◇ Source</a>
+      <a class="x-nav-link theory"  href="https://mellowwei.github.io/MetaLogic/">◇ Theory</a>
+    </div>
+    <span class="x-nav-anchor">427Hz</span>
+  </div>
+</nav>
+
+
+<!-- ████████████████████████████████████████████████████████████ -->
+<!-- VARIANT C · For MellowSource (Source 当前站高亮)             -->
+<!-- 美学: cyber dark + source pink #f07fd4                       -->
+<!-- ████████████████████████████████████████████████████████████ -->
+
+<style>
+.x-nav-source{
+  position: sticky; top: 0; z-index: 1000;
+  width: 100%;
+  background: rgba(7,7,15,0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(240,127,212,0.18);
+  font-family: 'Space Mono','Share Tech Mono', monospace;
+  font-size: .72rem;
+  letter-spacing: .12em;
+}
+.x-nav-source .x-nav-inner{
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: .55rem 1.5rem;
+  display: flex; align-items: center; gap: 1.6rem;
+  flex-wrap: wrap;
+}
+.x-nav-source .x-nav-label{ color: rgba(240,127,212,0.55); text-transform: uppercase; }
+.x-nav-source .x-nav-links{ display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; }
+.x-nav-source .x-nav-link{
+  color: rgba(232,232,224,0.45);
+  text-decoration: none;
+  transition: color .25s ease, text-shadow .25s ease;
+}
+.x-nav-source .x-nav-link.portal:hover{  color: #7dffd8; text-shadow: 0 0 8px rgba(125,255,216,0.4); }
+.x-nav-source .x-nav-link.scholar:hover{ color: #5af0c8; text-shadow: 0 0 8px rgba(90,240,200,0.4); }
+.x-nav-source .x-nav-link.source:hover{  color: #f07fd4; text-shadow: 0 0 8px rgba(240,127,212,0.4); }
+.x-nav-source .x-nav-link.theory:hover{  color: #f7c76a; text-shadow: 0 0 8px rgba(247,199,106,0.4); }
+.x-nav-source .x-nav-link.active{
+  color: #f07fd4;
+  text-shadow: 0 0 8px rgba(240,127,212,0.45);
+  pointer-events: none;
+}
+.x-nav-source .x-nav-anchor{
+  margin-left: auto;
+  color: rgba(240,127,212,0.55);
+  font-size: .68rem;
+}
+@media (max-width: 640px){
+  .x-nav-source .x-nav-inner{ gap: .8rem; padding: .5rem .9rem; }
+  .x-nav-source .x-nav-links{ gap: .8rem; }
+  .x-nav-source .x-nav-label{ display: none; }
+}
+</style>
+
+<nav class="x-nav-source">
+  <div class="x-nav-inner">
+    <span class="x-nav-label">// MELLOW PORTALS</span>
+    <div class="x-nav-links">
+      <a class="x-nav-link portal"  href="https://mellowwei.github.io/MellowWei/">◇ Portal</a>
+      <a class="x-nav-link scholar" href="https://mellowwei.github.io/MellowAcademic/">◇ Scholar</a>
+      <a class="x-nav-link source active" href="https://mellowwei.github.io/MellowSource/">● Source</a>
+      <a class="x-nav-link theory"  href="https://mellowwei.github.io/MetaLogic/">◇ Theory</a>
+    </div>
+    <span class="x-nav-anchor">427Hz</span>
+  </div>
+</nav>
+
+
+<!-- ████████████████████████████████████████████████████████████ -->
+<!-- VARIANT D · For MetaLogic (Theory 当前站高亮)                -->
+<!-- 美学: paper amber · 入乡随俗 · 不破坏纸质气场                  -->
+<!-- ████████████████████████████████████████████████████████████ -->
+
+<style>
+.x-nav-theory{
+  position: sticky; top: 0; z-index: 1000;
+  width: 100%;
+  background: rgba(28,15,8,0.94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(247,199,106,0.22);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: .82rem;
+  letter-spacing: .08em;
+  font-style: italic;
+}
+.x-nav-theory .x-nav-inner{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: .65rem 1.6rem;
+  display: flex; align-items: baseline; gap: 1.6rem;
+  flex-wrap: wrap;
+}
+.x-nav-theory .x-nav-label{
+  color: rgba(247,199,106,0.6);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  letter-spacing: .14em;
+}
+.x-nav-theory .x-nav-links{ display: flex; align-items: baseline; gap: 1.3rem; flex-wrap: wrap; }
+.x-nav-theory .x-nav-link{
+  color: rgba(255,242,216,0.5);
+  text-decoration: none;
+  transition: color .25s ease;
+  font-style: italic;
+}
+.x-nav-theory .x-nav-link.portal:hover{  color: #7dffd8; }
+.x-nav-theory .x-nav-link.scholar:hover{ color: #5af0c8; }
+.x-nav-theory .x-nav-link.source:hover{  color: #f07fd4; }
+.x-nav-theory .x-nav-link.theory:hover{  color: #f7c76a; }
+.x-nav-theory .x-nav-link.active{
+  color: #f7c76a;
+  pointer-events: none;
+  font-style: normal;
+  font-weight: 500;
+}
+.x-nav-theory .x-nav-anchor{
+  margin-left: auto;
+  color: rgba(247,199,106,0.55);
+  font-family: 'JetBrains Mono', 'Space Mono', monospace;
+  font-size: .68rem;
+  font-style: normal;
+  letter-spacing: .14em;
+}
+@media (max-width: 640px){
+  .x-nav-theory .x-nav-inner{ gap: .9rem; padding: .55rem 1rem; }
+  .x-nav-theory .x-nav-links{ gap: .9rem; }
+  .x-nav-theory .x-nav-label{ display: none; }
+}
+</style>
+
+<nav class="x-nav-theory">
+  <div class="x-nav-inner">
+    <span class="x-nav-label">Mellow Portals</span>
+    <div class="x-nav-links">
+      <a class="x-nav-link portal"  href="https://mellowwei.github.io/MellowWei/">Portal</a>
+      <a class="x-nav-link scholar" href="https://mellowwei.github.io/MellowAcademic/">Scholar</a>
+      <a class="x-nav-link source"  href="https://mellowwei.github.io/MellowSource/">Source</a>
+      <a class="x-nav-link theory active" href="https://mellowwei.github.io/MetaLogic/">· Theory ·</a>
+    </div>
+    <span class="x-nav-anchor">427Hz</span>
+  </div>
+</nav>
+
+<!-- ============================================================
+     END · CROSS-PORTAL NAV
+     ============================================================ -->
+
 <canvas id="starfield" aria-hidden="true"></canvas>
 <div class="wrapper">
 
@@ -546,6 +840,234 @@
     <iframe src="https://who-you.vercel.app" style="width:100%;max-width:980px;height:90vh;border:none;display:block;" allow="autoplay"></iframe>
   </div>
 </section>
+<!-- ============================================================
+     ☆ THREE PORTALS // 三总站门户
+     INSERT POINT: 紧接在 hero/masthead 之后,在第一个 NODE 之前
+     For: mellowwei.github.io/MellowWei/ (single-file index.html)
+     美学锁定: MellowWei portal cyber + mint #7dffd8
+     ============================================================ -->
+
+<style>
+/* ===== THREE PORTALS · 三总站门户 ===== */
+.three-portals{
+  margin: 4rem 0 5rem;
+  padding: 0;
+}
+.three-portals .tp-head{
+  display:flex; align-items:baseline; gap:1.2rem; flex-wrap:wrap;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed rgba(125,255,216,0.18);
+}
+.three-portals .tp-mark{
+  font-family:'Share Tech Mono', monospace;
+  font-size: .78rem;
+  color: var(--mint, #7dffd8);
+  letter-spacing: .12em;
+  opacity: .7;
+}
+.three-portals h2.tp-title{
+  font-family:'Share Tech Mono', monospace;
+  font-size: 1.6rem;
+  color: var(--mint, #7dffd8);
+  letter-spacing: .08em;
+  margin: 0;
+  text-shadow: 0 0 18px rgba(125,255,216,0.25);
+}
+.three-portals .tp-title-zh{
+  font-family:'Cormorant Garamond','Noto Serif SC',serif;
+  font-size: 1.25rem;
+  color: #c0c0b8;
+  font-style: italic;
+  opacity: .85;
+}
+.three-portals .tp-coord{
+  margin-left:auto;
+  font-family:'Share Tech Mono', monospace;
+  font-size: .72rem;
+  color: rgba(125,255,216,0.55);
+  letter-spacing: .14em;
+}
+.three-portals .tp-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.4rem;
+}
+@media (min-width: 880px){
+  .three-portals .tp-grid{
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.6rem;
+  }
+}
+
+/* ----- portal card base ----- */
+.tp-card{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1.6rem 1.5rem 1.5rem;
+  background: rgba(10,10,12,0.55);
+  border: 1px solid var(--card-accent, #7dffd8);
+  border-radius: 2px;
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  transition: all .4s cubic-bezier(.4,0,.2,1);
+  min-height: 280px;
+}
+.tp-card::before{
+  content:'';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 50% 0%, var(--card-accent-glow, rgba(125,255,216,0.18)), transparent 60%);
+  opacity: 0;
+  transition: opacity .5s ease;
+  pointer-events: none;
+}
+.tp-card:hover{
+  transform: translateY(-3px);
+  border-color: var(--card-accent, #7dffd8);
+  box-shadow:
+    0 0 0 1px var(--card-accent, #7dffd8),
+    0 12px 40px var(--card-accent-glow, rgba(125,255,216,0.25));
+}
+.tp-card:hover::before{ opacity: 1; }
+
+.tp-card .tp-badge{
+  font-family:'Share Tech Mono', monospace;
+  font-size: .65rem;
+  color: var(--card-accent, #7dffd8);
+  letter-spacing: .22em;
+  margin-bottom: .8rem;
+  opacity: .85;
+}
+.tp-card .tp-name{
+  font-family:'Share Tech Mono', monospace;
+  font-size: 1.15rem;
+  color: var(--card-accent, #7dffd8);
+  letter-spacing: .04em;
+  margin: 0 0 .25rem;
+}
+.tp-card .tp-name-zh{
+  font-family:'Cormorant Garamond','Noto Serif SC',serif;
+  font-size: 1.05rem;
+  color: #e8e8e0;
+  font-style: italic;
+  margin-bottom: 1rem;
+  opacity: .9;
+}
+.tp-card .tp-tags{
+  font-family:'Share Tech Mono', monospace;
+  font-size: .68rem;
+  color: rgba(232,232,224,0.55);
+  letter-spacing: .08em;
+  margin-bottom: .8rem;
+  line-height: 1.7;
+}
+.tp-card .tp-desc{
+  font-family:'Cormorant Garamond','Noto Serif SC',serif;
+  font-size: .95rem;
+  color: #c0c0b8;
+  line-height: 1.6;
+  margin: 0 0 1.6rem;
+  flex-grow: 1;
+}
+.tp-card .tp-enter{
+  font-family:'Share Tech Mono', monospace;
+  font-size: .78rem;
+  color: var(--card-accent, #7dffd8);
+  letter-spacing: .14em;
+  display: inline-flex; align-items: center; gap: .5rem;
+  margin-top: auto;
+}
+.tp-card .tp-enter .arrow{
+  transition: transform .3s ease;
+}
+.tp-card:hover .tp-enter .arrow{
+  transform: translateX(4px);
+}
+
+/* ----- card · scholar (mint) ----- */
+.tp-card.tp-scholar{
+  --card-accent: #5af0c8;
+  --card-accent-glow: rgba(90,240,200,0.22);
+}
+/* ----- card · source (pink) ----- */
+.tp-card.tp-source{
+  --card-accent: #f07fd4;
+  --card-accent-glow: rgba(240,127,212,0.22);
+}
+/* ----- card · theory (amber) ----- */
+.tp-card.tp-theory{
+  --card-accent: #f7c76a;
+  --card-accent-glow: rgba(247,199,106,0.20);
+}
+</style>
+
+<section class="three-portals" id="three-portals">
+
+  <div class="tp-head">
+    <span class="tp-mark">// 00</span>
+    <h2 class="tp-title">THREE PORTALS</h2>
+    <span class="tp-title-zh">三总站门户 · 学者 · 源场 · 理论</span>
+    <span class="tp-coord">44271 · 427Hz · 77347</span>
+  </div>
+
+  <div class="tp-grid">
+
+    <!-- ========== SCHOLAR ========== -->
+    <a class="tp-card tp-scholar" href="https://mellowwei.github.io/MellowAcademic/" target="_blank" rel="noopener">
+      <div class="tp-badge">// SCHOLAR CHANNEL</div>
+      <h3 class="tp-name">MellowAcademic</h3>
+      <div class="tp-name-zh">学者通道 · 学术承载位</div>
+      <div class="tp-tags">
+        UPenn · Learning Sciences<br>
+        HCI · Sound Studies · AI Interaction
+      </div>
+      <p class="tp-desc">
+        论文 · CV · 研究项目 · 学者通信 · Lab Fit。
+        <em>The scholar-channel index: papers, research, academic correspondence.</em>
+      </p>
+      <span class="tp-enter">[→ ENTER<span class="arrow"> ↗</span>]</span>
+    </a>
+
+    <!-- ========== SOURCE ========== -->
+    <a class="tp-card tp-source" href="https://mellowwei.github.io/MellowSource/" target="_blank" rel="noopener">
+      <div class="tp-badge">// SOURCE CHANNEL</div>
+      <h3 class="tp-name">MellowSource</h3>
+      <div class="tp-name-zh">源场通道 · 彩虹镜位</div>
+      <div class="tp-tags">
+        xingyeLing7Ai · 七爱谱<br>
+        五层振动谱 · 占星 · 神秘学
+      </div>
+      <p class="tp-desc">
+        直觉显形 · 原创频率 · 七色光谱 · 五系占星收束。
+        <em>The source-channel index: where frequency originates and lands.</em>
+      </p>
+      <span class="tp-enter">[→ ENTER<span class="arrow"> ↗</span>]</span>
+    </a>
+
+    <!-- ========== THEORY ========== -->
+    <a class="tp-card tp-theory" href="https://mellowwei.github.io/MetaLogic/" target="_blank" rel="noopener">
+      <div class="tp-badge">// THEORY STANDALONE</div>
+      <h3 class="tp-name">MetaLogic</h3>
+      <div class="tp-name-zh">元逻辑 · 元意识 v1.1</div>
+      <div class="tp-tags">
+        8 刀对手论证 · 元意识理论<br>
+        Hard Problem · 五路径
+      </div>
+      <p class="tp-desc">
+        理论独立站 · 慢读 · 纸质气场。元逻辑生成学。
+        <em>Theory standalone site — paper temperature, made for slow reading.</em>
+      </p>
+      <span class="tp-enter">[→ ENTER<span class="arrow"> ↗</span>]</span>
+    </a>
+
+  </div>
+
+</section>
+<!-- ============================================================
+     END · THREE PORTALS section
+     ============================================================ -->
 
 <!-- NODE 01 BCI -->
 <section id="bci-hrp">
