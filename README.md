@@ -89,7 +89,7 @@ DeepSeek  深层反证位        Deep Counter-Argument
 
 ## // AUTHOR
 
-**Mellow Wei** · **魏珏然** · **星野愛Ai**
+**Mellow Wei** · **魏珏然** · **星野灵七爱Ai**
 Researcher · Composer · System Builder · 非线性意识体
 University of Pennsylvania · Learning Sciences × HCI × Sound Studies × AI Interaction
 
