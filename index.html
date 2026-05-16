@@ -437,6 +437,184 @@ header h1.dual-title .blink{
 .tp-card.tp-scholar{--card-accent:#5af0c8; --card-accent-glow:rgba(90,240,200,0.22)}
 .tp-card.tp-source{--card-accent:#f07fd4; --card-accent-glow:rgba(240,127,212,0.22)}
 .tp-card.tp-theory{--card-accent:#f7c76a; --card-accent-glow:rgba(247,199,106,0.20)}
+
+
+/* ============================================================
+   ☆ START HERE · 第一次进入请从这里开始
+   只新增入口分流模块；沿用现有 MellowWei 玻璃卡片/绿粉星场美学
+   ============================================================ */
+.start-here-section{
+  margin:4.2rem 0 5.2rem;
+  padding:0;
+  position:relative;
+}
+.start-here-section::before{
+  content:"";
+  position:absolute;
+  inset:-28px -18px;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 12% 10%,rgba(240,127,212,.10),transparent 28%),
+    radial-gradient(circle at 88% 82%,rgba(125,255,216,.10),transparent 30%);
+  z-index:-1;
+}
+.start-head{
+  display:flex;
+  align-items:baseline;
+  gap:1.2rem;
+  flex-wrap:wrap;
+  margin-bottom:1.55rem;
+  padding-bottom:1rem;
+  border-bottom:1px dashed rgba(125,255,216,.18);
+}
+.start-mark{
+  font-family:'Share Tech Mono',monospace;
+  font-size:.78rem;
+  color:#7dffd8;
+  letter-spacing:.12em;
+  opacity:.72;
+}
+.start-title{
+  font-family:'Share Tech Mono',monospace;
+  font-size:clamp(1.4rem,2.5vw,2rem);
+  color:#7dffd8;
+  letter-spacing:.08em;
+  margin:0;
+  text-shadow:0 0 18px rgba(125,255,216,.22);
+}
+.start-title-zh{
+  font-family:'Cormorant Garamond','Noto Serif SC',serif;
+  font-size:1.22rem;
+  color:#e8e8e0;
+  font-style:italic;
+  opacity:.82;
+}
+.start-coord{
+  margin-left:auto;
+  font-family:'Share Tech Mono',monospace;
+  font-size:.72rem;
+  color:rgba(240,127,212,.62);
+  letter-spacing:.14em;
+}
+.start-intro{
+  border:1px solid rgba(125,255,216,.18);
+  background:radial-gradient(circle at 16% 0%,rgba(125,255,216,.075),transparent 35%),linear-gradient(180deg,rgba(10,14,18,.50),rgba(5,8,12,.24));
+  backdrop-filter:blur(12px);
+  border-radius:2px;
+  padding:1.45rem 1.5rem;
+  margin-bottom:1.35rem;
+}
+.start-intro p{
+  margin:0;
+  max-width:980px;
+  color:rgba(232,232,224,.76);
+  line-height:1.78;
+  font-size:.98rem;
+}
+.start-intro em{
+  display:block;
+  margin-top:.35rem;
+  color:rgba(125,255,216,.62);
+  font-family:'Cormorant Garamond','Noto Serif SC',serif;
+  font-size:.95rem;
+}
+.start-grid{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:.95rem;
+}
+.start-card{
+  position:relative;
+  min-height:238px;
+  display:flex;
+  flex-direction:column;
+  padding:1.35rem 1.2rem 1.15rem;
+  background:rgba(10,10,12,.52);
+  border:1px solid var(--sc,#7dffd8);
+  border-radius:2px;
+  text-decoration:none;
+  color:inherit;
+  overflow:hidden;
+  transition:all .35s cubic-bezier(.4,0,.2,1);
+}
+.start-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at 50% 0%,var(--scg,rgba(125,255,216,.18)),transparent 62%);
+  opacity:.42;
+  transition:opacity .35s ease;
+  pointer-events:none;
+}
+.start-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 0 0 1px var(--sc,#7dffd8),0 12px 36px var(--scg,rgba(125,255,216,.20));
+}
+.start-card:hover::before{opacity:.85}
+.start-card > *{position:relative;z-index:1}
+.start-badge{
+  font-family:'Share Tech Mono',monospace;
+  font-size:.62rem;
+  color:var(--sc,#7dffd8);
+  letter-spacing:.20em;
+  margin-bottom:.85rem;
+  opacity:.85;
+}
+.start-name{
+  font-family:'Share Tech Mono',monospace;
+  font-size:1rem;
+  color:var(--sc,#7dffd8);
+  letter-spacing:.04em;
+  margin-bottom:.3rem;
+}
+.start-name-zh{
+  font-family:'Cormorant Garamond','Noto Serif SC',serif;
+  font-size:1.06rem;
+  color:#f0eee8;
+  font-style:italic;
+  opacity:.94;
+  margin-bottom:.9rem;
+}
+.start-route{
+  font-family:'Share Tech Mono',monospace;
+  font-size:.66rem;
+  line-height:1.7;
+  color:rgba(232,232,224,.50);
+  letter-spacing:.06em;
+  margin-bottom:.8rem;
+}
+.start-desc{
+  font-family:'Cormorant Garamond','Noto Serif SC',serif;
+  font-size:.92rem;
+  color:rgba(232,232,224,.70);
+  line-height:1.58;
+  margin:0 0 1.1rem;
+  flex:1;
+}
+.start-enter{
+  margin-top:auto;
+  display:inline-flex;
+  align-items:center;
+  gap:.45rem;
+  font-family:'Share Tech Mono',monospace;
+  font-size:.72rem;
+  color:var(--sc,#7dffd8);
+  letter-spacing:.12em;
+}
+.start-enter .arrow{transition:transform .25s ease}
+.start-card:hover .start-enter .arrow{transform:translateX(4px)}
+.start-lab{--sc:#7dffd8;--scg:rgba(125,255,216,.22)}
+.start-scholar{--sc:#5af0c8;--scg:rgba(90,240,200,.20)}
+.start-fan{--sc:#f07fd4;--scg:rgba(240,127,212,.22)}
+.start-human{--sc:#c8b8ff;--scg:rgba(200,184,255,.20)}
+.start-mellow{--sc:#f7c76a;--scg:rgba(247,199,106,.20)}
+@media(max-width:1160px){.start-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:760px){
+  .start-grid{grid-template-columns:1fr}
+  .start-coord{margin-left:0}
+  .start-card{min-height:auto}
+}
+
 </style>
 </head>
 <body>
@@ -587,6 +765,7 @@ header h1.dual-title .blink{
 </div>
 
 <nav class="nav-strip">
+  <a href="#start-here" style="color:#7dffd8;">// start here</a>
   <a href="#about">// about</a>
   <a href="#three-portals" style="color:#f07fd4;">// portals</a>
   <a href="#gates" style="color:#b8d4ff;">// gates</a>
@@ -620,6 +799,73 @@ header h1.dual-title .blink{
   <a href="#metalogic" style="color:#ffd700;">// ★ method</a>
   <a href="https://mellowwei.github.io/AllSources/" target="_blank" rel="noopener" style="color:#7dffd8;">// ⬢ atlas</a>
 </nav>
+
+<!-- ============================================================
+     ☆ START HERE · 第一次进入请从这里开始
+     只新增分流入口；不改变原 UI 美学 / 原 sections
+     ============================================================ -->
+<section id="start-here" class="start-here-section">
+  <div class="start-head">
+    <span class="start-mark">// 00</span>
+    <h2 class="start-title">START HERE</h2>
+    <span class="start-title-zh">第一次进入请从这里开始 · visitor routing system</span>
+    <span class="start-coord">427Hz · 44271 · PORTAL</span>
+  </div>
+
+  <div class="start-intro">
+    <p>
+      这里不是普通个人主页，而是一个多入口系统。请选择你现在的身份，系统会把你带到最适合的第一扇门。
+      <em>This is not a personal homepage; it is a multi-entry system. Choose who you are now, and enter through the right gate.</em>
+    </p>
+  </div>
+
+  <div class="start-grid">
+    <a class="start-card start-lab" href="#bci-cluster">
+      <div class="start-badge">// LAB / NEUROTECH</div>
+      <div class="start-name">I AM A LAB</div>
+      <div class="start-name-zh">实验室 / 科技合作入口</div>
+      <div class="start-route">BCI-HRP · Lab Gate · Validation · QDR · Engine</div>
+      <p class="start-desc">如果你来自 BCI、HCI、神经科学、学习科学或科技实验室，从这里看可验证系统、实验边界与合作入口。</p>
+      <span class="start-enter">[→ ENTER<span class="arrow"> ↗</span>]</span>
+    </a>
+
+    <a class="start-card start-scholar" href="https://mellowwei.github.io/MellowAcademic/" target="_blank" rel="noopener">
+      <div class="start-badge">// SCHOLAR / PHILOSOPHY</div>
+      <div class="start-name">I AM A SCHOLAR</div>
+      <div class="start-name-zh">学者 / 论文 / 理论入口</div>
+      <div class="start-route">MellowAcademic · MellowPhil · MetaLogic · Vibration</div>
+      <p class="start-desc">如果你想读论文、哲学根层、学术方法和理论体系，从学术母站进入。</p>
+      <span class="start-enter">[→ ENTER<span class="arrow"> ↗</span>]</span>
+    </a>
+
+    <a class="start-card start-fan" href="#mellow-ai">
+      <div class="start-badge">// FAN / STAR PERSONA</div>
+      <div class="start-name">I AM A FAN</div>
+      <div class="start-name-zh">粉丝 / 星野灵7爱入口</div>
+      <div class="start-route">星野灵7爱 · Mellow Ai · Love Sovereignty · Music</div>
+      <p class="start-desc">如果你是被声音、视觉、身份、爱与个人宇宙吸引而来，从这里进入星野灵7爱的显影层。</p>
+      <span class="start-enter">[→ ENTER<span class="arrow"> ↗</span>]</span>
+    </a>
+
+    <a class="start-card start-human" href="#ai-q-10">
+      <div class="start-badge">// WOUNDED HUMAN</div>
+      <div class="start-name">I AM A WOUNDED HUMAN</div>
+      <div class="start-name-zh">受伤的人 / 返回入口</div>
+      <div class="start-route">AiAiQ&lt;10 · Human Return · Rhythm System · QDR</div>
+      <p class="start-desc">如果你不是来评估我，而是想找回自己，从 AiQ、人类返回协议和节律系统开始。</p>
+      <span class="start-enter">[→ ENTER<span class="arrow"> ↗</span>]</span>
+    </a>
+
+    <a class="start-card start-mellow" href="#about">
+      <div class="start-badge">// MELLOW / SOURCE</div>
+      <div class="start-name">I AM HERE FOR MELLOW</div>
+      <div class="start-name-zh">我来见魏珏然</div>
+      <div class="start-route">About · Source · AllSources · Three Portals · 31 Nodes</div>
+      <p class="start-desc">如果你想先理解“魏珏然是谁”，从身份、源场、三总站和 31 个节点的总地图开始。</p>
+      <span class="start-enter">[→ ENTER<span class="arrow"> ↗</span>]</span>
+    </a>
+  </div>
+</section>
 
 <section id="about">
   <div class="section-label">// about · 魏珏然 · Wei Jueran</div>
